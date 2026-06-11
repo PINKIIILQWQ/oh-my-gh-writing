@@ -67,3 +67,14 @@
 ## 可选项
 - 环境自动采集脚本：默认开启
 - 截图粘贴区：默认建议
+
+## 参考链接
+
+| 仓库 | 链接 |
+|------|------|
+| vscode Bug Report YAML 表单 | https://github.com/microsoft/vscode/blob/main/.github/ISSUE_TEMPLATE/bug_report.yml |
+| nextjs Bug Report YAML 表单 | https://github.com/vercel/next.js/blob/canary/.github/ISSUE_TEMPLATE/1.bug.yml |
+| tailwindcss Bug Report 表单 | https://github.com/tailwindlabs/tailwindcss/blob/next/.github/ISSUE_TEMPLATE/bug-report.yml |
+| golang/go Issue 分类页 | https://github.com/golang/go/issues/new/choose |
+| electron Bug Report | https://github.com/electron/electron/issues/new/choose |
+| eslint Bug Report | https://github.com/eslint/eslint/issues/new/choose |

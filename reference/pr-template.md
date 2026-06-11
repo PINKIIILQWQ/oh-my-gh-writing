@@ -66,3 +66,14 @@ Pull Request 的描述模板，引导贡献者写全信息。
 - [ ] 变更描述
 - [ ] 测试说明
 - [ ] Checklist
+
+## 参考链接
+
+| 仓库 | 链接 |
+|------|------|
+| kubernetes PR 模板 | https://github.com/kubernetes/kubernetes/blob/master/.github/PULL_REQUEST_TEMPLATE.md |
+| react PR 模板 | https://github.com/facebook/react/blob/main/.github/PULL_REQUEST_TEMPLATE.md |
+| moby (Docker) PR 模板 | https://github.com/moby/moby/blob/master/.github/PULL_REQUEST_TEMPLATE.md |
+| eslint PR 模板 | https://github.com/eslint/eslint/blob/main/.github/PULL_REQUEST_TEMPLATE.md |
+| tailwindcss PR 模板 | https://github.com/tailwindlabs/tailwindcss/blob/next/.github/PULL_REQUEST_TEMPLATE.md |
+| spark PR 模板 | https://github.com/apache/spark/blob/master/.github/PULL_REQUEST_TEMPLATE.md |

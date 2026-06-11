@@ -52,3 +52,14 @@
 - [ ] 新特性列表
 - [ ] Breaking Changes（如有）
 - [ ] Full Changelog 链接
+
+## 参考链接
+
+| 仓库 | 链接 |
+|------|------|
+| astro Release | https://github.com/withastro/astro/releases |
+| npm Release | https://github.com/npm/cli/releases |
+| svelte Release | https://github.com/sveltejs/svelte/releases |
+| buf Release | https://github.com/bufbuild/buf/releases |
+| bun Release | https://github.com/oven-sh/bun/releases |
+| deno Release | https://github.com/denoland/deno/releases |

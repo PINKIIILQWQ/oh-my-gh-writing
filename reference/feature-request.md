@@ -55,3 +55,14 @@
 - [ ] 使用场景描述
 - [ ] 期望行为/API
 - [ ] 替代方案
+
+## 参考链接
+
+| 仓库 | 链接 |
+|------|------|
+| angular Feature Request 表单 | https://github.com/angular/angular/blob/main/.github/ISSUE_TEMPLATE/feature_request.yml |
+| TypeScript Suggestion 模板 | https://github.com/microsoft/TypeScript/blob/main/.github/ISSUE_TEMPLATE/suggestion.yml |
+| rails Feature Issue 列表 | https://github.com/rails/rails/issues?q=label%3Afeature |
+| svelte Feature 讨论 | https://github.com/sveltejs/svelte/discussions |
+| nuxt Feature Request | https://github.com/nuxt/nuxt/issues/new/choose |
+| babel Feature 讨论 | https://github.com/babel/babel/issues?q=label%3A%22Feature+Request%22 |

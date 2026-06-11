@@ -72,3 +72,14 @@
 - [ ] type(scope): subject
 - [ ] 动机说明（body）
 - [ ] 关联 PR/Issue（footer，可选）
+
+## 参考链接
+
+| 仓库 | 链接 |
+|------|------|
+| Conventional Commits 规范 | https://www.conventionalcommits.org/ |
+| angular Commit 规范 | https://github.com/angular/angular/blob/main/CONTRIBUTING.md#commit |
+| Linux 风格指南 | https://www.kernel.org/doc/html/v4.10/process/submitting-patches.html |
+| nodejs Commit 指南 | https://github.com/nodejs/node/blob/main/CONTRIBUTING.md#step-3-commit |
+| golang Commit 风格 | https://go.dev/doc/contribute#commit_messages |
+| gitea Commit 规范 | https://github.com/go-gitea/gitea/blob/main/CONTRIBUTING.md |

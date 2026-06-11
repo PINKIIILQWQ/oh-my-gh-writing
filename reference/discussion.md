@@ -30,3 +30,10 @@
 - [ ] 讨论背景
 - [ ] 方案选项
 - [ ] 征求意见点
+
+## 参考链接
+
+| 仓库 | 链接 |
+|------|------|
+| rails Discussion 列表 | https://github.com/rails/rails/discussions |
+| eslint 规则讨论 | https://github.com/eslint/eslint/issues?q=label%3A%22rule+change%22 |

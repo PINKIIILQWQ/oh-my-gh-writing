@@ -54,3 +54,14 @@
 - [ ] 设计方案
 - [ ] 兼容性分析
 - [ ] 备选方案
+
+## 参考链接
+
+| 仓库 | 链接 |
+|------|------|
+| reactjs/rfcs | https://github.com/reactjs/rfcs |
+| rust-lang/rfcs | https://github.com/rust-lang/rfcs |
+| kubernetes/enhancements (KEP) | https://github.com/kubernetes/enhancements |
+| prometheus 提案 | https://github.com/prometheus/prometheus/issues?q=label%3Aproposal |
+| rust RFC 追踪 | https://github.com/rust-lang/rust/issues?q=label%3AI-rfc |
+| nixpkgs RFC | https://github.com/NixOS/nixpkgs/issues |

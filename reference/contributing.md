@@ -58,3 +58,14 @@ PR 流程→代码风格→开发环境
 - [ ] PR 工作流说明
 - [ ] 代码规范
 - [ ] 本地开发环境搭建
+
+## 参考链接
+
+| 仓库 | 链接 |
+|------|------|
+| home-assistant CONTRIBUTING | https://github.com/home-assistant/core/blob/main/CONTRIBUTING.md |
+| nodejs CONTRIBUTING | https://github.com/nodejs/node/blob/main/CONTRIBUTING.md |
+| angular CONTRIBUTING | https://github.com/angular/angular/blob/main/CONTRIBUTING.md |
+| electron CONTRIBUTING | https://github.com/electron/electron/blob/main/CONTRIBUTING.md |
+| django CONTRIBUTING | https://github.com/django/django/blob/main/CONTRIBUTING.rst |
+| github/docs CONTRIBUTING | https://github.com/github/docs/blob/main/CONTRIBUTING.md |

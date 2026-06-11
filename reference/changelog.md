@@ -66,3 +66,14 @@
 - [ ] 版本号 + 发布日期
 - [ ] 按类型分类（Breaking / Features / Fixes）
 - [ ] PR/Issue 引用
+
+## 参考链接
+
+| 仓库 | 链接 |
+|------|------|
+| electron CHANGELOG | https://github.com/electron/electron/blob/main/CHANGELOG.md |
+| npm CHANGELOG | https://github.com/npm/cli/blob/latest/CHANGELOG.md |
+| pandas CHANGELOG | https://github.com/pandas-dev/pandas/blob/main/CHANGELOG.md |
+| eslint CHANGELOG | https://github.com/eslint/eslint/blob/main/CHANGELOG.md |
+| graphql-js CHANGELOG | https://github.com/graphql/graphql-js/blob/main/CHANGELOG.md |
+| prisma CHANGELOG | https://github.com/prisma/prisma/blob/main/CHANGELOG.md |

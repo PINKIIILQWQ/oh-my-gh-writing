@@ -56,3 +56,14 @@
 
 ## 可选项
 - 截图/录屏：视觉变更必填，默认开启
+
+## 参考链接
+
+| 仓库 | 链接 |
+|------|------|
+| kubernetes PR 模板 | https://github.com/kubernetes/kubernetes/blob/master/.github/PULL_REQUEST_TEMPLATE.md |
+| react PR 模板 | https://github.com/facebook/react/blob/main/.github/PULL_REQUEST_TEMPLATE.md |
+| django PR 模板 | https://github.com/django/django/blob/main/.github/PULL_REQUEST_TEMPLATE.md |
+| storybook PRs | https://github.com/storybookjs/storybook/pulls |
+| apollo-client PRs | https://github.com/apollographql/apollo-client/pulls |
+| grafana PRs | https://github.com/grafana/grafana/pulls |

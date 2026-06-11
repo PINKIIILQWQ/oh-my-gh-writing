@@ -65,3 +65,14 @@
 - TOC：默认自动生成
 - 贡献者表：默认无
 - GIF 演示：默认有（若产品有 UI）
+
+## 参考链接
+
+| 仓库 | 链接 |
+|------|------|
+| vscode README | https://github.com/microsoft/vscode |
+| nextjs README | https://github.com/vercel/next.js |
+| tailwindcss README | https://github.com/tailwindlabs/tailwindcss |
+| deno README | https://github.com/denoland/deno |
+| supabase README | https://github.com/supabase/supabase |
+| github/docs README | https://github.com/github/docs |

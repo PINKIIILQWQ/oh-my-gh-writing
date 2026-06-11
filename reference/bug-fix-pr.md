@@ -50,3 +50,14 @@
 - [ ] Fixes # 关联
 - [ ] 根因说明
 - [ ] 测试覆盖
+
+## 参考链接
+
+| 仓库 | 链接 |
+|------|------|
+| lodash 修复 PRs | https://github.com/lodash/lodash/pulls |
+| redux 修复 PRs | https://github.com/reduxjs/redux/pulls?q=label%3Abug |
+| immer 修复 PRs | https://github.com/immerjs/immer/pulls |
+| neovim 修复 PRs | https://github.com/neovim/neovim/pulls |
+| terraform 修复 PRs | https://github.com/hashicorp/terraform/pulls |
+| helm 修复 PRs | https://github.com/helm/helm/pulls |

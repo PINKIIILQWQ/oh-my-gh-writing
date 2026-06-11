@@ -50,3 +50,14 @@
 - [ ] 迁移步骤（旧→新）
 - [ ] API/配置变更表
 - [ ] 回滚方案
+
+## 参考链接
+
+| 仓库 | 链接 |
+|------|------|
+| fluentui 迁移指南 | https://github.com/microsoft/fluentui/wiki/Migration-Guides |
+| pandas 迁移指南 | https://pandas.pydata.org/docs/whatsnew/index.html |
+| GitLab 升级文档 | https://docs.gitlab.com/ee/update/ |
+| reactjs/rfcs 迁移 RFC | https://github.com/reactjs/rfcs |
+| react-spectrum 迁移 | https://react-spectrum.adobe.com/releases.html |
+| Hugo 升级指南 | https://gohugo.io/getting-started/upgrading/ |

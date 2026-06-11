@@ -69,3 +69,14 @@ body:
 - [ ] name + description
 - [ ] 必填字段验证
 - [ ] labels 自动打
+
+## 参考链接
+
+| 仓库 | 链接 |
+|------|------|
+| vscode .github/ISSUE_TEMPLATE/ | https://github.com/microsoft/vscode/tree/main/.github/ISSUE_TEMPLATE |
+| nextjs Issue 表单 | https://github.com/vercel/next.js/tree/canary/.github/ISSUE_TEMPLATE |
+| rails Issue 表单 | https://github.com/rails/rails/tree/main/.github/ISSUE_TEMPLATE |
+| github/docs Issue 表单 | https://github.com/github/docs/tree/main/.github/ISSUE_TEMPLATE |
+| home-assistant Issue 表单 | https://github.com/home-assistant/core/tree/dev/.github/ISSUE_TEMPLATE |
+| terraform Issue 表单 | https://github.com/hashicorp/terraform/tree/main/.github/ISSUE_TEMPLATE |

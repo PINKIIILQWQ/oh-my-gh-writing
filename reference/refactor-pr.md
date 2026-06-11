@@ -31,3 +31,10 @@
 - [ ] before-after 对比
 - [ ] 测试覆盖
 - [ ] 行为不变声明
+
+## 参考链接
+
+| 仓库 | 链接 |
+|------|------|
+| react 重构 PRs | https://github.com/facebook/react/pulls?q=label%3Arefactor |
+| pandas 重构 PRs | https://github.com/pandas-dev/pandas/pulls?q=label%3Arefactor |

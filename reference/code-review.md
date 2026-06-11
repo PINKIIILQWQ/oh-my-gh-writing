@@ -53,3 +53,14 @@
 - [ ] 问题说明
 - [ ] 建议修复方案
 - [ ] Severity 标注
+
+## 参考链接
+
+| 仓库 | 链接 |
+|------|------|
+| Linux LKML 归档 | https://lore.kernel.org/lkml/ |
+| golang Gerrit Review | https://go.dev/doc/contribute#review |
+| rust review 指南 | https://std-dev-guide.rust-lang.org/code-review/ |
+| rails PR reviews | https://github.com/rails/rails/pulls |
+| django PR reviews | https://github.com/django/django/pulls |
+| kubernetes review 流程 | https://github.com/kubernetes/community/blob/master/contributors/guide/owners.md |
