@@ -16,6 +16,30 @@
 6. **可搜索性** — 标题和关键词能让三个月后的自己搜到
 7. **保持原子** — 一条 commit = 一个逻辑变更，一个 PR = 一个特性/修复
 
+### 来自 5 款写作类工具分析（上接通用原则）
+
+> 以下 10 条原则提炼自 5 款 GitHub 写作类工具的实践分析。详见 `reference/tool-analysis.md`。
+
+8. **Schema-first** — 先定义输出结构体再填充内容。强类型约束保证格式一致（源自 PR-Agent 的 Pydantic schema 模式）
+
+9. **Section 化产出** — 每部分独立可配，有条件才显示。写入者应先分解文档模块结构再逐一填充（源自 Profile README Generator 和 README Generator 的模块化拼接模式）
+
+10. **变量替换 > 硬编码** — 版本号、日期、作者、链接使用模板变量注入而非硬编码占位符（源自 Release Drafter 的 `$CHANGES`、`$VERSION` 变量体系）
+
+11. **Label 即分类策略** — GitHub label 直接对应文档分类。用户通过 label 管理内容，工具负责排版聚合（源自 Changelog Generator 的标签驱动分类）
+
+12. **两种复杂度选择** — 完整版与普通版，用户按场景选择。复杂场景给全字段，日常场景给精简版（源自 README Generator 的 HTML-rich vs 纯 md 双模式）
+
+13. **逃逸用户输入** — 用户输入内容（PR title、author name）需逃逸 markdown 特殊字符，防止破坏文档结构（源自 Release Drafter 的 `change-title-escapes`）
+
+14. **来源透明** — 自动生成的文档应标注来源工具。（源自 README Generator 的 footer 和 Changelog Generator 的 credit line）
+
+15. **读取元数据作为默认值** — 读取 package.json/git config/API 作为默认值，减小重复输入（源自 README Generator 的自动读取策略）
+
+16. **Category 聚合** — 多条变更为一类合并展示。PR 按 label 聚合到同一 section（源自 Release Drafter 的 category 类型体系 + Changelog Generator 的三层结构）
+
+17. **条件渲染** — 无数据则不出现对应 section。没有 tests 就不写「测试章节」（源自 README Generator 的 EJS 条件分支 + Release Drafter 的可选 section）
+
 ---
 
 ## 二、Issue 类 — 8 种场景
