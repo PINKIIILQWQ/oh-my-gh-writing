@@ -1,0 +1,8 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# No raw binaries or large files
+*.zip
+*.tar.gz
+*.dmg
