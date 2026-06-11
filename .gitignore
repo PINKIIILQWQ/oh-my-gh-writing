@@ -1,26 +1,70 @@
-# OS
+# Operating system
 .DS_Store
+._*
 Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Editor and IDE state
 *.swp
 *.swo
 *~
-
-# Editor
 .idea/
 .vscode/
 *.sublime-*
 
-# Build
+# Local environment and secrets
+.env
+.env.*
+!.env.example
+*.local
+
+# Logs and temporary files
+*.log
+*.tmp
+*.temp
+*.bak
+*.orig
+*.rej
+.tmp/
+.temp/
+tmp/
+temp/
+
+# Skill/test scratch output
+test/output/
+test/outputs/
+test/results/
+test/runs/
+.cache/
+
+# Node tooling, if examples/scripts are added later
 node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
 dist/
 build/
-*.log
+coverage/
+.nyc_output/
 
-# Python
+# Python tooling, if validators/scripts are added later
 __pycache__/
-*.pyc
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
 .venv/
 venv/
 
+# Generated archives
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+
 # GitHub template cache — we pull raw content, not clone repos
-.tmp/
+.github-template-cache/

@@ -1,8 +1,8 @@
-# 五款专项仓库写法分析
+# 六款专项仓库写法分析
 
 ## 概述
 
-对 5 款 GitHub 写作类工具进行格式、排版、写法与设计思路分析。目标：提取可复用的**写作模式与设计哲学**，融入 SKILL.md。
+对 6 款 GitHub 写作类工具/资料仓库进行格式、排版、写法与设计思路分析。目标：提取可复用的**写作模式与设计哲学**，融入 SKILL.md。
 
 ---
 
@@ -150,17 +150,43 @@
 
 ---
 
+## 6. pudding0503/github-badge-collection
+<https://github.com/pudding0503/github-badge-collection>
+
+### 设计哲学
+
+- **Badge 是信息入口**：徽章不只是装饰，应让读者一眼看到版本、构建、下载、许可、社区、文档等状态
+- **分类优先于堆叠**：先按用途分组，再决定展示数量。README 顶部只放最关键的 3-8 个，其余可放到徽章附录或参考链接
+- **复制友好**：徽章样式应能直接复制，减少用户理解 URL 参数、颜色、logo、style 的成本
+- **展示密度可控**：徽章多时用分组、换行或表格，避免首屏被图标挤满
+
+### 格式特征
+
+- **按用途分类**：status/version/license/download/social/docs/platform 等类别比“看到什么放什么”更稳定
+- **静态与动态分离**：静态徽章用于能力声明，动态徽章用于 build、version、downloads、stars 等变化数据
+- **可点击徽章**：徽章应包链接，跳转到 release、license、actions、docs、issue、discussion 等真实页面
+- **样式统一**：同一个 README 内 style、logo 风格、颜色饱和度应统一，避免像贴纸墙
+
+### 可提取原则
+
+- **Badge 有语义**：每个徽章都必须回答“它帮读者判断什么”
+- **Badge 有去处**：能点击的徽章优先链接到对应证据页
+- **Badge 有上限**：首屏徽章只保留状态、版本、许可、文档、场景数等关键入口
+- **Badge 先分类后生成**：先选类别，再生成 shields URL，避免无意义堆叠
+
+---
+
 ## 横向对比
 
-| 维度 | Profile README | PR-Agent | README Generator | Changelog Gen | Release Drafter |
-|------|---------------|----------|-----------------|--------------|-----------------|
-| **输入方式** | 填写表单 | 读取代码 diff | 读取 env + CLI 问答 | 抓取 GitHub API | 监听 webhook |
-| **模板引擎** | 字符串拼接 | Pydantic schema | EJS 模板 | Ruby 字符串插值 | 变量替换 |
-| **自定义程度** | 勾选 section | 自定义 label | 自定义模板文件 | 自定义 prefix/section | Category+template 双重可配 |
-| **输出控制** | 开关 section | YAML 渲染为 md | 有无 HTML 两个版本 | label→section 映射 | 模板变量+类型系统 |
-| **自动度** | 半自动（填表单） | 全自动（AI） | 半自动（CLI 问答） | 全自动（定时运行） | 全自动（每 PR 触发） |
-| **格式预防** | 无 | Prompt 内规定 | 模板固定 | 模板固定 | escapes 逃逸 |
-| **来源标注** | 无 | 无 | 自动 footer | 自动 credit line | 无（用户可配） |
+| 维度 | Profile README | PR-Agent | README Generator | Changelog Gen | Release Drafter | Badge Collection |
+|------|---------------|----------|-----------------|--------------|-----------------|------------------|
+| **输入方式** | 填写表单 | 读取代码 diff | 读取 env + CLI 问答 | 抓取 GitHub API | 监听 webhook | 选择徽章类别 |
+| **模板引擎** | 字符串拼接 | Pydantic schema | EJS 模板 | Ruby 字符串插值 | 变量替换 | URL 参数组合 |
+| **自定义程度** | 勾选 section | 自定义 label | 自定义模板文件 | 自定义 prefix/section | Category+template 双重可配 | style/logo/color 可配 |
+| **输出控制** | 开关 section | YAML 渲染为 md | 有无 HTML 两个版本 | label→section 映射 | 模板变量+类型系统 | 类别分组+展示上限 |
+| **自动度** | 半自动（填表单） | 全自动（AI） | 半自动（CLI 问答） | 全自动（定时运行） | 全自动（每 PR 触发） | 手动选择+复制 |
+| **格式预防** | 无 | Prompt 内规定 | 模板固定 | 模板固定 | escapes 逃逸 | 统一 style 和分类 |
+| **来源标注** | 无 | 无 | 自动 footer | 自动 credit line | 无（用户可配） | 徽章链接到证据页 |
 
 ### 通用设计原则（纳入 SKILL.md）
 
@@ -174,3 +200,4 @@
 8. **读取元数据作为默认值** — 减少重复输入
 9. **Category 聚合** — 多条变更为一类合并展示
 10. **条件渲染** — 无数据则不出现对应 section
+11. **Badge 语义化** — 徽章先分类、再生成、可点击、数量受控

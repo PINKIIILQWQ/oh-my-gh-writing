@@ -15,7 +15,7 @@
 
 ### 完整版
 
-```markdown
+````markdown
 ---
 name: Bug report
 about: Create a report to help us improve
@@ -60,11 +60,11 @@ describe('example', () => {
 - Does it happen with `--reporter=verbose`?
 - Does it happen with `pool: 'forks'` vs `pool: 'threads'`?
 - Reproduction repository link (preferred)
-```
+````text
 
 ### 精简版
 
-```markdown
+````markdown
 ### Bug: vitest mockReset not clearing mock calls
 
 **Steps:**
@@ -77,7 +77,7 @@ describe('example', () => {
 
 **Env:** vitest 1.6.0 / node 20.12 / macOS 14.4
 **Repro:** https://github.com/me/repro
-```
+````text
 
 ---
 
@@ -89,7 +89,7 @@ describe('example', () => {
 
 ### 完整版
 
-```markdown
+````markdown
 ---
 name: Feature request
 about: Suggest an idea for this project
@@ -131,11 +131,11 @@ for each key automatically.
 **Compatibility**
 Non-breaking additive change. Existing `v-model` and named `v-model:x`
 continue to work identically.
-```
+````
 
 ### 精简版
 
-```markdown
+````markdown
 ### Feature: v-model with object shorthand
 
 **Problem:** Forms with many fields need multiple `v-model:xxx` bindings.
@@ -143,7 +143,7 @@ continue to work identically.
 **Want:** `v-model:object="formData"` → auto-binds all keys as named v-model.
 
 **Alternative:** Using Pinia, but it's heavier than needed for form state.
-```
+````
 
 ---
 
@@ -155,7 +155,7 @@ continue to work identically.
 
 ### 完整版
 
-```markdown
+````markdown
 ### Enhancement: Thread-loader progress reporting
 
 **Current limitation**
@@ -197,11 +197,11 @@ module.exports = {
 **Compatibility**
 Additive change. Existing `thread-loader` configs with no `onProgress`
 continue working identically. No breaking changes.
-```
+````
 
 ### 精简版
 
-```markdown
+````markdown
 ### Enhancement: thread-loader progress
 
 **Current:** No visibility into worker pool progress during build.
@@ -209,7 +209,7 @@ continue working identically. No breaking changes.
 **Want:** `onProgress` callback reporting active workers + current module.
 
 **No breakage.** Additive config option.
-```
+````
 
 ---
 
@@ -221,7 +221,7 @@ continue working identically. No breaking changes.
 
 ### 完整版
 
-```markdown
+````markdown
 ### Discussion: Should Fastify adopt ESM-only plugins from v6?
 
 **Background**
@@ -240,11 +240,11 @@ toward ESM-first — Express 5 ships ESM examples, Hono is ESM-native.
 1. What % of your plugins are ESM vs CJS?
 2. Would you accept a major version bump for this change?
 3. Is there a tooling gap that blocks ESM adoption?
-```
+````
 
 ### 精简版
 
-```markdown
+````markdown
 ### Discussion: ESM-only in v6?
 
 **Current:** CJS + ESM mixed support.
@@ -252,7 +252,7 @@ toward ESM-first — Express 5 ships ESM examples, Hono is ESM-native.
 **Key question:** How many of your plugins would break?
 
 See options table in fastify/fastify#discussions.
-```
+````
 
 ---
 
@@ -264,7 +264,7 @@ See options table in fastify/fastify#discussions.
 
 ### 完整版
 
-```markdown
+````markdown
 ## Motivation
 Add `page.updateURL()` method to programmatically change browser URL
 without navigation. Closes #31200.
@@ -295,11 +295,11 @@ Works across Chromium/Firefox/WebKit.
 - [x] `npm run test` passes
 - [x] Breaking change: NO
 - [x] Documentation updated in `docs/src/api/`
-```
+````
 
 ### 精简版
 
-```markdown
+````markdown
 ### Feature: page.updateURL()
 
 **Why:** Programmatic URL change without navigation (#31200)
@@ -307,7 +307,7 @@ Works across Chromium/Firefox/WebKit.
 **What:** `page.updateURL(url: string): Promise<void>`
 
 **Test:** 3 spec files, all 3 engines. Build + test pass. No breaking change.
-```
+````
 
 ---
 
@@ -319,7 +319,7 @@ Works across Chromium/Firefox/WebKit.
 
 ### 完整版
 
-```markdown
+````markdown
 ### Fix: CancelToken.signal aborted but never resolved
 
 **Root cause**
@@ -358,11 +358,11 @@ test('cancel() resolves promise', async () => {
 ```
 
 **Fixes #6543**
-```
+````
 
 ### 精简版
 
-```markdown
+````markdown
 ### Fix: CancelToken promise never resolves
 
 **Root cause:** `cancel()` sets signal but skips `resolvePromise`.
@@ -372,7 +372,7 @@ test('cancel() resolves promise', async () => {
 **Test:** Added unit test — `cancel()` → promise resolves with reason.
 
 **Fixes #6543**
-```
+````
 
 ---
 
@@ -384,7 +384,7 @@ test('cancel() resolves promise', async () => {
 
 ### 完整版
 
-```markdown
+````markdown
 ### Refactor: Replace callback chains with async/await in router
 
 **Goal**
@@ -426,11 +426,11 @@ Layer.prototype.handle_request = async function (req, res, next) {
 
 **Fixes** (none)
 **Breaking:** NO
-```
+````
 
 ### 精简版
 
-```markdown
+````markdown
 ### Refactor: Router layer async/await
 
 **Goal:** Replace callback chain with async/await. No behavior change.
@@ -438,7 +438,7 @@ Layer.prototype.handle_request = async function (req, res, next) {
 **Change:** `Layer.prototype.handle_request` → async wrapper.
 
 **Test:** 847 existing tests pass. Breaking: NO.
-```
+````
 
 ---
 
@@ -450,7 +450,7 @@ Layer.prototype.handle_request = async function (req, res, next) {
 
 ### 完整版
 
-```markdown
+````markdown
 ### Docs: Clarify `defineModel()` usage with TypeScript
 
 **Location**
@@ -488,11 +488,11 @@ const form = defineModel<UserForm>('form', { required: true })
 
 **No code changes**
 This is a pure documentation improvement. No source code was modified.
-```
+````
 
 ### 精简版
 
-```markdown
+````markdown
 ### Docs: defineModel() TypeScript examples
 
 **Where:** `v-model.md` defineModel section
@@ -501,7 +501,7 @@ This is a pure documentation improvement. No source code was modified.
 working examples with type parameter explained.
 
 **No code change.**
-```
+````
 
 ---
 
@@ -513,7 +513,7 @@ working examples with type parameter explained.
 
 ### 完整版
 
-```markdown
+````markdown
 ### Review: `vault/barrier.go` — seal wrapping refactor
 
 **File:** `vault/barrier.go:312-335`
@@ -547,11 +547,11 @@ func (b *Barrier) wrapSeal(ctx context.Context) error {
 ```
 
 **Severity:** BLOCKING — data corruption risk
-```
+````
 
 ### 精简版
 
-```markdown
+````markdown
 ### Review: barrier.go wrapSeal error swallowed
 
 **Line 312-318:** `b.seal.Encrypt()` error is discarded, returns nil.
@@ -559,7 +559,7 @@ func (b *Barrier) wrapSeal(ctx context.Context) error {
 **Fix:** Check `err`, return `fmt.Errorf("seal encrypt: %w", err)`.
 
 **Severity:** BLOCKING
-```
+````
 
 ---
 
@@ -571,7 +571,7 @@ func (b *Barrier) wrapSeal(ctx context.Context) error {
 
 ### 完整版
 
-```
+````
 fix(context): prevent concurrent map read/write on Keys
 
 The `Keys` map in `Context` is accessed from multiple goroutines
@@ -586,16 +586,16 @@ Use `sync.RWMutex` to protect `Keys` access:
   for concurrent reads)
 
 Fixes #4123
-```
+````
 
 ### 精简版
 
-```
+````
 fix(context): protect Keys map with sync.RWMutex
 
 Prevents fatal concurrent map read/write panic when middleware
 runs in parallel. Fixes #4123.
-```
+````
 
 ---
 
@@ -606,7 +606,7 @@ runs in parallel. Fixes #4123.
 
 ### 完整版
 
-```markdown
+````markdown
 # Hyper
 
 [![Build](https://img.shields.io/github/actions/workflow/status/vercel/hyper/ci.yml?branch=main)](https://github.com/vercel/hyper/actions)
@@ -662,11 +662,11 @@ module.exports = {
 ## License
 
 MIT
-```
+````
 
 ### 精简版
 
-```markdown
+````markdown
 # Hyper
 
 > A terminal built on web technologies.
@@ -678,7 +678,7 @@ brew install --cask hyper
 GPU-accelerated · Plugin ecosystem · Cross-platform
 
 [Contributing](CONTRIBUTING.md) · MIT
-```
+````
 
 ---
 
@@ -690,7 +690,7 @@ GPU-accelerated · Plugin ecosystem · Cross-platform
 
 ### 完整版
 
-```markdown
+````markdown
 # Contributing to TensorFlow
 
 We welcome contributions — bug fixes, documentation, new ops, and more.
@@ -739,11 +739,11 @@ This project follows [TensorFlow Code of Conduct](CODE_OF_CONDUCT.md).
 - At least one **code owner** review required
 - CI must be green
 - Rebase before merge (no merge commits)
-```
+````
 
 ### 精简版
 
-```markdown
+````markdown
 # Contributing to TensorFlow
 
 1. Fork → branch → develop
@@ -752,7 +752,7 @@ This project follows [TensorFlow Code of Conduct](CODE_OF_CONDUCT.md).
 4. One owner review + green CI → merge
 
 See [CONTRIBUTING.md](https://github.com/tensorflow/tensorflow/blob/master/CONTRIBUTING.md) for full guide.
-```
+````
 
 ---
 
@@ -764,7 +764,7 @@ See [CONTRIBUTING.md](https://github.com/tensorflow/tensorflow/blob/master/CONTR
 
 ### 完整版
 
-```markdown
+````markdown
 ## [5.90.0] - 2024-03-01
 
 ### Breaking Changes
@@ -788,11 +788,11 @@ See [CONTRIBUTING.md](https://github.com/tensorflow/tensorflow/blob/master/CONTR
 ### Internal
 - Migrate CI from Azure Pipelines to GitHub Actions
 - TypeScript migration: `lib/` now 60% typed
-```
+````
 
 ### 精简版
 
-```markdown
+````markdown
 ## [5.90.0] - 2024-03-01
 
 **Breaking:** Node 18.12+ required, `experiments.css` removed (stable).
@@ -802,7 +802,7 @@ See [CONTRIBUTING.md](https://github.com/tensorflow/tensorflow/blob/master/CONTR
 **Fixes:** splitChunks crash, CSS source maps, HMR re-export updates.
 
 **Perf:** 15% faster builds via chunk graph optimization.
-```
+````
 
 ---
 
@@ -814,7 +814,7 @@ See [CONTRIBUTING.md](https://github.com/tensorflow/tensorflow/blob/master/CONTR
 
 ### 完整版
 
-```markdown
+````markdown
 # Playwright v1.44.0
 
 [![npm](https://img.shields.io/npm/v/playwright)](https://www.npmjs.com/package/playwright)
@@ -851,11 +851,11 @@ https://github.com/microsoft/playwright/releases/tag/v1.44.0
 ## Contributors
 
 Thanks to @alice, @bob, @charlie for their contributions!
-```
+````
 
 ### 精简版
 
-```markdown
+````markdown
 # Playwright v1.44.0
 
 **Highlights:** `locator.or()` for fallback matching · Trace Viewer network previews · Experimental Android
@@ -863,7 +863,7 @@ Thanks to @alice, @bob, @charlie for their contributions!
 **Breaking:** Node 18+ · `waitForNavigation` removed (use `waitForURL`)
 
 [Full changelog](https://github.com/microsoft/playwright/releases/tag/v1.44.0)
-```
+````
 
 ---
 
@@ -875,7 +875,7 @@ Thanks to @alice, @bob, @charlie for their contributions!
 
 ### 完整版
 
-```markdown
+````markdown
 # Migrating from webpack 4 to 5
 
 ## Overview
@@ -935,11 +935,11 @@ Restore old `webpack.config.js` from backup.
 
 - webpack 4: continued to receive security patches until Dec 2023
 - webpack 5: actively maintained
-```
+````
 
 ### 精简版
 
-```markdown
+````markdown
 # Webpack 4 → 5 Migration
 
 **Main changes:**
@@ -950,7 +950,7 @@ Restore old `webpack.config.js` from backup.
 **Rollback:** `npm install webpack@4`
 
 **Timeline:** v4 security patches ended Dec 2023.
-```
+````
 
 ---
 
@@ -962,7 +962,7 @@ Restore old `webpack.config.js` from backup.
 
 ### 完整版
 
-```markdown
+````markdown
 # RFC: Provide/Inject with Type Safety
 
 ## Summary
@@ -1004,11 +1004,11 @@ const user2 = inject(userKey, defaultUser) // ✅ user is User
 ## Unresolved Questions
 - Should `createProvideKey` accept an optional default value?
 - Deep readonly: should `inject` return `DeepReadonly<T>`?
-```
+````
 
 ### 精简版
 
-```markdown
+````markdown
 # RFC: Typed Provide/Inject
 
 **Problem:** `provide`/`inject` has no type checking across components.
@@ -1019,7 +1019,7 @@ const user2 = inject(userKey, defaultUser) // ✅ user is User
 **Prior art:** React `createContext<T>`, Angular `InjectionToken<T>`.
 
 **No breaking change.**
-```
+````
 
 ---
 
@@ -1031,7 +1031,7 @@ const user2 = inject(userKey, defaultUser) // ✅ user is User
 
 ### 完整版
 
-```yaml
+````yaml
 name: Bug Report
 description: File a bug report for Playwright
 title: '[Bug]: '
@@ -1097,11 +1097,11 @@ body:
         - Linux
     validations:
       required: true
-```
+````
 
 ### 精简版
 
-```yaml
+````yaml
 name: Bug Report
 description: File a bug report
 title: '[Bug]: '
@@ -1129,7 +1129,7 @@ body:
       label: Version
     validations:
       required: true
-```
+````
 
 ---
 
@@ -1140,7 +1140,7 @@ body:
 
 ### 完整版
 
-```markdown
+````markdown
 ## Description
 
 Please include a summary of the change and which issue is fixed.
@@ -1178,11 +1178,11 @@ Fixes # (issue)
 ## Additional context
 
 Add any other context or screenshots about the pull request here.
-```
+````
 
 ### 精简版
 
-```markdown
+````markdown
 ## Description
 
 Fixes #.
@@ -1196,7 +1196,7 @@ Fixes #.
 - [ ] `pnpm test` passes
 - [ ] `pnpm lint` passes
 - [ ] Self-reviewed
-```
+````
 
 ---
 

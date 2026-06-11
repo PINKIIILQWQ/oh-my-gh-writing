@@ -64,6 +64,27 @@ HTML 写法 vs Markdown 写法比较：
 - HTML `<p align="center">`：更好的居中控制，适合 badge 密集场景（推荐）
 - Markdown 原生 `![badge](url)`：简单，但无法居中/换行控制
 
+### 徽章选择策略
+
+参考 `pudding0503/github-badge-collection` 的思路：先分类，再决定是否展示，最后才生成 badge。
+
+| 类别 | 示例 | 链接去处 | 是否首屏推荐 |
+|------|------|----------|--------------|
+| **格式/载体** | `format-SKILL.md` / `plugin` / `cli` | 核心入口文件或文档 | 是 |
+| **版本/发布** | release、npm、Docker tag | Releases 或包管理页面 | 是 |
+| **质量状态** | CI、coverage、tests | GitHub Actions 或测试报告 | 是 |
+| **许可** | MIT、Apache-2.0 | LICENSE 文件 | 是 |
+| **文档入口** | docs、examples、scenarios | 文档目录或官网 | 是 |
+| **社区热度** | stars、forks、downloads | GitHub stars、forks、包下载页 | 视项目阶段 |
+| **平台兼容** | macOS、Linux、Windows、Codex | 支持矩阵或安装说明 | 视项目复杂度 |
+
+**规则：**
+- 首屏默认 3-8 个徽章，超过 8 个应分两行或移到“徽章/状态”小节
+- 每个徽章必须回答一个读者问题：格式是什么、能否安装、是否有测试、许可证是什么、文档在哪
+- 能点击的徽章必须链接到证据页，不要只展示图片
+- 同一个 README 内保持统一 `style`、大小写和颜色强度
+- 不放无法验证的徽章，例如“awesome”“production ready”这类纯口号
+
 ### 中英双语布局模式
 
 从 15 个中英双语仓库中观察到 6 种实现模式：
@@ -228,6 +249,7 @@ README 应说明项目运行的载体和兼容环境。对于 agent skill 类项
 | github/docs README | https://github.com/github/docs |
 | Star History | https://api.star-history.com/svg?repos= |
 | shields.io 徽章 | https://shields.io |
+| github-badge-collection | https://github.com/pudding0503/github-badge-collection |
 
 > **请问还有什么需要额外注意的地方吗？** — 在 README 初稿产出后向使用者确认：是否需要补充 Star History？是否需要多语言版本？是否要特定风格的徽章？是否有需要强调的特定功能或社区链接？
 
