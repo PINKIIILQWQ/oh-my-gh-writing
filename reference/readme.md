@@ -6,10 +6,97 @@
 ## 完整版（vscode, nextjs, tailwindcss）
 
 ### 核心原则
-- **中英双语默认可切换**：README 以英文为主（GitHub 默认语言），在文档开头提供中文版跳转链接；或通过 README-zh.md 并行维护
+
+- **中英双语默认可切换**：README 以项目主开发语言为主（GitHub 英文为主，国内项目常以中文为主），在文档开头通过语言选择栏提供另一语言版本跳转
 - **仓库内容全面罗列**：每项重要功能、每个目录、每个配置项都应被覆盖或通过链接可达
 - **审视代码后输出大纲**：写 README 前，先审查项目源码结构（目录树、配置文件、入口文件），然后输出一份目录大纲，内容较少时全部列出
 - **嵌入式引用**：所有提及的品牌、协议、技术栈必须附带超链接 —— [MIT](https://opensource.org/licenses/MIT)、[Next.js](https://nextjs.org)、[OpenAI](https://openai.com)、[shields.io](https://shields.io)
+- **先问后写**：写之前问使用者：是否需要 Star History？是否需要多语言版本？是否需要特定风格的徽章？需要在标题区放 logo 还是文字？
+
+### 图标/Logo 放置模式
+
+从 15 个高星开源仓库中观察到的 6 种模式：
+
+| 模式 | 写法 | 代表仓库 | 适用场景 |
+|------|------|---------|---------|
+| **居中 Logo + HTML 标题** | `<div align="center"><img src="logo"> <h1>Name</h1></div>` | Ant Design, lobehub, TiDB | 有品牌 logo 时最常用 |
+| **Banner 大图** | `<img src="banner" width="100%">` | n8n, serverless | 有产品 UI 截图/SaaS 风格 |
+| **纯文字居中** | `<h1 align="center">Name</h1>` | spring-boot-demo, JustAuth, rustdesk | 无 logo 或无需视觉品牌 |
+| **内联小图标** | `<img src="icon" height=90 align="right">` | SkyWalking | logo 作装饰而非主视觉 |
+| **Logo + 描述** | `<a href="site"><img src="logo" width="400"></a><br>subtitle` | JustAuth | 需要强调品牌 + 一句话标语 |
+| **无图标纯标题** | `# Name` | Vue Core, Apache Dubbo | 极简风格，顶级基础设施项目 |
+
+### 标题/副标题布局模式
+
+1. **单行标题 + 描述**（最常见）
+   ```markdown
+   # Spring Boot Demo
+   <p align="center">Spring Boot 技术栈示例合集，从入门到生产级</p>
+   ```
+2. **Logo + 标题 + 副标题 + 标语**
+   ```markdown
+   <div align="center">
+     <img src="logo.svg" height="100">
+     <h1>Ant Design</h1>
+     An enterprise-class UI design language and React UI library.
+   </div>
+   ```
+3. **Logo + 标语 + 多行描述**
+   ```markdown
+   <p align="center"><img src="logo-header.svg" alt="RustDesk"></p>
+   <p align="center">Your remote desktop — open source, self-hosted, cross-platform</p>
+   ```
+4. **超小副标题样式**（lobehub）
+   ```markdown
+   <sup>Your Chief Agent Operator</sup>
+   ```
+
+### 徽章栏布局模式
+
+| 布局 | 写法 | 代表 | 说明 |
+|------|------|------|------|
+| **单行密集** | `<p>` 内 4-8 个徽章 | TiDB, skywalking | 紧凑，适合徽章较少 |
+| **双行细分** | 第一行 CI/build + 第二行 meta | lobehub (3 行) | 适合 8+ 徽章，按语义分组 |
+| **三行全量** | CI + Meta + Social 分享 | lobehub | 最完整，适合高关注项目 |
+| **社交徽章额外行** | stars + forks + watch | spring-boot-demo | 独立于技术徽章栏 |
+
+HTML 写法 vs Markdown 写法比较：
+- HTML `<p align="center">`：更好的居中控制，适合 badge 密集场景（推荐）
+- Markdown 原生 `![badge](url)`：简单，但无法居中/换行控制
+
+### 中英双语布局模式
+
+从 15 个中英双语仓库中观察到 6 种实现模式：
+
+| 模式 | 实现方式 | 代表仓库 | 优缺点 |
+|------|---------|---------|--------|
+| **A. 语言选择条** | `<p>简体中文 \| <a href="README.en.md">English</a></p>` — 放在标题前/后 | uni-app, spring-boot-demo | 最轻量，一行搞定 |
+| **B. 内联链接条** | `English · [简体中文](./README.zh-CN.md) · [日本語](./README.ja.md)` | lobehub, NextChat | 适合 ≥2 种语言 |
+| **C. 双竖线分隔** | `**\| [English](README_en.md) \| 简体中文 \| [Español](README_es.md) \|**` | StarRailCopilot | 视觉突出，加粗显示 |
+| **D. 语言导航面板** | 标题下方整个 `<p>` 区域含 20+ 种语言 | rustdesk | 适合国际化项目 >10 种语言 |
+| **E. 标题区双语描述** | 标题下方同时写中英两行描述 | palworld-server-tool | 双语在同一文件内 |
+| **F. Flag + 文字** | `[🇺🇸 English](./readme_en.md) \| [🇨🇳 中文](./readme_cn.md)` | 较少见但在增长 | 视觉直观 |
+
+**推荐策略**：
+- ≤3 种语言 → 模式 A/B（语言选择条）
+- 4-10 种语言 → 模式 C（竖线分隔）
+- >10 种语言 → 模式 D（导航面板）
+- 单文件双语 → 模式 E（适合不想分文件的场景，但内容注意 drift）
+
+### 快速链接导航栏
+
+标题区下方常见的导航模式（从 6+ 仓库观察）：
+
+```markdown
+<!-- 方式 1：纯链接列表 -->
+<a href="https://x.com/user">X / Twitter</a> • <a href="https://discord.gg/invite">Discord</a> • [Docs](https://docs.example.com)
+
+<!-- 方式 2：产品导航 -->
+[Website](url) · [Docs](url) · [Blog](url) · [Community](url)
+
+<!-- 方式 3：GitHub 内部导航 -->
+[Changelog](./CHANGELOG.md) · [Report Bug](issues-url) · [Request Feature](issues-url) · English · [中文](./README-zh_CN.md)
+```
 
 ### 结构
 

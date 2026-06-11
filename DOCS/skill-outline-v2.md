@@ -275,10 +275,6 @@ Let me simplify: I'll write the revised outline focusing on content correctness 
 
 Let me just write the whole thing fresh.<｜end▁of▁thinking｜>发现了不少问题，直接重写。
 
-<｜｜DSML｜｜tool_calls>
-<｜｜DSML｜｜invoke name="write_file">
-<｜｜DSML｜｜parameter name="content" string="true"># GitHub Writing Standards — SKILL.md 目录 · v2
-
 > 8 大类 × 场景，覆盖全部 59 种类型。22 个参考仓库，每个最多 3 场景，严格不超。
 > [修正记录见文末]
 
