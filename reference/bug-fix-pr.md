@@ -1,9 +1,9 @@
-# Bug Fix PR — 精细标准
+# Bug Fix PR — 完整版
 
 ## 适用场景
 修复 Bug 的 Pull Request，重点在根因分析和测试。
 
-## 精细标准（lodash, redux, immer）
+## 完整版（lodash, redux, immer）
 
 ### 结构
 1. **根因**：Bug 的根本原因，含代码位置
@@ -26,7 +26,7 @@
 - fix 模板聚焦最小化变更
 - 测试即文档：修改对应的测试用例说明行为变化
 
-## Bug Fix PR — 中等标准（neovim, terraform, helm）
+## Bug Fix PR — 普通版（neovim, terraform, helm）
 
 ### 结构
 1. **方案**（含 Fixes #）

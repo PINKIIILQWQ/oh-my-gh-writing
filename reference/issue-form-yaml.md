@@ -1,9 +1,9 @@
-# Issue Form YAML — 精细标准
+# Issue Form YAML — 完整版
 
 ## 适用场景
 用 YAML 定义 Issue 表单，引导贡献者规范填写。
 
-## 精细标准（vscode, nextjs, rails）
+## 完整版（vscode, nextjs, rails）
 
 ### 结构
 ```yaml
@@ -46,7 +46,7 @@ body:
 - 复选框 + 验证 + 关联版 type
 - 风格简洁但完整
 
-## Issue Form YAML — 中等标准（github/docs, home-assistant, terraform）
+## Issue Form YAML — 普通版（github/docs, home-assistant, terraform）
 
 ### 结构
 精简字段 + 必要验证

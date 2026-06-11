@@ -1,9 +1,9 @@
-# Feature PR — 精细标准
+# Feature PR — 完整版
 
 ## 适用场景
 提交新功能/特性的 Pull Request，需覆盖设计、实现、测试和升级。
 
-## 精细标准（kubernetes, react, django）
+## 完整版（kubernetes, react, django）
 
 ### 结构
 1. **动机**：为什么需要这个功能（关联 Issue #）
@@ -30,7 +30,7 @@
 - 描述 + Patch 说明 + 测试
 - Django committer 审查标准
 
-## Feature PR — 中等标准（storybook, apollo, grafana）
+## Feature PR — 普通版（storybook, apollo, grafana）
 
 ### 结构
 1. **动机**：关联 Issue

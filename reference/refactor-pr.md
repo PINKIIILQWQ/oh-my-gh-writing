@@ -1,9 +1,9 @@
-# Refactor PR — 精细标准
+# Refactor PR — 完整版
 
 ## 适用场景
 重构代码，不新增功能，不修 bug，只改进内部结构。
 
-## 精细标准（facebook/react, pandas-dev/pandas）
+## 完整版（facebook/react, pandas-dev/pandas）
 
 ### 结构
 1. **重构目标**：为什么要重构（可维护性/性能/安全性）
@@ -21,7 +21,7 @@
 - 重构含 API 兼容性说明
 - 测试覆盖确保行为不变
 
-## Refactor PR — 中等标准
+## Refactor PR — 普通版
 
 ### 结构
 目标 → 变更 → 测试 → 备注

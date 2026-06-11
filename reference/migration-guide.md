@@ -1,9 +1,9 @@
-# Migration Guide — 精细标准
+# Migration Guide — 完整版
 
 ## 适用场景
 引导用户从旧 API/版本迁移到新版本。
 
-## 精细标准（fluentui, pandas, gitlabhq）
+## 完整版（fluentui, pandas, gitlabhq）
 
 ### 结构
 1. **概览**：迁移范围 + 目标版本
@@ -28,7 +28,7 @@
 - 产品级迁移：从版本 A → B 的完整操作手册
 - 数据库迁移 + API 变更 + 配置变更
 
-## Migration Guide — 中等标准（reactjs/rfcs, react-spectrum, hugo）
+## Migration Guide — 普通版（reactjs/rfcs, react-spectrum, hugo）
 
 ### 结构
 旧 vs 新对比 → 迁移步骤

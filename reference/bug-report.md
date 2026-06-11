@@ -1,9 +1,9 @@
-# Bug Report — 精细标准
+# Bug Report — 完整版
 
 ## 适用场景
 提交 Bug 报告，要求可复现、环境完整的 Issue。
 
-## 精细标准（vscode, nextjs, tailwindcss）
+## 完整版（vscode, nextjs, tailwindcss）
 
 ### 结构
 1. **标题**：`[Component] 简短问题描述`，用前缀标记模块
@@ -32,7 +32,7 @@
 - 要求贴 Play CDN 链接
 - 不要求大段日志，聚焦配置等价
 
-## Bug Report — 中等标准（golang, electron, eslint）
+## Bug Report — 普通版（golang, electron, eslint）
 
 ### 结构
 1. **问题概述**（正文第一句）

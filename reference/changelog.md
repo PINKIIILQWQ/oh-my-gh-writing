@@ -1,9 +1,9 @@
-# CHANGELOG — 精细标准
+# CHANGELOG — 完整版
 
 ## 适用场景
 按版本记录变更日志，面向用户升级时查看。
 
-## 精细标准（electron, npm/cli, pandas）
+## 完整版（electron, npm/cli, pandas）
 
 ### 结构
 ```
@@ -28,7 +28,7 @@
 ### 参考仓库写法
 
 **electron/electron**
-- Keep a Changelog 最佳实践代表
+- [Keep a Changelog](https://keepachangelog.com/) 最佳实践代表
 - Breaking / Features / Fixes / Performance / Deprecation 严格分类
 - 每条变更带 PR # 引用
 
@@ -42,7 +42,7 @@
 - Deprecation 体系最完整（FutureWarning → 废弃时间线 → 移除）
 - 含贡献者致谢
 
-## CHANGELOG — 中等标准（eslint, graphql-js, prisma）
+## CHANGELOG — 普通版（eslint, graphql-js, prisma）
 
 ### 结构
 版本 + 日期 + 类型分类 + PR 引用

@@ -1,9 +1,9 @@
-# CONTRIBUTING — 精细标准
+# CONTRIBUTING — 完整版
 
 ## 适用场景
 规范外部贡献者如何参与项目，从 bug 报告到代码提交。
 
-## 精细标准（home-assistant, nodejs, angular）
+## 完整版（home-assistant, nodejs, angular）
 
 ### 结构
 1. **欢迎语**（项目理念 + 行为准则链接）
@@ -32,7 +32,7 @@
 - PR 类型（fix/feat/docs/refactor）表达清楚
 - 含 Dev Guide + 调试指南
 
-## CONTRIBUTING — 中等标准（electron, django, github/docs）
+## CONTRIBUTING — 普通版（electron, django, github/docs）
 
 ### 结构
 PR 流程→代码风格→开发环境

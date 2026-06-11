@@ -1,9 +1,9 @@
-# RFC — 精细标准
+# RFC — 完整版
 
 ## 适用场景
 提出重大功能或设计变更，需要社区讨论和决策。
 
-## 精细标准（reactjs/rfcs, rust-lang/rfcs, kubernetes/enhancements）
+## 完整版（reactjs/rfcs, rust-lang/rfcs, kubernetes/enhancements）
 
 ### 结构
 1. **摘要**（1-2 句提案核心）
@@ -30,7 +30,7 @@
 - 含：生产风险评估 + 测试计划 + 毕业标准
 - 迭代审查制（Provisional → Implementable → Implemented）
 
-## RFC — 中等标准（prometheus, rust-lang/rust, nixpkgs）
+## RFC — 普通版（prometheus, rust-lang/rust, nixpkgs）
 
 ### 结构
 问题 → 方案 → 讨论

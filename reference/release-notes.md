@@ -1,9 +1,9 @@
-# Release Notes — 精细标准
+# Release Notes — 完整版
 
 ## 适用场景
 版本发布公告，面向用户介绍新版本。
 
-## 精细标准（astro, npm/cli, svelte）
+## 完整版（astro, npm/cli, svelte）
 
 ### 结构
 1. **版本标签**（`v2.0.0` + 发布日期）
@@ -28,7 +28,7 @@
 - 公告式 release：版本亮点 → 新特性详情 → Breaking → 迁移
 - 配代码对比（before/after）
 
-## Release Notes — 中等标准（buf, bun, deno）
+## Release Notes — 普通版（buf, bun, deno）
 
 ### 结构
 版本 + 主要变更列表 + 链接

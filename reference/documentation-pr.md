@@ -1,9 +1,9 @@
-# Documentation PR — 精细标准
+# Documentation PR — 完整版
 
 ## 适用场景
 纯文档变更，无代码改动。
 
-## 精细标准（home-assistant/core, vercel/nextjs）
+## 完整版（home-assistant/core, vercel/nextjs）
 
 ### 结构
 1. **原文位置**：改了哪个文档的哪个部分
@@ -21,7 +21,7 @@
 - 文档 PR 含预览链接
 - 片段确认机制
 
-## Documentation PR — 中等标准
+## Documentation PR — 普通版
 
 ### 结构
 原文 → 改后 → 截图（可选）
