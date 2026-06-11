@@ -5,7 +5,7 @@ description: GitHub 写作规范 — Issue/PR/Review/Commit/文档/发布/设计
 
 # oh-my-gh-writing
 
-GitHub 写作规范技能。覆盖 8 大类 14 场景，每场景 6 个高质仓库参考（跨场景 ≤3 次复用），每场景分精细/中等 2 级。参考仓库共 50 个。
+GitHub 写作规范技能。覆盖 8 大类 18 场景，每场景分精细/中等 2 级，3 个参考仓库写写法详解，另配 3 个中等参考。每仓库 ≤3 场景复用。
 
 ---
 
@@ -15,8 +15,12 @@ GitHub 写作规范技能。覆盖 8 大类 14 场景，每场景 6 个高质仓
 |------|------|---------|---------|---------|
 | Issue | Bug Report | vscode, nextjs, tailwindcss | golang, electron, eslint | `reference/bug-report.md` |
 | Issue | Feature Request | angular, typescript, rails | svelte, nuxt, babel | `reference/feature-request.md` |
+| Issue | Enhancement | pandas, prettier | — | `reference/enhancement.md` |
+| Issue | Discussion | rails, eslint | — | `reference/discussion.md` |
 | PR | Feature PR | kubernetes, react, django | storybook, apollo, grafana | `reference/feature-pr.md` |
 | PR | Bug Fix PR | lodash, redux, immer | neovim, terraform, helm | `reference/bug-fix-pr.md` |
+| PR | Refactor PR | react, pandas | — | `reference/refactor-pr.md` |
+| PR | Documentation PR | home-assistant, nextjs | — | `reference/documentation-pr.md` |
 | Review | Code Review | linux, golang, rust | rails, django, kubernetes | `reference/code-review.md` |
 | Commit | Standard Commit | angular, linux, nodejs | react, golang, gitea | `reference/standard-commit.md` |
 | 文档 | README | vscode, nextjs, tailwindcss | deno, supabase, github/docs | `reference/readme.md` |
@@ -65,6 +69,22 @@ YAML 表单式：描述→重现步骤→预期行为→实际行为→环境（
 **中等版（svelte/nuxt/babel）**
 问题→期望→备选。svelte 的 feature 请求最简洁：一句话问题 + 你希望的写法 + 现在的 workaround。
 
+### Enhancement
+
+**精细版（pandas, prettier）**
+当前限制→改进效果（含 before/after 代码对比）→兼容性分析。pandas 的 enhancement 模板最系统——当前行为 vs 期望行为 + FutureWarning 过渡方案。
+
+**中等版**
+当前限制 → 改进效果 → 示例。省略兼容性分析，但含 before/after。
+
+### Discussion
+
+**精细版（rails, eslint）**
+背景→动机→方案对比（表格形式各方案优缺点）→征求意见。rails 的 Discussion 模板是标杆，结构完整但保持开放式风格。
+
+**中等版**
+背景 → 问题列表 → 讨论。省略方案对比表格。
+
 ### Feature PR
 
 **精细版（kubernetes/react/django）**
@@ -82,6 +102,22 @@ YAML 表单式：描述→重现步骤→预期行为→实际行为→环境（
 
 **中等版（neovim/terraform/helm）**
 方案→Fixes #→测试。neovim 的 fix PR 模板突出测试引用。
+
+### Refactor PR
+
+**精细版（react, pandas）**
+重构目标→不变量说明→before-after 代码对比→测试覆盖。react 的重构 PR 标杆：性能对比 + 内部架构变更说明。pandas 侧重 API 兼容性证明。
+
+**中等版**
+目标 → 变更 → 测试 → 备注。省略 before-after 性能对比。
+
+### Documentation PR
+
+**精细版（home-assistant, nextjs）**
+原文位置→原文 vs 改后→截图预览（UI 类）→无代码改动声明。home-assistant 的文档 PR 强制截图验证。
+
+**中等版**
+原文 → 改后 → 截图（可选）。省略无代码改动声明。
 
 ### Code Review
 
