@@ -1,8 +1,26 @@
-# OS files
+# OS
 .DS_Store
 Thumbs.db
+*.swp
+*.swo
+*~
 
-# No raw binaries or large files
-*.zip
-*.tar.gz
-*.dmg
+# Editor
+.idea/
+.vscode/
+*.sublime-*
+
+# Build
+node_modules/
+dist/
+build/
+*.log
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# GitHub template cache — we pull raw content, not clone repos
+.tmp/
