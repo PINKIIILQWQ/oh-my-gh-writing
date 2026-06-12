@@ -10,12 +10,13 @@ Use this skill to produce GitHub-ready writing for common collaboration workflow
 ## Workflow
 
 1. Identify the scenario from the user's request.
-2. If the task is to write or revise a README, confirm the delivery mode before drafting when it is not already explicit: either provide a local markdown draft for review or a chat-only draft. Do not perform a GitHub upload or push as the first pass.
-3. Even when source code is available, do not skip the confirmation step above for README work unless the user has already explicitly chosen the delivery mode.
-4. Read the matching `reference/*.md` file before writing the final output.
-5. Read [`reference/weapons.md`](./reference/weapons.md) only when badges, alerts, collapsible logs, Mermaid, tables, or other formatting tools are needed.
-6. Read [`INDEX.md`](./INDEX.md) only for full repository navigation or maintenance work.
-7. When the user asks for real-world examples, case studies, or reference projects for a scenario, read the matching file in [`案例/`](./案例/) after loading the scenario reference.
+2. Estimate whether the artifact is short-form or long-form. If the expected artifact is likely to exceed about 120 lines, 4,000 Chinese characters, or 2,500 English words, ask a brief scope question first unless the user explicitly asks for a one-shot draft.
+3. If the task is to write or revise a README, confirm the delivery mode before drafting when it is not already explicit: local markdown draft, chat-only draft, or remote repository update after review. Do not perform a GitHub upload or push as the first pass.
+4. Even when source code is available, do not skip the confirmation step above for README work unless the user has already explicitly chosen the delivery mode.
+5. Read the matching `reference/*.md` file before writing the final output.
+6. Read [`reference/weapons.md`](./reference/weapons.md) only when badges, alerts, collapsible logs, Mermaid, tables, emoji, Star History, or other formatting tools are needed.
+7. Read [`INDEX.md`](./INDEX.md) only for full repository navigation or maintenance work.
+8. When the user asks for real-world examples, case studies, or reference projects for a scenario, read the matching file in [`案例/`](./案例/) after loading the scenario reference.
 
 Do not load every reference file for a normal writing request. Do not expose reference-project analysis in user-facing output unless the user explicitly asks for rationale or sources. Do not add test-gallery metadata such as `scenario`, `case-sources`, or `input-prompt` unless the task explicitly asks for a test output gallery.
 
@@ -58,6 +59,7 @@ Do not load every reference file for a normal writing request. Do not expose ref
 12. For templates and YAML, separate display wrappers from file content. In chat, use headings plus fenced blocks when multiple files are requested; when editing or generating a single target file, produce valid file content without explanatory wrappers.
 13. For current tool, agent, platform, API, or installation support claims, verify availability in official documentation before writing the claim or example. Link the official source when the output includes a support matrix or install guide.
 14. For README drafting, keep the first response as a draft or a clarification step; only upload or push after the user explicitly approves the content and delivery path.
+15. Use follow-up questions as a scope-control tool, not as a questionnaire. Ask at most three questions before drafting; choose defaults for low-risk style choices and state them briefly.
 
 ## README Guardrails
 
@@ -65,6 +67,7 @@ When the scenario is README, follow `reference/readme.md` and apply these extra 
 
 - Treat the README as a public entry page, not a dump of every internal file.
 - Before producing or editing a README from source code, confirm whether the user wants a local markdown draft, a chat-only draft, or a remote repository update. Do not assume upload is authorized because source code is available.
+- For long README work, ask up to three option questions before drafting when choices are not obvious: delivery path, audience/tone, and optional visual elements such as badges, emoji, screenshots, or Star History.
 - For skill repositories, explain that the project is a portable writing skill, not a standalone app, README generator, or GitHub integration.
 - Keep runtime files focused: `SKILL.md` and `reference/` define behavior; `案例/` is supporting material for examples and calibration, not the primary runtime source.
 - Use badges only when they answer a real reader question and link to evidence.
@@ -76,7 +79,7 @@ When the scenario is README, follow `reference/readme.md` and apply these extra 
 
 ## Missing Information
 
-Ask a short follow-up only when a required choice cannot be inferred safely, such as target package name, release version, or whether a breaking change is intended. Otherwise:
+Ask a short follow-up only when a required choice cannot be inferred safely, such as target package name, release version, whether a breaking change is intended, or a long-form scope/style choice that would change the artifact structure. Otherwise:
 
 - Use `TBD` or `TODO` for specific missing values.
 - State assumptions briefly.

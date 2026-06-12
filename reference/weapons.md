@@ -51,7 +51,7 @@ Badge 使用规则：
 - 静态徽章可以表达项目载体或范围，例如 `format-SKILL.md`、`18 scenarios`，但也要链接到对应文件。
 - 默认 3 到 6 个。更多徽章应分组或移到后文。
 - 同一 README 内保持 style、大小写和颜色强度一致。
-- 不默认添加访问量、Star History、GitHub stats、贡献图或 profile 卡片。
+- 不默认添加访问量、Star History、GitHub stats、贡献图或 profile 卡片。新增这些视觉组件前先问用户；更新 README 中已有的 Star History 链接时，可直接按当前仓库 `owner/repo` 修正。
 
 延伸参考：[pudding0503/github-badge-collection](https://github.com/pudding0503/github-badge-collection) 可用于查找 badge、卡片和 GitHub 视觉素材；使用具体素材前先核验来源和可用性。
 
@@ -109,6 +109,8 @@ def hello():
 :wrench: → 🔧
 ```
 GitHub 自动渲染，常用在标题或摘要。完整列表：[gist markdown-emoji](https://gist.github.com/rxaviers/7360908)。
+
+README 默认不使用 emoji。只有用户要求、仓库已有风格如此，或项目明显偏社区/产品/教学型时才少量使用。不要给每个标题机械加 emoji；文档型、库、基础设施和企业工具默认保持克制。
 
 ## 使用建议
 

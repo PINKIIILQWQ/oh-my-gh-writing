@@ -4,6 +4,7 @@
 
 - [适用场景](#适用场景)
 - [写前检查](#写前检查)
+- [询问触发](#询问触发)
 - [核心原则](#核心原则)
 - [标准结构](#标准结构)
 - [Skill 仓库规则](#skill-仓库规则)
@@ -11,6 +12,8 @@
 - [中英双语](#中英双语)
 - [双语文件策略](#双语文件策略)
 - [徽章规则](#徽章规则)
+- [Emoji 和视觉组件](#emoji-和视觉组件)
+- [Star History](#star-history)
 - [安装和快速开始](#安装和快速开始)
 - [不应出现在公开 README](#不应出现在公开-readme)
 - [Checklist](#checklist)
@@ -30,8 +33,29 @@
 4. 区分公开用户材料和维护材料。内部过程记录默认不放进公开首页。
 5. 保留已有风格：语言、标题层级、徽章风格、链接格式和命令写法。
 6. 在开始写正文前，先确认交付方式：是给本地 markdown 草稿、只在对话里给草稿，还是在用户确认后再更新远端仓库。没有明确授权时，不要直接上传或 push。
+7. 估计输出规模。预计超过 120 行、4000 个中文字符或 2500 个英文词时，先用 1 到 3 个问题收敛范围；用户明确要求“一次性直接写”时可以继续，但要说明默认取舍。
 
 除非缺少无法推断的关键信息，不要先问一串问题。先给可用草稿，并把不确定项标为 `TODO` 或“替换为你的仓库 URL”。但如果交付方式未明确，必须先确认这一点，再继续写。
+
+## 询问触发
+
+README 有些选择会显著改变最终效果，不能全靠 agent 猜。触发条件和默认值如下：
+
+| 触发条件 | 先问什么 | 默认值 |
+|----------|----------|--------|
+| 交付路径不明确 | 本地 markdown 草稿、对话草稿，还是看过后再更新远端 | 本地或对话草稿，不直接 push |
+| 预计长 README | 读者是谁、要偏简洁还是完整、是否保留高级视觉组件 | 完整但克制，避免营销化 |
+| 仓库定位不清 | 库 / CLI / 应用 / 文档站 / skill / 模板 | 先按代码和入口文件判断，不确定处标 `TODO` |
+| 要加入 emoji、动图、截图、Star History、贡献图 | 是否真的需要这些视觉元素 | 默认不加 |
+| 要更新旧仓库 README | 是否保留原有风格，是否更新陈旧外链、徽章和 Star History | 保留风格，只修正失效或过时内容 |
+
+每次最多先问 3 个问题。推荐问题顺序：
+
+1. 交付方式：写成本地文件、只给草稿，还是等你确认后再更新远端？
+2. 风格：偏文档型克制，还是偏社区/产品型活泼？
+3. 视觉：是否允许使用 emoji、徽章、截图或 Star History？
+
+如果用户明确说“直接写”“别问”“按你判断”，就不要阻塞；使用默认值，并在草稿中避免不可证实和高维护成本的内容。
 
 ## 核心原则
 
@@ -164,6 +188,54 @@
 
 `pudding0503/github-badge-collection` 可作为徽章、卡片和 GitHub Markdown 视觉素材的发现入口；使用其中任何具体素材、图片或大段示例时，应保留来源链接，并重新核验服务是否仍可用。
 
+## Emoji 和视觉组件
+
+README 默认不加 emoji。只有在项目风格、用户要求或现有 README 已经使用 emoji 时才加入，并保持少量、稳定、语义明确。
+
+推荐规则：
+
+- 文档型、库、基础设施、企业工具：默认不用 emoji，或只在小节标题中极少量使用。
+- 社区项目、个人工具、学习型项目、产品型首页：可询问是否使用少量 emoji 增强导航。
+- 不在每个标题前机械加 emoji；不要用 emoji 替代准确标题。
+- 不使用动图、贡献图、统计卡片、profile 卡片来填充首屏。
+- 截图、logo、架构图必须来自仓库、用户提供素材或明确授权的外部来源；没有素材时写 `TODO: add screenshot`，不要编造图片链接。
+
+如果用户要求可选方案，可以给两个 README 风格方向：
+
+| 方向 | 适用 |
+|------|------|
+| 文档型 | 克制标题、少徽章、无 emoji、强调安装和 API |
+| 社区型 | 少量 emoji、徽章分组、截图或 Star History 作为辅助 |
+
+## Star History
+
+Star History 默认不加入 README。它适合展示成熟开源项目的长期采用趋势，不适合新项目、私有测试仓库、低 star 仓库、内部工具或严肃的 API 文档首屏。
+
+使用前先确认：
+
+- 仓库是公开 GitHub 仓库。
+- 用户确实想展示增长趋势，而不是只需要当前 star 数。
+- 图表不会挤占 Quick Start、安装方式和核心说明。
+- 目标 README 已经有 Star History 时，优先更新现有图表，不新增重复区块。
+
+更新方式：
+
+1. 读取现有 README，搜索 `star-history.com`、`api.star-history.com` 或 `Star History`。
+2. 如果只是仓库迁移或 owner/repo 变化，替换 URL 中的 `owner/repo`，并保留原有位置和标题风格。
+3. 如果原 README 没有 Star History，先询问用户是否添加；默认不添加。
+4. 生成图表时优先使用 Star History 官方导出的 README 片段；不要手写未经验证的复杂 `<picture>`。
+5. 不需要用户手动打开网页才能更新已有链接；只有当需要官方导出深浅色 `<picture>`、多仓库比较、log scale、timeline mode 或访问 token 绕过速率限制时，才让用户在浏览器里导出片段或提供设置。
+
+常见占位写法：
+
+```markdown
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=owner/repo&type=Date)](https://star-history.com/#owner/repo&Date)
+```
+
+如果使用 Star History，应链接到 Star History 页面，而不是只嵌图片。
+
 ## 安装和快速开始
 
 Quick Start 必须可执行或明确说明需要替换什么。
@@ -204,11 +276,13 @@ git clone <repo-url> <project-name>
 
 - [ ] 首屏有项目名、一句话定位和语言切换（如需要双语）。
 - [ ] 顶部视觉顺序是标题优先；logo 或主图标在标题下方，尺寸适中。
+- [ ] 超过长文阈值时已先收敛交付方式、风格和视觉组件，或已说明默认取舍。
 - [ ] 长双语 README 使用独立语言文件，没有把完整中文和完整英文堆在同一个文件里。
 - [ ] Quick Start 可复制，或占位符已明确解释。
 - [ ] 已先确认交付方式；默认先给草稿，不直接上传远端仓库。
 - [ ] README 没有暴露内部参考项目列表、维护规则或内部验证报告正文。
 - [ ] 徽章都能链接到真实证据。
+- [ ] Emoji、截图、Star History、贡献图等视觉组件有明确用途；默认不把它们作为填充内容。
 - [ ] 跨 agent 安装说明已区分直接安装和改写导入，并有图标、支持方式和具体步骤。
 - [ ] Agent、平台、API 或安装支持结论已查官方文档，示例命令没有把交互命令误写成终端命令。
 - [ ] 文件定位只列用户真正需要的入口。
@@ -222,6 +296,7 @@ git clone <repo-url> <project-name>
 |------|------|
 | GitHub README 指南 | https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes |
 | shields.io | https://shields.io |
+| Star History 使用说明 | https://www.star-history.com/blog/how-to-use-github-star-history |
 | GitHub Badge Collection | https://github.com/pudding0503/github-badge-collection |
 | vscode README | https://github.com/microsoft/vscode |
 | nextjs README | https://github.com/vercel/next.js |

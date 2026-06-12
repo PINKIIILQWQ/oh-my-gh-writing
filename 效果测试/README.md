@@ -96,15 +96,18 @@ cat 效果测试/outputs/01/output.md
 请直接使用 oh-my-gh-writing 的 README 场景做一次深测。
 
 目标：
-1. 选择一个真实开源 CLI 仓库作为目标仓库，优先 Rust/Go/Node CLI。
-2. 读取目标仓库的 README、LICENSE、包配置文件、入口命令、docs/examples 和 `.github/` 中有助于判断项目定位的文件。
-3. 再读取 3 个同类真实 CLI 仓库 README，只借鉴结构和信息层级，不复制项目事实。
-4. 根据 oh-my-gh-writing 的 README 标准，重写一份可直接放进目标仓库的 README 草稿。
-5. 把结果写入 效果测试/outputs/11/output.md。
-6. 输出中只能包含目标仓库可证实的功能、安装方式、命令、平台支持、许可证和链接。
-7. 不要虚构 Homebrew/npm/cargo install、release asset、CI、benchmark、Star、截图或路线图。
-8. 在最终回复中列出目标仓库和 3 个参考仓库链接，不要把来源清单写进 output.md。
-9. 完成后运行 git diff --check。
+1. 先读取当前仓库的 SKILL.md 和 reference/readme.md。
+2. 选择一个真实开源 CLI 仓库作为目标仓库，优先 Rust/Go/Node CLI。
+3. 在正式写 output.md 前，按照 README 场景规则先问我最多 3 个问题，至少覆盖：交付方式、README 风格、是否允许 emoji / Star History / 截图等视觉组件。
+4. 我回答后，再读取目标仓库的 README、LICENSE、包配置文件、入口命令、docs/examples 和 `.github/` 中有助于判断项目定位的文件。
+5. 再读取 3 个同类真实 CLI 仓库 README，只借鉴结构和信息层级，不复制项目事实。
+6. 根据 oh-my-gh-writing 的 README 标准，重写一份可直接放进目标仓库的 README 草稿。
+7. 把结果写入 效果测试/outputs/11/output.md。
+8. 输出中只能包含目标仓库可证实的功能、安装方式、命令、平台支持、许可证和链接。
+9. 不要虚构 Homebrew/npm/cargo install、release asset、CI、benchmark、Star、截图或路线图。
+10. 如果我允许 Star History，只能在目标仓库公开且有明确用途时添加；否则保持不添加。
+11. 在最终回复中列出目标仓库和 3 个参考仓库链接，不要把来源清单写进 output.md。
+12. 完成后运行 git diff --check。
 ```
 
 ### 全量回归
@@ -123,6 +126,7 @@ cat 效果测试/outputs/01/output.md
 4. 每个 prompt 只生成一个标准输出，写入 效果测试/outputs/<编号>/output.md。
 5. 按 效果测试/README.md 的“证据分层”获取上下文：
    - README 必须读取一个目标真实仓库，并读取 2-3 个同类真实仓库 README 作为结构参考。
+   - README 预计会超过长文阈值时，先问最多 3 个选项问题，再写 output.md。
    - Code Review 必须读取真实 PR diff 或用户贴出的代码；没有 diff 就不要编造行级问题。
    - CONTRIBUTING、Issue Form、PR Template 必须读取目标仓库配置或同类仓库模板。
    - CHANGELOG、Release Notes、Migration Guide、RFC 必须读取真实 release/tag/docs/prior art 或案例来源。
