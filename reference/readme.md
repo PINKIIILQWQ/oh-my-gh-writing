@@ -42,6 +42,7 @@
 - **少即是准**：不要因为仓库里存在某个目录就把它放进 README。只链接读者下一步确实需要的入口。
 - **引用内收**：链接是补充，不应代替关键信息。关键行为、安装方式和限制必须写在正文。
 - **双语同步**：要求双语时，两种语言的结构、链接和命令保持一致；长 README 默认拆成两个文件。
+- **官方核验**：涉及当前 agent、平台、API、安装方式或使用案例是否可用时，先查官方文档，再写支持结论和示例命令。
 
 ## 完整版结构
 
@@ -87,6 +88,8 @@
 
 当 skill 仓库 README 需要说明多个 agent 的接入方式时，优先使用支持矩阵，而不是把所有命令堆在 “Other Agents” 小节。
 
+每一行支持结论都必须来自目标 Agent 的官方文档或官方仓库说明。不要根据社区文章、旧经验、工具名称相似性或“应该兼容”来判断是否支持；如果官方文档没有确认，就写成“需要改写”或“待官方确认”。
+
 矩阵应包含：
 
 | 列 | 写法 |
@@ -102,6 +105,7 @@
 - **需要改写**：目标工具没有原生 skill 目录，或不能按本仓库结构渐进读取引用文件。把 `SKILL.md` 的路由规则改写进它的原生入口，例如 `.cursor/rules/*.mdc`、`.github/copilot-instructions.md`、`.github/instructions/*.instructions.md` 或通用 `AGENTS.md`。
 - README 声称跨 agent 支持时，必须至少给一个直接安装示例和一个改写导入示例。
 - 单文件 URL 安装只适合 `SKILL.md` 自包含或目标工具能继续读取 sidecar 资源的场景；如果 skill 依赖 `reference/`，要提供完整文件夹安装路径作为 fallback。
+- 每个示例命令必须与官方文档中的命令入口一致。例如有些工具的本地链接命令只在交互会话里可用，不应写成终端命令。
 
 示例矩阵：
 
@@ -109,7 +113,7 @@
 | Agent | 支持方式 | 如何接入 |
 |-------|----------|----------|
 | Hermes Agent | 直接安装 `SKILL.md` URL 或 skill 文件夹 | `hermes skills install <raw-skill-url> --name <skill-name>`；需要引用文件时安装完整文件夹 |
-| Gemini CLI | 直接安装 skill 仓库或本地文件夹 | `gemini skills install <repo-url>` 或 `gemini skills link <path>` |
+| Gemini CLI | 直接安装 skill 仓库或本地文件夹 | `gemini skills install <repo-url>`；本地链接在会话内使用 `/skills link <path>` |
 | Cursor | 需要改写为 Project Rules | 把入口规则写入 `.cursor/rules/<skill-name>.mdc`，并复制需要的 `reference/` |
 ```
 
@@ -163,8 +167,8 @@ Quick Start 必须可执行或明确说明需要替换什么。
 
 ```markdown
 # In a local checkout of this repository
-mkdir -p "${CODEX_HOME:-$HOME/.codex}/skills"
-ln -sfn "$PWD" "${CODEX_HOME:-$HOME/.codex}/skills/<skill-name>"
+mkdir -p "$HOME/.agents/skills"
+ln -sfn "$PWD" "$HOME/.agents/skills/<skill-name>"
 ```
 
 如果必须使用占位符，先说明：
@@ -193,6 +197,7 @@ git clone <repo-url> <project-name>
 - [ ] README 没有暴露内部参考项目列表、维护规则或测试报告正文。
 - [ ] 徽章都能链接到真实证据。
 - [ ] 跨 agent 安装说明已区分直接安装和改写导入，并有图标、支持方式和具体步骤。
+- [ ] Agent、平台、API 或安装支持结论已查官方文档，示例命令没有把交互命令误写成终端命令。
 - [ ] 文件定位只列用户真正需要的入口。
 - [ ] 对 skill 项目，清楚区分 `SKILL.md`、`reference/`、`DOCS/` 和 `test/`。
 - [ ] 中英文结构和命令一致。

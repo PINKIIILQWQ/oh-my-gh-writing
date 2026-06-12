@@ -31,8 +31,8 @@
 先克隆本仓库或你的 fork，然后在仓库根目录执行：
 
 ```bash
-mkdir -p "${CODEX_HOME:-$HOME/.codex}/skills"
-ln -sfn "$PWD" "${CODEX_HOME:-$HOME/.codex}/skills/oh-my-gh-writing"
+mkdir -p "$HOME/.agents/skills"
+ln -sfn "$PWD" "$HOME/.agents/skills/oh-my-gh-writing"
 ```
 
 重启 Codex 后，可以这样使用：
@@ -47,12 +47,14 @@ ln -sfn "$PWD" "${CODEX_HOME:-$HOME/.codex}/skills/oh-my-gh-writing"
 
 ### Agent 支持矩阵
 
+支持方式按各 Agent 官方文档核对，Agent 名称链接到对应文档。新增或更新接入案例时，不要凭经验判断是否可用，先查官方文档再写结论。
+
 | 图标 | Agent | 支持方式 | 如何接入 |
 |------|-------|----------|----------|
-| <img src="https://icons.duckduckgo.com/ip3/openai.com.ico" width="18" alt="Codex"> | [Codex](https://developers.openai.com/codex/skills) | 直接安装 skill 文件夹 | 将本仓库放到 `${CODEX_HOME:-$HOME/.codex}/skills/oh-my-gh-writing`，保留 `SKILL.md` 和 `reference/` |
+| <img src="https://icons.duckduckgo.com/ip3/openai.com.ico" width="18" alt="Codex"> | [Codex](https://developers.openai.com/codex/skills) | 直接安装 skill 文件夹 | 将本仓库放到 `$HOME/.agents/skills/oh-my-gh-writing` 或仓库内 `.agents/skills/oh-my-gh-writing`，保留 `SKILL.md` 和 `reference/` |
 | <img src="https://icons.duckduckgo.com/ip3/hermes-agent.nousresearch.com.ico" width="18" alt="Hermes Agent"> | [Hermes Agent](https://hermes-agent.nousresearch.com/docs/guides/work-with-skills) | 直接安装 `SKILL.md` URL 或 skill 文件夹 | 用 `hermes skills install` 安装；需要完整场景标准时，确保 `reference/` 也在 skill 目录里 |
 | <img src="https://icons.duckduckgo.com/ip3/claude.ai.ico" width="18" alt="Claude Code"> | [Claude Code](https://code.claude.com/docs/en/skills) | 直接安装 skill 文件夹 | 将本仓库链接到 `~/.claude/skills/oh-my-gh-writing` 或项目内 `.claude/skills/oh-my-gh-writing` |
-| <img src="https://icons.duckduckgo.com/ip3/gemini.google.com.ico" width="18" alt="Gemini CLI"> | [Gemini CLI](https://geminicli.com/docs/cli/skills/) | 直接安装 skill 仓库或本地文件夹 | 用 `gemini skills install <repo-url>` 安装；本地开发时用 `gemini skills link "$PWD"` |
+| <img src="https://icons.duckduckgo.com/ip3/gemini.google.com.ico" width="18" alt="Gemini CLI"> | [Gemini CLI](https://geminicli.com/docs/cli/skills/) | 直接安装 skill 仓库或本地文件夹 | 用 `gemini skills install <repo-url>` 安装；本地开发时在 Gemini 会话中用 `/skills link "$PWD"` |
 | <img src="https://icons.duckduckgo.com/ip3/cursor.com.ico" width="18" alt="Cursor"> | [Cursor](https://cursor.com/docs/rules) | 需要改写为 Project Rules | 把 `SKILL.md` 的工作流和需要的 `reference/*.md` 摘要改写到 `.cursor/rules/oh-my-gh-writing.mdc` |
 | <img src="https://icons.duckduckgo.com/ip3/github.com.ico" width="18" alt="GitHub Copilot"> | [GitHub Copilot](https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-repository-instructions) | 需要改写为自定义指令 | 把核心原则写入 `.github/copilot-instructions.md`，按场景拆分时使用 `.github/instructions/*.instructions.md` |
 

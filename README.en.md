@@ -31,8 +31,8 @@ It is not a README generator or a GitHub App. The project works as a portable wr
 Clone this repository or your fork first, then run this from the repository root:
 
 ```bash
-mkdir -p "${CODEX_HOME:-$HOME/.codex}/skills"
-ln -sfn "$PWD" "${CODEX_HOME:-$HOME/.codex}/skills/oh-my-gh-writing"
+mkdir -p "$HOME/.agents/skills"
+ln -sfn "$PWD" "$HOME/.agents/skills/oh-my-gh-writing"
 ```
 
 After restarting Codex, use prompts like:
@@ -47,12 +47,14 @@ Use oh-my-gh-writing to write a README for a Rust CLI tool.
 
 ### Agent Support Matrix
 
+Support levels are checked against each agent's official documentation; each agent name links to the relevant docs. When adding or revising a use case, verify availability from official docs before writing the support claim.
+
 | Icon | Agent | Support | How to connect it |
 |------|-------|---------|-------------------|
-| <img src="https://icons.duckduckgo.com/ip3/openai.com.ico" width="18" alt="Codex"> | [Codex](https://developers.openai.com/codex/skills) | Direct skill folder install | Put this repository at `${CODEX_HOME:-$HOME/.codex}/skills/oh-my-gh-writing`, keeping both `SKILL.md` and `reference/` |
+| <img src="https://icons.duckduckgo.com/ip3/openai.com.ico" width="18" alt="Codex"> | [Codex](https://developers.openai.com/codex/skills) | Direct skill folder install | Put this repository at `$HOME/.agents/skills/oh-my-gh-writing` or repo-local `.agents/skills/oh-my-gh-writing`, keeping both `SKILL.md` and `reference/` |
 | <img src="https://icons.duckduckgo.com/ip3/hermes-agent.nousresearch.com.ico" width="18" alt="Hermes Agent"> | [Hermes Agent](https://hermes-agent.nousresearch.com/docs/guides/work-with-skills) | Direct `SKILL.md` URL or skill folder install | Use `hermes skills install`; when full scenario rules are needed, make sure `reference/` is available inside the skill directory |
 | <img src="https://icons.duckduckgo.com/ip3/claude.ai.ico" width="18" alt="Claude Code"> | [Claude Code](https://code.claude.com/docs/en/skills) | Direct skill folder install | Link this repository to `~/.claude/skills/oh-my-gh-writing` or project-local `.claude/skills/oh-my-gh-writing` |
-| <img src="https://icons.duckduckgo.com/ip3/gemini.google.com.ico" width="18" alt="Gemini CLI"> | [Gemini CLI](https://geminicli.com/docs/cli/skills/) | Direct skill repository or local folder install | Use `gemini skills install <repo-url>`; for local development, use `gemini skills link "$PWD"` |
+| <img src="https://icons.duckduckgo.com/ip3/gemini.google.com.ico" width="18" alt="Gemini CLI"> | [Gemini CLI](https://geminicli.com/docs/cli/skills/) | Direct skill repository or local folder install | Use `gemini skills install <repo-url>`; for local development, use `/skills link "$PWD"` inside a Gemini session |
 | <img src="https://icons.duckduckgo.com/ip3/cursor.com.ico" width="18" alt="Cursor"> | [Cursor](https://cursor.com/docs/rules) | Adapt into Project Rules | Rewrite the `SKILL.md` workflow and the needed `reference/*.md` summaries into `.cursor/rules/oh-my-gh-writing.mdc` |
 | <img src="https://icons.duckduckgo.com/ip3/github.com.ico" width="18" alt="GitHub Copilot"> | [GitHub Copilot](https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-repository-instructions) | Adapt into custom instructions | Put the core rules in `.github/copilot-instructions.md`; split scenario-specific rules into `.github/instructions/*.instructions.md` when needed |
 

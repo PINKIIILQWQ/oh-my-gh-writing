@@ -50,6 +50,7 @@ Do not load every reference file for a normal request. Do not expose reference-p
 5. Record reproducible context: versions, platform, environment, affected commands, expected behavior, actual behavior, and tests where relevant.
 6. Use concise, neutral language. Prefer precise impact and verification over persuasion.
 7. Do not invent CI status, versions, compatibility, benchmarks, screenshots, or links. If evidence is unavailable, omit the claim or label it as a placeholder.
+8. For current tool, agent, platform, API, or installation support claims, verify availability in official documentation before writing the claim or example. Link the official source when the output includes a support matrix or install guide.
 
 ## README Guardrails
 
@@ -63,6 +64,7 @@ When the scenario is README, follow `reference/readme.md` and apply these extra 
 - If bilingual README content is requested, prefer separate files for non-trivial documents, such as `README.md` plus `README.en.md`. Do not stack a full Chinese README above a full English README in the same file.
 - For skill repository install docs, separate agents that can load `SKILL.md` or a skill folder directly from agents that require adaptation into native rule, instruction, or command files. Include an icon/name, support level, and exact next step for each listed agent.
 - Include at least one direct-install example and one adapted-import example when the README claims cross-agent support.
+- Base every agent support row and install example on current official docs. Do not infer that an agent can load this skill format merely because it supports prompts, rules, custom instructions, or another vendor's skill system.
 
 ## Missing Information
 
