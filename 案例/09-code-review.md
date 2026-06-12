@@ -2,136 +2,44 @@
 
 ---
 
-## 精细版（详尽审查指南）
+## 精细版
 
 ### 案例 1：google/eng-practices (20.5k⭐)
 
-**来源：** https://github.com/google/eng-practices
+**黄金法则：** CL 提升整体代码健康即应批准，即使不完美。
 
-Google 官方代码审查指南，三篇核心文档：
+**What to Look For:**
+1. Design — 交互合理？
+2. Functionality — 做了预期的事？
+3. Complexity — 能快速理解？
+4. Tests — 正确有用？
+5. Naming — 名称清晰？
+6. Comments — 解释"为什么"
+7. Style — 与指南一致
+8. Documentation — 是否更新
 
-#### The Standard of Code Review
+**Severity:** `Nit:` 标记可选建议
 
-**黄金法则：** 如果 CL 明显提升了系统的整体代码健康程度，就应该批准，即使它不完美。
-
-**关键原则：**
-- 没有完美的代码——只有更好的代码
-- 追求持续改进，而非完美
-- 不要因为小的格式问题拖延 CL 数天
-- 用 `Nit:` 前缀标记可选建议
-- 没有理由签入降低整体代码健康度的 CL（紧急情况除外）
-
-**指导原则：**
-1. **事实优于观点：** 技术事实和数据压倒个人偏好
-2. **风格是绝对的：** 风格指南是最高权威
-3. **软件设计有原则：** 决策必须基于底层原则，而非口味
-4. **一致性：** 无其他规则时，保持与当前代码库一致
-
-#### What to Look For
-
-1. **设计：** 交互合理吗？变更属于代码库吗？
-2. **功能：** CL 做了开发者预期的吗？对用户好吗？检查边缘情况、并发问题
-3. **复杂度：** 能否被代码阅读者快速理解？
-4. **测试：** 正确、有用、合理的测试覆盖率
-5. **命名：** 清晰的名称是否解释了代码的意图？
-6. **注释：** 解释"为什么"而非"是什么"
-7. **风格：** 与风格指南一致
-8. **文档：** 更新了相关文档吗？
-
-#### 评论规范
-- 保持礼貌和专业
-- 解释你的推理
-- 平衡指出问题和给予赞扬
-- 使用 `Nit:` 前缀标记小问题
-
----
-
-### 案例 2：facebook/react-native (124k⭐)
-
-React Native 的代码审查流程强调：
-
-- **渐进式参与：** 从 good first issues 开始
-- **PR 审查：** 社区成员可以审查文档 PR
-- **测试计划：** 完善的测试计划能加速 PR 接纳
-- **CI 约束：** CircleCI 在每次提交和 PR 上运行
-- **行为变更必须更新文档**
-
-审查原则：至少一位 code owner 审查 + CI 全绿 + rebase 后合并（无 merge commits）
-
----
+### 案例 2：rails/rails (56k⭐)
+- GitHub PR inline review
+- All changes must be reviewed
+- CI must be green
+- `[ci skip]` for doc-only changes
 
 ### 案例 3：swiftlang/swift (67.5k⭐)
+- Small incremental changes preferred
+- Explicit approval required
+- `[tag]` in commit messages
+- Review others' changes to build goodwill
 
-Swift 的代码审查理念：
-
-**增量开发哲学：** 项目使用小的、增量的变更作为首选开发模型。大变更难以审查、绕过 CI、制造合并冲突。
-
-**Commit 消息规范：**
-- 单行标题 + 空行 + 正文
-- 使用 `[tag]` 标记区域（如 `[stdlib]`、`[SILGen]`）
-- 内容传达动机，而非机制
-
-**审查要求：**
-- 所有重要变更必须经审查后才能合并
-- 小型/owner 拥有的变更可在提交后审查
-- 审查通过 GitHub PR 评论进行
-- **需明确批准**——不要假设沉默即同意
-
-**加速审查小贴士：**
-1. 审查他人的变更（建立善意）
-2. 将变更拆分为更小的部分
-3. 及时回应审查者反馈
-
----
-
-## 普通版（审查模板/指南）
+## 普通版
 
 ### 案例 4：knonm/code-review-checklist (0.5k⭐)
-
-14 项代码审查检查清单，每条带 bad/good 示例：
-
-| # | 检查项 | 说明 |
-|---|--------|------|
-| 1 | Magic numbers | 使用命名常量代替字面量 |
-| 2 | Defensive code | 验证输入避免异常 |
-| 3 | 过度防御 | 捕获具体异常而非宽泛异常 |
-| 4 | 命名 | 描述性命名 |
-| 5 | 返回类型 | 倾向抽象类型 |
-| 6 | 访问权限 | 最小可见性 |
-| 7 | 无用代码 | 清理注释和死代码 |
-| 8 | 格式 | 一致性格式化 |
-| 9 | 测试覆盖 | 新代码有测试 |
-| 10 | 圈复杂度 | 函数不应太复杂 |
-| 11 | DRY | 不重复自己 |
-| 12 | 算法复杂度 | 关注 Big-O |
-| 13 | 架构 | 遵循项目架构模式 |
-| 14 | SOLID | 原则检查 |
-
----
+14-point checklist: magic numbers, defensive code, naming, DRY, SOLID...
 
 ### 案例 5：awesome-skills/code-review-skill (0.8k⭐)
-
-四阶段审查框架：
-
-```
-Phase 1 — Context Gathering
-    理解 PR 范围、关联 issue 和意图
-Phase 2 — High-Level Review
-    架构 · 性能影响 · 测试策略
-Phase 3 — Line-by-Line Analysis
-    逻辑 · 安全 · 可维护性 · 边界情况
-Phase 4 — Summary & Decision
-    结构化反馈 · 批准状态 · 行动项
-```
-
-**严重级别标签：** `blocking` · `important` · `nit` · `suggestion` · `learning` · `praise`
-
----
+4-phase review: Context → High-Level → Line-by-Line → Summary
+Severity: blocking / important / nit / suggestion / learning / praise
 
 ### 案例 6：mntnr/awesome-contributing (0.3k⭐)
-
-精选优秀 CONTRIBUTING.md 仓库，提供审查文化参考。
-
----
-
-> 收集日期：2026-06-12
+Curated list of great CONTRIBUTING.md examples.

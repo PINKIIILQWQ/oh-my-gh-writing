@@ -4,115 +4,97 @@
 
 ## 精细版（详尽模板）
 
-### 案例 1：ansible/ansible (64k⭐) — Feature Idea（含 Enhancement）
+### 案例 1：kubernetes/community (3k⭐)
 
-ansible-core 的 Feature Idea 模板同时覆盖 enhancement 场景——改进已有功能而非新增能力。关键结构：
+KEP（Kubernetes Enhancement Proposal）是最系统的 enhancement 流程之一：
 
-- **Summary** — 明确描述当前功能的不足
-- **Component Name** — 要改进的具体模块
-- **Additional Information** — before/after 对比、兼容性分析
-- 要求提供当前 workaround 为什么不够好
-
-> 完整内容见 `.github/ISSUE_TEMPLATE/feature_request.yml`
-
----
-
-### 案例 2：hashicorp/consul (28k⭐) — Feature Request（含 Enhancement）
-
-Consul 的模板直接支持 enhancement 类变更：
-
-```markdown
-#### Feature Description
-
-A written overview of the feature and why this feature solves challenges
-that you are facing today.
-
-#### Use Case(s)
-
-Describe the use case for this feature (i.e. Service Mesh, Service Discovery,
-KV, API Gateway) and deployment environments (K8s, VMs, Nomad, ECS, Lambda).
+```
+KEP Template:
+- Summary (1-2句提案核心)
+- Motivation (当前不足 + 用户故事)
+- Design Details (完整设计)
+- Test Plan (测试策略)
+- Graduation Criteria (Alpha → Beta → Stable)
+- Production Readiness Review
 ```
 
-enhancement 与 feature request 共用此模板，通过标签区分。
+特点：书级文档（5k-10k词），Provisional → Implementable → Implemented 三阶段审查制。
 
 ---
 
-### 案例 3：prisma/prisma (43k⭐)
+### 案例 2：django/django (80k⭐)
 
-Prisma 的 Feature Request 模板同样适用于 enhancement：
+Django 通过 Trac Ticket 管理 enhancement，模板结构：
 
-- **Problem / Motivation** — 当前功能的限制或痛点
-- **Suggested Solution** — 改进方案 + API 示例
-- **Alternatives** — 已考虑的 workaround
+```
+Current behavior:
+Expected behavior:
+Use case:
+Implementation suggestion:
+Backwards compatibility:
+```
 
-典型的增量改进适用此模板。
+特点：Ticket 驱动的渐进式改进，每个 issue 必须有清晰 use case + 兼容性分析。
 
-> 完整内容：`.github/ISSUE_TEMPLATE/feature_request.yml`
+---
+
+### 案例 3：jekyll/jekyll (50k⭐)
+
+Jekyll enhancement 模板：
+
+```markdown
+### Why
+[当前功能不足，用户痛点]
+
+### How
+[改进后的行为，含代码示例]
+
+### Alternatives
+[已考虑的备选方案]
+
+### Backwards compatibility
+[对已有配置/主题的影响]
+```
 
 ---
 
 ## 普通版（较短模板）
 
-### 案例 4：hashicorp/nomad (15k⭐)
+### 案例 4：Netflix/zuul (14k⭐)
 
-**来源：** `.github/ISSUE_TEMPLATE/feature_request.md`
+Zuul 的 enhancement 通过 GitHub Issues：
 
 ```markdown
----
-name: Feature Request
-about: If you have something you think Nomad could improve or add support for.
----
-
-#### Feature Description
-
-A written overview of the feature and why this feature solves challenges
-that you are facing today.
-
-#### Use Case(s)
-
-Describe the use case for this feature and deployment environments
-(K8s, VMs, Nomad, ECS, Lambda).
+## Current Behavior
+## Proposed Behavior
+## Compatibility
 ```
 
-适用于 enhancement：改进已有功能时填写"当前不足 + 改进效果"。
-
 ---
 
-### 案例 5：apache/echarts (62k⭐)
+### 案例 5：apache/cassandra (9k⭐)
 
-ECharts 的 enhancement 类 issue 通过 `[Feature]` 标签标识，但模板侧重"Motivation + API Design"：
+Cassandra 通过 JIRA 管理 enhancement：
 
-- **What problem does this feature solve?** — 当前功能不足描述
-- **What does the proposed API look like?** — 改进后的 API 设计
-
-适合已有功能的 API 增强场景。
-
----
-
-### 案例 6：jestjs/jest (45k⭐)
-
-Jest 通过 Feature Proposal 标签处理 enhancement：
-
-```yaml
-- type: textarea
-  attributes:
-    label: '🚀 Feature Proposal'
-    description: A clear and concise description of what the feature is.
-  validations:
-    required: true
-- type: textarea
-  attributes:
-    label: Motivation
-    description: Outline your motivation for the proposal.
-  validations:
-    required: true
-- type: textarea
-  attributes:
-    label: Example
-    description: Describe how this feature would be used.
+```
+Description:
+Motivation:
+Changes:
 ```
 
-> 完整内容：`.github/ISSUE_TEMPLATE/feature.yml`
+JIRA 标签：`improvement` / `new feature`
+
+---
+
+### 案例 6：cloudfoundry/cli (3k⭐)
+
+Cloud Foundry CLI 使用 `enhancement` label：
+
+```markdown
+## Problem
+## Solution
+## Alternatives
+```
 
 ---
 

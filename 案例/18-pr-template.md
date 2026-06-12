@@ -9,43 +9,17 @@
 **来源：** `.github/PULL_REQUEST_TEMPLATE.md`
 
 ```markdown
-<!--
-*Thank you very much for contributing to Apache Flink - we are happy to receive your PR!*
-
-Please provide a description of your PR. Please also fill in the checklist below.
-This template is a guideline, not a strict requirement - adapt it as needed.
--->
-
 ## What is the purpose of the change
-
-<!-- For example: Fixes #1234, provides a new feature, addresses a design issue, etc. -->
-
 ## Brief change log
-
-<!-- Please describe the changes and how they were tested. -->
-
 ## Verifying this change
-
-<!--
-Please verify the change with a test:
-- New test added (unit/integration/e2e)
-- Existing tests cover the change
-- Manual verification was done
--->
-
-## Does this pull request potentially affect one of the following parts:
-
-- Dependencies (does it add or upgrade a dependency): (yes / no)
-- Public API (changes to public API): (yes / no)
-- Runtime compatibility (changes that might break existing jobs): (yes / no)
-
+## Does this pull request potentially affect:
+- Dependencies: (yes / no)
+- Public API: (yes / no)
+- Runtime compatibility: (yes / no)
 ## Documentation
-
-- Does this pull request introduce a new feature? (yes / no)
-- If yes, how is the documentation implemented? (not needed / markdown / javadoc)
+- Does this introduce a new feature? (yes / no)
+- If yes, how is documentation implemented?
 ```
-
-**特点：** Apache Flink 工业化 PR 模板——4 大部分 + 8 项 checklist，覆盖依赖/API/兼容性/文档，适合大型分布式系统项目。
 
 ---
 
@@ -55,67 +29,66 @@ Please verify the change with a test:
 
 ```markdown
 ## What is the purpose of the change
-
 ## Brief changelog
-
 ## Verifying this change
-<!-- Follow this checklist to help us incorporate your contribution quickly and easily: -->
-
-- [ ] Make sure there is a [GitHub_issue](https://github.com/apache/rocketmq/issues) filed for the change.
-- [ ] Each commit in the pull request should have a meaningful subject line and body.
-- [ ] Format the pull request title according to our guidelines.
-- [ ] Run `mvn clean install -DskipTests=false` to make sure unit tests pass.
-- [ ] Add new unit tests if the change is new code.
-- [ ] Make sure any change to the `conf` folder has corresponding documentation.
+- [ ] GitHub issue filed for the change
+- [ ] Meaningful subject line and body per commit
+- [ ] `mvn clean install -DskipTests=false` passes
+- [ ] New unit tests if the change is new code
+- [ ] Config change documentation
 ```
-
-**特点：** 6 项 checklist + Maven 构建验证 + 强调每个 commit 的 subject 和 body 质量。
 
 ---
 
 ### 案例 3：kubernetes/kompose (9k⭐)
 
-**来源：** `.github/PULL_REQUEST_TEMPLATE.md`
-
 ```markdown
-<!-- Description of the change and what it does. -->
+#### What type of PR is this?
+- /kind bug / /kind cleanup / /kind feature / /kind design / /kind documentation
 
-## Proposed changes
+#### What this PR does / why we need it
 
-- [ ] Bug fix (non-breaking)
-- [ ] New feature (non-breaking)
-- [ ] Breaking change
-- [ ] Documentation change
-- [ ] Refactor
-
-## Verification
-
-<!-- Steps to verify the changes. -->
-
-## Additional information
-
-<!-- Any other context. -->
+#### Which issue this PR fixes
 ```
-
-**特点：** Kubernetes 家族的标准化 PR 分类 + 验证步骤。
 
 ---
 
 ## 普通版（简洁 PR 模板）
 
-### 案例 4：freeCodeCamp/freeCodeCamp (412k⭐)
+### 案例 4：Homebrew (42k⭐)
 
-**字段：** 4 项 checklist（贡献指南 + PR 指南 + main 分支 + 本地测试）+ `Closes #XXXXX`
+```markdown
+- [ ] Contributing guidelines followed
+- [ ] No duplicate PRs for same change
+- [ ] Performance claims include benchmarks
+- [ ] New tests written
+- [ ] `brew lgtm` passes
+- [ ] AI was used to assist (disclose)
+```
 
-### 案例 5：microsoft/terminal (96k⭐)
+### 案例 5：Kubernetes (in general)
 
-**字段：** Summary → References → Description → Validation → Checklist（close/tests/docs/schema）
+K8s 风格的 PR 模板强调：
 
-### 案例 6：docker/compose (34k⭐)
+- What this PR does / why we need it
+- Which issue this PR fixes
+- Special notes for reviewers
+- Checklist: tests, docs, breaking changes
 
-**字段：** `What I did` + `Related issue` + `(optional) A picture of a cute animal`
+### 案例 6：Docker (34k⭐)
 
-**特点：** Docker 标志性文化——可爱的动物图，降低 PR 提交的心理门槛。
+极简风格：
+- What I did
+- Related issue
+- (optional) A picture of a cute animal
+
+---
+
+### 附加参考
+
+**angular/components (100k⭐)** — PR 模板含 commit message 规范引用 + 变更类型检查。
+**apache/beam (40k⭐)** — JIRA 号 + 描述 + 测试 + 组件前缀（`[SQL]` / `[CORE]`）。
+**microsoft/vscode-extension (165k⭐)** — 最完善的 PR checklist 之一，含 extension host 兼容性。
 
 ---
 

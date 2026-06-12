@@ -2,203 +2,138 @@
 
 ---
 
-## 精细版（完整 YAML/模板）
+## 精细版（完整模板）
 
-### 案例 1：prisma/prisma (43k⭐)
+### 案例 1：apache/dubbo (40k⭐)
 
-**来源：** `.github/ISSUE_TEMPLATE/feature_request.yml`
+**仓库：** https://github.com/apache/dubbo
+**模板来源：** https://raw.githubusercontent.com/apache/dubbo/main/.github/ISSUE_TEMPLATE/feature_request.yaml
 
-```yaml
-name: Feature Request
-description: Suggest an idea for Prisma
-title: "[Feature]: "
-labels: ["kind/feature"]
-body:
-  - type: markdown
-    attributes:
-      value: |
-        Thanks for suggesting a feature! Please describe what you'd like to see added.
-  - type: textarea
-    id: problem
-    attributes:
-      label: Problem / Motivation
-      description: What problem are you trying to solve? Why is this feature needed?
-      placeholder: I'm always frustrated when...
-    validations:
-      required: true
-  - type: textarea
-    id: solution
-    attributes:
-      label: Suggested Solution
-      description: What would you like to see implemented? Provide API examples if possible.
-      placeholder: I'd like to be able to...
-    validations:
-      required: true
-  - type: textarea
-    id: alternatives
-    attributes:
-      label: Alternatives
-      description: What workarounds have you considered?
-    validations:
-      required: false
-```
-
----
-
-### 案例 2：apache/echarts (62k⭐)
-
-**来源：** `.github/ISSUE_TEMPLATE/feature_request.yml`
+Apache Dubbo 的 Feature Request YAML 模板：
 
 ```yaml
 name: Feature Request
-description: Request a new feature from Apache ECharts
+description: Suggest an idea for Apache Dubbo
 title: "[Feature] "
-labels: [new-feature]
-body:
-- type: markdown
-  attributes:
-    value: |
-      The issue list is reserved exclusively for bug reports and feature requests.
-      For usage questions, please use [docs](https://echarts.apache.org/option.html)
-      or [Stack Overflow](https://stackoverflow.com/questions/tagged/echarts)
-- type: textarea
-  attributes:
-    label: What problem does this feature solve?
-    description: |
-      Explain your use case, context, and rationale behind this feature request. 
-      More importantly, what is the end user experience you are trying to build?
-      
-      An important design goal of ECharts is keeping the API surface small.
-      We only consider adding new features that solve a problem that cannot be 
-      easily dealt with using existing APIs.
-  validations:
-    required: true
-- type: textarea
-  attributes:
-    label: What does the proposed API look like?
-    description: |
-      Describe how you propose to solve the problem and provide code samples 
-      of how the API would work once implemented.
-  validations:
-    required: true
-```
-
-**特点：** 双字段极简但深刻——"解决问题"+"API 设计"，强制提案者思考方案而非只提需求。
-
----
-
-### 案例 3：ansible/ansible (64k⭐)
-
-**来源：** `.github/ISSUE_TEMPLATE/feature_request.yml`
-
-Ansible 的 Feature Request 由 bot 驱动，必填字段：
-
-1. **Summary** (textarea, required) — 描述新功能/改进、解决什么问题、当前无法实现什么
-2. **Issue Type** (dropdown, 固定 Feature Idea)
-3. **Component Name** (input, required) — 模块/插件/任务名称
-4. **Additional Information** (textarea, required) — 如何使用、为什么需要、解决什么
-5. **Code of Conduct** (checkbox, required)
-
-**特点：** 前置范围检查（core vs collection），XKCD 链接警示"每个变更都会破坏某些人的工作流"，要求搜索已有请求。
-
-> 完整 URL：https://github.com/ansible/ansible/blob/devel/.github/ISSUE_TEMPLATE/feature_request.yml
-
----
-
-## 普通版（较短的模板）
-
-### 案例 4：jestjs/jest (45k⭐)
-
-**来源：** `.github/ISSUE_TEMPLATE/feature.yml`
-
-```yaml
-name: Feature Proposal 🚀
-title: '[Feature]: '
-labels: [':rocket: Feature Request']
+labels: ["kind/enhancement"]
 body:
   - type: textarea
-    id: description
     attributes:
-      label: '🚀 Feature Proposal'
-      description: A clear and concise description of what the feature is.
+      label: Feature Description
+      description: A clear and concise description of the feature
     validations:
       required: true
   - type: textarea
-    id: solution
     attributes:
       label: Motivation
-      description: Outline your motivation for the proposal. How will it make Jest better?
+      description: Why is this feature needed? What problem does it solve?
     validations:
       required: true
   - type: textarea
-    id: alternatives
     attributes:
-      label: Example
-      description: Describe how this feature would be used.
+      label: Alternative Solutions
+      description: Workarounds or alternatives considered and why they are insufficient
     validations:
       required: false
-  - type: textarea
-    id: extra
-    attributes:
-      label: Pitch
-      description: Why does this feature belong in the Jest core platform?
-    validations:
-      required: true
 ```
-
-**特点：** 4 字段 + 明确说明哪些提案不会被 core 接受（新 matchers → jest-extended；reporter 变更 → 自定义 reporter）。
 
 ---
 
-### 案例 5：hashicorp/nomad (15k⭐)
+### 案例 2：microsoft/typescript (100k⭐)
 
-**来源：** `.github/ISSUE_TEMPLATE/feature_request.md`
+**仓库：** https://github.com/microsoft/typescript
+
+TypeScript 使用著名的建议模板：
 
 ```markdown
----
-name: Feature Request
-about: If you have something you think Nomad could improve or add support for.
----
+## Search Terms
+[搜索关键词]
 
-#### Feature Description
+## Suggestion
+[一句话描述建议]
 
-A written overview of the feature and why it solves challenges you're facing today.
+## Use Cases
+[详细用例，含代码示例]
 
-#### Use Case(s)
+## Examples
+[期望的 API 用法示例]
 
-Describe the use case for this feature and deployment environments 
-(K8s, VMs, Nomad, ECS, Lambda).
+## Checklist
+- [ ] My suggestion meets these guidelines
+- [ ] I've checked existing issues
 ```
 
-**特点：** 极简 2 段式——功能描述 + 用例场景，HashiCorp 系列标准模板。
+每个 Use Case 都详细描述用户操作流程，API 草案常用 TypeScript 类型签名。Playground Link 用于运行示例代码。
 
 ---
 
-### 案例 6：hashicorp/consul (28k⭐)
+### 案例 3：apache/hadoop (15k⭐)
 
-**来源：** `.github/ISSUE_TEMPLATE/feature_request.md`
+**仓库：** https://github.com/apache/hadoop
+
+Hadoop Feature Request 通过 JIRA 管理，模板：
 
 ```markdown
----
-name: Feature Request
-about: If you have something you think Consul could improve or add support for.
----
+## Feature Description
+A written overview of the feature.
 
-<!--- Please search the existing issues for relevant feature requests,
-      and use the reaction feature to add upvotes to pre-existing requests. --->
+## Use Case(s)
+Describe the use case(s) and deployment environments.
 
-#### Feature Description
+## Proposed API
+If applicable, describe the proposed API changes.
 
-A written overview of the feature and why this feature solves challenges
-that you are facing today.
-
-#### Use Case(s)
-
-Describe the use case for this feature (i.e. Service Mesh, Service Discovery,
-KV, API Gateway) and deployment environments (K8s, VMs, Nomad, ECS, Lambda).
+## Compatibility
+Impact on existing features and backward compatibility.
 ```
 
-**特点：** 明确要求先搜索已有请求 + 使用 reaction 投票，减噪机制好。
+---
+
+## 普通版（较短模板）
+
+### 案例 4：grafana/grafana (66k⭐)
+
+**仓库：** https://github.com/grafana/grafana
+
+Grafana 的 Feature Request 风格：
+
+```markdown
+#### What would you like to be added?
+
+#### Why is this needed?
+
+#### Describe the solution you'd like
+```
+
+---
+
+### 案例 5：apache/rocketmq (21k⭐)
+
+**仓库：** https://github.com/apache/rocketmq
+
+RocketMQ 通过 RIP（RocketMQ Improvement Proposal）流程：
+
+```
+## Motivation
+## Proposed Change
+## Compatibility, Deprecation, and Migration Plan
+## Rejected Alternatives
+```
+
+---
+
+### 案例 6：apache/spark (40k⭐)
+
+**仓库：** https://github.com/apache/spark
+
+Spark 的 Feature Request 通过 JIRA + 邮件列表：
+
+```
+## Problem Description
+## Proposed Solution
+## Alternative Solutions
+## Compatibility Impact
+```
 
 ---
 
