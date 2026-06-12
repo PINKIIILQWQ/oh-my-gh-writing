@@ -1,30 +1,49 @@
-## Description
+# 18 PR Template 测试
 
-Please provide a summary of the change and which issue is fixed.
+## Summary
 
-Fixes # (issue)
+<!-- What does this PR change? Keep this focused on one bug fix, feature, documentation update, or refactor. -->
 
-## Type of change
+## Motivation
 
-- [ ] Bug fix (non-breaking change)
-- [ ] New feature (non-breaking change)
-- [ ] Breaking change
-- [ ] Documentation update
+<!-- Why is this change needed? Link an issue only when one exists. -->
+
+Fixes #
+
+## Changes
+
+<!-- Describe the implementation at a reviewer-friendly level. -->
+
+<!-- Add a short bullet list of the main changes. -->
 
 ## Testing
 
-- [ ] `cargo test` passes
-- [ ] `cargo clippy` passes (no warnings)
-- [ ] `cargo fmt` has been run
-- [ ] New tests added
+<!-- Check only the commands you actually ran. The commands below are used by fd's Cargo.toml or CICD workflow. -->
+
+- [ ] `cargo fmt -- --check`
+- [ ] `cargo clippy --all-targets --all-features -- -Dwarnings`
+- [ ] `cargo test --locked --all-features`
+- [ ] `cargo test --locked`
+- [ ] Manual test:
+
+## User-Facing Impact
+
+<!-- Describe changes to CLI behavior, output, flags, performance, or platform support. Write "None" only when this is internal-only. -->
+
+## Documentation
+
+- [ ] README or help text updated, if user-facing behavior changed.
+- [ ] CHANGELOG entry added, if this should be called out in a release.
+- [ ] No documentation change needed.
+
+## Compatibility
+
+<!-- Note any impact on supported platforms, shell completions, packaging, or minimum supported Rust version. -->
 
 ## Checklist
 
-- [ ] My code follows the project's style guidelines
-- [ ] I have performed a self-review of my code
-- [ ] Documentation updated (if needed)
-- [ ] My changes generate no new warnings
-
-## Additional context
-
-Add any other context or screenshots here.
+- [ ] This PR is scoped to a single change.
+- [ ] I did not pre-check boxes for work that has not been done.
+- [ ] I included tests or explained why tests are not applicable.
+- [ ] I updated docs for user-facing changes.
+- [ ] I avoided unrelated formatting or dependency churn.

@@ -1,8 +1,7 @@
-fix(connection): prevent pool leak in getConnection()
+# 10 Standard Commit 测试
 
-Wrap the connection acquisition and release in try/finally to ensure
-the connection is always returned to the pool, even when the caller
-throws an exception before calling release().
+fix(db): return connections to pool after use
 
-Previously, concurrent requests could exhaust the pool after ~50 rapid
-calls because getConnection() did not guarantee release on error paths.
+Refactor `getConnection()` so each borrowed database connection is released back to the pool after the caller finishes with it.
+
+This prevents connection pool exhaustion caused by leaked checked-out connections.

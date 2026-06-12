@@ -1,30 +1,50 @@
-## Refactor: Consolidate utility functions into src/utils/
+# 07 Refactor PR 测试
 
-**Goal**
-Reduce file fragmentation at root level. 15 standalone utility files merged into 4 domain-organized files.
+## Summary
 
-**Before**
+Consolidates scattered utility helpers under a shared `utils/` directory and updates imports to use the new structure.
+
+Based on the provided prompt, this is intended to be behavior-preserving. No external API or runtime behavior change is expected.
+
+## Motivation
+
+Utility functions were previously spread across multiple locations, which made imports harder to discover and increased the chance of duplicate helper logic.
+
+Centralizing them under `utils/` should make the internal structure easier to navigate and maintain.
+
+## What Changed
+
+- Moved existing utility functions into a unified `utils/` directory.
+- Updated internal import paths to point to the new location.
+- Kept the same helper behavior and call sites conceptually unchanged.
+
+## Behavior Invariants
+
+The following are based on the user's description and should be verified against the actual diff before merge:
+
+- Public API behavior is unchanged.
+- Helper return values are unchanged.
+- Runtime side effects are unchanged.
+- Only import paths and file organization changed.
+
+## Before / After
+
+```text
+Before:
+helpers were distributed across several feature or support files
+
+After:
+helpers live under utils/
+callers import helpers from the consolidated location
 ```
-src/
-  formatDate.ts  parseCSV.ts  validateEmail.ts  debounce.ts
-  throttle.ts  memoize.ts  localStorage.ts  cookie.ts  sleep.ts
-  retry.ts  logger.ts  hashPassword.ts  generateToken.ts  encrypt.ts
-```
 
-**After**
-```
-src/utils/
-  format.ts      # date, CSV, validators
-  perform.ts     # debounce, throttle, memoize, sleep, retry
-  storage.ts     # localStorage, cookie
-  auth.ts        # hash, token, encrypt
-  logger.ts      # standalone (no grouping needed)
-```
+## Verification to Run
 
-**Invariant**
-All exports preserved. No function signatures changed. No new dependencies.
+- [ ] Run the existing unit test suite.
+- [ ] Run typecheck or build validation.
+- [ ] Run lint/import validation if the project has import-order or no-restricted-imports rules.
+- [ ] Confirm no public exports changed unless they were intentionally re-exported from the new location.
 
-**Verification (to run)**
-- `npm test` passes (existing test suite)
-- `tsc --noEmit` — no import errors
-- Check that barrel re-exports match original API
+## Notes for Reviewers
+
+I do not have a real diff in this test prompt, so this PR description does not claim specific file counts, path names, test results, or CI status.

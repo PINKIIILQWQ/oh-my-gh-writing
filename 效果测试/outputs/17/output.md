@@ -1,99 +1,170 @@
-## File: .github/ISSUE_TEMPLATE/bug_report.yml
+# 17 Issue Form YAML 测试
+
+## File: `.github/ISSUE_TEMPLATE/bug_report.yml`
 
 ```yaml
-name: Bug Report
-description: Report a bug in the component library
-title: "[Bug]: "
-labels: ["bug", "needs-triage"]
+name: Bug report
+description: Report a reproducible problem with the component library.
+labels:
+  - "status: waiting for maintainer"
 body:
   - type: markdown
     attributes:
       value: |
-        Thanks for reporting a bug! Please fill out the form completely.
-  - type: textarea
-    id: description
+        Thanks for taking the time to report a bug. Please search existing issues before submitting a new one.
+
+  - type: input
+    id: search-keywords
     attributes:
-      label: Description
-      description: What happened?
-      placeholder: When I click the button in dark mode, the text is invisible
+      label: Search keywords
+      description: List the keywords you used when searching for existing issues.
+      placeholder: "button focus ring, dialog scroll lock, ..."
     validations:
       required: true
+
+  - type: checkboxes
+    id: latest-version
+    attributes:
+      label: Latest version
+      options:
+        - label: I have tested the latest version.
+          required: true
+
+  - type: dropdown
+    id: package
+    attributes:
+      label: Affected package
+      options:
+        - Material UI
+        - MUI System
+        - Joy UI
+        - Other / not sure
+    validations:
+      required: true
+
   - type: textarea
-    id: reproduction
+    id: steps-to-reproduce
     attributes:
       label: Steps to reproduce
-      placeholder: |
-        1. Go to '...'
-        2. Click on '...'
-        3. See error
+      description: Provide a minimal reproduction and exact steps.
+      value: |
+        Steps:
+        1. Open this reproduction:
+        2.
+        3.
     validations:
       required: true
+
   - type: textarea
-    id: expected
+    id: current-behavior
+    attributes:
+      label: Current behavior
+      description: What happened?
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected-behavior
     attributes:
       label: Expected behavior
+      description: What did you expect to happen?
     validations:
       required: true
+
   - type: textarea
-    id: actual
+    id: context
     attributes:
-      label: Actual behavior
-    validations:
-      required: true
-  - type: input
-    id: version
-    attributes:
-      label: Version
-      placeholder: e.g. 2.1.0
-    validations:
-      required: true
-  - type: dropdown
-    id: browser
-    attributes:
-      label: Browser
-      options:
-        - Chrome
-        - Firefox
-        - Safari
-        - Edge
-    validations:
-      required: true
+      label: Context
+      description: What are you trying to build, and why does this matter?
+
   - type: textarea
-    id: logs
+    id: environment
     attributes:
-      label: Relevant log output
-      render: shell
+      label: Environment
+      description: Run `npx @mui/envinfo` and paste the output. Include browser information when relevant.
+      value: |
+        <details>
+          <summary><code>npx @mui/envinfo</code></summary>
+
+        ```text
+        Paste output here.
+        ```
+        </details>
     validations:
-      required: false
+      required: true
 ```
 
-## File: .github/ISSUE_TEMPLATE/feature_request.yml
+## File: `.github/ISSUE_TEMPLATE/feature_request.yml`
 
 ```yaml
-name: Feature Request
-description: Suggest a new feature or improvement
-title: "[Feature]: "
-labels: ["enhancement"]
+name: Feature request
+description: Suggest an improvement or new capability for the component library.
+labels:
+  - "status: waiting for maintainer"
 body:
-  - type: textarea
-    id: problem
+  - type: markdown
     attributes:
-      label: Problem
-      description: What problem does this feature solve?
-      placeholder: I'm always frustrated when...
+      value: |
+        Thanks for suggesting an improvement. Please search existing issues and explain the user problem before proposing an API.
+
+  - type: input
+    id: search-keywords
+    attributes:
+      label: Search keywords
+      description: List the keywords you used when searching for existing issues.
+      placeholder: "data grid column pinning, date picker range, ..."
     validations:
       required: true
-  - type: textarea
-    id: solution
+
+  - type: checkboxes
+    id: latest-version
     attributes:
-      label: Proposed solution
-      description: What should the API look like?
+      label: Latest version
+      options:
+        - label: I have tested the latest version.
+          required: true
+
+  - type: dropdown
+    id: package
+    attributes:
+      label: Target package
+      options:
+        - Material UI
+        - MUI System
+        - Joy UI
+        - Other / not sure
     validations:
       required: true
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: Describe the behavior or API you would like to see.
+    validations:
+      required: true
+
+  - type: textarea
+    id: use-cases
+    attributes:
+      label: Use cases
+      description: Explain who needs this and what workflow it unlocks.
+      placeholder: |
+        1. As a ...
+        2. I want ...
+        3. So that ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: examples
+    attributes:
+      label: Examples or prior art
+      description: Link to design specs, other implementations, screenshots, or code examples when available.
+
   - type: textarea
     id: alternatives
     attributes:
       label: Alternatives considered
-    validations:
-      required: false
+      description: Describe current workarounds and why they are not enough.
 ```
