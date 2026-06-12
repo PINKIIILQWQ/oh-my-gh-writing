@@ -2,7 +2,6 @@
 name: oh-my-gh-writing
 description: "GitHub Writing Standards — Issue/PR/Review/Commit/Docs/Release/Design/Templates, 2 levels per scenario (Complete/Normal), bilingual by default, progressive disclosure."
 version: 1.0.0
-author: Hermes Agent
 license: MIT
 platforms: [linux, macos, windows]
 metadata:
@@ -13,15 +12,15 @@ metadata:
 
 # oh-my-gh-writing
 
-GitHub 写作规范技能。覆盖 8 大类 18 场景，每场景分完整/普通 2 级，3 个参考仓库写写法详解，另配 3 个普通参考。每仓库 ≤3 场景复用。
+GitHub 写作规范技能。覆盖 8 大类 18 场景，每场景分完整/普通 2 级，使用渐进式披露组织索引、场景标准和格式工具。
 
 ---
 
 ## 渐进式使用路径
 
-1. 先用 [`INDEX.md`](./INDEX.md) 定位场景、目录和测试入口
-2. 再用本文件判断用户请求属于哪个场景，以及默认使用普通版还是完整版
-3. 最后读取对应 `reference/*.md` 获取完整字段、参考写法和 checklist
+1. 先用本文件判断用户请求属于哪个场景，以及默认使用普通版还是完整版
+2. 再读取对应 `reference/*.md` 获取完整字段、参考写法和 checklist
+3. 需要全量导航、场景目录或维护入口时，再查看 [`INDEX.md`](./INDEX.md)
 
 不要把所有细节一次性灌给用户。默认先给可用草稿；只有用户要求“完整版”“详细说明”“正式发布”“高风险变更”时，再展开完整结构。
 
