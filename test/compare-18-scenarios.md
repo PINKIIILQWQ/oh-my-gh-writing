@@ -60,7 +60,7 @@ describe('example', () => {
 - Does it happen with `--reporter=verbose`?
 - Does it happen with `pool: 'forks'` vs `pool: 'threads'`?
 - Reproduction repository link (preferred)
-````text
+````
 
 ### 精简版
 
@@ -77,7 +77,7 @@ describe('example', () => {
 
 **Env:** vitest 1.6.0 / node 20.12 / macOS 14.4
 **Repro:** https://github.com/me/repro
-````text
+````
 
 ---
 

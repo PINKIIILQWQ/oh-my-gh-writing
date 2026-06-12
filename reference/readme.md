@@ -8,6 +8,7 @@
 - [完整版结构](#完整版结构)
 - [普通版结构](#普通版结构)
 - [Skill 仓库规则](#skill-仓库规则)
+- [Agent 支持矩阵](#agent-支持矩阵)
 - [中英双语](#中英双语)
 - [双语文件策略](#双语文件策略)
 - [徽章规则](#徽章规则)
@@ -51,11 +52,12 @@
 3. 徽章栏：3 到 6 个可验证徽章，必要时分组。
 4. 简介：2 到 4 句说明目标读者、解决的问题和非目标。
 5. Quick Start：安装或接入方式 + 最小可用示例 + 预期结果。
-6. 功能或场景总览：只列核心能力，避免把所有内部文件逐项罗列。
-7. 工作方式或架构概览：仅当它帮助用户理解如何使用项目时添加。
-8. 文件定位：只列核心入口文件；内部材料放到 INDEX 或 docs 中。
-9. 下一步链接：文档、示例、贡献指南、问题反馈，按项目实际存在情况添加。
-10. License：链接到许可证文件。
+6. Agent 或平台支持矩阵：仅当项目确实需要跨工具安装说明时添加。
+7. 功能或场景总览：只列核心能力，避免把所有内部文件逐项罗列。
+8. 工作方式或架构概览：仅当它帮助用户理解如何使用项目时添加。
+9. 文件定位：只列核心入口文件；内部材料放到 INDEX 或 docs 中。
+10. 下一步链接：文档、示例、贡献指南、问题反馈，按项目实际存在情况添加。
+11. License：链接到许可证文件。
 
 ## 普通版结构
 
@@ -77,8 +79,39 @@
 - 首要入口是 `SKILL.md`；场景细则在 `reference/`。
 - `DOCS/` 是设计过程或维护材料，`test/` 是验证材料。公开 README 不默认强展示这两个目录。
 - 文件定位只放 `SKILL.md`、`INDEX.md`、`reference/`、`LICENSE` 等用户确实需要的入口。
-- 安装说明按目标 agent 分开写，并说明复制 `reference/` 的必要性。
+- 安装说明按目标 agent 分开写，并说明复制或保留 `reference/` 的必要性。
+- 跨 agent 支持必须区分“直接安装 skill”与“改写为目标工具规则”。不要把不支持 `SKILL.md` 的工具写成可直接安装。
 - 不把参考项目列表放进公开 README；参考项目可留在 `reference/*.md` 或内部分析文档里。
+
+## Agent 支持矩阵
+
+当 skill 仓库 README 需要说明多个 agent 的接入方式时，优先使用支持矩阵，而不是把所有命令堆在 “Other Agents” 小节。
+
+矩阵应包含：
+
+| 列 | 写法 |
+|----|------|
+| 图标 | 使用 16 到 20 像素品牌图标、favicon 或明确文本 fallback；图标要有 `alt` |
+| Agent | 写清工具名，例如 Codex、Hermes Agent、Claude Code、Gemini CLI、Cursor、GitHub Copilot |
+| 支持方式 | 写“直接安装 skill 文件夹”“直接安装 SKILL.md URL”“需要改写为 Project Rules”等 |
+| 如何接入 | 写下一步动作，不写空泛的“参考文档” |
+
+分组规则：
+
+- **直接安装**：目标工具能读取 `SKILL.md`、Git skill 仓库或包含 `SKILL.md` 的 skill 文件夹。安装时要保留 `reference/`、`scripts/`、`assets/` 等支持资源。
+- **需要改写**：目标工具没有原生 skill 目录，或不能按本仓库结构渐进读取引用文件。把 `SKILL.md` 的路由规则改写进它的原生入口，例如 `.cursor/rules/*.mdc`、`.github/copilot-instructions.md`、`.github/instructions/*.instructions.md` 或通用 `AGENTS.md`。
+- README 声称跨 agent 支持时，必须至少给一个直接安装示例和一个改写导入示例。
+- 单文件 URL 安装只适合 `SKILL.md` 自包含或目标工具能继续读取 sidecar 资源的场景；如果 skill 依赖 `reference/`，要提供完整文件夹安装路径作为 fallback。
+
+示例矩阵：
+
+```markdown
+| Agent | 支持方式 | 如何接入 |
+|-------|----------|----------|
+| Hermes Agent | 直接安装 `SKILL.md` URL 或 skill 文件夹 | `hermes skills install <raw-skill-url> --name <skill-name>`；需要引用文件时安装完整文件夹 |
+| Gemini CLI | 直接安装 skill 仓库或本地文件夹 | `gemini skills install <repo-url>` 或 `gemini skills link <path>` |
+| Cursor | 需要改写为 Project Rules | 把入口规则写入 `.cursor/rules/<skill-name>.mdc`，并复制需要的 `reference/` |
+```
 
 ## 中英双语
 
@@ -159,6 +192,7 @@ git clone <repo-url> <project-name>
 - [ ] Quick Start 可复制，或占位符已明确解释。
 - [ ] README 没有暴露内部参考项目列表、维护规则或测试报告正文。
 - [ ] 徽章都能链接到真实证据。
+- [ ] 跨 agent 安装说明已区分直接安装和改写导入，并有图标、支持方式和具体步骤。
 - [ ] 文件定位只列用户真正需要的入口。
 - [ ] 对 skill 项目，清楚区分 `SKILL.md`、`reference/`、`DOCS/` 和 `test/`。
 - [ ] 中英文结构和命令一致。

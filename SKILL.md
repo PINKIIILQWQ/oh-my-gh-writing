@@ -61,6 +61,8 @@ When the scenario is README, follow `reference/readme.md` and apply these extra 
 - Use badges only when they answer a real reader question and link to evidence.
 - Keep install commands copyable. If a repository owner or URL is unknown, label the placeholder clearly instead of presenting it as a ready-to-run command.
 - If bilingual README content is requested, prefer separate files for non-trivial documents, such as `README.md` plus `README.en.md`. Do not stack a full Chinese README above a full English README in the same file.
+- For skill repository install docs, separate agents that can load `SKILL.md` or a skill folder directly from agents that require adaptation into native rule, instruction, or command files. Include an icon/name, support level, and exact next step for each listed agent.
+- Include at least one direct-install example and one adapted-import example when the README claims cross-agent support.
 
 ## Missing Information
 

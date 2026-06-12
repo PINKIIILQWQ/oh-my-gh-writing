@@ -45,7 +45,18 @@ Use oh-my-gh-writing to write a feature PR: OAuth2 login has been implemented.
 Use oh-my-gh-writing to write a README for a Rust CLI tool.
 ```
 
-### Hermes Agent
+### Agent Support Matrix
+
+| Icon | Agent | Support | How to connect it |
+|------|-------|---------|-------------------|
+| <img src="https://icons.duckduckgo.com/ip3/openai.com.ico" width="18" alt="Codex"> | [Codex](https://developers.openai.com/codex/skills) | Direct skill folder install | Put this repository at `${CODEX_HOME:-$HOME/.codex}/skills/oh-my-gh-writing`, keeping both `SKILL.md` and `reference/` |
+| <img src="https://icons.duckduckgo.com/ip3/hermes-agent.nousresearch.com.ico" width="18" alt="Hermes Agent"> | [Hermes Agent](https://hermes-agent.nousresearch.com/docs/guides/work-with-skills) | Direct `SKILL.md` URL or skill folder install | Use `hermes skills install`; when full scenario rules are needed, make sure `reference/` is available inside the skill directory |
+| <img src="https://icons.duckduckgo.com/ip3/claude.ai.ico" width="18" alt="Claude Code"> | [Claude Code](https://code.claude.com/docs/en/skills) | Direct skill folder install | Link this repository to `~/.claude/skills/oh-my-gh-writing` or project-local `.claude/skills/oh-my-gh-writing` |
+| <img src="https://icons.duckduckgo.com/ip3/gemini.google.com.ico" width="18" alt="Gemini CLI"> | [Gemini CLI](https://geminicli.com/docs/cli/skills/) | Direct skill repository or local folder install | Use `gemini skills install <repo-url>`; for local development, use `gemini skills link "$PWD"` |
+| <img src="https://icons.duckduckgo.com/ip3/cursor.com.ico" width="18" alt="Cursor"> | [Cursor](https://cursor.com/docs/rules) | Adapt into Project Rules | Rewrite the `SKILL.md` workflow and the needed `reference/*.md` summaries into `.cursor/rules/oh-my-gh-writing.mdc` |
+| <img src="https://icons.duckduckgo.com/ip3/github.com.ico" width="18" alt="GitHub Copilot"> | [GitHub Copilot](https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-repository-instructions) | Adapt into custom instructions | Put the core rules in `.github/copilot-instructions.md`; split scenario-specific rules into `.github/instructions/*.instructions.md` when needed |
+
+### Example: Direct Hermes Agent Install
 
 Hermes CLI can install from a remote `SKILL.md` URL. Replace `<repo-owner>` with the GitHub owner for this repository or your fork.
 
@@ -55,14 +66,33 @@ hermes skills install \
   --name oh-my-gh-writing
 ```
 
-### Other Agents
+If your Hermes setup downloads only the single `SKILL.md` and cannot read this repository's `reference/`, install the whole folder instead:
 
 ```bash
-cp SKILL.md ./CLAUDE.md
-cp -r reference/ ./reference/
+mkdir -p "$HOME/.hermes/skills"
+ln -sfn "$PWD" "$HOME/.hermes/skills/oh-my-gh-writing"
 ```
 
-If your agent supports a rules directory, rename `SKILL.md` to the target rules file and keep the `reference/` path available.
+### Example: Adapt for Cursor
+
+Cursor does not load this repository as a `SKILL.md` skill folder directly. Rewrite the rules as Project Rules and keep a local copy of `reference/` next to the rule:
+
+```bash
+mkdir -p .cursor/rules/reference
+cp reference/*.md .cursor/rules/reference/
+```
+
+Then create `.cursor/rules/oh-my-gh-writing.mdc` with:
+
+```markdown
+---
+description: GitHub writing standards for issues, PRs, reviews, commits, README files, changelogs, release notes, RFCs, and GitHub templates.
+alwaysApply: false
+---
+
+Detect the writing scenario first, then choose normal or complete mode. Before producing the output, read the matching `reference/*.md` under this rules directory.
+For README work, read `reference/readme.md`; for PR work, read the matching `reference/*-pr.md`.
+```
 
 ## Scenario Coverage
 

@@ -45,7 +45,18 @@ ln -sfn "$PWD" "${CODEX_HOME:-$HOME/.codex}/skills/oh-my-gh-writing"
 使用 oh-my-gh-writing，写一个 Rust CLI 工具的 README
 ```
 
-### Hermes Agent
+### Agent 支持矩阵
+
+| 图标 | Agent | 支持方式 | 如何接入 |
+|------|-------|----------|----------|
+| <img src="https://icons.duckduckgo.com/ip3/openai.com.ico" width="18" alt="Codex"> | [Codex](https://developers.openai.com/codex/skills) | 直接安装 skill 文件夹 | 将本仓库放到 `${CODEX_HOME:-$HOME/.codex}/skills/oh-my-gh-writing`，保留 `SKILL.md` 和 `reference/` |
+| <img src="https://icons.duckduckgo.com/ip3/hermes-agent.nousresearch.com.ico" width="18" alt="Hermes Agent"> | [Hermes Agent](https://hermes-agent.nousresearch.com/docs/guides/work-with-skills) | 直接安装 `SKILL.md` URL 或 skill 文件夹 | 用 `hermes skills install` 安装；需要完整场景标准时，确保 `reference/` 也在 skill 目录里 |
+| <img src="https://icons.duckduckgo.com/ip3/claude.ai.ico" width="18" alt="Claude Code"> | [Claude Code](https://code.claude.com/docs/en/skills) | 直接安装 skill 文件夹 | 将本仓库链接到 `~/.claude/skills/oh-my-gh-writing` 或项目内 `.claude/skills/oh-my-gh-writing` |
+| <img src="https://icons.duckduckgo.com/ip3/gemini.google.com.ico" width="18" alt="Gemini CLI"> | [Gemini CLI](https://geminicli.com/docs/cli/skills/) | 直接安装 skill 仓库或本地文件夹 | 用 `gemini skills install <repo-url>` 安装；本地开发时用 `gemini skills link "$PWD"` |
+| <img src="https://icons.duckduckgo.com/ip3/cursor.com.ico" width="18" alt="Cursor"> | [Cursor](https://cursor.com/docs/rules) | 需要改写为 Project Rules | 把 `SKILL.md` 的工作流和需要的 `reference/*.md` 摘要改写到 `.cursor/rules/oh-my-gh-writing.mdc` |
+| <img src="https://icons.duckduckgo.com/ip3/github.com.ico" width="18" alt="GitHub Copilot"> | [GitHub Copilot](https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-repository-instructions) | 需要改写为自定义指令 | 把核心原则写入 `.github/copilot-instructions.md`，按场景拆分时使用 `.github/instructions/*.instructions.md` |
+
+### 示例：Hermes Agent 直接安装
 
 Hermes CLI 支持从远程 `SKILL.md` URL 安装。将 `<repo-owner>` 替换为本仓库或你的 fork 所属的 GitHub owner。
 
@@ -55,14 +66,33 @@ hermes skills install \
   --name oh-my-gh-writing
 ```
 
-### 其他 agent
+如果你的 Hermes 配置只下载单个 `SKILL.md`，而不能读取本仓库的 `reference/`，请改用完整文件夹安装：
 
 ```bash
-cp SKILL.md ./CLAUDE.md
-cp -r reference/ ./reference/
+mkdir -p "$HOME/.hermes/skills"
+ln -sfn "$PWD" "$HOME/.hermes/skills/oh-my-gh-writing"
 ```
 
-如果目标 agent 支持规则目录，也可以把 `SKILL.md` 改名为对应规则文件，并保持 `reference/` 相对路径可访问。
+### 示例：Cursor 改写导入
+
+Cursor 不按 `SKILL.md` 目录直接加载本仓库。把规则改写成 Project Rules，并让规则文件指向保留下来的 `reference/`：
+
+```bash
+mkdir -p .cursor/rules/reference
+cp reference/*.md .cursor/rules/reference/
+```
+
+然后创建 `.cursor/rules/oh-my-gh-writing.mdc`，写入：
+
+```markdown
+---
+description: GitHub 写作规范。用于写 Issue、PR、Review、Commit、README、CHANGELOG、Release Notes、RFC 和 GitHub 模板。
+alwaysApply: false
+---
+
+先识别写作场景，再选择普通版或完整版。输出前读取本规则目录下对应的 `reference/*.md`。
+README 场景读取 `reference/readme.md`；PR 场景读取对应的 `reference/*-pr.md`。
+```
 
 ## 场景总览
 
