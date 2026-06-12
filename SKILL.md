@@ -5,7 +5,7 @@ description: "GitHub writing standards for AI agents. Use when drafting or revis
 
 # oh-my-gh-writing
 
-Use this skill to produce GitHub-ready writing for common collaboration workflows. Keep the runtime path narrow: classify the request, load only the relevant reference file, and produce the requested Markdown or YAML.
+Use this skill as a GitHub writing operating system for AI agents. Keep the runtime path narrow: classify the request, load only the relevant reference file, enforce evidence boundaries, validate output cleanliness, and produce the requested Markdown or YAML.
 
 ## Workflow
 
@@ -17,6 +17,7 @@ Use this skill to produce GitHub-ready writing for common collaboration workflow
 6. Read [`reference/weapons.md`](./reference/weapons.md) only when badges, alerts, collapsible logs, Mermaid, tables, emoji, Star History, or other formatting tools are needed.
 7. Read [`INDEX.md`](./INDEX.md) only for full repository navigation or maintenance work.
 8. When the user asks for real-world examples, case studies, or reference projects for a scenario, read the matching file in [`案例/`](./案例/) after loading the scenario reference.
+9. Before finalizing, apply [`reference/output-validation.md`](./reference/output-validation.md) mentally to remove wrapper text, test metadata, stray fences, unsupported facts, and scenario-routing mistakes.
 
 Do not load every reference file for a normal writing request. Do not expose reference-project analysis in user-facing output unless the user explicitly asks for rationale or sources. Do not add test-gallery metadata such as `scenario`, `case-sources`, or `input-prompt` unless the task explicitly asks for a test output gallery.
 
@@ -43,6 +44,23 @@ Do not load every reference file for a normal writing request. Do not expose ref
 | Create GitHub Issue Forms | Issue Form YAML | `reference/issue-form-yaml.md` |
 | Create a PR template | PR Template | `reference/pr-template.md` |
 
+## Routing Rules
+
+Use these rules when the prompt mixes issue, PR, and discussion language:
+
+| Signal | Route to |
+|--------|----------|
+| User wants future support for a new capability and no implementation diff exists | Feature Request |
+| User wants to improve an existing behavior, API, performance, or ergonomics | Enhancement |
+| User wants community input and the solution is not decided | Discussion |
+| User says a branch, diff, or PR implemented a new capability | Feature PR |
+| User says a branch, diff, or PR fixes a bug, regression, root cause, or failing behavior | Bug Fix PR |
+| User says the change reorganizes code, renames, moves files, or updates imports without behavior changes | Refactor PR |
+| User says documentation changed and no runtime code changed | Documentation PR |
+| User asks to review code, a PR, or a diff | Code Review |
+
+If the user asks to turn a PR, implementation, or postmortem into a future request, route by the requested artifact, not by the source material. For example, "rewrite PR #178 as a Feature Request" is Feature Request, not Feature PR.
+
 ## Shared Principles
 
 1. Make the output usable first. If information is missing, write a reasonable draft and mark assumptions or TODO fields instead of blocking on nonessential questions.
@@ -60,6 +78,9 @@ Do not load every reference file for a normal writing request. Do not expose ref
 13. For current tool, agent, platform, API, or installation support claims, verify availability in official documentation before writing the claim or example. Link the official source when the output includes a support matrix or install guide.
 14. For README drafting, keep the first response as a draft or a clarification step; only upload or push after the user explicitly approves the content and delivery path.
 15. Use follow-up questions as a scope-control tool, not as a questionnaire. Ask at most three questions before drafting; choose defaults for low-risk style choices and state them briefly.
+16. Output only the target GitHub artifact unless the user explicitly asks for explanation. Do not add conversational prefaces, test titles, outer `markdown` fences, source lists, or "you can copy this" wrappers to artifact content.
+17. Fact-heavy scenarios require evidence. Versions, release dates, PR/issue numbers, CI workflow names, package-manager commands, platform support, dependency versions, migration timelines, screenshots, and links must come from user input, repository files, diffs, tool output, or official sources. Unknown facts become `TODO`, `TBD`, or "To confirm".
+18. Never claim a test, check, benchmark, build, or review passed unless it was actually run or provided. For unknown verification, write "Verification to run" or leave checklist boxes unchecked.
 
 ## README Guardrails
 

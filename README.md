@@ -20,7 +20,7 @@
 
 ---
 
-`oh-my-gh-writing` 是一套面向 AI agent 的 GitHub 写作规范。它覆盖 Issue、PR、Review、Commit、README、CHANGELOG、Release Notes、RFC 和模板文件等 18 个常见场景，让 agent 在不同仓库里也能稳定输出结构清晰、信息完整、可直接粘贴到 GitHub 的内容。
+`oh-my-gh-writing` 是一套面向 AI agent 的 GitHub 写作操作系统。它覆盖 Issue、PR、Review、Commit、README、CHANGELOG、Release Notes、RFC 和模板文件等 18 个常见场景，让 agent 在不同仓库里也能稳定判断场景、守住事实边界，并输出结构清晰、可直接粘贴到 GitHub 的内容。
 
 它不是 README 生成器，也不是 GitHub App。它的核心是一个 `SKILL.md` 入口和一组 `reference/` 场景标准：先识别你要写什么，再读取对应场景标准，最后输出 Markdown 或 YAML。
 
@@ -137,9 +137,11 @@ flowchart LR
 |------|------|
 | [`SKILL.md`](./SKILL.md) | skill 入口：识别场景、说明通用原则 |
 | [`INDEX.md`](./INDEX.md) | 全量索引：18 个场景和对应标准文件 |
-| [`reference/`](./reference) | 每个场景的标准化写法、字段顺序和 checklist |
+| [`reference/`](./reference) | 每个场景的标准化写法、字段顺序、checklist 和输出验收 |
 | [`案例/`](./案例) | 当前案例库：真实仓库来源、摘录和结构分析 |
 | [`效果测试/`](./效果测试) | 18 个场景的固定输入和标准输出效果 |
+
+最终输出前的清洁和事实边界检查见 [`reference/output-validation.md`](./reference/output-validation.md)。
 
 ## 查看案例效果
 

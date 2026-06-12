@@ -20,7 +20,7 @@
 
 ---
 
-`oh-my-gh-writing` is a GitHub writing standards skill for AI agents. It covers 18 common collaboration scenarios, including issues, pull requests, reviews, commits, README files, changelogs, release notes, RFCs, and GitHub templates.
+`oh-my-gh-writing` is a GitHub writing operating system for AI agents. It covers 18 common collaboration scenarios, including issues, pull requests, reviews, commits, README files, changelogs, release notes, RFCs, and GitHub templates, while helping agents route the scenario, respect evidence boundaries, and produce GitHub-ready artifacts.
 
 It is not a README generator or a GitHub App. The project works as a portable writing standard: `SKILL.md` routes the request, `reference/` defines the scenario standards, and the agent produces ready-to-use Markdown or YAML.
 
@@ -137,9 +137,11 @@ Default behavior:
 |------|---------|
 | [`SKILL.md`](./SKILL.md) | Skill entry: scenario routing and shared principles |
 | [`INDEX.md`](./INDEX.md) | Full index for all 18 scenarios and their standards |
-| [`reference/`](./reference) | Standardized writing rules, field order, and checklists per scenario |
+| [`reference/`](./reference) | Standardized writing rules, field order, checklists, and output validation |
 | [`案例/`](./案例) | Current case library: source links, excerpts, and structure notes from real repositories |
 | [`效果测试/`](./效果测试) | Fixed prompts and standard outputs across all 18 scenarios |
+
+Final output hygiene and evidence checks live in [`reference/output-validation.md`](./reference/output-validation.md).
 
 ## Viewing Cases
 

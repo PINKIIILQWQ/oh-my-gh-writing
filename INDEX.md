@@ -2,7 +2,7 @@
 
 这个文件是仓库的导航。README 只负责解释项目是什么和如何开始；这里负责把场景标准、案例库和维护入口串起来。
 
-Agent 执行写作任务时优先读取 [`SKILL.md`](./SKILL.md) 和对应 `reference/*.md`。
+Agent 执行写作任务时优先读取 [`SKILL.md`](./SKILL.md) 和对应 `reference/*.md`。最终输出前按 [`reference/output-validation.md`](./reference/output-validation.md) 做清洁和事实边界检查。
 
 ## 阅读路径
 
@@ -11,7 +11,7 @@ Agent 执行写作任务时优先读取 [`SKILL.md`](./SKILL.md) 和对应 `refe
 | 0 | [`README.md`](./README.md) / [`README.en.md`](./README.en.md) | 第一次打开仓库的人 | 项目定位、安装、最短路径 |
 | 1 | [`INDEX.md`](./INDEX.md) | 想找某个场景或文档的人 | 全量索引和目录 |
 | 2 | [`SKILL.md`](./SKILL.md) | Agent / skill 使用者 | 入口规则、场景识别、摘要标准 |
-| 3 | [`reference/`](./reference) | 要改写法标准的人 | 每场景标准写法/checklist |
+| 3 | [`reference/`](./reference) | 要改写法标准的人 | 每场景标准写法/checklist/输出验收 |
 | 4 | [`案例/`](./案例) | 测试者 / 参考者 | 每场景真实仓库案例、来源链接和结构分析 |
 | 5 | [`效果测试/`](./效果测试) | 测试者 / 维护者 | 固定输入下的标准输出效果 |
 
@@ -57,7 +57,7 @@ Agent 执行写作任务时优先读取 [`SKILL.md`](./SKILL.md) 和对应 `refe
 | Docs | [`readme.md`](./reference/readme.md), [`contributing.md`](./reference/contributing.md), [`changelog.md`](./reference/changelog.md) |
 | Release / Design | [`release-notes.md`](./reference/release-notes.md), [`migration-guide.md`](./reference/migration-guide.md), [`rfc.md`](./reference/rfc.md) |
 | Templates | [`issue-form-yaml.md`](./reference/issue-form-yaml.md), [`pr-template.md`](./reference/pr-template.md) |
-| Appendix | [`weapons.md`](./reference/weapons.md) |
+| Appendix | [`weapons.md`](./reference/weapons.md), [`output-validation.md`](./reference/output-validation.md) |
 
 ## 维护规则
 
@@ -67,3 +67,4 @@ Agent 执行写作任务时优先读取 [`SKILL.md`](./SKILL.md) 和对应 `refe
 - 新增公开文档时，按需要挂到这里
 - README 只放最短路径和核心入口，避免再次变成大而全的文档
 - 深层细节必须有上层入口可达，不能只散落在目录里
+- 输出验收规则放在 `reference/output-validation.md`；不要把测试标题、raw 来源和 verdict 元数据混进可提交 artifact

@@ -1,7 +1,7 @@
 # 效果测试 — oh-my-gh-writing 18 场景输出画廊
 
 > 验证 oh-my-gh-writing skill 在 18 个场景下的实际输出效果。
-> 每个场景使用固定测试输入 prompt，生成一个标准输出。
+> 测试重点不是继续增加场景，而是验证场景路由、输出清洁、事实边界和提交前验收。
 
 ---
 
@@ -24,12 +24,24 @@ cat 效果测试/outputs/01/output.md
 │   ├── 01-bug-report.md
 │   ├── 02-feature-request.md
 │   └── ...
-└── outputs/                   ← 18 个场景的标准输出
+└── outputs/                   ← 18 个场景的输出效果
     ├── 01/
     │   └── output.md
     ├── 02/
     └── ...
 ```
+
+长期建议迁移为三层结构：
+
+```text
+效果测试/<编号>-<scenario>/
+├── input.md           ← 固定输入
+├── output.raw.md      ← agent 原始输出，保留污染现场
+├── output.clean.md    ← 可直接提交到 GitHub 的干净 artifact
+└── verdict.md         ← PASS / ROUTING_FAIL / FORMAT_FAIL 等判定
+```
+
+`output.clean.md` 不能包含测试标题、对话前言、外层 `markdown` 代码块、来源清单或 verdict 元数据。
 
 ## 场景索引
 
@@ -56,6 +68,21 @@ cat 效果测试/outputs/01/output.md
 
 ## 推荐测试流程
 
+### 验收标签
+
+每个结果都要记录一个 verdict：
+
+| 标签 | 含义 |
+|------|------|
+| PASS | 原样可提交 |
+| PASS_AFTER_CLEANUP | 清理后可提交 |
+| DRAFT_ONLY | 只能当草稿 |
+| ROUTING_FAIL | 场景识别失败 |
+| FACT_CHECK_REQUIRED | 事实需要核验 |
+| FORMAT_FAIL | 格式不可提交 |
+
+最终输出前按 [`reference/output-validation.md`](../reference/output-validation.md) 检查。测试标题只允许出现在 `verdict.md` 或测试报告里，不允许出现在 `output.clean.md`。
+
 ### 证据分层
 
 不同场景需要的上下文不一样。测试时不要把所有场景都当成“短 prompt 生成”：
@@ -74,6 +101,20 @@ cat 效果测试/outputs/01/output.md
 | 16 RFC | 必须读取 prior art、相关 issue/proposal 或案例；推测设计必须标为草案 |
 | 17 Issue Form YAML | 必须读取目标仓库 `.github/ISSUE_TEMPLATE/` 或同类仓库表单 |
 | 18 PR Template | 必须读取目标仓库 `.github/`、CI/test 命令或同类仓库模板 |
+
+### 路由密测
+
+Issue / PR / Discussion / Enhancement 最容易混淆。每次修改路由规则后，至少跑这些反例：
+
+| 输入形态 | 正确路由 |
+|----------|----------|
+| "希望未来支持 X"，没有 diff | Feature Request |
+| "改进已有 API 的行为/性能/体验" | Enhancement |
+| "想听社区经验，还没决定方案" | Discussion |
+| "当前 PR 实现了 X" | Feature PR |
+| "当前 PR 修复了 root cause / regression" | Bug Fix PR |
+| "移动文件、改 import、无行为变化" | Refactor PR |
+| "从 PR 复盘重构为 Feature Request" | Feature Request |
 
 ### 冒烟测试
 
@@ -130,10 +171,12 @@ cat 效果测试/outputs/01/output.md
    - Code Review 必须读取真实 PR diff 或用户贴出的代码；没有 diff 就不要编造行级问题。
    - CONTRIBUTING、Issue Form、PR Template 必须读取目标仓库配置或同类仓库模板。
    - CHANGELOG、Release Notes、Migration Guide、RFC 必须读取真实 release/tag/docs/prior art 或案例来源。
-6. 输出文件只保留可直接复制到 GitHub 的正文，不要添加测试元数据。
-7. 不要虚构 issue 编号、文件行号、测试通过状态、安装命令、release URL、迁移时间线或支持矩阵。
-8. 在最终回复中列出每个重上下文场景实际读过的来源链接；不要把来源清单写进 output.md。
-9. 完成后运行 git diff --check，并提交变更。
+6. 输出文件只保留可直接复制到 GitHub 的正文，不要添加测试标题或测试元数据。
+7. 不要把整篇 Markdown 包进 ```markdown，不要添加“下面是”“可以直接使用”等对话前言。
+8. 不要虚构 issue 编号、文件行号、测试通过状态、安装命令、release URL、迁移时间线或支持矩阵。
+9. 在最终回复中列出每个重上下文场景实际读过的来源链接；不要把来源清单写进 output.md。
+10. 按 reference/output-validation.md 做输出验收，并记录每个场景的 verdict。
+11. 完成后运行 git diff --check，并提交变更。
 ```
 
 ### 人工检查
@@ -143,11 +186,36 @@ cat 效果测试/outputs/01/output.md
 - 是否读了对应场景标准，而不是泛泛套模板
 - 是否没有虚构证据、链接、编号、行号或测试结果
 - YAML / Markdown / commit message 是否能直接复制到目标位置
+- 是否没有测试标题、外层 markdown 代码块、对话前言或复制污染
 - README、Release Notes、Migration Guide 是否没有编造安装方式、发布时间线或外链
 - Code Review 在没有真实 diff 时是否拒绝编造行级问题
+
+### 对抗样本
+
+不要继续扩普通场景数量。新增测试优先放对抗样本：
+
+```text
+adversarial/
+├── dirty-code-fence.md
+├── missing-info.md
+├── wrong-scenario-hint.md
+├── fake-version-number.md
+├── mixed-issue-and-pr.md
+└── template-multi-file.md
+```
+
+优先覆盖：
+
+- 外层 `markdown` 代码块污染
+- 无关代码片段混入
+- Feature Request / Feature PR 混淆
+- Discussion 被写成已决定方案
+- 缺少来源的版本号、PR 编号、release 日期
+- 多文件 YAML/template 的展示包装和落盘内容混淆
 
 ## 参考
 
 - [SKILL.md](../SKILL.md) — 场景路由和共享原则
 - [案例/](../案例) — 18 场景真实仓库案例
 - [reference/](../reference) — 每场景标准写法
+- [reference/output-validation.md](../reference/output-validation.md) — 输出清洁和提交前验收
