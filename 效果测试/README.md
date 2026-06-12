@@ -28,10 +28,10 @@ cat 效果测试/outputs/01/full-detail.md
 │   ├── 02-feature-request.md
 │   └── ...
 └── outputs/                   ← 18 个场景的输出
-    ├── 01-bug-report/
-    │   ├── concise.md         ← normal 模式输出
-    │   └── full-detail.md     ← complete 模式输出
-    ├── 02-feature-request/
+    ├── 01/
+    │   ├── concise.md         ← concise 模式输出
+    │   └── full-detail.md     ← full-detail 模式输出
+    ├── 02/
     └── ...
 ```
 
@@ -62,8 +62,8 @@ cat 效果测试/outputs/01/full-detail.md
 
 | 模式 | 对应 SKILL.md 级别 | 使用时机 |
 |------|-------------------|----------|
-| **concise** | normal 模式 | 默认输出，信息密集但简洁 |
-| **full-detail** | complete 模式 | 高风险/发布/迁移/Breaking Change 时使用 |
+| **concise** | concise 模式 | 默认输出，信息密集但简洁 |
+| **full-detail** | full-detail 模式 | 高风险/发布/迁移/Breaking Change 时使用 |
 
 ## 参考
 

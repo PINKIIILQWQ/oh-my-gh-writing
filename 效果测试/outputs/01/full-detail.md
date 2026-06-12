@@ -47,6 +47,7 @@ sometimes the build succeeds, sometimes it fails. Larger projects
        at Object.openSync (fs.js:585:3)
        at readFileSync (fs.js:486:35)
        at Object.readSync (next/dist/compiled/...) …
+   ```
 
 ### Expected behavior
 Build should complete successfully for projects of any size,
