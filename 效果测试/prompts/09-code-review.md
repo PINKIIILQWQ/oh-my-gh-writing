@@ -3,9 +3,10 @@
 ## 用户请求
 
 ```
-审查这个 PR：https://github.com/example/repo/pull/42
-改动是在用户认证模块中增加了 JWT token 刷新功能。
-帮我检查安全性和代码质量。
+请找一个真实公开 GitHub PR 来做代码审查测试。
+优先选择认证、JWT、token refresh、session 或权限相关的 PR。
+必须先读取 PR diff，再输出审查意见。
+如果找不到这类 PR，可以选择任一安全敏感 PR，但要在最终回复中说明来源。
 ```
 
 ## 期望场景

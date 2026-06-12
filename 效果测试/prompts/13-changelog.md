@@ -3,8 +3,13 @@
 ## 用户请求
 
 ```
-更新 changelog：v2.1.0 发布了，新增了 dark mode 支持，
-修复了 3 个 bug，废弃了旧的 theme API。
+请基于一个真实开源项目的真实 release/tag 更新 changelog。
+
+要求：
+1. 先读取目标仓库的 CHANGELOG、Releases、tag 或 compare diff。
+2. 选择一个包含新增功能、修复和废弃/破坏性说明的 release。
+3. 只写能从 release、commit、PR 或 changelog 中证实的条目。
+4. 不要虚构 issue 编号、文档链接、迁移链接或废弃时间线。
 ```
 
 ## 期望场景

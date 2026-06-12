@@ -3,9 +3,13 @@
 ## 用户请求
 
 ```
-写一份 CLI 工具 v2.0.0 的发布说明。
-Breaking change：配置格式从 JSON 改为 YAML。
-新功能：支持多环境配置和插件系统。
+请为一个真实开源 CLI 仓库的真实 release 写发布说明。
+
+要求：
+1. 先读取目标 release 页面、tag、CHANGELOG 或 compare diff。
+2. 优先选择包含 breaking change 或明显用户影响的 release。
+3. 新功能、Breaking Changes、升级方式和 Full Changelog 链接都必须来自真实来源。
+4. 如果 release 没有迁移命令、插件列表、截图或贡献者名单，不要补写。
 ```
 
 ## 期望场景
