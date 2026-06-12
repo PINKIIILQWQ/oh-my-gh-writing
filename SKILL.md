@@ -12,9 +12,11 @@ Use this skill to produce GitHub-ready writing for common collaboration workflow
 1. Identify the scenario from the user's request.
 2. Choose **normal** mode by default.
 3. Use **complete** mode only when the user asks for a complete/formal version, the change is high-risk, the work is release/migration/design related, or breaking changes are involved.
-4. Read the matching `reference/*.md` file before writing the final output.
-5. Read [`reference/weapons.md`](./reference/weapons.md) only when badges, alerts, collapsible logs, Mermaid, tables, or other formatting tools are needed.
-6. Read [`INDEX.md`](./INDEX.md) only for full repository navigation or maintenance work.
+4. If the task is to write or revise a README, confirm the delivery mode before drafting when it is not already explicit: either provide a local markdown draft for review or a chat-only draft. Do not perform a GitHub upload or push as the first pass.
+5. Even when source code is available, do not skip the confirmation step above for README work unless the user has already explicitly chosen the delivery mode.
+6. Read the matching `reference/*.md` file before writing the final output.
+7. Read [`reference/weapons.md`](./reference/weapons.md) only when badges, alerts, collapsible logs, Mermaid, tables, or other formatting tools are needed.
+8. Read [`INDEX.md`](./INDEX.md) only for full repository navigation or maintenance work.
 
 Do not load every reference file for a normal request. Do not expose reference-project analysis in user-facing output unless the user explicitly asks for rationale or sources.
 
@@ -51,12 +53,14 @@ Do not load every reference file for a normal request. Do not expose reference-p
 6. Use concise, neutral language. Prefer precise impact and verification over persuasion.
 7. Do not invent CI status, versions, compatibility, benchmarks, screenshots, or links. If evidence is unavailable, omit the claim or label it as a placeholder.
 8. For current tool, agent, platform, API, or installation support claims, verify availability in official documentation before writing the claim or example. Link the official source when the output includes a support matrix or install guide.
+9. For README drafting, keep the first response as a draft or a clarification step; only upload or push after the user explicitly approves the content and delivery path.
 
 ## README Guardrails
 
 When the scenario is README, follow `reference/readme.md` and apply these extra constraints:
 
 - Treat the README as a public entry page, not a dump of every internal file.
+- Before producing or editing a README from source code, confirm whether the user wants a local markdown draft, a chat-only draft, or a remote repository update. Do not assume upload is authorized because source code is available.
 - For skill repositories, explain that the project is a portable writing skill, not a standalone app, README generator, or GitHub integration.
 - Keep runtime files and maintainer files distinct: `SKILL.md` and `reference/` define behavior; `DOCS/` and `test/` are process and validation material.
 - Use badges only when they answer a real reader question and link to evidence.
