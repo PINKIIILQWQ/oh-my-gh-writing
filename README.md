@@ -1,8 +1,8 @@
-<p align="center">
-  <img src="./assets/oh-my-gh-writing-logo.png" width="280" alt="oh-my-gh-writing logo">
-</p>
-
 <h1 align="center">oh-my-gh-writing</h1>
+
+<p align="center">
+  <img src="./assets/oh-my-gh-writing-logo.png" width="160" alt="oh-my-gh-writing logo">
+</p>
 
 <p align="center">
   面向 AI agent 的 GitHub 写作规范，打包成一个可移植 skill。
