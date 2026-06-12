@@ -9,8 +9,9 @@
 
 ### 案例 1：ohmyzsh/ohmyzsh (188k⭐)
 
-**仓库：** https://github.com/ohmyzsh/ohmyzsh
-**完整内容：** https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/README.md
+- **仓库：** https://github.com/ohmyzsh/ohmyzsh
+- **渲染效果：** https://github.com/ohmyzsh/ohmyzsh#readme
+- **完整内容：** https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/README.md
 
 Oh My Zsh 的 README 以强烈的个性化和高信息密度著称：
 
@@ -46,8 +47,9 @@ Finally, you'll begin to get the sort of attention that you have always felt you
 
 ### 案例 2：nvm-sh/nvm (94k⭐)
 
-**仓库：** https://github.com/nvm-sh/nvm
-**完整内容：** https://raw.githubusercontent.com/nvm-sh/nvm/master/README.md
+- **仓库：** https://github.com/nvm-sh/nvm
+- **渲染效果：** https://github.com/nvm-sh/nvm#readme
+- **完整内容：** https://raw.githubusercontent.com/nvm-sh/nvm/master/README.md
 
 ```markdown
 # Node Version Manager [![Tests]][3] [![nvm version]][4] [![CII Best Practices]][5]
@@ -95,8 +97,9 @@ Finally, you'll begin to get the sort of attention that you have always felt you
 
 ### 案例 3：jlevy/the-art-of-command-line (160k⭐)
 
-**仓库：** https://github.com/jlevy/the-art-of-command-line
-**完整内容：** https://raw.githubusercontent.com/jlevy/the-art-of-command-line/master/README.md
+- **仓库：** https://github.com/jlevy/the-art-of-command-line
+- **渲染效果：** https://github.com/jlevy/the-art-of-command-line#readme
+- **完整内容：** https://raw.githubusercontent.com/jlevy/the-art-of-command-line/master/README.md
 
 ```markdown
 # The Art of Command Line
@@ -127,8 +130,9 @@ that we've found useful when working on Linux. This work is the result of
 
 ### 案例 4：nektos/act (70k⭐)
 
-**仓库：** https://github.com/nektos/act
-**完整内容：** https://raw.githubusercontent.com/nektos/act/master/README.md
+- **仓库：** https://github.com/nektos/act
+- **渲染效果：** https://github.com/nektos/act#readme
+- **完整内容：** https://raw.githubusercontent.com/nektos/act/master/README.md
 
 ```markdown
 # Overview [![push]][actions] [![Go Report Card]][goreport]
@@ -148,8 +152,9 @@ Run your [GitHub Actions](https://developer.github.com/actions/) locally! Why?
 
 ### 案例 5：hasura/graphql-engine (31k⭐)
 
-**仓库：** https://github.com/hasura/graphql-engine
-**完整内容：** https://raw.githubusercontent.com/hasura/graphql-engine/master/README.md
+- **仓库：** https://github.com/hasura/graphql-engine
+- **渲染效果：** https://github.com/hasura/graphql-engine#readme
+- **完整内容：** https://raw.githubusercontent.com/hasura/graphql-engine/master/README.md
 
 ```markdown
 # Hasura GraphQL Engine
@@ -169,8 +174,9 @@ to data via a single, composable, secure API endpoint.
 
 ### 案例 6：dapr/dapr (28k⭐)
 
-**仓库：** https://github.com/dapr/dapr
-**完整内容：** https://raw.githubusercontent.com/dapr/dapr/master/README.md
+- **仓库：** https://github.com/dapr/dapr
+- **渲染效果：** https://github.com/dapr/dapr#readme
+- **完整内容：** https://raw.githubusercontent.com/dapr/dapr/master/README.md
 
 ```markdown
 # Dapr - APIs for Building Secure and Reliable Microservices

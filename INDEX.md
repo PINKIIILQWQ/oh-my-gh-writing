@@ -1,8 +1,8 @@
 # oh-my-gh-writing 索引
 
-这个文件是仓库的全量导航。README 只负责解释项目是什么和如何开始；这里负责把场景标准、内部文档、测试材料和维护入口串起来。
+这个文件是仓库的导航。README 只负责解释项目是什么和如何开始；这里负责把场景标准、案例库和维护入口串起来。
 
-Agent 执行写作任务时优先读取 [`SKILL.md`](./SKILL.md) 和对应 `reference/*.md`；`DOCS/` 与 `test/` 是维护材料，不是运行时规则本体。
+Agent 执行写作任务时优先读取 [`SKILL.md`](./SKILL.md) 和对应 `reference/*.md`。
 
 ## 阅读路径
 
@@ -12,9 +12,7 @@ Agent 执行写作任务时优先读取 [`SKILL.md`](./SKILL.md) 和对应 `refe
 | 1 | [`INDEX.md`](./INDEX.md) | 想找某个场景或文档的人 | 全量索引和目录 |
 | 2 | [`SKILL.md`](./SKILL.md) | Agent / skill 使用者 | 入口规则、场景识别、摘要标准 |
 | 3 | [`reference/`](./reference) | 要改写法标准的人 | 每场景完整版/普通版/checklist |
-| 4 | [`DOCS/`](./DOCS) | 维护者 | 采集计划、outline、设计演进 |
-| 5 | [`test/`](./test) | 维护者 / 验证者 | 18 场景测试和全量报告 |
-| 6 | [`案例/`](./案例) | 参考者 | 每个场景 6 个真实仓库案例（3 精细 + 3 普通），含完整原文和 GitHub 链接 |
+| 4 | [`案例/`](./案例) | 测试者 / 参考者 | 每场景真实仓库案例、来源链接和结构分析 |
 
 ## 18 场景索引
 
@@ -39,17 +37,13 @@ Agent 执行写作任务时优先读取 [`SKILL.md`](./SKILL.md) 和对应 `refe
 | 17 | Templates | Issue Form YAML | GitHub Issue 表单 | [`reference/issue-form-yaml.md`](./reference/issue-form-yaml.md) |
 | 18 | Templates | PR Template | Pull Request 模板 | [`reference/pr-template.md`](./reference/pr-template.md) |
 
-测试统一入口见 [`test/README.md`](./test/README.md)。
-
 ## 目录索引
 
 | 目录 | 作用 | 入口 |
 |------|------|------|
 | [`reference/`](./reference) | 场景标准、工具分析、格式武器库 | [`reference/readme.md`](./reference/readme.md) |
-| [`DOCS/`](./DOCS) | 内部设计过程和采集计划 | [`DOCS/README.md`](./DOCS/README.md) |
-| [`test/`](./test) | 验证材料、双版样例、全量报告 | [`test/README.md`](./test/README.md) |
+| [`案例/`](./案例) | 测试阶段案例库和真实仓库写法参考 | [`案例/README.md`](./案例/README.md) |
 | [`assets/`](./assets) | README 和项目展示素材 | [`assets/oh-my-gh-writing-logo.png`](./assets/oh-my-gh-writing-logo.png) |
-| [`案例/`](./案例) | 18 场景真实仓库案例（每场景 6 例） | [`案例/01-bug-report.md`](./案例/01-bug-report.md) |
 
 ## Reference 文件索引
 
@@ -61,28 +55,12 @@ Agent 执行写作任务时优先读取 [`SKILL.md`](./SKILL.md) 和对应 `refe
 | Docs | [`readme.md`](./reference/readme.md), [`contributing.md`](./reference/contributing.md), [`changelog.md`](./reference/changelog.md) |
 | Release / Design | [`release-notes.md`](./reference/release-notes.md), [`migration-guide.md`](./reference/migration-guide.md), [`rfc.md`](./reference/rfc.md) |
 | Templates | [`issue-form-yaml.md`](./reference/issue-form-yaml.md), [`pr-template.md`](./reference/pr-template.md) |
-| Appendix | [`tool-analysis.md`](./reference/tool-analysis.md), [`weapons.md`](./reference/weapons.md) |
-
-## 内部文档索引
-
-| 文件 | 内容 |
-|------|------|
-| [`DOCS/README.md`](./DOCS/README.md) | 文档目录和渐进式披露规则 |
-| [`DOCS/collection-plan.md`](./DOCS/collection-plan.md) | 参考材料采集计划 |
-| [`DOCS/skill-outline.md`](./DOCS/skill-outline.md) | v1 skill outline |
-| [`DOCS/skill-outline-v2.md`](./DOCS/skill-outline-v2.md) | v2 outline 和扩展原则 |
-
-## 验证材料索引
-
-| 文件 | 内容 |
-|------|------|
-| [`test/README.md`](./test/README.md) | 18 场景测试提示词和预期产出 |
-| [`test/compare-18-scenarios.md`](./test/compare-18-scenarios.md) | 18 场景完整版/精简版样例 |
-| [`test/full-run-2026-06-11.md`](./test/full-run-2026-06-11.md) | 2026-06-11 全量检查报告 |
+| Appendix | [`weapons.md`](./reference/weapons.md) |
 
 ## 维护规则
 
-- 新增场景时，同步更新 `SKILL.md`、`INDEX.md`、`README.md`、`README.en.md`、`test/README.md` 和对应 `reference/*.md`
-- 新增文档时，优先挂到 `DOCS/README.md`，再按需要挂到这里
+- 新增场景时，同步更新 `SKILL.md`、`INDEX.md`、`README.md`、`README.en.md` 和对应 `reference/*.md`
+- 新增案例时，同步更新 `案例/README.md`，必要时补充渲染效果链接
+- 新增公开文档时，按需要挂到这里
 - README 只放最短路径和核心入口，避免再次变成大而全的文档
 - 深层细节必须有上层入口可达，不能只散落在目录里

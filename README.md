@@ -28,11 +28,23 @@
 
 ### Codex 本地安装
 
-先克隆本仓库或你的 fork，然后在仓库根目录执行：
+把 `<repo-url>` 替换成这个仓库或你的 fork，一条命令安装：
+
+```bash
+git clone <repo-url> "$HOME/.agents/skills/oh-my-gh-writing"
+```
+
+如果已经克隆到本地，在仓库根目录执行：
 
 ```bash
 mkdir -p "$HOME/.agents/skills"
 ln -sfn "$PWD" "$HOME/.agents/skills/oh-my-gh-writing"
+```
+
+也可以直接把这句话丢给 agent：
+
+```text
+请把 <repo-url> 安装成 Codex skill，名称为 oh-my-gh-writing；如果目标 agent 不支持 SKILL.md skill，请把 SKILL.md 和 reference/ 改写成它的原生规则文件。
 ```
 
 重启 Codex 后，可以这样使用：
@@ -47,7 +59,7 @@ ln -sfn "$PWD" "$HOME/.agents/skills/oh-my-gh-writing"
 
 ### Agent 支持矩阵
 
-支持方式按各 Agent 官方文档核对，Agent 名称链接到对应文档。新增或更新接入案例时，不要凭经验判断是否可用，先查官方文档再写结论。
+支持方式按各 Agent 官方文档核对，Agent 名称链接到对应文档。新增或更新接入说明时，不要凭经验判断是否可用，先查官方文档再写结论。
 
 | 图标 | Agent | 支持方式 | 如何接入 |
 |------|-------|----------|----------|
@@ -77,24 +89,17 @@ ln -sfn "$PWD" "$HOME/.hermes/skills/oh-my-gh-writing"
 
 ### 示例：Cursor 改写导入
 
-Cursor 不按 `SKILL.md` 目录直接加载本仓库。把规则改写成 Project Rules，并让规则文件指向保留下来的 `reference/`：
+Cursor 不按 `SKILL.md` 目录直接加载本仓库。推荐让 agent 在目标项目里完成转换：
 
-```bash
-mkdir -p .cursor/rules/reference
-cp reference/*.md .cursor/rules/reference/
+```text
+请读取 oh-my-gh-writing 的 SKILL.md 和 reference/，把它改写成 Cursor Project Rules：
+1. 创建 .cursor/rules/oh-my-gh-writing.mdc
+2. 保留场景路由、普通版/完整版选择规则和 README guardrails
+3. 让规则在需要时引用或内嵌对应 reference/*.md 摘要
+4. 不要把案例库当成运行时规则，只在我要求案例时参考
 ```
 
-然后创建 `.cursor/rules/oh-my-gh-writing.mdc`，写入：
-
-```markdown
----
-description: GitHub 写作规范。用于写 Issue、PR、Review、Commit、README、CHANGELOG、Release Notes、RFC 和 GitHub 模板。
-alwaysApply: false
----
-
-先识别写作场景，再选择普通版或完整版。输出前读取本规则目录下对应的 `reference/*.md`。
-README 场景读取 `reference/readme.md`；PR 场景读取对应的 `reference/*-pr.md`。
-```
+如果手工做，最小规则文件就是 `.cursor/rules/oh-my-gh-writing.mdc`，内容来自 `SKILL.md` 的 Workflow、Scenario Routing 和 Shared Principles。
 
 ## 场景总览
 
@@ -135,8 +140,11 @@ flowchart LR
 | [`SKILL.md`](./SKILL.md) | skill 入口：识别场景、选择级别、说明通用原则 |
 | [`INDEX.md`](./INDEX.md) | 全量索引：18 个场景和对应标准文件 |
 | [`reference/`](./reference) | 每个场景的标准化写法、字段顺序和 checklist |
+| [`案例/`](./案例) | 测试阶段案例库：真实仓库来源、摘录和结构分析 |
 
-设计过程和测试记录属于维护材料，需要时从 [`INDEX.md`](./INDEX.md) 进入。
+## 查看案例效果
+
+打开 [`案例/README.md`](./案例/README.md) 可以看到 18 个场景的案例索引。GitHub 会直接渲染这些 Markdown 文件；README 场景还提供“渲染效果”链接，可以跳到原仓库 README 的最终展示页，旁边的“完整内容”链接保留 raw Markdown 方便比对。
 
 ## License
 

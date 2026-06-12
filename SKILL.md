@@ -17,7 +17,7 @@ Use this skill to produce GitHub-ready writing for common collaboration workflow
 6. Read the matching `reference/*.md` file before writing the final output.
 7. Read [`reference/weapons.md`](./reference/weapons.md) only when badges, alerts, collapsible logs, Mermaid, tables, or other formatting tools are needed.
 8. Read [`INDEX.md`](./INDEX.md) only for full repository navigation or maintenance work.
-9. When the user asks for real-world examples, case studies, or reference projects for a scenario, read the matching file in [`案例/`](./案例/) which contains 6 real GitHub examples (3 detailed + 3 concise) per scenario with complete original text and clickable repository URLs.
+9. When the user asks for real-world examples, case studies, or reference projects for a scenario, read the matching file in [`案例/`](./案例/) after loading the scenario reference.
 
 Do not load every reference file for a normal request. Do not expose reference-project analysis in user-facing output unless the user explicitly asks for rationale or sources.
 
@@ -63,7 +63,7 @@ When the scenario is README, follow `reference/readme.md` and apply these extra 
 - Treat the README as a public entry page, not a dump of every internal file.
 - Before producing or editing a README from source code, confirm whether the user wants a local markdown draft, a chat-only draft, or a remote repository update. Do not assume upload is authorized because source code is available.
 - For skill repositories, explain that the project is a portable writing skill, not a standalone app, README generator, or GitHub integration.
-- Keep runtime files and maintainer files distinct: `SKILL.md` and `reference/` define behavior; `DOCS/` and `test/` are process and validation material.
+- Keep runtime files focused: `SKILL.md` and `reference/` define behavior; `案例/` is supporting material for examples and calibration, not the primary runtime source.
 - Use badges only when they answer a real reader question and link to evidence.
 - Keep install commands copyable. If a repository owner or URL is unknown, label the placeholder clearly instead of presenting it as a ready-to-run command.
 - If bilingual README content is requested, prefer separate files for non-trivial documents, such as `README.md` plus `README.en.md`. Do not stack a full Chinese README above a full English README in the same file.
@@ -86,5 +86,6 @@ When updating this skill repository itself:
 - Keep `SKILL.md` as the concise runtime router.
 - Put scenario-specific rules in the matching `reference/*.md`.
 - Keep `INDEX.md` as navigation only.
-- Treat `DOCS/` as design notes and `test/` as validation material.
+- Keep local research and validation runs out of tracked repository content unless they are intentionally published.
+- Keep `案例/` useful for review by linking source, raw text, rendered view, and a short structure analysis where applicable.
 - Update README-facing lessons in `reference/readme.md` so future README drafts do not repeat the same mistakes.

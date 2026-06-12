@@ -28,11 +28,23 @@ It is not a README generator or a GitHub App. The project works as a portable wr
 
 ### Local Codex Install
 
-Clone this repository or your fork first, then run this from the repository root:
+Replace `<repo-url>` with this repository or your fork, then install with one command:
+
+```bash
+git clone <repo-url> "$HOME/.agents/skills/oh-my-gh-writing"
+```
+
+If you already have a local checkout, run this from the repository root:
 
 ```bash
 mkdir -p "$HOME/.agents/skills"
 ln -sfn "$PWD" "$HOME/.agents/skills/oh-my-gh-writing"
+```
+
+You can also hand this prompt to an agent:
+
+```text
+Install <repo-url> as a Codex skill named oh-my-gh-writing. If the target agent does not support SKILL.md skills, adapt SKILL.md and reference/ into that agent's native rule format.
 ```
 
 After restarting Codex, use prompts like:
@@ -77,24 +89,17 @@ ln -sfn "$PWD" "$HOME/.hermes/skills/oh-my-gh-writing"
 
 ### Example: Adapt for Cursor
 
-Cursor does not load this repository as a `SKILL.md` skill folder directly. Rewrite the rules as Project Rules and keep a local copy of `reference/` next to the rule:
+Cursor does not load this repository as a `SKILL.md` skill folder directly. The easiest path is to ask an agent to convert it inside the target project:
 
-```bash
-mkdir -p .cursor/rules/reference
-cp reference/*.md .cursor/rules/reference/
+```text
+Read oh-my-gh-writing's SKILL.md and reference/, then adapt them into Cursor Project Rules:
+1. Create .cursor/rules/oh-my-gh-writing.mdc
+2. Preserve scenario routing, normal/complete mode selection, and README guardrails
+3. Reference or inline the relevant reference/*.md summaries when needed
+4. Do not treat the case library as runtime rules; use it only when I ask for examples
 ```
 
-Then create `.cursor/rules/oh-my-gh-writing.mdc` with:
-
-```markdown
----
-description: GitHub writing standards for issues, PRs, reviews, commits, README files, changelogs, release notes, RFCs, and GitHub templates.
-alwaysApply: false
----
-
-Detect the writing scenario first, then choose normal or complete mode. Before producing the output, read the matching `reference/*.md` under this rules directory.
-For README work, read `reference/readme.md`; for PR work, read the matching `reference/*-pr.md`.
-```
+If you do it manually, the minimum rule file is `.cursor/rules/oh-my-gh-writing.mdc`, derived from `SKILL.md`'s Workflow, Scenario Routing, and Shared Principles.
 
 ## Scenario Coverage
 
@@ -135,8 +140,11 @@ Default behavior:
 | [`SKILL.md`](./SKILL.md) | Skill entry: scenario routing, level selection, shared principles |
 | [`INDEX.md`](./INDEX.md) | Full index for all 18 scenarios and their standards |
 | [`reference/`](./reference) | Standardized writing rules, field order, and checklists per scenario |
+| [`案例/`](./案例) | Test-stage case library: source links, excerpts, and structure notes from real repositories |
 
-Design notes and test reports are maintainer materials. Use [`INDEX.md`](./INDEX.md) when you need them.
+## Viewing Cases
+
+Open [`案例/README.md`](./案例/README.md) for the 18-scenario case index. GitHub renders these Markdown files directly. README cases also include a rendered-view link to the original repository README, while the raw-source link remains available for comparing the underlying Markdown.
 
 ## License
 

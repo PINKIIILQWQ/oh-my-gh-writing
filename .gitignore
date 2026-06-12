@@ -31,11 +31,6 @@ Desktop.ini
 tmp/
 temp/
 
-# Skill/test scratch output
-test/output/
-test/outputs/
-test/results/
-test/runs/
 .cache/
 
 # Node tooling, if examples/scripts are added later
