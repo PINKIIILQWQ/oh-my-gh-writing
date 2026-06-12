@@ -1,30 +1,31 @@
-## Enhancement: Support ReadableStream in Express res.send()
+### Enhancement: Accept ReadableStream in res.send()
 
-### Current limitation
-Express 4.x res.send() detects type by instanceof checks (string, Buffer, Object).
-Web API ReadableStream falls through to Object serialization, producing
-`[object ReadableStream]` in the response body.
+**Current limitation**
+Express 4.x `res.send()` detects body type via `instanceof` checks for `string`, `Buffer`, and `Object`. When passed a Web API `ReadableStream`, none of these match and the stream is serialized as `[object ReadableStream]`.
 
-### Proposed change
-Add a `ReadableStream` branch in the send() type detection:
+**Proposed behavior**
+Detect `ReadableStream` and pipe it directly to the response without buffering the entire body into memory.
 
+**Before**
 ```js
-if (body instanceof ReadableStream) {
-  const reader = body.getReader();
-  const pipe = new Writable({
-    write(chunk) { res.write(chunk); }
-  });
-  await reader.pipeTo(pipe);
-  res.end();
+// Must buffer entire stream first
+const chunks = [];
+for await (const chunk of readableStream) {
+  chunks.push(chunk);
 }
+res.send(Buffer.concat(chunks));
 ```
 
-### Compatibility
-- No breaking changes to existing API
-- ReadableStream support requires Node.js 18+
-- Backport to Express 4.x via polyfill detection
+**After**
+```js
+// Stream directly — no buffering
+res.send(readableStream);
+```
 
-### Performance comparison
-Large file (500MB):
-- Before: 5.2s response time, 520MB peak memory
-- After: 0.3s TTFB, 64KB peak memory
+**Compatibility**
+Additive change. `res.send()` signature extended with one additional type check. Existing usage unaffected. Requires Node.js 18+ for `ReadableStream` global.
+
+**Verification (to run)**
+- Unit: res.send(new ReadableStream(...)) produces chunked transfer response
+- Memory: 500MB file should not spike heap beyond 10MB
+- Edge: null body, already-ended response, aborted stream

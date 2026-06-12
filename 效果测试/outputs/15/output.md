@@ -1,45 +1,26 @@
 # Migrating from REST API v1 to GraphQL v2
 
 ## Overview
-This guide covers migrating client applications from the legacy REST API
-(`/api/v1/`) to the new GraphQL API (`/api/v2/graphql`). The v1 API will
-be maintained for 6 months after the v2 GA release.
+This guide covers migrating client applications from REST (`/api/v1/`) to GraphQL (`/api/v2/graphql`).
 
-## Breaking Changes
+## Key Changes
 
-### 1. Request format: URL params → Query document
-**Before (REST):**
-```js
-const res = await fetch('/api/v1/users?page=1&limit=20');
-const data = await res.json();
-```
+| Area | v1 (REST) | v2 (GraphQL) |
+|------|-----------|--------------|
+| Endpoint | `/api/v1/users/:id` | `query { user(id: $id) }` |
+| Request body | JSON body | Query document + variables |
+| Response shape | Fixed per endpoint | Client-specified fields |
+| Pagination | `?page=1&limit=20` | Cursor-based (relay-style) |
+| Auth | `Authorization: Bearer <token>` | Same header |
 
-**After (GraphQL):**
-```js
-const query = `query ($page: Int, $limit: Int) {
-  users(page: $page, limit: $limit) { id, name, email }
-}`;
-const result = await client.query({ query, variables: { page: 1, limit: 20 } });
-```
-
-### 2. Response format: Fixed → Flexible
-REST returns fixed-shaped responses per endpoint.
-GraphQL returns exactly the fields requested — no over-fetching.
-
-### 3. Authentication
-Same JWT token, passed as `Authorization` header in both cases.
-
-## Migration Strategy
-1. **Phase 1**: Install GraphQL client alongside existing REST calls
-2. **Phase 2**: Migrate read operations (queries) one endpoint at a time
-3. **Phase 3**: Migrate write operations (mutations)
-4. **Phase 4**: Remove REST client and v1 endpoint calls
+## Migration Steps
+1. Install a GraphQL client (the specific client depends on your framework)
+2. Migrate read operations one endpoint at a time — start with a simple `GET` endpoint
+3. Migrate write operations after all reads are verified
+4. Remove REST client after all endpoints are migrated
 
 ## Rollback
-Set `USE_REST_V1=true` environment variable to fall back to REST.
-Both APIs serve identical data during transition period.
+Keep the v1 REST endpoints operational. Set a feature flag to toggle between v1 and v2 clients.
 
 ## Timeline
-- v2 GA: Today
-- v1 deprecation notice: +3 months
-- v1 sunset: +6 months
+TBD — coordinate with API provider for v1 deprecation schedule.

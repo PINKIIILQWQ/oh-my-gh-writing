@@ -1,47 +1,43 @@
-# Contributing to Component Library
+# Contributing to Chakra UI
 
-First off, thanks for taking the time to contribute! 🎉
+We welcome contributions! Chakra UI is a React + TypeScript component library.
 
 ## Code of Conduct
 This project follows a Code of Conduct. Please read it before contributing.
 
 ## Getting Started
-### Prerequisites
-- Node.js 18+
-- npm 9+
-
-### Setup
 ```bash
-git clone https://github.com/your-org/component-lib.git
-cd component-lib
-npm install
-npm run dev    # Storybook dev server at http://localhost:6006
+git clone https://github.com/chakra-ui/chakra-ui.git
+cd chakra-ui
+pnpm install
+pnpm build
 ```
 
-## Development Workflow
-### Branch naming
-- `feat/button-variant` — new feature
-- `fix/modal-focus-trap` — bug fix
-- `docs/contributing-guide` — documentation
+## Development
+```bash
+# Start storybook
+pnpm storybook
 
-### Code style
-- TypeScript strict mode
-- ESLint (flat config) + Prettier
-- Run `npm run format` before committing
+# Run tests
+pnpm test
 
-### Testing
-- Vitest for unit tests
-- Playwright for e2e tests in Storybook
-- Aim for 80%+ coverage on new code
+# Type check
+pnpm typecheck
 
-## Pull Request Checklist
-- [ ] Code follows style guidelines
-- [ ] Tests added for new functionality
-- [ ] TypeScript types added/updated
-- [ ] Storybook story added (for components)
-- [ ] `npm run check` passes (lint + typecheck + test)
-- [ ] Documentation updated (if API changes)
+# Lint
+pnpm lint
+```
 
-## Release Process
-Maintainers merge PRs → `semantic-release` publishes npm package.
-Commit messages determine version bumps (feat → minor, fix → patch).
+## Pull Request Process
+1. Create a feature branch from `main`
+2. Make changes and add tests
+3. Run `pnpm test`, `pnpm typecheck`, `pnpm lint`
+4. Open a PR against `main`
+5. Request review from maintainers
+
+## Commit Convention
+`<type>(<scope>): <description>`
+Types: feat, fix, docs, refactor, chore, test
+
+## License
+MIT

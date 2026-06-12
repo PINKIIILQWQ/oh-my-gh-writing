@@ -1,56 +1,22 @@
-## Fix: CancelToken promise never resolves after cancel()
+## Fix: CancelToken.cancel() does not resolve token promise
 
-### Root cause
-In `lib/cancel/CancelToken.js`, the `cancel()` method fires all registered
-listeners but does not call `resolvePromise`. This means any code awaiting
-`source.token.promise` hangs indefinitely:
+**Root cause**
+`source.cancel(reason)` fires the abort signal and all registered listeners but never calls `this.resolvePromise`, leaving `source.token.promise` in a pending state indefinitely.
 
-```js
-const source = axios.CancelToken.source();
-// source.token.promise never resolves after cancel()
+**Change**
+```diff
+  CancelToken.prototype.cancel = function (reason) {
+    if (this._listeners) {
+      this._listeners.forEach(function (listener) { listener(reason); });
+    }
++   this.reason = reason;
++   this.resolvePromise(reason);
+  };
 ```
 
-### Before
-```js
-CancelToken.prototype.cancel = function (reason) {
-  if (this._listeners) {
-    this._listeners.forEach(function (listener) {
-      listener(reason);
-    });
-  }
-};
-```
+**Verification (to run)**
+- Unit: `source.cancel('test')` → `source.token.promise` resolves with `'test'`
+- Integration: fetch cancelled with `signal` does not hang
+- Edge: double cancel does not throw
 
-### After
-```js
-CancelToken.prototype.cancel = function (reason) {
-  if (this._listeners) {
-    this._listeners.forEach(function (listener) {
-      listener(reason);
-    });
-  }
-  this.reason = reason;
-  this.resolvePromise(reason);
-};
-```
-
-### Test coverage
-```ts
-describe('CancelToken', () => {
-  it('should resolve the promise when cancelled', async () => {
-    const source = axios.CancelToken.source();
-    setTimeout(() => source.cancel('Operation cancelled'), 10);
-    await expect(source.token.promise).resolves.toBe('Operation cancelled');
-  });
-
-  it('should reject with Cancel if request throws', () => {
-    const source = axios.CancelToken.source();
-    source.cancel();
-    return source.token.promise.catch((cancel) => {
-      expect(cancel.message).toBe('Request cancelled');
-    });
-  });
-});
-```
-
-### Fixes #6543
+**Fixes #TODO**

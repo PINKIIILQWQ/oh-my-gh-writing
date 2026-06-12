@@ -1,42 +1,16 @@
-## Review: PR #42 — JWT token refresh
+### Code Review: Auth/JWT token refresh PR
 
-### File: `src/auth/jwt.ts`
+Input references `https://github.com/example/repo/pull/42` — this URL does not point to a real repository and cannot be accessed. Without being able to read the diff, file contents, or PR metadata, line-level review findings cannot be produced.
 
-#### Line 45-50: Token storage (BLOCKING)
-```ts
-localStorage.setItem('access_token', token);
-localStorage.setItem('refresh_token', refreshToken);
-```
-**Problem:** LocalStorage is accessible via XSS. Any injected script can
-exfiltrate tokens.
-**Fix:** Store `refresh_token` in httpOnly secure cookie. Store
-`access_token` in memory only (JavaScript variable), not in storage.
+**General risk areas for a JWT token refresh implementation**
 
-#### Line 71-73: Token verification (BLOCKING)
-```ts
-const payload = jwt.decode(token);
-if (payload.exp < Date.now() / 1000) { ... }
-```
-**Problem:** `jwt.decode()` does NOT verify the signature. An attacker
-can forge tokens with arbitrary expiration.
-**Fix:** Use `jwt.verify(token, secret)` which validates signature
-AND expiration automatically.
+| Area | Common issue | Severity |
+|------|-------------|----------|
+| Token storage | refresh_token in localStorage vs httpOnly cookie | blocking |
+| Signature verification | jwt.decode() without jwt.verify() | blocking |
+| Expiration check | Missing or client-side-only check | blocking |
+| Error handling | Silent catch swallowing auth failures | important |
+| Race condition | Concurrent refresh requests without locking | important |
+| Logout completeness | Server-side token invalidation missing | major |
 
-#### Line 33: Development artifact (NIT)
-```ts
-console.log('Token refreshed successfully');
-```
-Remove before production merge.
-
-#### Line 81-85: Error handling (IMPORTANT)
-```ts
-catch (e) {
-  return null; // silently ignores all errors
-}
-```
-**Problem:** Silent catch hides network errors, rate limiting, etc.
-**Fix:** Log the error, differentiate between auth failure and system error.
-
-### Summary
-3 blocking issues (token storage, signature verification, silent catch)
-must be fixed before merge. 1 nit (console.log).
+To produce specific file-level findings, provide the diff URL or paste the relevant code.

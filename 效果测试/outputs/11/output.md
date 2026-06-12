@@ -1,52 +1,40 @@
-# zzz — Terminal countdown with command execution
+# ripgrep (rg)
 
-> A lightweight CLI that counts down and runs your command when time's up.
-> No dependencies. One binary. Works on Linux, macOS, and WSL.
+> ripgrep is a line-oriented search tool that recursively searches the current
+> directory for a regex pattern while respecting gitignore rules.
 
 ## Quick Start
-```bash
-# 10 second countdown, then run tests
-zzz 10 -- npm test
 
-# Countdown with human-readable duration
-zzz 2m30s -- ./deploy.sh
+```bash
+# macOS
+brew install ripgrep
+
+# Linux (deb)
+curl -LO https://github.com/BurntSushi/ripgrep/releases/download/15.1.0/ripgrep_15.1.0-1_amd64.deb
+sudo dpkg -i ripgrep_15.1.0-1_amd64.deb
+
+# Windows (scoop)
+scoop install ripgrep
+
+# From source (requires Rust)
+cargo install ripgrep
 ```
 
-## Features
-- **Human-friendly durations**: `zzz 1h30m`, `zzz 45s`, `zzz 5m`
-- **Command execution**: Runs any command after countdown completes
-- **Visual countdown**: Progress bar with remaining time
-- **Cancel**: Ctrl+C stops countdown without running command
-- **Sound alert**: Bell on completion (optional, `--bell`)
-
-## Install
-### macOS (Homebrew)
-```bash
-brew install zzz
-```
-
-### Linux (deb/rpm)
-```bash
-curl -LO https://github.com/example/zzz/releases/latest/zzz_amd64.deb
-sudo dpkg -i zzz_amd64.deb
-```
-
-### From source
-```bash
-go install github.com/example/zzz@latest
-```
+**TODO**: Replace release URL with the latest version from [releases](https://github.com/BurntSushi/ripgrep/releases).
 
 ## Usage
-```
-zzz [duration] -- [command] [args...]
+
+```bash
+rg pattern             # Search recursively in current dir
+rg "foo.*bar"          # Regex search
+rg -i "hello"          # Case-insensitive
+rg -g "!*.min.js"      # Exclude glob
+rg --type py "class"   # File-type filter
+rg -l "FIXME"          # Only list file paths
 ```
 
-### Examples
-| Command | Effect |
-|---------|--------|
-| `zzz 30 -- deploy.sh` | 30s countdown, then deploy |
-| `zzz 5m -- notify-send "Done"` | 5min, then notify |
-| `zzz --help` | Show all options |
+See `rg --help` or the [full documentation](https://github.com/BurntSushi/ripgrep/blob/master/README.md).
 
 ## License
-MIT — see [LICENSE](./LICENSE)
+
+Unlicense OR MIT

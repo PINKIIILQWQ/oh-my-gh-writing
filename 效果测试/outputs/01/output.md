@@ -1,84 +1,36 @@
-## Bug Report: Next.js build crashes with EMFILE on large projects
+### Bug: Next.js build fails with EMFILE on large projects
 
-### Description
-When running `next build` on a project with 1000+ source files in a
-Docker container, the build intermittently fails with an EMFILE error.
-This occurs during the file system traversal phase where Next.js
-discovers and compiles source files. The error is non-deterministic:
-sometimes the build succeeds, sometimes it fails. Larger projects
-(2000+ files) fail more consistently than smaller ones.
+**Environment**
+- Next.js 14.2
+- Node.js 20.11
+- Ubuntu 22.04 (Docker container)
+- Project size: 1000+ source files
 
-### Environment
-- **Next.js version:** 14.2.0
-- **Node.js version:** 20.11.0
-- **OS:** Ubuntu 22.04 (container)
-- **Container runtime:** Docker 24.0
-- **Deployment:** Docker Compose
-- **File count:** ~1200 source files (.tsx, .ts, .css)
+**Steps to reproduce**
+1. Run `next build` in a large Next.js project inside Docker
+2. Build fails intermittently with `Error: EMFILE: too many open files`
+3. Larger projects (2000+ files) fail more consistently
 
-### Steps to reproduce
-1. Create a Next.js project with 1000+ components:
-   ```bash
-   npx create-next-app@latest large-app
-   cd large-app
-   # Generate many component files
-   for i in $(seq 1 200); do
-     cp -r src/components/Header.tsx "src/components/Module$i.tsx"
-   done
-   ```
-2. Build in Docker:
-   ```bash
-   docker build -t large-app .
-   ```
-3. Run the build:
-   ```bash
-   docker run --rm large-app npx next build
-   ```
-4. Observe intermittent failure with:
-   ```
-   Error: EMFILE: too many open files, open '/app/src/components/Module42.tsx'
-       at Object.openSync (fs.js:585:3)
-       at readFileSync (fs.js:486:35)
-       at Object.readSync (next/dist/compiled/...) …
-   ```
+**Expected behavior**
+Build should complete successfully regardless of project size.
 
-### Expected behavior
-Build should complete successfully for projects of any size,
-given sufficient system resources.
+**Actual behavior**
+Build crashes with EMFILE during file traversal phase.
 
-### Actual behavior
-Build fails with EMFILE when file descriptor usage exceeds the
-container's ulimit (default 1024 in Docker).
+**Suspected cause**
+Node.js file watcher exceeds the Docker container's default open file limit (1024). Next.js uses chokidar internally, which opens a file descriptor per watched file. The inotify watch limit is a different limit (fs.inotify.max_user_watches) and does not affect this.
 
-### Root cause
-Next.js file watcher opens file descriptors for all source files
-during the compilation phase. Docker containers have a default
-open file limit of 1024, which is insufficient for large projects.
+**Workaround tested**
+Increasing `fs.inotify.max_user_watches` had no effect (this controls inotify watches, not file descriptors).
 
-### Logs
-```
-> next build
-
-  ▲ Next.js 14.2.0
-  - Experiments: (none)
-
-Creating an optimized production build ...
-Error: EMFILE: too many open files, open '/app/src/components/Header.tsx'
-    at Object.openSync (fs.js:585:3)
- ELIFECYCLE  Command failed with exit code 1.
-```
-
-### Resolution
+**Suggested fix**
+Increase the container's open file limit:
 ```dockerfile
 # docker-compose.yml
 services:
   app:
-    build: .
     ulimits:
       nofile:
         soft: 65536
         hard: 65536
 ```
-
-Verification: After setting ulimit, `next build` completes reliably on
-projects with 2000+ files.

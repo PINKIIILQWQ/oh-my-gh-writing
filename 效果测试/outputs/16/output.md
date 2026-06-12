@@ -1,57 +1,39 @@
 # RFC: Operator Overloading for TypeScript
 
 ## Summary
-Add an `operator` keyword to TypeScript that allows classes and interfaces
-to define custom implementations for JavaScript operators (`+`, `-`, `*`,
-`/`, `==`, `>`, etc.) with full type safety.
+Allow classes and interfaces to define custom behavior for JavaScript operators using an `operator` keyword.
 
 ## Motivation
-Numeric computing, vector math, and DSL implementations in TypeScript require
-verbose method calls where operators would be more natural. This is a common
-pain point in scientific computing, game development, and data processing.
+Numeric computing, vector math, and DSL implementations currently require verbose method calls where operators would be more natural.
 
-## Design
-
-### operator keyword
+## Proposed Design (draft)
 ```ts
-class Matrix {
-  data: number[][];
+class Vector2D {
+  constructor(public x: number, public y: number) {}
 
-  operator +(other: Matrix): Matrix {
-    // element-wise addition
-  }
-
-  operator *(scalar: number): Matrix {
-    // scalar multiplication
+  operator +(other: Vector2D): Vector2D {
+    return new Vector2D(this.x + other.x, this.y + other.y);
   }
 }
 ```
 
-### Operator table
-| Operator | Method signature | Example |
-|----------|-----------------|---------|
+## Operator Table
+| Operator | Signature | Example |
+|----------|-----------|---------|
 | `+` | `operator +(other: T): T` | `a + b` |
 | `-` | `operator -(other: T): T` | `a - b` |
 | `*` | `operator *(other: T): T` | `a * b` |
 | `/` | `operator /(other: T): T` | `a / b` |
-| `==` | `operator ==(other: T): boolean` | `a == b` |
-| `>` | `operator >(other: T): boolean` | `a > b` |
-
-### Transpilation
-Compiles to `Symbol.for`-based method calls, compatible with ES6+.
 
 ## Backwards Compatibility
-- No breaking changes to existing TypeScript code
-- Operator overloading is opt-in per class
-- Non-overloaded operators continue to produce compile errors
+No breaking changes. Operator overloading is opt-in per class.
 
 ## Prior Art
-- C++: `operator+` member functions
-- Python: `__add__`, `__mul__` dunder methods
-- Rust: `std::ops::Add` trait
+- Python: `__add__`, `__mul__`
+- Rust: `std::ops::Add`
 - Kotlin: `operator fun plus()`
 
-## Unresolved Questions
+## Open Questions
 1. Should interfaces be able to declare operators?
-2. Interaction with existing `valueOf` and `toString`?
-3. Performance implications for JIT compilation?
+2. Interaction with `Symbol.toPrimitive`?
+3. Transpilation target for ES5 compatibility?
