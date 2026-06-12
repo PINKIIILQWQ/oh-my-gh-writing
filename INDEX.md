@@ -8,7 +8,7 @@ Agent 执行写作任务时优先读取 [`SKILL.md`](./SKILL.md) 和对应 `refe
 
 | 层级 | 入口 | 适合谁 | 内容粒度 |
 |------|------|--------|----------|
-| 0 | [`README.md`](./README.md) | 第一次打开仓库的人 | 项目定位、安装、最短路径 |
+| 0 | [`README.md`](./README.md) / [`README.en.md`](./README.en.md) | 第一次打开仓库的人 | 项目定位、安装、最短路径 |
 | 1 | [`INDEX.md`](./INDEX.md) | 想找某个场景或文档的人 | 全量索引和目录 |
 | 2 | [`SKILL.md`](./SKILL.md) | Agent / skill 使用者 | 入口规则、场景识别、摘要标准 |
 | 3 | [`reference/`](./reference) | 要改写法标准的人 | 每场景完整版/普通版/checklist |
@@ -80,7 +80,7 @@ Agent 执行写作任务时优先读取 [`SKILL.md`](./SKILL.md) 和对应 `refe
 
 ## 维护规则
 
-- 新增场景时，同步更新 `SKILL.md`、`INDEX.md`、`README.md`、`test/README.md` 和对应 `reference/*.md`
+- 新增场景时，同步更新 `SKILL.md`、`INDEX.md`、`README.md`、`README.en.md`、`test/README.md` 和对应 `reference/*.md`
 - 新增文档时，优先挂到 `DOCS/README.md`，再按需要挂到这里
 - README 只放最短路径和核心入口，避免再次变成大而全的文档
 - 深层细节必须有上层入口可达，不能只散落在目录里

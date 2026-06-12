@@ -60,7 +60,7 @@ When the scenario is README, follow `reference/readme.md` and apply these extra 
 - Keep runtime files and maintainer files distinct: `SKILL.md` and `reference/` define behavior; `DOCS/` and `test/` are process and validation material.
 - Use badges only when they answer a real reader question and link to evidence.
 - Keep install commands copyable. If a repository owner or URL is unknown, label the placeholder clearly instead of presenting it as a ready-to-run command.
-- If bilingual content is requested, provide a language switch and keep both language sections structurally aligned.
+- If bilingual README content is requested, prefer separate files for non-trivial documents, such as `README.md` plus `README.en.md`. Do not stack a full Chinese README above a full English README in the same file.
 
 ## Missing Information
 
