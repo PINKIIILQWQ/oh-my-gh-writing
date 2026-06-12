@@ -2,6 +2,9 @@
 
 ---
 
+
+> 格式：**Markdown**（CHANGELOG.md）
+
 ## 精细版（完整变更日志）
 
 ### 案例 1：psf/requests (54k⭐) — HISTORY.md

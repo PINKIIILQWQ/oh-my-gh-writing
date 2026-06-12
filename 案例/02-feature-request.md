@@ -2,6 +2,9 @@
 
 ---
 
+
+> 格式：**YAML**（GitHub Issue Form）
+
 ## 精细版（完整模板）
 
 ### 案例 1：apache/dubbo (40k⭐)

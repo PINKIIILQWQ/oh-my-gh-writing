@@ -2,6 +2,9 @@
 
 ---
 
+
+> 格式：**Markdown**（GitHub Discussions）
+
 ## 精细版（完整 Discussion 框架）
 
 ### 案例 1：mozilla/rr (10k⭐)

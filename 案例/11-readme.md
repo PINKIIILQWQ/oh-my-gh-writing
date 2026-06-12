@@ -2,6 +2,9 @@
 
 ---
 
+
+> 格式：**Markdown**（GitHub README）
+
 ## 精细版（经典高星 README，含完整内容）
 
 ### 案例 1：ohmyzsh/ohmyzsh (188k⭐)

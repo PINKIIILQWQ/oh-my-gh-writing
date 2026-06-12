@@ -1,5 +1,9 @@
 # Bug Report — 经典案例
 
+
+> 格式：**YAML**（GitHub Issue Form）
+> Markdown 模板（旧格式）也可用，但 YAML 是当前最佳实践
+
 > 18 场景 × 6 案例（3精细 + 3普通），来源均为不同 GitHub 仓库。
 
 ---

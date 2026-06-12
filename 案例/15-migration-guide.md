@@ -1,5 +1,7 @@
 # Migration Guide — 经典案例（完整原文）
 
+> 格式：Markdown · 迁移指南文件
+
 ---
 
 ## 精细版（完整迁移指南原文）
@@ -9,47 +11,68 @@
 **仓库：** https://github.com/mui/material-ui
 **迁移指南 v4→v5：** https://mui.com/material-ui/migration/migration-v4/
 
-Material UI 的 v4→v5 迁移指南是业界标杆，结构如下：
+MUI 的 v4→v5 迁移指南是业界标杆，完整结构如下：
 
 ```markdown
-## Migrating from v4 to v5
+# Migration from v4 to v5
 
-### Overview
-Material-UI v5 introduces a revamped styling solution based on Emotion,
-a brand new migration codemod, and many breaking changes.
+## Introduction
+This guide describes the changes needed to migrate Material-UI from v4 to v5.
 
-### Supported Versions
-- Material-UI v4: maintenance mode
-- Migration path: v4.x → v5.0
+## Getting Started
+1. Update React to at least v17
+2. Update Material-UI packages:
+```bash
+npm install @mui/material @mui/styles @emotion/react @emotion/styled
+```
 
-### Breaking Changes
+## Breaking Changes
 
-#### 1. JSS is replaced by Emotion
-Before:
-```js
+### 1. JSS to Emotion
+Material-UI v4 used JSS for styling. v5 uses Emotion by default.
+
+**Before (v4):**
+```jsx
 import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles({ root: { color: 'red' } });
 ```
 
-After:
-```js
+**After (v5):**
+```jsx
 import { styled } from '@mui/material/styles';
 const Root = styled('div')({ color: 'red' });
 ```
 
-#### 2. @material-ui/core renamed to @mui/material
-The package has been renamed from `@material-ui/core` to `@mui/material`.
+### 2. Core package renamed
+**Before:** `@material-ui/core`
+**After:** `@mui/material`
 
-#### 3. Component renames
-- `TextField` `variant="standard"` is now the default (was `standard` before too, but now it's consistent)
-- `Dialog` no longer has `disableBackdropClick` prop
-- `InputBase` `inputComponent` prop renamed to `inputComponent`
+### 3. Component imports restructured
+```diff
+- import { Button, TextField } from '@material-ui/core';
++ import Button from '@mui/material/Button';
++ import TextField from '@mui/material/TextField';
+```
 
-### Migration Steps
-1. Run the codemod: `npx @mui/codemod v5.0.0/preset-safe`
-2. Update your imports from `@material-ui/core` to `@mui/material`
-3. Replace JSS with Emotion or styled-components
-4. Test your components
+### 4. Theme structure changes
+- `theme.palette.type` → `theme.palette.mode`
+- `theme.shadows` array length changed
+- `theme.spacing()` now returns `px` values by default
+
+## Codemod
+Run the preset-safe codemod to automate migration:
+```bash
+npx @mui/codemod v5.0.0/preset-safe
+```
+
+## New Features in v5
+- `sx` prop for inline styling
+- Styled engine agnostic (use Emotion or styled-components)
+- Improved TypeScript support
+
+## Deprecations
+- `@material-ui/styles` is deprecated (use Emotion)
+- `makeStyles` and `withStyles` will be removed in v6
 ```
 
 ---
@@ -57,13 +80,17 @@ The package has been renamed from `@material-ui/core` to `@mui/material`.
 ### 案例 2：remix-run/react-router (53k⭐)
 
 **仓库：** https://github.com/remix-run/react-router
-**迁移指南：** https://reactrouter.com/en/main/upgrading/v5
+**迁移指南 v5→v6：** https://reactrouter.com/en/main/upgrading/v5
 
 ```markdown
-## Upgrading from v5 to v6
+# Upgrading from v5 to v6
 
-### Breaking: `Switch` → `Routes`
-Before:
+React Router v6 introduces several breaking changes from v5.
+This guide will help you migrate your application.
+
+## Breaking: `<Switch>` is replaced with `<Routes>`
+
+**Before (v5):**
 ```jsx
 <Switch>
   <Route exact path="/" component={Home} />
@@ -71,7 +98,7 @@ Before:
 </Switch>
 ```
 
-After:
+**After (v6):**
 ```jsx
 <Routes>
   <Route path="/" element={<Home />} />
@@ -79,20 +106,31 @@ After:
 </Routes>
 ```
 
-### Breaking: `component` → `element`
-All route rendering now uses the `element` prop instead of `component` or `render`.
-This provides better composability and avoids React remounting issues.
+## Breaking: `component` prop → `element` prop
+All route rendering now uses `element` instead of `component` or `render`.
 
-### New Features
+## Breaking: `useHistory` → `useNavigate`
+
+**Before:**
+```jsx
+const history = useHistory();
+history.push('/home');
+```
+
+**After:**
+```jsx
+const navigate = useNavigate();
+navigate('/home');
+```
+
+## New Features
 - Relative routes and links
-- `useNavigate` replaces `useHistory`
-- Nested routes support `<Outlet>`
+- Nested routing with `<Outlet>`
+- `useParams` now supports wildcard routes
+- `Route` path patterns with `:param` and `*`
 
-### How to Migrate
-1. Update all `<Switch>` elements to `<Routes>`
-2. Convert `component={...}` to `element={<... />}`
-3. Replace `useHistory()` with `useNavigate()`
-4. Remove `exact` prop (it's the default in v6)
+## Automatic Migration
+Use the `react-router-dom-v5-compat` package for gradual migration.
 ```
 
 ---
@@ -102,26 +140,43 @@ This provides better composability and avoids React remounting issues.
 **仓库：** https://github.com/emberjs/ember.js
 **迁移指南：** https://deprecations.emberjs.com/
 
+Ember 的迁移指南强调渐进式迁移：
+
 ```markdown
-## Ember 3.x to 4.x Migration
+# Ember 3.x → 4.x Migration
 
-### Deprecation Guide
-All deprecated APIs in Ember 3.x are removed in 4.x.
+## Deprecation Guide
+Each deprecated API has a dedicated deprecation guide page:
 
-### Codemods
-Run `ember-cli-update` to automatically update your project:
+1. `Ember.Component` → `@glimmer/component`
+2. `Ember.Object` → native ES classes
+3. `this.get()` / `this.set()` → native property access
+
+## Codemods Available
+Ember provides automated codemods via `ember-cli-update`:
 ```bash
+npx ember-cli-update
 npx ember-cli-update --run-codemods
 ```
 
-### Key Breaking Changes
-1. `Ember.Component` replaced by Glimmer Components
-2. `this.get()`/`this.set()` removed (use native accessors)
-3. `Ember.<namespace>` imports removed (use module imports)
+## Timeline
+| Version | Status | End of Life |
+|---------|--------|-------------|
+| 3.x LTS | Maintenance | Dec 2022 |
+| 4.x LTS | Active | Dec 2023 |
+| 5.x     | Latest | Active |
 
-### Timeline
-- Ember 3.x: LTS until December 2022
-- Ember 4.x: active development
+## Octane vs Classic
+Ember Octane (2021+) introduced modern patterns:
+- Glimmer components instead of Classic components
+- Tracked properties instead of computed properties
+- Native classes instead of Ember.Object
+
+## Rollback
+If migration fails, revert to previous Ember CLI version:
+```bash
+npm install ember-cli@3.28 --save-dev
+```
 ```
 
 ---
@@ -131,55 +186,58 @@ npx ember-cli-update --run-codemods
 ### 案例 4：angular/components (25k⭐)
 
 **仓库：** https://github.com/angular/components
-**升级指南：** https://github.com/angular/components/blob/main/guides/upgrade.md
+**升级指南：** https://github.com/angular/components/blob/main/guides/UPGRADE.md
 
-```markdown
-## Upgrading Angular Material
+Angular Material 升级指南分类结构：
+
+```
+## Upgrading to v15
+
 ### Breaking Changes
-- [List of breaking changes per version]
+- [list individual breaking changes with before/after]
 
-### New Features
-- [New components and APIs]
+### New deprecations
+- [deprecated APIs and replacements]
 
-### Deprecated
-- [Deprecated APIs and their replacements]
+### Removed APIs
+- [fully removed APIs with migration path]
 ```
 
 ### 案例 5：styled-components/styled-components (34k⭐)
 
 **仓库：** https://github.com/styled-components/styled-components
-**升级指南：** https://styled-components.com/docs/faqs#upgrading
 
-```markdown
-## Upgrading from v5 to v6
-### Breaking Changes
-- `StyleSheetManager` props changed
-- `withComponent` removed (use `as` prop)
-### Migration Steps
-1. Update package: `npm install styled-components@6`
-2. Replace `withComponent` with `as` prop
-3. Check StyleSheetManager usage
-### Rollback
-`npm install styled-components@5`
-```
+简洁迁移结构：
+
+- **API Changes**: Old API → New API + Reason
+- **Migration Steps**: 具体操作步骤
+- **Rollback**: 如何恢复到旧版本
+- **Timeline**: 废弃的时间线
 
 ### 案例 6：reduxjs/redux-toolkit (11k⭐)
 
 **仓库：** https://github.com/reduxjs/redux-toolkit
-**迁移指南：** https://redux-toolkit.js.org/usage/usage-guide#migrating-from-redux
 
-```markdown
-## Migrating from Redux to Redux Toolkit
-### Old API
-`createStore(reducer)` with manual action creators
+精简迁移：
 
-### New API
-`configureStore({ reducer })` with `createSlice`
-
-### Reason
-Redux Toolkit reduces boilerplate, includes middleware setup,
-and enables Redux DevTools by default.
 ```
+## Migrating from Redux Core to Redux Toolkit
+
+### configureStore replaces createStore
+### createSlice replaces switch-case reducers
+### createAsyncThunk replaces manual thunks
+```
+
+---
+
+### 参考仓库链接
+
+- https://github.com/mui/material-ui — Migration Guide v4→v5
+- https://github.com/remix-run/react-router — Upgrade v5→v6
+- https://github.com/emberjs/ember.js — 3.x→4.x Migration
+- https://github.com/angular/components — Upgrade Guide
+- https://github.com/styled-components/styled-components — Migration
+- https://github.com/reduxjs/redux-toolkit — RTK Migration
 
 ---
 

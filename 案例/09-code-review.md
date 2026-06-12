@@ -2,6 +2,9 @@
 
 ---
 
+
+> 格式：**Markdown**（GitHub PR Review 评论）
+
 ## 精细版（详尽审查指南）
 
 ### 案例 1：google/eng-practices (20.5k⭐)

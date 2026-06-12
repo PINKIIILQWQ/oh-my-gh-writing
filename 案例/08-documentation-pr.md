@@ -2,6 +2,9 @@
 
 ---
 
+
+> 格式：**Markdown**（GitHub PR Template）
+
 ## 精细版（完整 PR 模板）
 
 ### 案例 1：ionic-team/ionic-framework (51k⭐)

@@ -2,6 +2,9 @@
 
 ---
 
+
+> 格式：**Markdown**（GitHub PR Template）
+
 ## 精细版（完整 PR 模板原文）
 
 ### 案例 1：microsoft/terminal (96k⭐)

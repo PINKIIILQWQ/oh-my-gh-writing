@@ -2,6 +2,9 @@
 
 ---
 
+
+> 格式：**Markdown**（RFC 文档）
+
 ## 精细版（完整 RFC 模板）
 
 ### 案例 1：python/peps (4k⭐)

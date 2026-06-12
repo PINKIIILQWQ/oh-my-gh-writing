@@ -2,6 +2,9 @@
 
 ---
 
+
+> 格式：**Plain text**（`git commit -m` 字符串）
+
 ## 精细版（完整 Commit 规范）
 
 ### 案例 1：semantic-release/semantic-release (21k⭐)

@@ -2,6 +2,9 @@
 
 ---
 
+
+> 格式：**YAML**（GitHub Issue Form）
+
 ## 精细版（详尽 Enhancement 模板）
 
 ### 案例 1：kubernetes/community (10k⭐)

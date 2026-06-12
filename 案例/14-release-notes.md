@@ -2,6 +2,9 @@
 
 ---
 
+
+> 格式：**Markdown**（GitHub Releases）
+
 ## 精细版（完整发布公告原文）
 
 ### 案例 1：astral-sh/ruff (40k⭐)

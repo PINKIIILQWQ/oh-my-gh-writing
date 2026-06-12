@@ -2,6 +2,9 @@
 
 ---
 
+
+> 格式：**Markdown**（GitHub CONTRIBUTING）
+
 ## 精细版（完整贡献指南，含真实内容）
 
 ### 案例 1：psf/black (39k⭐)
