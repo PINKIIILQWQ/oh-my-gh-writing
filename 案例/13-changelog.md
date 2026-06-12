@@ -131,4 +131,13 @@ Released 2026-02-18
 
 ---
 
+### 参考仓库链接
+
+- https://github.com/psf/requests — HISTORY.md
+- https://github.com/facebook/jest — CHANGELOG.md
+- https://github.com/hashicorp/vagrant — CHANGELOG.md
+- https://github.com/material-components/material-web — CHANGELOG.md
+- https://github.com/h5bp/html5-boilerplate — CHANGELOG.md
+- https://github.com/pallets/flask — CHANGES.rst
+
 > 收集日期：2026-06-12

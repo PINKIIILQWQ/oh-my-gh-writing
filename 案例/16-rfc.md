@@ -120,4 +120,13 @@ JSON:API 扩展提案：
 
 ---
 
+### 参考仓库链接
+
+- https://github.com/python/peps — PEP 1 (PEP Purpose and Guidelines)
+- https://github.com/tc39/proposals — ECMAScript Proposals
+- https://github.com/kubernetes/enhancements — KEP Template
+- https://github.com/graphql/graphql-spec — GraphQL RFC Process
+- https://github.com/opencontainers/runtime-spec — OCI Spec Proposals
+- https://github.com/json-api/json-api — JSON:API Extensions
+
 > 收集日期：2026-06-12

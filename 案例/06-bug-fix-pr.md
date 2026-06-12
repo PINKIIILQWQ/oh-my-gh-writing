@@ -50,3 +50,14 @@ Minimal description + humorous legal boilerplate.
 **helm/helm-2to3 (27k⭐)** — 方案 → Fixes # → 备注 + 升级兼容性检查。
 **nodejs/help (110k⭐)** — CI 全绿要求 + CITGM 检查 + 平台兼容性矩阵。
 """
+
+### 参考仓库链接
+
+- https://github.com/microsoft/terminal — `.github/PULL_REQUEST_TEMPLATE.md`
+- https://github.com/opencv/opencv — `.github/PULL_REQUEST_TEMPLATE.md`
+- https://github.com/bitcoin/bitcoin — `.github/PULL_REQUEST_TEMPLATE.md`
+- https://github.com/getsentry/sentry — `.github/PULL_REQUEST_TEMPLATE.md`
+- https://github.com/ClickHouse/ClickHouse — `.github/PULL_REQUEST_TEMPLATE.md`
+- https://github.com/Homebrew/brew — `.github/PULL_REQUEST_TEMPLATE.md`
+
+> 收集日期：2026-06-12

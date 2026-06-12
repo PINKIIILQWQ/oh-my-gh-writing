@@ -92,4 +92,9 @@ Markdown 模板：Description → Reproduction → Config → System Info
 
 ---
 
+### 参考仓库链接
+
+- https://github.com/prometheus/prometheus — `.github/ISSUE_TEMPLATE/bug_report.md`
+- https://github.com/apache/cassandra — JIRA Issue Template
+
 > 收集日期：2026-06-12

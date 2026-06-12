@@ -107,9 +107,9 @@ Grafana 的 Feature Request 风格：
 
 ---
 
-### 案例 5：apache/rocketmq (21k⭐)
+### 案例 5：apache/rocketmq (see 18-pr-template) (21k⭐)
 
-**仓库：** https://github.com/apache/rocketmq
+**仓库：** https://github.com/apache/rocketmq (see 18-pr-template)
 
 RocketMQ 通过 RIP（RocketMQ Improvement Proposal）流程：
 

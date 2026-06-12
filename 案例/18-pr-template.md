@@ -92,4 +92,10 @@ K8s 风格的 PR 模板强调：
 
 ---
 
+### 参考仓库链接
+
+- https://github.com/apache/flink — `.github/PULL_REQUEST_TEMPLATE.md`
+- https://github.com/apache/rocketmq — `.github/PULL_REQUEST_TEMPLATE.md`
+- https://github.com/kubernetes/kompose — `.github/PULL_REQUEST_TEMPLATE.md`
+
 > 收集日期：2026-06-12

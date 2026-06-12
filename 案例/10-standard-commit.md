@@ -93,4 +93,13 @@ Angular Commit Convention 完整定义：
 
 ---
 
+### 参考仓库链接
+
+- https://github.com/semantic-release/semantic-release
+- https://github.com/nestjs/nest
+- https://github.com/conventional-changelog/commitlint
+- https://github.com/commitizen/cz-cli
+- https://github.com/conventional-changelog/conventional-changelog-angular
+- https://github.com/commitizen/cz-conventional-changelog
+
 > 收集日期：2026-06-12

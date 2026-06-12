@@ -46,3 +46,14 @@ AI disclosure + rhyme requirement for AI agents.
 **vitest-dev/vitest (230k⭐)** — 重构 PR 含 before/after 性能对比数据。
 **microsoft/rushstack (100k⭐)** — 重构 PR 强调语义不变 + 编译器测试全绿。
 """
+
+### 参考仓库链接
+
+- https://github.com/spring-projects/spring-boot — `.github/PULL_REQUEST_TEMPLATE.md`
+- https://github.com/elastic/elasticsearch — `.github/PULL_REQUEST_TEMPLATE.md`
+- https://github.com/scikit-learn/scikit-learn — `.github/PULL_REQUEST_TEMPLATE.md`
+- https://github.com/etcd-io/etcd — `.github/PULL_REQUEST_TEMPLATE.md`
+- https://github.com/TryGhost/Ghost — `.github/PULL_REQUEST_TEMPLATE.md`
+- https://github.com/numpy/numpy — `.github/PULL_REQUEST_TEMPLATE.md`
+
+> 收集日期：2026-06-12

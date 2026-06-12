@@ -87,4 +87,10 @@ API 变更 + 迁移步骤 + 回滚方案，简洁分类。
 
 ---
 
+### 参考仓库链接
+
+- https://github.com/mui/material-ui — Migration Guide v4→v5
+- https://github.com/remix-run/react-router — Upgrade v5→v6
+- https://github.com/emberjs/ember.js — 3.x→4.x Migration
+
 > 收集日期：2026-06-12

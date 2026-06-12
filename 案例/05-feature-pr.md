@@ -98,4 +98,13 @@ Before submitting a PR:
 
 ---
 
+### 参考仓库链接
+
+- https://github.com/freeCodeCamp/freeCodeCamp — `.github/PULL_REQUEST_TEMPLATE.md`
+- https://github.com/facebook/react-native — `.github/PULL_REQUEST_TEMPLATE.md`
+- https://github.com/tauri-apps/tauri — `.github/PULL_REQUEST_TEMPLATE.md`
+- https://github.com/apache/airflow — `.github/PULL_REQUEST_TEMPLATE.md`
+- https://github.com/curl/curl — `.github/pull_request_template.md`
+- https://github.com/docker/compose — `.github/PULL_REQUEST_TEMPLATE.md`
+
 > 收集日期：2026-06-12
