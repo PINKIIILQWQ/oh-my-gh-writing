@@ -149,6 +149,10 @@ flowchart LR
 
 打开 [`效果测试/README.md`](./效果测试/README.md) 可以按场景查看固定输入 prompt 和标准输出。这个目录适合用来比较 skill 调整前后的实际写作效果。
 
+## 致谢
+
+README 徽章和 GitHub 视觉入口规则参考了 [pudding0503/github-badge-collection](https://github.com/pudding0503/github-badge-collection)。本仓库只吸收结构原则和链接出处，不复制其徽章合集或素材文件。
+
 ## License
 
 [MIT](./LICENSE)

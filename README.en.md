@@ -149,6 +149,10 @@ Open [`案例/README.md`](./案例/README.md) for the 18-scenario case index. Gi
 
 Open [`效果测试/README.md`](./效果测试/README.md) to compare the fixed input prompt and standard output for each scenario. This directory is useful for reviewing how skill changes affect real generated artifacts.
 
+## Acknowledgements
+
+README badge and GitHub visual-entry rules were informed by [pudding0503/github-badge-collection](https://github.com/pudding0503/github-badge-collection). This repository uses it as a structural reference and source link, without copying its badge catalog or asset files.
+
 ## License
 
 [MIT](./LICENSE)

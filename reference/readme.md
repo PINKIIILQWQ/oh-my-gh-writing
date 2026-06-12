@@ -140,7 +140,7 @@
 
 ## 徽章规则
 
-徽章必须回答真实问题，并链接到证据页。
+徽章必须回答真实问题，并链接到证据页。先选择徽章意图，再生成 URL；不要看到可用徽章就堆到首屏。
 
 | 类别 | 示例 | 证据页 |
 |------|------|--------|
@@ -149,8 +149,20 @@
 | 质量状态 | CI、coverage、checks | GitHub Actions 或覆盖率页面 |
 | 版本/发布 | release、npm、Docker tag | Releases 或包管理页 |
 | 许可 | MIT、Apache-2.0 | LICENSE |
+| 社区入口 | discussions、issues、docs | Discussions、Issues、文档站 |
 
-默认 3 到 6 个徽章。没有 CI 就不要放 CI；没有发布版本就不要放 release；没有真实统计价值时不要放 Star History。
+默认 3 到 6 个徽章；首屏最多保留读者决策需要的入口。徽章很多时，按状态、发布、文档、社区分组放到后文，不要把 README 顶部变成贴纸墙。
+
+动态徽章只在数据源真实存在时使用，例如 release、包版本、workflow、coverage、downloads。静态徽章适合表达项目载体、场景数、文档入口或 license，但也必须链接到对应文件或页面。
+
+视觉规则：
+
+- 同一个 README 内保持一致的 badge 样式、label 大小写和颜色强度。
+- 每个 badge 都写 `alt`，可点击时链接到证据页，而不是只展示图片。
+- 不默认添加访问量、Star History、GitHub stats、贡献图、profile 卡片或动图素材；这些更适合个人主页或营销型 README，只有项目读者真的需要时才使用。
+- Logo 或主图标需要兼容浅色/深色 GitHub 主题时，可使用 `#gh-light-mode-only` 和 `#gh-dark-mode-only` 分别提供图片。
+
+`pudding0503/github-badge-collection` 可作为徽章、卡片和 GitHub Markdown 视觉素材的发现入口；使用其中任何具体素材、图片或大段示例时，应保留来源链接，并重新核验服务是否仍可用。
 
 ## 安装和快速开始
 
@@ -210,6 +222,7 @@ git clone <repo-url> <project-name>
 |------|------|
 | GitHub README 指南 | https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes |
 | shields.io | https://shields.io |
+| GitHub Badge Collection | https://github.com/pudding0503/github-badge-collection |
 | vscode README | https://github.com/microsoft/vscode |
 | nextjs README | https://github.com/vercel/next.js |
 | tailwindcss README | https://github.com/tailwindlabs/tailwindcss |
