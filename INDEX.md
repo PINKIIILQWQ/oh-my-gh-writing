@@ -14,6 +14,7 @@ Agent 执行写作任务时优先读取 [`SKILL.md`](./SKILL.md) 和对应 `refe
 | 3 | [`reference/`](./reference) | 要改写法标准的人 | 每场景完整版/普通版/checklist |
 | 4 | [`DOCS/`](./DOCS) | 维护者 | 采集计划、outline、设计演进 |
 | 5 | [`test/`](./test) | 维护者 / 验证者 | 18 场景测试和全量报告 |
+| 6 | [`案例/`](./案例) | 参考者 | 每个场景 6 个真实仓库案例（3 精细 + 3 普通），含完整原文和 GitHub 链接 |
 
 ## 18 场景索引
 
@@ -48,6 +49,7 @@ Agent 执行写作任务时优先读取 [`SKILL.md`](./SKILL.md) 和对应 `refe
 | [`DOCS/`](./DOCS) | 内部设计过程和采集计划 | [`DOCS/README.md`](./DOCS/README.md) |
 | [`test/`](./test) | 验证材料、双版样例、全量报告 | [`test/README.md`](./test/README.md) |
 | [`assets/`](./assets) | README 和项目展示素材 | [`assets/oh-my-gh-writing-logo.png`](./assets/oh-my-gh-writing-logo.png) |
+| [`案例/`](./案例) | 18 场景真实仓库案例（每场景 6 例） | [`案例/01-bug-report.md`](./案例/01-bug-report.md) |
 
 ## Reference 文件索引
 

@@ -17,6 +17,7 @@ Use this skill to produce GitHub-ready writing for common collaboration workflow
 6. Read the matching `reference/*.md` file before writing the final output.
 7. Read [`reference/weapons.md`](./reference/weapons.md) only when badges, alerts, collapsible logs, Mermaid, tables, or other formatting tools are needed.
 8. Read [`INDEX.md`](./INDEX.md) only for full repository navigation or maintenance work.
+9. When the user asks for real-world examples, case studies, or reference projects for a scenario, read the matching file in [`案例/`](./案例/) which contains 6 real GitHub examples (3 detailed + 3 concise) per scenario with complete original text and clickable repository URLs.
 
 Do not load every reference file for a normal request. Do not expose reference-project analysis in user-facing output unless the user explicitly asks for rationale or sources.
 
