@@ -1,10 +1,3 @@
----
-scenario: CONTRIBUTING
-mode: full-detail
-case-sources: https://github.com/pytorch/pytorch, https://github.com/redis/redis, https://github.com/jupyter/notebook
-input-prompt: ../../prompts/12-contributing.md
----
-
 # Contributing to Component Library
 
 First off, thanks for taking the time to contribute! 🎉

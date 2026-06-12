@@ -1,10 +1,3 @@
----
-scenario: Bug Report
-mode: full-detail
-case-sources: https://github.com/kubernetes/kubernetes, https://github.com/prisma/prisma, https://github.com/ansible/ansible
-input-prompt: ../../prompts/01-bug-report.md
----
-
 ## Bug Report: Next.js build crashes with EMFILE on large projects
 
 ### Description

@@ -22,7 +22,7 @@
 
 `oh-my-gh-writing` 是一套面向 AI agent 的 GitHub 写作规范。它覆盖 Issue、PR、Review、Commit、README、CHANGELOG、Release Notes、RFC 和模板文件等 18 个常见场景，让 agent 在不同仓库里也能稳定输出结构清晰、信息完整、可直接粘贴到 GitHub 的内容。
 
-它不是 README 生成器，也不是 GitHub App。它的核心是一个 `SKILL.md` 入口和一组 `reference/` 场景标准：先识别你要写什么，再按对应场景选择简洁写法或完整写法，最后输出 Markdown 或 YAML。
+它不是 README 生成器，也不是 GitHub App。它的核心是一个 `SKILL.md` 入口和一组 `reference/` 场景标准：先识别你要写什么，再读取对应场景标准，最后输出 Markdown 或 YAML。
 
 ## Quick Start
 
@@ -94,7 +94,7 @@ Cursor 不按 `SKILL.md` 目录直接加载本仓库。推荐让 agent 在目标
 ```text
 请读取 oh-my-gh-writing 的 SKILL.md 和 reference/，把它改写成 Cursor Project Rules：
 1. 创建 .cursor/rules/oh-my-gh-writing.mdc
-2. 保留场景路由、简洁写法/完整写法选择规则和 README guardrails
+2. 保留场景路由、证据边界和 README guardrails
 3. 让规则在需要时引用或内嵌对应 reference/*.md 摘要
 4. 不要把案例库当成运行时规则，只在我要求案例时参考
 ```
@@ -119,16 +119,14 @@ Cursor 不按 `SKILL.md` 目录直接加载本仓库。推荐让 agent 在目标
 ```mermaid
 flowchart LR
   A["用户请求"] --> B["识别场景"]
-  B --> C["选择简洁写法或完整写法"]
-  C --> D["读取场景标准"]
-  D --> E["套用字段顺序和 checklist"]
-  E --> F["输出 Markdown 或 YAML"]
+  B --> C["读取场景标准"]
+  C --> D["套用字段顺序和 checklist"]
+  D --> E["输出 Markdown 或 YAML"]
 ```
 
 默认策略：
 
-- 未说明复杂度时，用简洁写法，保证必要字段完整
-- 用户说“完整写法”“正式发布”“高风险”“Breaking Change”时，用完整写法
+- 默认输出可直接用于 GitHub 的完整草稿
 - 信息不足时，先补出可用草稿，再明确标注缺失字段
 - 更新已有文档时，优先沿用原文件的标题层级、日期格式、label 分类和链接风格
 - README 场景优先使用徽章导航、可复制命令、条件渲染和紧凑目录
@@ -137,11 +135,11 @@ flowchart LR
 
 | 文件 | 作用 |
 |------|------|
-| [`SKILL.md`](./SKILL.md) | skill 入口：识别场景、选择级别、说明通用原则 |
+| [`SKILL.md`](./SKILL.md) | skill 入口：识别场景、说明通用原则 |
 | [`INDEX.md`](./INDEX.md) | 全量索引：18 个场景和对应标准文件 |
 | [`reference/`](./reference) | 每个场景的标准化写法、字段顺序和 checklist |
 | [`案例/`](./案例) | 当前案例库：真实仓库来源、摘录和结构分析 |
-| [`效果测试/`](./效果测试) | 18 个场景的 concise/full-detail 输出效果画廊 |
+| [`效果测试/`](./效果测试) | 18 个场景的固定输入和标准输出效果 |
 
 ## 查看案例效果
 
@@ -149,7 +147,7 @@ flowchart LR
 
 ## 查看输出效果
 
-打开 [`效果测试/README.md`](./效果测试/README.md) 可以按场景查看固定输入 prompt、concise 输出和 full-detail 输出。这个目录适合用来比较 skill 调整前后的实际写作效果。
+打开 [`效果测试/README.md`](./效果测试/README.md) 可以按场景查看固定输入 prompt 和标准输出。这个目录适合用来比较 skill 调整前后的实际写作效果。
 
 ## License
 

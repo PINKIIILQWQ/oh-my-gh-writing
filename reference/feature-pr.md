@@ -1,9 +1,9 @@
-# Feature PR — 完整写法
+# Feature PR — 写作标准
 
 ## 适用场景
 提交新功能/特性的 Pull Request，需覆盖设计、实现、测试和升级。
 
-## 完整写法（kubernetes, react, django）
+## 标准写法（kubernetes, react, django）
 
 ### 结构
 1. **动机**：为什么需要这个功能；关联 Issue # 只在已知时写
@@ -30,24 +30,6 @@
 - 描述 + Patch 说明 + 测试
 - Django committer 审查标准
 
-## Feature PR — 简洁写法（storybook, apollo, grafana）
-
-### 结构
-1. **动机**：关联 Issue（如已知）
-2. **变更**：改了啥
-3. **备注**：需注意的特殊点
-
-### 参考仓库写法
-
-**storybookjs/storybook**
-- What / Why / How + Screenshot（可选）
-- Checklist：测试→文档→Breaking
-
-**apollographql/apollo-client**
-- 关联 Issue → 描述 → 测试 → 备注
-
-**grafana/grafana**
-- 产品级 PR 模板含截图区域
 
 ## 必含元素 Checklist
 - [ ] 变更描述

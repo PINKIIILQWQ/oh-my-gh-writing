@@ -1,10 +1,3 @@
----
-scenario: RFC
-mode: full-detail
-case-sources: https://github.com/python/peps, https://github.com/kubernetes/enhancements
-input-prompt: ../../prompts/16-rfc.md
----
-
 # RFC: Operator Overloading for TypeScript
 
 ## Summary

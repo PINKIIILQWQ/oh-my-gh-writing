@@ -1,10 +1,3 @@
----
-scenario: Discussion
-mode: full-detail
-case-sources: https://github.com/mozilla/rr, https://github.com/chef/chef, https://github.com/hashicorp/vault
-input-prompt: ../../prompts/04-discussion.md
----
-
 ## Discussion: Microservice granularity strategy
 
 ### Background

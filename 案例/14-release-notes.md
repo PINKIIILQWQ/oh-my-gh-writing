@@ -5,7 +5,7 @@
 
 > 格式：**Markdown**（GitHub Releases）
 
-## 精细版（完整发布公告原文）
+## 主案例
 
 ### 案例 1：astral-sh/ruff (40k⭐)
 
@@ -124,7 +124,7 @@ Full Changelog: https://github.com/biomejs/biome/compare/v1.8.0...v1.9.0
 
 ---
 
-## 简洁写法（简洁发布注释）
+## 补充案例
 
 ### 案例 4：astral-sh/uv (35k⭐)
 

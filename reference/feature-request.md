@@ -1,9 +1,9 @@
-# Feature Request — 完整写法
+# Feature Request — 写作标准
 
 ## 适用场景
 请求新功能或能力增强，需要阐明使用场景和期望行为。
 
-## 完整写法（angular, typescript, rails）
+## 标准写法（angular, typescript, rails）
 
 ### 结构
 1. **动机**：当前缺失的能力或痛点
@@ -29,27 +29,6 @@
 - 用 `Playground Link` 跑示例
 - 最规范的 TS 社区 feature request
 
-## Feature Request — 简洁写法（svelte, nuxt, babel）
-
-### 结构
-1. **问题**（当前你碰到的限制）
-2. **期望**（你希望的行为）
-3. **备选**（现有 workaround）
-
-### 参考仓库写法
-
-**svelte/svelte**
-- 极简式：3-5 句话覆盖问题→期望→为什么
-- 附 REPL 链接
-- 不要求完整 API 草案
-
-**nuxt/nuxt**
-- 问题→建议→workaround
-- 偏实用，快速聚焦
-
-**babel/babel**
-- 插件式 feature request
-- 配置样例 + 期望转换结果
 
 ## 必含元素 Checklist
 - [ ] 使用场景描述

@@ -1,10 +1,3 @@
----
-scenario: Feature Request
-mode: full-detail
-case-sources: https://github.com/apache/dubbo, https://github.com/microsoft/typescript
-input-prompt: ../../prompts/02-feature-request.md
----
-
 ## Feature Request: PostgreSQL PARTITION BY in Prisma Schema
 
 ### Motivation

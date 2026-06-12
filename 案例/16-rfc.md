@@ -5,7 +5,7 @@
 
 > 格式：**Markdown**（RFC 文档）
 
-## 精细版（完整 RFC 模板）
+## 主案例
 
 ### 案例 1：python/peps (4k⭐)
 
@@ -85,7 +85,7 @@ KEP Template:
 
 ---
 
-## 简洁写法（精简 RFC）
+## 补充案例
 
 ### 案例 4：graphql/graphql-spec (14k⭐)
 

@@ -1,10 +1,3 @@
----
-scenario: README
-mode: full-detail
-case-sources: https://github.com/ohmyzsh/ohmyzsh, https://github.com/nvm-sh/nvm, https://github.com/dapr/dapr
-input-prompt: ../../prompts/11-readme.md
----
-
 # zzz — Terminal countdown with command execution
 
 > A lightweight CLI that counts down and runs your command when time's up.

@@ -5,7 +5,7 @@
 
 > 格式：**YAML**（GitHub Issue Form）
 
-## 精细版（完整模板）
+## 主案例
 
 ### 案例 1：apache/dubbo (40k⭐)
 
@@ -23,7 +23,7 @@ body:
   - type: textarea
     attributes:
       label: Feature Description
-      description: A clear and concise description of the feature
+      description: A clear description of the feature
     validations:
       required: true
   - type: textarea
@@ -92,7 +92,7 @@ Impact on existing features and backward compatibility.
 
 ---
 
-## 简洁写法（较短模板）
+## 补充案例
 
 ### 案例 4：grafana/grafana (66k⭐)
 

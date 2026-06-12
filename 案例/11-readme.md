@@ -5,7 +5,7 @@
 
 > 格式：**Markdown**（GitHub README）
 
-## 精细版（经典高星 README，含完整内容）
+## 主案例
 
 ### 案例 1：ohmyzsh/ohmyzsh (188k⭐)
 
@@ -126,7 +126,7 @@ that we've found useful when working on Linux. This work is the result of
 
 ---
 
-## 简洁写法（规范 README 示例）
+## 补充案例
 
 ### 案例 4：nektos/act (70k⭐)
 

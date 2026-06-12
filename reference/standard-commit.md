@@ -1,9 +1,9 @@
-# Standard Commit — 完整写法
+# Standard Commit — 写作标准
 
 ## 适用场景
 日常代码提交，要求语义清晰的 commit message。
 
-## 完整写法（angular, torvalds/linux, nodejs）
+## 标准写法（angular, torvalds/linux, nodejs）
 
 ### 结构
 ```
@@ -44,29 +44,6 @@
 - body 含 PR # + 审查建议
 - 单 commit = 单变更
 
-## Standard Commit — 简洁写法（react, golang, gitea）
-
-### 结构
-```
-<scope>: <subject>
-
-<body>
-```
-
-### 参考仓库写法
-
-**facebook/react**
-- 标题简洁：`[package] Title`
-- body 含动机 + 测试说明
-
-**golang/go**
-- `pkg: description` → `net/http: fix timeout on keep-alive connections`
-- body 可省略（简单变更）
-- Go 标准是事实上的另一种规范
-
-**go-gitea/gitea**
-- 团队 commit 规范：类型前缀 + 描述
-- 多 reviewer approve
 
 ## 必含元素 Checklist
 - [ ] type(scope): subject

@@ -1,10 +1,3 @@
----
-scenario: Standard Commit
-mode: full-detail
-case-sources: https://github.com/nestjs/nest, https://github.com/conventional-changelog/commitlint
-input-prompt: ../../prompts/10-standard-commit.md
----
-
 fix(connection): prevent connection pool leak in getConnection()
 
 The getConnection() method acquires a connection from the pool but

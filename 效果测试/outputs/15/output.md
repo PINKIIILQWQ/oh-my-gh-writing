@@ -1,10 +1,3 @@
----
-scenario: Migration Guide
-mode: full-detail
-case-sources: https://github.com/mui/material-ui, https://github.com/emberjs/ember.js
-input-prompt: ../../prompts/15-migration-guide.md
----
-
 # Migrating from REST API v1 to GraphQL v2
 
 ## Overview

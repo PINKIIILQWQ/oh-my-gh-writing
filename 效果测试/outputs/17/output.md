@@ -1,10 +1,3 @@
----
-scenario: Issue Form YAML
-mode: full-detail
-case-sources: https://github.com/microsoft/playwright, https://github.com/hashicorp/terraform, https://github.com/apache/echarts
-input-prompt: ../../prompts/17-issue-form-yaml.md
----
-
 # Issue Form YAML — Component Library
 
 ## File: `.github/ISSUE_TEMPLATE/bug_report.yml`
@@ -26,7 +19,7 @@ body:
     id: description
     attributes:
       label: Description
-      description: A clear and concise description of the bug
+      description: A clear description of the bug
       placeholder: |
         When I click the button in dark mode, the text is invisible
         because the color contrast is too low.

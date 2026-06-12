@@ -11,9 +11,9 @@ Agent 执行写作任务时优先读取 [`SKILL.md`](./SKILL.md) 和对应 `refe
 | 0 | [`README.md`](./README.md) / [`README.en.md`](./README.en.md) | 第一次打开仓库的人 | 项目定位、安装、最短路径 |
 | 1 | [`INDEX.md`](./INDEX.md) | 想找某个场景或文档的人 | 全量索引和目录 |
 | 2 | [`SKILL.md`](./SKILL.md) | Agent / skill 使用者 | 入口规则、场景识别、摘要标准 |
-| 3 | [`reference/`](./reference) | 要改写法标准的人 | 每场景完整写法/简洁写法/checklist |
+| 3 | [`reference/`](./reference) | 要改写法标准的人 | 每场景标准写法/checklist |
 | 4 | [`案例/`](./案例) | 测试者 / 参考者 | 每场景真实仓库案例、来源链接和结构分析 |
-| 5 | [`效果测试/`](./效果测试) | 测试者 / 维护者 | 固定输入下的 concise/full-detail 输出效果 |
+| 5 | [`效果测试/`](./效果测试) | 测试者 / 维护者 | 固定输入下的标准输出效果 |
 
 ## 18 场景索引
 

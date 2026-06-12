@@ -5,7 +5,7 @@
 
 > 格式：**Markdown**（GitHub PR Review 评论）
 
-## 精细版（详尽审查指南）
+## 主案例
 
 ### 案例 1：google/eng-practices (20.5k⭐)
 
@@ -92,7 +92,7 @@ Body with rationale
 
 ---
 
-## 简洁写法（审查模板/指南）
+## 补充案例
 
 ### 案例 4：knonm/code-review-checklist (0.5k⭐)
 

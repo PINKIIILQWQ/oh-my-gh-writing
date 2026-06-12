@@ -1,9 +1,9 @@
-# CONTRIBUTING — 完整写法
+# CONTRIBUTING — 写作标准
 
 ## 适用场景
 规范外部贡献者如何参与项目，从 bug 报告到代码提交。
 
-## 完整写法（home-assistant, nodejs, angular）
+## 标准写法（home-assistant, nodejs, angular）
 
 ### 结构
 1. **欢迎语**（项目理念 + 行为准则链接）
@@ -32,27 +32,6 @@
 - PR 类型（fix/feat/docs/refactor）表达清楚
 - 含 Dev Guide + 调试指南
 
-## CONTRIBUTING — 简洁写法（electron, django, github/docs）
-
-### 结构
-PR 流程→代码风格→开发环境
-
-### 参考仓库写法
-
-**electron/electron**
-- 核心流程：Bug Report → PR → Review → Merge
-- 代码风格 + 测试要求
-- 含调试指南
-
-**django/django**
-- Ticket 工作流（Triage → Accept → Patch）
-- 代码规范 + 测试指南
-- Django 社区成熟的贡献文化
-
-**github/docs**
-- GitHub 官方文档的贡献指南
-- 简洁聚焦：安装→本地预览→提交
-- 含 SEO/内容规范
 
 ## 必含元素 Checklist
 - [ ] PR 工作流说明

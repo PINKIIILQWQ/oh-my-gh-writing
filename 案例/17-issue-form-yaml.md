@@ -6,7 +6,7 @@
 
 ---
 
-## 精细版（完整 YAML 表单）
+## 主案例
 
 ### 案例 1：microsoft/playwright (70k⭐)
 
@@ -84,7 +84,7 @@ body:
     id: what-happened
     attributes:
       label: Actual behavior
-      description: A clear and concise description of the unexpected behavior.
+      description: A clear description of the unexpected behavior.
       placeholder: A bug happened!
     validations:
       required: true
@@ -253,7 +253,7 @@ body:
 
 ---
 
-## 简洁写法
+## 补充案例
 
 ### 案例 4：microsoft/playwright feature.yml
 

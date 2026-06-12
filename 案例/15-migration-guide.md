@@ -4,7 +4,7 @@
 
 ---
 
-## 精细版（完整迁移指南原文）
+## 主案例
 
 ### 案例 1：mui/material-ui (95k⭐)
 
@@ -181,7 +181,7 @@ npm install ember-cli@3.28 --save-dev
 
 ---
 
-## 简洁写法（简洁迁移指南）
+## 补充案例
 
 ### 案例 4：angular/components (25k⭐)
 
@@ -218,7 +218,7 @@ Angular Material 升级指南分类结构：
 
 **仓库：** https://github.com/reduxjs/redux-toolkit
 
-精简迁移：
+迁移摘要：
 
 ```
 ## Migrating from Redux Core to Redux Toolkit

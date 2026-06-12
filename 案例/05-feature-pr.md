@@ -5,7 +5,7 @@
 
 > 格式：**Markdown**（GitHub PR Template）
 
-## 精细版（完整 PR 模板）
+## 主案例
 
 ### 案例 1：freeCodeCamp/freeCodeCamp (412k⭐)
 
@@ -61,7 +61,7 @@ Before submitting a PR:
 
 ---
 
-## 简洁写法（较短模板）
+## 补充案例
 
 ### 案例 4：apache/airflow (38k⭐)
 

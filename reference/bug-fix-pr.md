@@ -1,9 +1,9 @@
-# Bug Fix PR — 完整写法
+# Bug Fix PR — 写作标准
 
 ## 适用场景
 修复 Bug 的 Pull Request，重点在根因分析和测试。
 
-## 完整写法（lodash, redux, immer）
+## 标准写法（lodash, redux, immer）
 
 ### 结构
 1. **根因**：Bug 的根本原因，含代码位置；只有在代码、日志或用户说明支持时写成确定结论
@@ -26,25 +26,6 @@
 - fix 模板聚焦最小化变更
 - 测试即文档：修改对应的测试用例说明行为变化
 
-## Bug Fix PR — 简洁写法（neovim, terraform, helm）
-
-### 结构
-1. **方案**（含 Fixes #，如已知）
-2. **测试**
-
-### 参考仓库写法
-
-**neovim/neovim**
-- 简洁：方案 + Fixes # + 测试结果
-- 测试通过截图
-
-**hashicorp/terraform**
-- 核心：根因说明 + Fixes # + 测试
-- provider 级别的 fix 规范
-
-**helm/helm**
-- 方案 → Fixes # → 备注
-- 含升级兼容性
 
 ## 必含元素 Checklist
 - [ ] 根因说明或待确认假设

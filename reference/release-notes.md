@@ -1,9 +1,9 @@
-# Release Notes — 完整写法
+# Release Notes — 写作标准
 
 ## 适用场景
 发布公告，面向用户介绍本次发布。
 
-## 完整写法（astro, npm/cli, svelte）
+## 标准写法（astro, npm/cli, svelte）
 
 ### 结构
 1. **版本标签**（`v2.0.0` + 发布日期）
@@ -28,24 +28,6 @@
 - 公告式 release：版本亮点 → 新特性详情 → Breaking → 迁移
 - 配代码对比（before/after）
 
-## Release Notes — 简洁写法（buf, bun, deno）
-
-### 结构
-版本 + 主要变更列表 + 链接
-
-### 参考仓库写法
-
-**bufbuild/buf**
-- 列表式 release：Breaking → Features → Fixes
-- 简洁，每条带 PR
-
-**oven-sh/bun**
-- bullet list release：每条变更一句话 + PR 链接
-- 重点突出 perf 改进
-
-**denoland/deno**
-- 功能列表 + 稳定性说明
-- 含内置工具更新记录
 
 ## 必含元素 Checklist
 - [ ] 版本号 + 日期

@@ -5,7 +5,7 @@
 
 > 格式：**Markdown**（GitHub PR Template）
 
-## 精细版（完整 PR 模板原文）
+## 主案例
 
 ### 案例 1：spring-projects/spring-boot (76k⭐)
 
@@ -123,7 +123,7 @@ I used AI assistance for:
 
 ---
 
-## 简洁写法（较短 PR 模板原文）
+## 补充案例
 
 ### 案例 4：etcd-io/etcd (48k⭐)
 

@@ -1,10 +1,3 @@
----
-scenario: Bug Fix PR
-mode: full-detail
-case-sources: https://github.com/bitcoin/bitcoin, https://github.com/getsentry/sentry, https://github.com/ClickHouse/ClickHouse
-input-prompt: ../../prompts/06-bug-fix-pr.md
----
-
 ## Fix: CancelToken promise never resolves after cancel()
 
 ### Root cause

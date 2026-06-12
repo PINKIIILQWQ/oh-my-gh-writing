@@ -1,10 +1,3 @@
----
-scenario: Feature PR
-mode: full-detail
-case-sources: https://github.com/freeCodeCamp/freeCodeCamp, https://github.com/facebook/react-native, https://github.com/tauri-apps/tauri
-input-prompt: ../../prompts/05-feature-pr.md
----
-
 ## Feature: Custom block support in Vite Vue plugin
 
 ### Motivation

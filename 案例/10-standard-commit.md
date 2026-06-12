@@ -5,7 +5,7 @@
 
 > 格式：**Plain text**（`git commit -m` 字符串）
 
-## 精细版（完整 Commit 规范）
+## 主案例
 
 ### 案例 1：semantic-release/semantic-release (21k⭐)
 
@@ -61,7 +61,7 @@ feat(blog): add comment section
 
 ---
 
-## 简洁写法（Commit 工具/指南）
+## 补充案例
 
 ### 案例 4：commitizen/cz-cli (17.5k⭐)
 

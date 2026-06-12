@@ -1,10 +1,3 @@
----
-scenario: CHANGELOG
-mode: full-detail
-case-sources: https://github.com/hashicorp/vagrant, https://github.com/pallets/flask
-input-prompt: ../../prompts/13-changelog.md
----
-
 # Changelog
 
 ## [2.1.0] - 2026-06-12

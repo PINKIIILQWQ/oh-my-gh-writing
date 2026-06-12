@@ -94,7 +94,7 @@ Cursor does not load this repository as a `SKILL.md` skill folder directly. The 
 ```text
 Read oh-my-gh-writing's SKILL.md and reference/, then adapt them into Cursor Project Rules:
 1. Create .cursor/rules/oh-my-gh-writing.mdc
-2. Preserve scenario routing, concise/full-detail mode selection, and README guardrails
+2. Preserve scenario routing, evidence boundaries, and README guardrails
 3. Reference or inline the relevant reference/*.md summaries when needed
 4. Do not treat the case library as runtime rules; use it only when I ask for examples
 ```
@@ -119,16 +119,14 @@ See the full index in [`INDEX.md`](./INDEX.md).
 ```mermaid
 flowchart LR
   A["User request"] --> B["Detect scenario"]
-  B --> C["Choose concise or full-detail mode"]
-  C --> D["Read scenario standard"]
-  D --> E["Apply field order and checklist"]
-  E --> F["Produce Markdown or YAML"]
+  B --> C["Read scenario standard"]
+  C --> D["Apply field order and checklist"]
+  D --> E["Produce Markdown or YAML"]
 ```
 
 Default behavior:
 
-- Use concise mode when complexity is not specified
-- Use full-detail mode for formal, high-risk, release, or breaking-change work
+- Produce a complete GitHub-ready draft by default
 - Produce a usable draft when information is missing, then mark the gaps clearly
 - Preserve existing heading levels, date formats, labels, and link style when updating documents
 - Prefer badge navigation, copyable commands, conditional sections, and compact structure for README work
@@ -137,11 +135,11 @@ Default behavior:
 
 | File | Purpose |
 |------|---------|
-| [`SKILL.md`](./SKILL.md) | Skill entry: scenario routing, level selection, shared principles |
+| [`SKILL.md`](./SKILL.md) | Skill entry: scenario routing and shared principles |
 | [`INDEX.md`](./INDEX.md) | Full index for all 18 scenarios and their standards |
 | [`reference/`](./reference) | Standardized writing rules, field order, and checklists per scenario |
 | [`案例/`](./案例) | Current case library: source links, excerpts, and structure notes from real repositories |
-| [`效果测试/`](./效果测试) | Output gallery for concise/full-detail results across all 18 scenarios |
+| [`效果测试/`](./效果测试) | Fixed prompts and standard outputs across all 18 scenarios |
 
 ## Viewing Cases
 
@@ -149,7 +147,7 @@ Open [`案例/README.md`](./案例/README.md) for the 18-scenario case index. Gi
 
 ## Viewing Output Results
 
-Open [`效果测试/README.md`](./效果测试/README.md) to compare the fixed input prompt, concise output, and full-detail output for each scenario. This directory is useful for reviewing how skill changes affect real generated artifacts.
+Open [`效果测试/README.md`](./效果测试/README.md) to compare the fixed input prompt and standard output for each scenario. This directory is useful for reviewing how skill changes affect real generated artifacts.
 
 ## License
 

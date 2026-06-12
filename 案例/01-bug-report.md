@@ -8,7 +8,7 @@
 
 ---
 
-## 精细版（完整模板）
+## 主案例
 
 ### 案例 1：kubernetes/kubernetes (112k⭐)
 
@@ -130,7 +130,7 @@ Ansible 的 Bug Report 由 bot（ansibot）驱动，10 个必填字段：
 
 ---
 
-## 简洁写法（较短模板）
+## 补充案例
 
 ### 案例 4：jestjs/jest (45k⭐)
 

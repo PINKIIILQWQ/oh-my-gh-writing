@@ -1,10 +1,3 @@
----
-scenario: Code Review
-mode: full-detail
-case-sources: https://github.com/google/eng-practices, https://github.com/rails/rails
-input-prompt: ../../prompts/09-code-review.md
----
-
 ## Review: PR #42 — JWT token refresh
 
 ### File: `src/auth/jwt.ts`

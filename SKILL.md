@@ -1,25 +1,23 @@
 ---
 name: oh-my-gh-writing
-description: "GitHub writing standards for AI agents. Use when drafting or revising GitHub issues, pull request descriptions, code reviews, commit messages, README/CONTRIBUTING/CHANGELOG docs, release notes, migration guides, RFCs, issue forms, or PR templates with concise/full-detail modes and progressive reference loading."
+description: "GitHub writing standards for AI agents. Use when drafting or revising GitHub issues, pull request descriptions, code reviews, commit messages, README/CONTRIBUTING/CHANGELOG docs, release notes, migration guides, RFCs, issue forms, or PR templates with progressive reference loading."
 ---
 
 # oh-my-gh-writing
 
-Use this skill to produce GitHub-ready writing for common collaboration workflows. Keep the runtime path narrow: classify the request, choose a detail level, load only the relevant reference file, and produce the requested Markdown or YAML.
+Use this skill to produce GitHub-ready writing for common collaboration workflows. Keep the runtime path narrow: classify the request, load only the relevant reference file, and produce the requested Markdown or YAML.
 
 ## Workflow
 
 1. Identify the scenario from the user's request.
-2. Choose **concise** mode by default.
-3. Use **full-detail** mode only when the user asks for a full-detail/formal output, the change is high-risk, the work is release/migration/design related, or breaking changes are involved.
-4. If the task is to write or revise a README, confirm the delivery mode before drafting when it is not already explicit: either provide a local markdown draft for review or a chat-only draft. Do not perform a GitHub upload or push as the first pass.
-5. Even when source code is available, do not skip the confirmation step above for README work unless the user has already explicitly chosen the delivery mode.
-6. Read the matching `reference/*.md` file before writing the final output.
-7. Read [`reference/weapons.md`](./reference/weapons.md) only when badges, alerts, collapsible logs, Mermaid, tables, or other formatting tools are needed.
-8. Read [`INDEX.md`](./INDEX.md) only for full repository navigation or maintenance work.
-9. When the user asks for real-world examples, case studies, or reference projects for a scenario, read the matching file in [`案例/`](./案例/) after loading the scenario reference.
+2. If the task is to write or revise a README, confirm the delivery mode before drafting when it is not already explicit: either provide a local markdown draft for review or a chat-only draft. Do not perform a GitHub upload or push as the first pass.
+3. Even when source code is available, do not skip the confirmation step above for README work unless the user has already explicitly chosen the delivery mode.
+4. Read the matching `reference/*.md` file before writing the final output.
+5. Read [`reference/weapons.md`](./reference/weapons.md) only when badges, alerts, collapsible logs, Mermaid, tables, or other formatting tools are needed.
+6. Read [`INDEX.md`](./INDEX.md) only for full repository navigation or maintenance work.
+7. When the user asks for real-world examples, case studies, or reference projects for a scenario, read the matching file in [`案例/`](./案例/) after loading the scenario reference.
 
-Do not load every reference file for a concise request. Do not expose reference-project analysis in user-facing output unless the user explicitly asks for rationale or sources. Do not add test-gallery metadata such as `scenario`, `mode`, `case-sources`, or `input-prompt` unless the task explicitly asks for a test output gallery.
+Do not load every reference file for a normal writing request. Do not expose reference-project analysis in user-facing output unless the user explicitly asks for rationale or sources. Do not add test-gallery metadata such as `scenario`, `case-sources`, or `input-prompt` unless the task explicitly asks for a test output gallery.
 
 ## Scenario Routing
 
@@ -51,7 +49,7 @@ Do not load every reference file for a concise request. Do not expose reference-
 3. Keep one artifact focused on one job. Split unrelated bugs, features, or release notes instead of blending them into one issue or PR.
 4. Put critical information in the body, not only behind links.
 5. Record reproducible context: versions, platform, environment, affected commands, expected behavior, actual behavior, and tests where relevant.
-6. Use concise, neutral language. Prefer precise impact and verification over persuasion.
+6. Use clear, neutral language. Prefer precise impact and verification over persuasion.
 7. Treat user-provided facts, repository files, tool output, and verified links as the only factual source. Use `案例/` files for structure and style only; do not copy their project facts into the user's artifact.
 8. Do not invent CI status, versions, compatibility, benchmarks, screenshots, links, issue numbers, PR numbers, file paths, line numbers, package-manager install commands, release URLs, deprecation dates, migration timelines, or support matrices. If evidence is unavailable, omit the claim or label it as `TODO` / `TBD`.
 9. Do not mark checkboxes as completed unless the user, diff, repository, or tool output proves they are done. Use unchecked boxes or a `Verification to run` section for unknown work.
@@ -88,7 +86,7 @@ Ask a short follow-up only when a required choice cannot be inferred safely, suc
 
 When updating this skill repository itself:
 
-- Keep `SKILL.md` as the concise runtime router.
+- Keep `SKILL.md` as the focused runtime router.
 - Put scenario-specific rules in the matching `reference/*.md`.
 - Keep `INDEX.md` as navigation only.
 - Keep local research and validation runs out of tracked repository content unless they are intentionally published.

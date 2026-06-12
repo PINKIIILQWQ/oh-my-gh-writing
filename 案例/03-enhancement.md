@@ -5,7 +5,7 @@
 
 > 格式：**YAML**（GitHub Issue Form）
 
-## 精细版（详尽 Enhancement 模板）
+## 主案例
 
 ### 案例 1：kubernetes/community (10k⭐)
 
@@ -104,7 +104,7 @@ Jekyll 的 enhancement 模板：
 
 ---
 
-## 简洁写法（简洁 Enhancement）
+## 补充案例
 
 ### 案例 4：Netflix/zuul (14k⭐)
 

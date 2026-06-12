@@ -1,15 +1,15 @@
-# Issue Form YAML — 完整写法
+# Issue Form YAML — 写作标准
 
 ## 适用场景
 用 YAML 定义 Issue 表单，引导贡献者规范填写。
 
 ## 输出边界
 
-简洁写法也必须覆盖用户请求的全部表单类型；简洁只减少字段数量，不减少文件数量。用户要求 Bug Report 和 Feature Request 时，两种表单都要给出。不要添加带假 URL 的 `contact_links`；只有真实文档、讨论区或安全政策链接已知时才写。
+输出必须覆盖用户请求的全部表单类型。用户要求 Bug Report 和 Feature Request 时，两种表单都要给出。不要添加带假 URL 的 `contact_links`；只有真实文档、讨论区或安全政策链接已知时才写。
 
 在对话中展示多个 YAML 文件时，用 `## File: ...` 标题加 fenced `yaml` 代码块。真正写入 `.github/ISSUE_TEMPLATE/*.yml` 时，文件内只保留有效 YAML，不要包含 Markdown 标题或说明。
 
-## 完整写法（vscode, nextjs, rails）
+## 标准写法（vscode, nextjs, rails）
 
 ### 结构
 ```yaml
@@ -52,24 +52,6 @@ body:
 - 复选框 + 验证 + 关联版 type
 - 风格简洁但完整
 
-## Issue Form YAML — 简洁写法（github/docs, home-assistant, terraform）
-
-### 结构
-精简字段 + 必要验证
-
-### 参考仓库写法
-
-**github/docs**
-- 4 字段：描述 + 重现 + 环境 + 其他
-- 最小化但够用
-
-**home-assistant/core**
-- 多表单：Bug + Feature + 集成请求
-- 含自动诊断采集
-
-**hashicorp/terraform**
-- Provider 级 Issue 表单
-- Terraform 版本 + Provider 版本 + 配置
 
 ## 必含元素 Checklist
 - [ ] name + description

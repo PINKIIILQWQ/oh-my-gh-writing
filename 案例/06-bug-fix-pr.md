@@ -5,7 +5,7 @@
 
 > 格式：**Markdown**（GitHub PR Template）
 
-## 精细版（完整 PR 模板原文）
+## 主案例
 
 ### 案例 1：microsoft/terminal (96k⭐)
 
@@ -107,7 +107,7 @@ patches often sit for a long time.
 
 ---
 
-## 简洁写法（较短 PR 模板原文）
+## 补充案例
 
 ### 案例 4：getsentry/sentry (41k⭐)
 

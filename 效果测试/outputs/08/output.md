@@ -1,10 +1,3 @@
----
-scenario: Documentation PR
-mode: full-detail
-case-sources: https://github.com/DefinitelyTyped/DefinitelyTyped, https://github.com/vuejs/core
-input-prompt: ../../prompts/08-documentation-pr.md
----
-
 ## Docs: Add best-practice navigation guard examples
 
 ### Location

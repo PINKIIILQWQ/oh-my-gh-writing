@@ -5,7 +5,7 @@
 
 > 格式：**Markdown**（GitHub Discussions）
 
-## 精细版（完整 Discussion 框架）
+## 主案例
 
 ### 案例 1：mozilla/rr (10k⭐)
 
@@ -94,7 +94,7 @@ Chef 的 RFC 讨论流程结构：
 
 ---
 
-## 简洁写法（简洁 Discussion 框架）
+## 补充案例
 
 ### 案例 4：hashicorp/vault (35k⭐)
 

@@ -5,7 +5,7 @@
 
 > 格式：**Markdown**（CHANGELOG.md）
 
-## 精细版（完整变更日志）
+## 主案例
 
 ### 案例 1：psf/requests (54k⭐) — HISTORY.md
 
@@ -85,7 +85,7 @@ BUG FIXES:
 
 ---
 
-## 简洁写法（简洁变更日志）
+## 补充案例
 
 ### 案例 4：material-components/material-web (10k⭐)
 

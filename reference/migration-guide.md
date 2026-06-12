@@ -1,9 +1,9 @@
-# Migration Guide — 完整写法
+# Migration Guide — 写作标准
 
 ## 适用场景
 引导用户从旧 API、旧配置或旧发布迁移到目标发布。
 
-## 完整写法（fluentui, pandas, gitlabhq）
+## 标准写法（fluentui, pandas, gitlabhq）
 
 ### 结构
 1. **概览**：迁移范围 + 目标版本
@@ -28,23 +28,6 @@
 - 产品级迁移：从版本 A → B 的完整操作手册
 - 数据库迁移 + API 变更 + 配置变更
 
-## Migration Guide — 简洁写法（reactjs/rfcs, react-spectrum, hugo）
-
-### 结构
-旧 vs 新对比 → 迁移步骤
-
-### 参考仓库写法
-
-**reactjs/rfcs**
-- RFC 级迁移说明：设计动机 + 旧新对比 + CoD 模式
-
-**adobe/react-spectrum**
-- 版本迁移 + 组件迁移
-- 示例代码对比
-
-**gohugoio/hugo**
-- 配置迁移说明
-- 含 shortcode 兼容说明
 
 ## 必含元素 Checklist
 - [ ] 迁移步骤（旧→新）

@@ -1,4 +1,4 @@
-# Code Review — 完整写法
+# Code Review — 写作标准
 
 ## 适用场景
 对 Pull Request 或提交进行代码审查评论。
@@ -7,7 +7,7 @@
 
 必须先读取 diff、PR 文件、提交内容或用户贴出的代码后再给出文件/行号级结论。只有 PR URL 但无法访问内容时，不要编造 `src/foo.ts:42` 之类的位置；改为说明“需要 diff 才能逐行审查”，并提供基于已知变更主题的风险清单。
 
-## 完整写法（torvalds/linux, golang/go, rust-lang/rust）
+## 标准写法（torvalds/linux, golang/go, rust-lang/rust）
 
 ### 结构
 1. **位置**（文件 + 行号）
@@ -32,25 +32,6 @@
 - RFC-style review：设计决策 + 代码质量
 - 注重安全性和正确性
 
-## Code Review — 简洁写法（rails, django, kubernetes）
-
-### 结构
-1. **位置**（直接标注行号）
-2. **问题 + 建议**（合并列出）
-
-### 参考仓库写法
-
-**rails/rails**
-- GitHub PR inline review
-- 评论焦点：正确性 + 性能 + 风格
-
-**django/django**
-- Committer review 风格：直接提建议代码
-- 强调 ticket 关联
-
-**kubernetes/kubernetes**
-- SIG review 流程：规模大但每 PR 至少 2 个 reviewer
-- LGTM 标签体系
 
 ## 必含元素 Checklist
 - [ ] 标注位置（文件/行号；必须来自真实 diff 或代码）

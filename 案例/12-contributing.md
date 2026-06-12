@@ -5,7 +5,7 @@
 
 > 格式：**Markdown**（GitHub CONTRIBUTING）
 
-## 精细版（完整贡献指南，含真实内容）
+## 主案例
 
 ### 案例 1：psf/black (39k⭐)
 
@@ -130,7 +130,7 @@ The rest of this document covers some of the more technical aspects.
 
 ---
 
-## 简洁写法（简洁贡献指南）
+## 补充案例
 
 ### 案例 4：apache/echarts (62k⭐)
 

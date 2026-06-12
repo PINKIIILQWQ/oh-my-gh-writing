@@ -5,7 +5,7 @@
 
 > 格式：**Markdown**（GitHub PR Template）
 
-## 精细版（完整 PR 模板）
+## 主案例
 
 ### 案例 1：ionic-team/ionic-framework (51k⭐)
 
@@ -86,7 +86,7 @@ empty*: your commit message itself should describe your changes.
 
 ---
 
-## 简洁写法（简洁 PR 模板）
+## 补充案例
 
 ### 案例 4：angular/angular-cli (27k⭐)
 

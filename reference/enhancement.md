@@ -1,11 +1,11 @@
-# Enhancement — 完整写法
+# Enhancement — 写作标准
 
 ## 适用场景
 对已有功能做增量改进，不是新增能力。
 
 > 与 Feature Request 区别：Enhancement 是改进已有功能的行为/性能/API，Feature Request 是增加尚未存在的能力。
 
-## 完整写法（pandas-dev/pandas, prettier/prettier）
+## 标准写法（pandas-dev/pandas, prettier/prettier）
 
 ### 结构
 1. **当前限制**：现有功能的不足
@@ -25,10 +25,6 @@
 - 代码 before/after 示例
 - 含 lint 变化说明
 
-## Enhancement — 简洁写法
-
-### 结构
-当前限制 → 改进效果 → 示例
 
 ## 必含元素 Checklist
 - [ ] 当前行为说明

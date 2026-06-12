@@ -4,7 +4,7 @@
 
 ---
 
-## 精细版（完整 PR 模板原文）
+## 主案例
 
 ### 案例 1：apache/flink (24k⭐)
 
@@ -130,7 +130,7 @@ If yes, a release note is required:
 
 ---
 
-## 简洁写法（简洁 PR 模板）
+## 补充案例
 
 ### 案例 4：Homebrew/brew (42k⭐)
 

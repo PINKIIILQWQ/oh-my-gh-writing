@@ -1,9 +1,9 @@
-# Discussion — 完整写法
+# Discussion — 写作标准
 
 ## 适用场景
 公开讨论功能方向、方案选择，需要社区输入。
 
-## 完整写法（rails/rails, eslint/eslint）
+## 标准写法（rails/rails, eslint/eslint）
 
 ### 结构
 1. **背景**：讨论的来由
@@ -21,10 +21,6 @@
 - 格式规则讨论模板
 - 含各个规则选项的对比
 
-## Discussion — 简洁写法
-
-### 结构
-背景 → 问题列表 → 讨论
 
 ## 必含元素 Checklist
 - [ ] 讨论背景

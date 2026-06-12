@@ -1,10 +1,3 @@
----
-scenario: Refactor PR
-mode: full-detail
-case-sources: https://github.com/elastic/elasticsearch, https://github.com/numpy/numpy
-input-prompt: ../../prompts/07-refactor-pr.md
----
-
 ## Refactor: Consolidate utility files into structured utils/
 
 ### Refactoring goal

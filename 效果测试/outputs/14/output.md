@@ -1,10 +1,3 @@
----
-scenario: Release Notes
-mode: full-detail
-case-sources: https://github.com/NixOS/nix, https://github.com/astral-sh/uv
-input-prompt: ../../prompts/14-release-notes.md
----
-
 # zzz v2.0.0 — Config overhaul + plugin system
 
 ## 🔥 Breaking Changes

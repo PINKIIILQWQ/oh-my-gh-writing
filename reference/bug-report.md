@@ -1,9 +1,9 @@
-# Bug Report — 完整写法
+# Bug Report — 写作标准
 
 ## 适用场景
 提交 Bug 报告，要求可复现、环境完整的 Issue。
 
-## 完整写法（vscode, nextjs, tailwindcss）
+## 标准写法（vscode, nextjs, tailwindcss）
 
 ### 结构
 1. **标题**：`[Component] 简短问题描述`，用前缀标记模块
@@ -32,31 +32,6 @@
 - 要求贴 Play CDN 链接
 - 不要求大段日志，聚焦配置等价
 
-## Bug Report — 简洁写法（golang, electron, eslint）
-
-### 结构
-1. **问题概述**（正文第一句）
-2. **复现**（简单步骤或代码片段）
-3. **期望 vs 实际**（各 1-2 句）
-4. **环境**（版本 + OS）
-
-### 参考仓库写法
-
-**golang/go**
-- 标题格式：`pkg: description` → `net/http: timeout on keep-alive connections`
-- 正文：复现程序（可粘贴运行的完整代码）→ 期望 → 实际 → 环境
-- 环境自动填 `go version` 输出
-- 最简洁的 5 段式结构，无废话
-
-**electron**
-- 环境精细（OS/electron/chrome/node 版本全部自动填）
-- 复现步骤 + 实际/期望 + 附截图
-- 示例：https://github.com/electron/electron/issues
-
-**eslint**
-- 单一规则 Bug 最规范
-- 标题：`规则名: 问题描述`
-- 正文：代码示例 → 期望报错/不报错 → 实际 → 配置
 
 ## 必含元素 Checklist
 - [ ] 可复现的最小示例

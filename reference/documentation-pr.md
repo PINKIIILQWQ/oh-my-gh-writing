@@ -1,9 +1,9 @@
-# Documentation PR — 完整写法
+# Documentation PR — 写作标准
 
 ## 适用场景
 纯文档变更，无代码改动。
 
-## 完整写法（home-assistant/core, vercel/nextjs）
+## 标准写法（home-assistant/core, vercel/nextjs）
 
 ### 结构
 1. **原文位置**：改了哪个文档的哪个部分
@@ -21,10 +21,6 @@
 - 文档 PR 含预览链接
 - 片段确认机制
 
-## Documentation PR — 简洁写法
-
-### 结构
-原文 → 改后 → 截图（可选）
 
 ## 必含元素 Checklist
 - [ ] 修改位置（已知文件/章节；不要编造行号）

@@ -1,10 +1,3 @@
----
-scenario: Enhancement
-mode: full-detail
-case-sources: https://github.com/django/django, https://github.com/jekyll/jekyll
-input-prompt: ../../prompts/03-enhancement.md
----
-
 ## Enhancement: Support ReadableStream in Express res.send()
 
 ### Current limitation
