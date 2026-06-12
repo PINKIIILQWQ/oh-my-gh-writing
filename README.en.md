@@ -141,10 +141,15 @@ Default behavior:
 | [`INDEX.md`](./INDEX.md) | Full index for all 18 scenarios and their standards |
 | [`reference/`](./reference) | Standardized writing rules, field order, and checklists per scenario |
 | [`案例/`](./案例) | Current case library: source links, excerpts, and structure notes from real repositories |
+| [`效果测试/`](./效果测试) | Output gallery for concise/full-detail results across all 18 scenarios |
 
 ## Viewing Cases
 
 Open [`案例/README.md`](./案例/README.md) for the 18-scenario case index. GitHub renders these Markdown files directly. README cases also include a rendered-view link to the original repository README, while the raw-source link remains available for comparing the underlying Markdown.
+
+## Viewing Output Results
+
+Open [`效果测试/README.md`](./效果测试/README.md) to compare the fixed input prompt, concise output, and full-detail output for each scenario. This directory is useful for reviewing how skill changes affect real generated artifacts.
 
 ## License
 

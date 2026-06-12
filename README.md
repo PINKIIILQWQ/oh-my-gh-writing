@@ -141,10 +141,15 @@ flowchart LR
 | [`INDEX.md`](./INDEX.md) | 全量索引：18 个场景和对应标准文件 |
 | [`reference/`](./reference) | 每个场景的标准化写法、字段顺序和 checklist |
 | [`案例/`](./案例) | 当前案例库：真实仓库来源、摘录和结构分析 |
+| [`效果测试/`](./效果测试) | 18 个场景的 concise/full-detail 输出效果画廊 |
 
 ## 查看案例效果
 
 打开 [`案例/README.md`](./案例/README.md) 可以看到 18 个场景的案例索引。GitHub 会直接渲染这些 Markdown 文件；README 场景还提供“渲染效果”链接，可以跳到原仓库 README 的最终展示页，旁边的“完整内容”链接保留 raw Markdown 方便比对。
+
+## 查看输出效果
+
+打开 [`效果测试/README.md`](./效果测试/README.md) 可以按场景查看固定输入 prompt、concise 输出和 full-detail 输出。这个目录适合用来比较 skill 调整前后的实际写作效果。
 
 ## License
 

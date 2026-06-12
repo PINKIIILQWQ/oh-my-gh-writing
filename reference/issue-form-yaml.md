@@ -3,6 +3,12 @@
 ## 适用场景
 用 YAML 定义 Issue 表单，引导贡献者规范填写。
 
+## 输出边界
+
+简洁写法也必须覆盖用户请求的全部表单类型；简洁只减少字段数量，不减少文件数量。用户要求 Bug Report 和 Feature Request 时，两种表单都要给出。不要添加带假 URL 的 `contact_links`；只有真实文档、讨论区或安全政策链接已知时才写。
+
+在对话中展示多个 YAML 文件时，用 `## File: ...` 标题加 fenced `yaml` 代码块。真正写入 `.github/ISSUE_TEMPLATE/*.yml` 时，文件内只保留有效 YAML，不要包含 Markdown 标题或说明。
+
 ## 完整写法（vscode, nextjs, rails）
 
 ### 结构
@@ -69,6 +75,8 @@ body:
 - [ ] name + description
 - [ ] 必填字段验证
 - [ ] labels 自动打
+- [ ] 请求的每一种表单类型都有对应 YAML
+- [ ] 不包含未验证的外链或 Markdown 包装（当输出目标是实际 YAML 文件时）
 
 ## 参考链接
 

@@ -39,6 +39,7 @@
 - **入口清晰**：首屏必须出现项目名、一句话定位和最短开始路径。
 - **分层披露**：README 放最短路径，INDEX 放全量导航，reference 放规则细节。
 - **证据驱动**：不要虚构 CI、版本、下载量、兼容平台、截图、性能或 Star History。
+- **安装可信**：不要把 Homebrew、npm、Docker、curl install、release asset、`go install` 等写成可用安装方式，除非仓库或官方包页面能证明它存在。
 - **命令可复制**：能直接运行的命令不要含未解释的 `<owner>`、`<repo>`、`your-token` 等占位符；需要占位时先说明如何替换。
 - **少即是准**：不要因为仓库里存在某个目录就把它放进 README。只链接读者下一步确实需要的入口。
 - **引用内收**：链接是补充，不应代替关键信息。关键行为、安装方式和限制必须写在正文。
@@ -182,6 +183,12 @@ git clone <repo-url> <project-name>
 ```
 
 不要把含 `<owner>`、`<repo>` 的命令直接放在“复制即可运行”的位置。
+
+当项目是用户临时描述的假想项目，或仓库没有真实发布渠道时：
+
+- Quick Start 优先展示本地运行、源码构建或最小用法。
+- 安装章节写成 `TODO: add install command after first release`，或明确“替换为你的发布 URL”。
+- 不要使用 `example.com`、不存在的 GitHub release、未验证的 Homebrew formula、未验证的 npm 包名来制造完整感。
 
 ## 不应出现在公开 README
 

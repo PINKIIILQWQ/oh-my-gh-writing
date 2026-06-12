@@ -11,7 +11,7 @@
 3. **新特性**（每个特性含：名称 / 截图或 GIF / 用法示例 / 链接到文档）
 4. **Breaking Changes**（影响 + 迁移步骤）
 5. **升级指南**（从上一版本升级所需操作）
-6. **Full Changelog 链接**
+6. **Full Changelog 链接**：有真实 release、compare URL 或仓库范围时才写
 
 ### 参考仓库写法
 
@@ -51,7 +51,8 @@
 - [ ] 版本号 + 日期
 - [ ] 新特性列表
 - [ ] Breaking Changes（如有）
-- [ ] Full Changelog 链接
+- [ ] Full Changelog 链接（已知时）
+- [ ] 不虚构迁移命令、内置插件列表、release URL、截图/GIF 或贡献者名单
 
 ## 参考链接
 

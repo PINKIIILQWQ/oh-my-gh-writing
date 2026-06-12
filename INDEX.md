@@ -13,6 +13,7 @@ Agent 执行写作任务时优先读取 [`SKILL.md`](./SKILL.md) 和对应 `refe
 | 2 | [`SKILL.md`](./SKILL.md) | Agent / skill 使用者 | 入口规则、场景识别、摘要标准 |
 | 3 | [`reference/`](./reference) | 要改写法标准的人 | 每场景完整写法/简洁写法/checklist |
 | 4 | [`案例/`](./案例) | 测试者 / 参考者 | 每场景真实仓库案例、来源链接和结构分析 |
+| 5 | [`效果测试/`](./效果测试) | 测试者 / 维护者 | 固定输入下的 concise/full-detail 输出效果 |
 
 ## 18 场景索引
 
@@ -43,6 +44,7 @@ Agent 执行写作任务时优先读取 [`SKILL.md`](./SKILL.md) 和对应 `refe
 |------|------|------|
 | [`reference/`](./reference) | 场景标准、工具分析、格式武器库 | [`reference/readme.md`](./reference/readme.md) |
 | [`案例/`](./案例) | 当前案例库和真实仓库写法参考 | [`案例/README.md`](./案例/README.md) |
+| [`效果测试/`](./效果测试) | 18 场景输出效果画廊 | [`效果测试/README.md`](./效果测试/README.md) |
 | [`assets/`](./assets) | README 和项目展示素材 | [`assets/oh-my-gh-writing-logo.png`](./assets/oh-my-gh-writing-logo.png) |
 
 ## Reference 文件索引
@@ -61,6 +63,7 @@ Agent 执行写作任务时优先读取 [`SKILL.md`](./SKILL.md) 和对应 `refe
 
 - 新增场景时，同步更新 `SKILL.md`、`INDEX.md`、`README.md`、`README.en.md` 和对应 `reference/*.md`
 - 新增案例时，同步更新 `案例/README.md`，必要时补充渲染效果链接
+- 更新固定输入或输出样例时，同步更新 `效果测试/README.md`
 - 新增公开文档时，按需要挂到这里
 - README 只放最短路径和核心入口，避免再次变成大而全的文档
 - 深层细节必须有上层入口可达，不能只散落在目录里

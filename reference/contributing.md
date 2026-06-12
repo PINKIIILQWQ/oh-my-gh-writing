@@ -58,6 +58,8 @@ PR 流程→代码风格→开发环境
 - [ ] PR 工作流说明
 - [ ] 代码规范
 - [ ] 本地开发环境搭建
+- [ ] Node/npm/包管理器版本、coverage 目标、发布流程和 CI 要求来自仓库证据；未知时标为 `TODO`
+- [ ] 不把未确认工具链（Storybook、Playwright、semantic-release 等）写成项目事实
 
 ## 参考链接
 

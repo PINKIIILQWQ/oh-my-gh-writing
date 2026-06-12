@@ -3,6 +3,12 @@
 ## 适用场景
 Pull Request 的描述模板，引导贡献者写全信息。
 
+## 输出边界
+
+PR 模板是给未来贡献者填写的文件，默认使用空白字段、注释和未勾选 checklist。不要把具体测试状态、Issue 编号、benchmark 或项目事实写进模板，除非用户明确要求固定模板内容。
+
+在对话中展示模板时可以用 fenced `markdown` 代码块；真正写入 `.github/PULL_REQUEST_TEMPLATE.md` 时，文件内只保留模板正文，不要包含外层标题。
+
 ## 完整写法（kubernetes, react, moby）
 
 ### 结构
@@ -66,6 +72,7 @@ Pull Request 的描述模板，引导贡献者写全信息。
 - [ ] 变更描述
 - [ ] 测试说明
 - [ ] Checklist
+- [ ] 模板字段保持待填写状态，不预先勾选或填入虚构编号
 
 ## 参考链接
 

@@ -71,7 +71,7 @@
 ## 必含元素 Checklist
 - [ ] type(scope): subject
 - [ ] 动机说明（body）
-- [ ] 关联 PR/Issue（footer，可选）
+- [ ] 关联 PR/Issue（footer，可选，且只在编号已知时写）
 
 ## 参考链接
 

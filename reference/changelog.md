@@ -65,7 +65,8 @@
 ## 必含元素 Checklist
 - [ ] 版本号 + 发布日期
 - [ ] 按类型分类（Breaking / Features / Fixes）
-- [ ] PR/Issue 引用
+- [ ] PR/Issue 引用（已知时）
+- [ ] 不虚构 bug 编号、文档链接、迁移链接、废弃时间线或移除版本
 
 ## 参考链接
 

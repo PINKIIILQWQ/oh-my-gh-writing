@@ -19,7 +19,7 @@ Use this skill to produce GitHub-ready writing for common collaboration workflow
 8. Read [`INDEX.md`](./INDEX.md) only for full repository navigation or maintenance work.
 9. When the user asks for real-world examples, case studies, or reference projects for a scenario, read the matching file in [`案例/`](./案例/) after loading the scenario reference.
 
-Do not load every reference file for a concise request. Do not expose reference-project analysis in user-facing output unless the user explicitly asks for rationale or sources.
+Do not load every reference file for a concise request. Do not expose reference-project analysis in user-facing output unless the user explicitly asks for rationale or sources. Do not add test-gallery metadata such as `scenario`, `mode`, `case-sources`, or `input-prompt` unless the task explicitly asks for a test output gallery.
 
 ## Scenario Routing
 
@@ -52,9 +52,14 @@ Do not load every reference file for a concise request. Do not expose reference-
 4. Put critical information in the body, not only behind links.
 5. Record reproducible context: versions, platform, environment, affected commands, expected behavior, actual behavior, and tests where relevant.
 6. Use concise, neutral language. Prefer precise impact and verification over persuasion.
-7. Do not invent CI status, versions, compatibility, benchmarks, screenshots, or links. If evidence is unavailable, omit the claim or label it as a placeholder.
-8. For current tool, agent, platform, API, or installation support claims, verify availability in official documentation before writing the claim or example. Link the official source when the output includes a support matrix or install guide.
-9. For README drafting, keep the first response as a draft or a clarification step; only upload or push after the user explicitly approves the content and delivery path.
+7. Treat user-provided facts, repository files, tool output, and verified links as the only factual source. Use `案例/` files for structure and style only; do not copy their project facts into the user's artifact.
+8. Do not invent CI status, versions, compatibility, benchmarks, screenshots, links, issue numbers, PR numbers, file paths, line numbers, package-manager install commands, release URLs, deprecation dates, migration timelines, or support matrices. If evidence is unavailable, omit the claim or label it as `TODO` / `TBD`.
+9. Do not mark checkboxes as completed unless the user, diff, repository, or tool output proves they are done. Use unchecked boxes or a `Verification to run` section for unknown work.
+10. Do not turn hypotheses into conclusions. Use "Suspected cause", "Likely cause", or "Needs confirmation" unless the root cause is shown by code, logs, or the user's explicit statement.
+11. Use fenced code blocks with language hints for multi-line code, config, diffs, YAML, JSON, logs, or templates. Do not use raw HTML `<code>` blocks to force formatting.
+12. For templates and YAML, separate display wrappers from file content. In chat, use headings plus fenced blocks when multiple files are requested; when editing or generating a single target file, produce valid file content without explanatory wrappers.
+13. For current tool, agent, platform, API, or installation support claims, verify availability in official documentation before writing the claim or example. Link the official source when the output includes a support matrix or install guide.
+14. For README drafting, keep the first response as a draft or a clarification step; only upload or push after the user explicitly approves the content and delivery path.
 
 ## README Guardrails
 
