@@ -107,7 +107,7 @@ patches often sit for a long time.
 
 ---
 
-## 普通版（较短 PR 模板原文）
+## 简洁写法（较短 PR 模板原文）
 
 ### 案例 4：getsentry/sentry (41k⭐)
 

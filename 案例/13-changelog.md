@@ -85,7 +85,7 @@ BUG FIXES:
 
 ---
 
-## 普通版（简洁变更日志）
+## 简洁写法（简洁变更日志）
 
 ### 案例 4：material-components/material-web (10k⭐)
 

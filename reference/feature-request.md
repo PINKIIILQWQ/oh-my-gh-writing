@@ -1,9 +1,9 @@
-# Feature Request — 完整版
+# Feature Request — 完整写法
 
 ## 适用场景
 请求新功能或能力增强，需要阐明使用场景和期望行为。
 
-## 完整版（angular, typescript, rails）
+## 完整写法（angular, typescript, rails）
 
 ### 结构
 1. **动机**：当前缺失的能力或痛点
@@ -29,7 +29,7 @@
 - 用 `Playground Link` 跑示例
 - 最规范的 TS 社区 feature request
 
-## Feature Request — 普通版（svelte, nuxt, babel）
+## Feature Request — 简洁写法（svelte, nuxt, babel）
 
 ### 结构
 1. **问题**（当前你碰到的限制）

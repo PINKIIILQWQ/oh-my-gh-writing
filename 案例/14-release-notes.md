@@ -124,7 +124,7 @@ Full Changelog: https://github.com/biomejs/biome/compare/v1.8.0...v1.9.0
 
 ---
 
-## 普通版（简洁发布注释）
+## 简洁写法（简洁发布注释）
 
 ### 案例 4：astral-sh/uv (35k⭐)
 

@@ -61,7 +61,7 @@ Before submitting a PR:
 
 ---
 
-## 普通版（较短模板）
+## 简洁写法（较短模板）
 
 ### 案例 4：apache/airflow (38k⭐)
 

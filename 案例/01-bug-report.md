@@ -130,7 +130,7 @@ Ansible 的 Bug Report 由 bot（ansibot）驱动，10 个必填字段：
 
 ---
 
-## 普通版（较短模板）
+## 简洁写法（较短模板）
 
 ### 案例 4：jestjs/jest (45k⭐)
 

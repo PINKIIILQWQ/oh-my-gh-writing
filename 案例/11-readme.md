@@ -126,7 +126,7 @@ that we've found useful when working on Linux. This work is the result of
 
 ---
 
-## 普通版（规范 README 示例）
+## 简洁写法（规范 README 示例）
 
 ### 案例 4：nektos/act (70k⭐)
 

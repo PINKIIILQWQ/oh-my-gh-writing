@@ -92,7 +92,7 @@ Impact on existing features and backward compatibility.
 
 ---
 
-## 普通版（较短模板）
+## 简洁写法（较短模板）
 
 ### 案例 4：grafana/grafana (66k⭐)
 

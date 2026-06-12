@@ -130,7 +130,7 @@ If yes, a release note is required:
 
 ---
 
-## 普通版（简洁 PR 模板）
+## 简洁写法（简洁 PR 模板）
 
 ### 案例 4：Homebrew/brew (42k⭐)
 

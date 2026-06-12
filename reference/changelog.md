@@ -1,9 +1,9 @@
-# CHANGELOG — 完整版
+# CHANGELOG — 完整写法
 
 ## 适用场景
 按版本记录变更日志，面向用户升级时查看。
 
-## 完整版（electron, npm/cli, pandas）
+## 完整写法（electron, npm/cli, pandas）
 
 ### 结构
 ```
@@ -42,7 +42,7 @@
 - Deprecation 体系最完整（FutureWarning → 废弃时间线 → 移除）
 - 含贡献者致谢
 
-## CHANGELOG — 普通版（eslint, graphql-js, prisma）
+## CHANGELOG — 简洁写法（eslint, graphql-js, prisma）
 
 ### 结构
 版本 + 日期 + 类型分类 + PR 引用

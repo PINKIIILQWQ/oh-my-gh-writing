@@ -94,7 +94,7 @@ Cursor does not load this repository as a `SKILL.md` skill folder directly. The 
 ```text
 Read oh-my-gh-writing's SKILL.md and reference/, then adapt them into Cursor Project Rules:
 1. Create .cursor/rules/oh-my-gh-writing.mdc
-2. Preserve scenario routing, normal/complete mode selection, and README guardrails
+2. Preserve scenario routing, concise/full-detail mode selection, and README guardrails
 3. Reference or inline the relevant reference/*.md summaries when needed
 4. Do not treat the case library as runtime rules; use it only when I ask for examples
 ```
@@ -119,7 +119,7 @@ See the full index in [`INDEX.md`](./INDEX.md).
 ```mermaid
 flowchart LR
   A["User request"] --> B["Detect scenario"]
-  B --> C["Choose normal or complete mode"]
+  B --> C["Choose concise or full-detail mode"]
   C --> D["Read scenario standard"]
   D --> E["Apply field order and checklist"]
   E --> F["Produce Markdown or YAML"]
@@ -127,8 +127,8 @@ flowchart LR
 
 Default behavior:
 
-- Use normal mode when complexity is not specified
-- Use complete mode for formal, high-risk, release, or breaking-change work
+- Use concise mode when complexity is not specified
+- Use full-detail mode for formal, high-risk, release, or breaking-change work
 - Produce a usable draft when information is missing, then mark the gaps clearly
 - Preserve existing heading levels, date formats, labels, and link style when updating documents
 - Prefer badge navigation, copyable commands, conditional sections, and compact structure for README work
@@ -140,7 +140,7 @@ Default behavior:
 | [`SKILL.md`](./SKILL.md) | Skill entry: scenario routing, level selection, shared principles |
 | [`INDEX.md`](./INDEX.md) | Full index for all 18 scenarios and their standards |
 | [`reference/`](./reference) | Standardized writing rules, field order, and checklists per scenario |
-| [`案例/`](./案例) | Test-stage case library: source links, excerpts, and structure notes from real repositories |
+| [`案例/`](./案例) | Current case library: source links, excerpts, and structure notes from real repositories |
 
 ## Viewing Cases
 

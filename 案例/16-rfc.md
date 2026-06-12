@@ -85,7 +85,7 @@ KEP Template:
 
 ---
 
-## 普通版（精简 RFC）
+## 简洁写法（精简 RFC）
 
 ### 案例 4：graphql/graphql-spec (14k⭐)
 

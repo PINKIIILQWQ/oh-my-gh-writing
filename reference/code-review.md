@@ -1,9 +1,9 @@
-# Code Review — 完整版
+# Code Review — 完整写法
 
 ## 适用场景
 对 Pull Request 或提交进行代码审查评论。
 
-## 完整版（torvalds/linux, golang/go, rust-lang/rust）
+## 完整写法（torvalds/linux, golang/go, rust-lang/rust）
 
 ### 结构
 1. **位置**（文件 + 行号）
@@ -28,7 +28,7 @@
 - RFC-style review：设计决策 + 代码质量
 - 注重安全性和正确性
 
-## Code Review — 普通版（rails, django, kubernetes）
+## Code Review — 简洁写法（rails, django, kubernetes）
 
 ### 结构
 1. **位置**（直接标注行号）

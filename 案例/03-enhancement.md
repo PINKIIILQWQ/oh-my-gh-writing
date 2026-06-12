@@ -104,7 +104,7 @@ Jekyll 的 enhancement 模板：
 
 ---
 
-## 普通版（简洁 Enhancement）
+## 简洁写法（简洁 Enhancement）
 
 ### 案例 4：Netflix/zuul (14k⭐)
 

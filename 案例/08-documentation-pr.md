@@ -86,7 +86,7 @@ empty*: your commit message itself should describe your changes.
 
 ---
 
-## 普通版（简洁 PR 模板）
+## 简洁写法（简洁 PR 模板）
 
 ### 案例 4：angular/angular-cli (27k⭐)
 

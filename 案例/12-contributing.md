@@ -130,7 +130,7 @@ The rest of this document covers some of the more technical aspects.
 
 ---
 
-## 普通版（简洁贡献指南）
+## 简洁写法（简洁贡献指南）
 
 ### 案例 4：apache/echarts (62k⭐)
 

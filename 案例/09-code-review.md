@@ -92,7 +92,7 @@ Body with rationale
 
 ---
 
-## 普通版（审查模板/指南）
+## 简洁写法（审查模板/指南）
 
 ### 案例 4：knonm/code-review-checklist (0.5k⭐)
 

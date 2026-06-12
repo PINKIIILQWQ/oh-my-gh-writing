@@ -181,7 +181,7 @@ npm install ember-cli@3.28 --save-dev
 
 ---
 
-## 普通版（简洁迁移指南）
+## 简洁写法（简洁迁移指南）
 
 ### 案例 4：angular/components (25k⭐)
 
@@ -211,7 +211,7 @@ Angular Material 升级指南分类结构：
 
 - **API Changes**: Old API → New API + Reason
 - **Migration Steps**: 具体操作步骤
-- **Rollback**: 如何恢复到旧版本
+- **Rollback**: 如何回退到迁移前状态
 - **Timeline**: 废弃的时间线
 
 ### 案例 6：reduxjs/redux-toolkit (11k⭐)

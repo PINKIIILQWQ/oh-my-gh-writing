@@ -1,6 +1,6 @@
 ---
 name: oh-my-gh-writing
-description: "GitHub writing standards for AI agents. Use when drafting or revising GitHub issues, pull request descriptions, code reviews, commit messages, README/CONTRIBUTING/CHANGELOG docs, release notes, migration guides, RFCs, issue forms, or PR templates with normal/complete variants and progressive reference loading."
+description: "GitHub writing standards for AI agents. Use when drafting or revising GitHub issues, pull request descriptions, code reviews, commit messages, README/CONTRIBUTING/CHANGELOG docs, release notes, migration guides, RFCs, issue forms, or PR templates with concise/full-detail modes and progressive reference loading."
 ---
 
 # oh-my-gh-writing
@@ -10,8 +10,8 @@ Use this skill to produce GitHub-ready writing for common collaboration workflow
 ## Workflow
 
 1. Identify the scenario from the user's request.
-2. Choose **normal** mode by default.
-3. Use **complete** mode only when the user asks for a complete/formal version, the change is high-risk, the work is release/migration/design related, or breaking changes are involved.
+2. Choose **concise** mode by default.
+3. Use **full-detail** mode only when the user asks for a full-detail/formal output, the change is high-risk, the work is release/migration/design related, or breaking changes are involved.
 4. If the task is to write or revise a README, confirm the delivery mode before drafting when it is not already explicit: either provide a local markdown draft for review or a chat-only draft. Do not perform a GitHub upload or push as the first pass.
 5. Even when source code is available, do not skip the confirmation step above for README work unless the user has already explicitly chosen the delivery mode.
 6. Read the matching `reference/*.md` file before writing the final output.
@@ -19,7 +19,7 @@ Use this skill to produce GitHub-ready writing for common collaboration workflow
 8. Read [`INDEX.md`](./INDEX.md) only for full repository navigation or maintenance work.
 9. When the user asks for real-world examples, case studies, or reference projects for a scenario, read the matching file in [`案例/`](./案例/) after loading the scenario reference.
 
-Do not load every reference file for a normal request. Do not expose reference-project analysis in user-facing output unless the user explicitly asks for rationale or sources.
+Do not load every reference file for a concise request. Do not expose reference-project analysis in user-facing output unless the user explicitly asks for rationale or sources.
 
 ## Scenario Routing
 

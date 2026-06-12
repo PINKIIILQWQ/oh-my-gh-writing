@@ -1,9 +1,9 @@
-# PR Template — 完整版
+# PR Template — 完整写法
 
 ## 适用场景
 Pull Request 的描述模板，引导贡献者写全信息。
 
-## 完整版（kubernetes, react, moby）
+## 完整写法（kubernetes, react, moby）
 
 ### 结构
 ```markdown
@@ -42,7 +42,7 @@ Pull Request 的描述模板，引导贡献者写全信息。
 - 动机 → 实现 → 测试 → 备注
 - Docker 级别的产品 PR 规范
 
-## PR Template — 普通版（eslint, tailwindcss, apache/spark）
+## PR Template — 简洁写法（eslint, tailwindcss, apache/spark）
 
 ### 结构
 动机 → 变更 → Checklist

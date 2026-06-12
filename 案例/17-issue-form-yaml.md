@@ -253,7 +253,7 @@ body:
 
 ---
 
-## 普通版
+## 简洁写法
 
 ### 案例 4：microsoft/playwright feature.yml
 

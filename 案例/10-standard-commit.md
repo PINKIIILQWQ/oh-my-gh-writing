@@ -61,7 +61,7 @@ feat(blog): add comment section
 
 ---
 
-## 普通版（Commit 工具/指南）
+## 简洁写法（Commit 工具/指南）
 
 ### 案例 4：commitizen/cz-cli (17.5k⭐)
 

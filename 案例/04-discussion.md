@@ -94,7 +94,7 @@ Chef 的 RFC 讨论流程结构：
 
 ---
 
-## 普通版（简洁 Discussion 框架）
+## 简洁写法（简洁 Discussion 框架）
 
 ### 案例 4：hashicorp/vault (35k⭐)
 

@@ -1,9 +1,9 @@
-# Standard Commit — 完整版
+# Standard Commit — 完整写法
 
 ## 适用场景
 日常代码提交，要求语义清晰的 commit message。
 
-## 完整版（angular, torvalds/linux, nodejs）
+## 完整写法（angular, torvalds/linux, nodejs）
 
 ### 结构
 ```
@@ -44,7 +44,7 @@
 - body 含 PR # + 审查建议
 - 单 commit = 单变更
 
-## Standard Commit — 普通版（react, golang, gitea）
+## Standard Commit — 简洁写法（react, golang, gitea）
 
 ### 结构
 ```

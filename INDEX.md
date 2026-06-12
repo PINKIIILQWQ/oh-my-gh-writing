@@ -11,7 +11,7 @@ Agent 执行写作任务时优先读取 [`SKILL.md`](./SKILL.md) 和对应 `refe
 | 0 | [`README.md`](./README.md) / [`README.en.md`](./README.en.md) | 第一次打开仓库的人 | 项目定位、安装、最短路径 |
 | 1 | [`INDEX.md`](./INDEX.md) | 想找某个场景或文档的人 | 全量索引和目录 |
 | 2 | [`SKILL.md`](./SKILL.md) | Agent / skill 使用者 | 入口规则、场景识别、摘要标准 |
-| 3 | [`reference/`](./reference) | 要改写法标准的人 | 每场景完整版/普通版/checklist |
+| 3 | [`reference/`](./reference) | 要改写法标准的人 | 每场景完整写法/简洁写法/checklist |
 | 4 | [`案例/`](./案例) | 测试者 / 参考者 | 每场景真实仓库案例、来源链接和结构分析 |
 
 ## 18 场景索引
@@ -42,7 +42,7 @@ Agent 执行写作任务时优先读取 [`SKILL.md`](./SKILL.md) 和对应 `refe
 | 目录 | 作用 | 入口 |
 |------|------|------|
 | [`reference/`](./reference) | 场景标准、工具分析、格式武器库 | [`reference/readme.md`](./reference/readme.md) |
-| [`案例/`](./案例) | 测试阶段案例库和真实仓库写法参考 | [`案例/README.md`](./案例/README.md) |
+| [`案例/`](./案例) | 当前案例库和真实仓库写法参考 | [`案例/README.md`](./案例/README.md) |
 | [`assets/`](./assets) | README 和项目展示素材 | [`assets/oh-my-gh-writing-logo.png`](./assets/oh-my-gh-writing-logo.png) |
 
 ## Reference 文件索引
