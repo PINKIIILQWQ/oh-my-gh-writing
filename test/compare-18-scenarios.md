@@ -657,7 +657,7 @@ module.exports = {
 
 - [Getting Started](https://hyper.is/docs)
 - [Plugin API](https://hyper.is/docs/plugins)
-- [Contributing](CONTRIBUTING.md)
+- [Contributing](https://github.com/vercel/hyper/blob/canary/CONTRIBUTING.md)
 
 ## License
 
@@ -677,7 +677,7 @@ brew install --cask hyper
 
 GPU-accelerated · Plugin ecosystem · Cross-platform
 
-[Contributing](CONTRIBUTING.md) · MIT
+[Contributing](https://github.com/vercel/hyper/blob/canary/CONTRIBUTING.md) · MIT
 ````
 
 ---
@@ -697,7 +697,7 @@ We welcome contributions — bug fixes, documentation, new ops, and more.
 
 ## Code of Conduct
 
-This project follows [TensorFlow Code of Conduct](CODE_OF_CONDUCT.md).
+This project follows [TensorFlow Code of Conduct](https://github.com/tensorflow/tensorflow/blob/master/CODE_OF_CONDUCT.md).
 
 ## Getting Started
 

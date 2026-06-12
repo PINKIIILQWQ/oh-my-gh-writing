@@ -27,18 +27,17 @@
 
 `oh-my-gh-writing` 是一套面向 AI agent 的 GitHub 写作规范。它覆盖 Issue、PR、Review、Commit、README、CHANGELOG、Release Notes、RFC 和模板文件等 18 个常见场景，让 agent 在不同仓库里也能稳定输出结构清晰、信息完整、可直接粘贴到 GitHub 的内容。
 
-它不是 README 生成器，也不是 GitHub App。它的核心是一个 `SKILL.md` 入口和一组场景标准文件：先识别你要写什么，再按对应场景选择普通版或完整版，最后输出 Markdown 或 YAML。
+它不是 README 生成器，也不是 GitHub App。它的核心是一个 `SKILL.md` 入口和一组 `reference/` 场景标准：先识别你要写什么，再按对应场景选择普通版或完整版，最后输出 Markdown 或 YAML。
 
 ### Quick Start
 
 #### Codex 本地安装
 
-```bash
-git clone git@github.com:<owner>/oh-my-gh-writing.git
-cd oh-my-gh-writing
+先克隆本仓库或你的 fork，然后在仓库根目录执行：
 
-mkdir -p "$HOME/.codex/skills"
-ln -s "$PWD" "$HOME/.codex/skills/oh-my-gh-writing"
+```bash
+mkdir -p "${CODEX_HOME:-$HOME/.codex}/skills"
+ln -sfn "$PWD" "${CODEX_HOME:-$HOME/.codex}/skills/oh-my-gh-writing"
 ```
 
 重启 Codex 后，可以这样使用：
@@ -55,9 +54,11 @@ ln -s "$PWD" "$HOME/.codex/skills/oh-my-gh-writing"
 
 Hermes CLI 支持从远程 `SKILL.md` URL 安装：
 
+将 `<repo-owner>` 替换为本仓库或你的 fork 所属的 GitHub owner。
+
 ```bash
 hermes skills install \
-  https://raw.githubusercontent.com/<owner>/oh-my-gh-writing/main/SKILL.md \
+  https://raw.githubusercontent.com/<repo-owner>/oh-my-gh-writing/main/SKILL.md \
   --name oh-my-gh-writing
 ```
 
@@ -110,6 +111,8 @@ flowchart LR
 | [`INDEX.md`](./INDEX.md) | 全量索引：18 个场景和对应标准文件 |
 | [`reference/`](./reference) | 每个场景的标准化写法、字段顺序和 checklist |
 
+设计过程和测试记录属于维护材料，需要时从 [`INDEX.md`](./INDEX.md) 进入。
+
 ## License
 
 [MIT](./LICENSE)
@@ -122,18 +125,17 @@ flowchart LR
 
 `oh-my-gh-writing` is a GitHub writing standards skill for AI agents. It covers 18 common collaboration scenarios, including issues, pull requests, reviews, commits, README files, changelogs, release notes, RFCs, and GitHub templates.
 
-It is not a README generator or a GitHub App. The project works as a portable writing standard: `SKILL.md` routes the request, the scenario references define the structure, and the agent produces ready-to-use Markdown or YAML.
+It is not a README generator or a GitHub App. The project works as a portable writing standard: `SKILL.md` routes the request, `reference/` defines the scenario standards, and the agent produces ready-to-use Markdown or YAML.
 
 ### Quick Start
 
 #### Local Codex install
 
-```bash
-git clone git@github.com:<owner>/oh-my-gh-writing.git
-cd oh-my-gh-writing
+Clone this repository or your fork first, then run this from the repository root:
 
-mkdir -p "$HOME/.codex/skills"
-ln -s "$PWD" "$HOME/.codex/skills/oh-my-gh-writing"
+```bash
+mkdir -p "${CODEX_HOME:-$HOME/.codex}/skills"
+ln -sfn "$PWD" "${CODEX_HOME:-$HOME/.codex}/skills/oh-my-gh-writing"
 ```
 
 After restarting Codex, use prompts like:
@@ -148,9 +150,11 @@ Use oh-my-gh-writing to write a README for a Rust CLI tool.
 
 #### Hermes Agent
 
+Replace `<repo-owner>` with the GitHub owner for this repository or your fork.
+
 ```bash
 hermes skills install \
-  https://raw.githubusercontent.com/<owner>/oh-my-gh-writing/main/SKILL.md \
+  https://raw.githubusercontent.com/<repo-owner>/oh-my-gh-writing/main/SKILL.md \
   --name oh-my-gh-writing
 ```
 
@@ -202,6 +206,8 @@ Default behavior:
 | [`SKILL.md`](./SKILL.md) | Skill entry: scenario routing, level selection, shared principles |
 | [`INDEX.md`](./INDEX.md) | Full index for all 18 scenarios and their standards |
 | [`reference/`](./reference) | Standardized writing rules, field order, and checklists per scenario |
+
+Design notes and test reports are maintainer materials. Use [`INDEX.md`](./INDEX.md) when you need them.
 
 ## License
 

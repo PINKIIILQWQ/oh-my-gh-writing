@@ -19,9 +19,9 @@
 ### 格式特征
 
 - **HTML 包裹**：用 `<p align="center">`、`<h3 align="left">` 控制对齐，用 `<a>` 给图片包链接
-- **徽章即入口**：每个 badge 用 `<a href="...">` 包裹，点击 badge 跳转对应页面（license→LICENSE 文件，stars→stargazers 页面）
+- **徽章即入口**：每个 badge 用 `<a href="https://example.com">` 包裹，点击 badge 跳转对应页面（license→LICENSE 文件，stars→stargazers 页面）
 - **图标回退链**：skillicons.dev → simpleicons.org → devicon → raw.githubusercontent.com，三层 fallback
-- **一行式配置**：badge 颜色、风格、标签文字全由 URL query 参数控制（`?color=...&style=flat`）
+- **一行式配置**：badge 颜色、风格、标签文字全由 URL query 参数控制（`?color=green&style=flat`）
 
 ### 可提取原则
 
