@@ -8,7 +8,7 @@
   <a href="https://github.com/PINKIIILQWQ/oh-my-gh-writing/blob/main/LICENSE"><img src="https://img.shields.io/github/license/PINKIIILQWQ/oh-my-gh-writing?style=flat&label=License" alt="MIT"></a>
   <a href="https://github.com/PINKIIILQWQ/oh-my-gh-writing/commits/main"><img src="https://img.shields.io/github/last-commit/PINKIIILQWQ/oh-my-gh-writing?style=flat&label=Updated" alt="Last Commit"></a>
   <a href="INDEX.md"><img src="https://img.shields.io/badge/Scenarios-18-6a0dad?style=flat" alt="18 Scenarios"></a>
-  <a href="SKILL.md"><img src="https://img.shields.io/badge/Format-Agent%20Skill-22AA66?style=flat" alt="Agent Skill"></a>
+  <a href="SKILL.md"><img src="https://img.shields.io/badge/Format-SKILL.md-22AA66?style=flat" alt="SKILL.md"></a>
 </p>
 
 **oh-my-gh-writing** 是一个面向 AI Agent 的 GitHub 写作技能包。它把 Issue、PR、Review、Commit、README、CHANGELOG、Release Notes、Migration Guide、RFC、Issue Form 和 PR Template 等常见 GitHub 写作任务路由到对应标准，帮助 agent 生成结构清晰、事实边界明确、接近可提交的 Markdown 或 YAML 草稿。
@@ -103,14 +103,12 @@ oh-my-gh-writing/
 ├── assets/
 │   └── oh-my-gh-writing-logo.png
 └── reference/
-    ├── shared-principles.md  # 通用输出质量规则
+    ├── *.md                  # 18 个场景标准
     ├── readme.md             # README 写作规则
+    ├── shared-principles.md  # 通用输出质量规则
     ├── output-validation.md  # 输出验收清单
     ├── source-catalog.md     # 参考来源目录
-    ├── weapons.md            # GitHub Markdown 工具
-    ├── badge-catalog.md      # Badge URL 模式
-    ├── emoji-guide.md        # 常用 emoji 索引
-    └── *.md                  # 18 个场景标准
+    └── weapons / emoji / badge helpers
 ```
 
 ## 贡献
@@ -119,18 +117,9 @@ oh-my-gh-writing/
 
 贡献时请保持 `SKILL.md` 轻量，把场景细节写入对应 `reference/*.md`。详细规则见 [`CONTRIBUTING.md`](CONTRIBUTING.md)。
 
-## 鸣谢
+## 参考来源
 
-- [GitHub Docs](https://docs.github.com/en) — Issue/PR 模板、Markdown 语法和社区实践规范
-- [Conventional Commits](https://www.conventionalcommits.org/) — Commit message 格式规范
-- [Keep a Changelog](https://keepachangelog.com/) — CHANGELOG 格式标准
-- [shields.io](https://shields.io) — Badge 生成服务
-- [Google Engineering Practices](https://google.github.io/eng-practices/review/) — Code Review 实践指南
-- [Commitizen](https://github.com/commitizen/cz-cli) — 交互式 commit message 字段提示参考
-- [Best-README-Template](https://github.com/othneildrew/Best-README-Template) — README 基础章节和项目首页骨架参考
-- [Conventional Changelog](https://github.com/conventional-changelog/conventional-changelog) — 从 commit metadata 生成 CHANGELOG / Release Notes 的工具链参考
-- Angular、Kubernetes、React、TypeScript、VS Code、Node.js、Tailwind CSS 等开源项目的 Issue/PR 模板和贡献指南 — 场景结构参考
-- [ikatyang/emoji-cheat-sheet](https://github.com/ikatyang/emoji-cheat-sheet) 和 [carloscuesta/gitmoji](https://github.com/carloscuesta/gitmoji) — Emoji 与 commit intent 参考
+本项目的场景规则参考了 [GitHub Docs](https://docs.github.com/en)、[Conventional Commits](https://www.conventionalcommits.org/)、[Keep a Changelog](https://keepachangelog.com/)、[Google Engineering Practices](https://google.github.io/eng-practices/review/)，以及 Angular、Kubernetes、React、TypeScript、VS Code、Node.js、Tailwind CSS 等成熟开源项目的 Issue/PR 模板和贡献指南。完整来源见 [`reference/source-catalog.md`](reference/source-catalog.md)。
 
 ## 许可证
 

@@ -58,15 +58,17 @@ If scenarios < 20, list all rows in a complete table. If ≥20 scenarios, replac
 
 如果仓库存在 `CONTRIBUTING.md`，或项目明确面向外部贡献者，README 应包含一个简短 Contributing 入口，并链接到完整规则。不要为私有、一次性、内部或没有外部贡献流程的项目强行生成贡献流程。
 
-## Form / Template Priority
+## Target Repository Templates
 
-如果目标仓库已有 `.github/` 目录下的 ISSUE_TEMPLATE、PULL_REQUEST_TEMPLATE、bug_report.yml、feature_request.yml 等表单文件，直接使用该仓库自带的模板，不需要自行生成。具体流程：
-1. 搜索目标仓库的 `.github/` 目录，获取模板文件
-2. 读取模板内容，解析所有字段及其 `validations.required` 状态
-3. **必填项（required: true）** 如果用户描述中已覆盖，直接填入；如果未覆盖，**询问用户**，不猜测
-4. **可选项（无 required 或 required: false）** 跳过，不填、不问、不留 TODO。用户没提就当不需要
-5. 按模板结构输出完整的 artifact，去掉对话性包装
-6. 如果仓库没有模板，再使用本 skill 的场景标准文件
+默认使用本 skill 的场景标准，不主动抓取每个目标仓库的 `.github/` 模板。只有在以下情况读取目标仓库模板：
+
+- 用户明确说“按这个仓库模板”“提交到这个 repo”“帮我填这个 Issue/PR 表单”。
+- 用户提供了目标仓库 URL，且产物明显要粘贴到该仓库的新 Issue / PR 页面。
+- 用户要求生成或修改目标仓库自己的 `.github/ISSUE_TEMPLATE/*` 或 `PULL_REQUEST_TEMPLATE.md`。
+
+读取模板时，只把目标仓库模板当作提交外壳：保留本 skill 的内容质量标准，同时映射到仓库要求的字段。`validations.required: true` 或明显必填字段缺信息时，先问用户；可选字段不问、不填、不留 TODO。不要把仓库特定 label、SIG、area、release-note、cherry-pick、版本列表或测试命令复制到无关项目。
+
+如果用户只是要通用草稿、目标仓库未知、或没有明确投递意图，使用本 skill 的标准结构即可。
 
 ## Agent / Platform Support Table
 

@@ -27,7 +27,7 @@ Progressive disclosure: load only the files needed for the current task. Do not 
 
 | 用户指令 | 匹配场景 | Agent 行为 |
 |---------|---------|-----------|
-| `帮我写个 Bug Report，描述 Vite 构建时 Module not found 的问题` | Bug Report | 加载 `reference/bug-report.md` → 输出复现步骤、环境、期望/实际对比。仓库有 Issue 模板时自动读取字段 |
+| `帮我写个 Bug Report，描述 Vite 构建时 Module not found 的问题` | Bug Report | 加载 `reference/bug-report.md` → 输出复现步骤、环境、期望/实际对比。只有用户要求按目标仓库提交或填写仓库模板时，才读取目标仓库模板字段 |
 | `review 这个 PR：https://github.com/owner/repo/pull/123` | Code Review | 加载 `reference/code-review.md` → 读 diff → 按文件/行号输出发现，标注 blocking/major/minor/nit |
 | `给这个项目写个 README` | README | 加载 `reference/readme.md` → 先问三个问题（交付方式、风格、补充内容）→ 按标准结构输出 |
 

@@ -88,7 +88,7 @@ https://img.shields.io/badge/build-passing-brightgreen
 https://img.shields.io/badge/Scenarios-18-6a0dad
 https://img.shields.io/badge/PRs-Welcome-brightgreen
 https://img.shields.io/badge/Agent-Claude%20Code-8A2BE2
-https://img.shields.io/badge/Format-Agent%20Skills-22AA66
+https://img.shields.io/badge/Format-SKILL.md-22AA66
 ```
 
 ### 详细 Badge 模式
