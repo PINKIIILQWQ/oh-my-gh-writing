@@ -34,7 +34,7 @@ Feature PR 只描述当前分支或 diff 已经实现的能力。没有实现证
 |------|----------|
 | GitHub PR template docs | https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/creating-a-pull-request-template-for-your-repository |
 | Kubernetes PR Template | https://github.com/kubernetes/kubernetes/blob/master/.github/PULL_REQUEST_TEMPLATE.md |
-| React PR Template | https://github.com/facebook/react/blob/main/.github/PULL_REQUEST_TEMPLATE.md |
+| React PR Template | https://github.com/react/react/blob/main/.github/PULL_REQUEST_TEMPLATE.md |
 | Moby PR Template | https://github.com/moby/moby/blob/master/.github/PULL_REQUEST_TEMPLATE.md |
 | ESLint PR Template | https://github.com/eslint/eslint/blob/main/.github/PULL_REQUEST_TEMPLATE.md |
 | Tailwind CSS PR Template | https://github.com/tailwindlabs/tailwindcss/blob/main/.github/PULL_REQUEST_TEMPLATE.md |

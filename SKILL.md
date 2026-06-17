@@ -10,9 +10,9 @@ Use this skill as a GitHub writing operating system for AI agents. Keep the runt
 ## Workflow
 
 1. Identify the scenario from the user's request.
-2. Estimate whether the artifact is short-form or long-form. If the expected artifact is likely to exceed about 120 lines, 4,000 Chinese characters, or 2,500 English words, ask a brief scope question first unless the user explicitly asks for a one-shot draft.
-3. If the task is to write or revise a README, confirm the delivery mode before drafting when it is not already explicit: local markdown draft, chat-only draft, or remote repository update after review. Do not perform a GitHub upload or push as the first pass.
-4. Even when source code is available, do not skip the confirmation step above for README work unless the user has already explicitly chosen the delivery mode.
+2. Estimate whether the artifact is short-form or long-form. If the expected artifact is likely to exceed about 120 lines, 4,000 Chinese characters, or 2,500 English words, ask a brief scope question first unless the user explicitly asks for a one-shot draft. For README tasks, use the three-question prompt in step 3 instead of asking an extra long-form question.
+3. If the task is to write or revise a README, ask the README three-question prompt in one message before drafting unless the user explicitly says to skip questions or draft immediately. Do not perform a GitHub upload or push as the first pass.
+4. Even when source code is available, do not skip the README questions unless the user has already explicitly chosen the delivery mode, style/visual direction, and required supplemental content.
 5. Read the matching `reference/*.md` file before writing the final output.
 6. Read [`reference/weapons.md`](./reference/weapons.md) only when badges, alerts, collapsible logs, Mermaid, tables, emoji, Star History, or other formatting tools are needed.
 7. Read [`INDEX.md`](./INDEX.md) only for full repository navigation or maintenance work.
@@ -98,7 +98,10 @@ When the scenario is README, follow `reference/readme.md` and apply these extra 
 
 - Treat the README as a public entry page, not a dump of every internal file.
 - Before producing or editing a README from source code, confirm whether the user wants a local markdown draft, a chat-only draft, or a remote repository update. Do not assume upload is authorized because source code is available.
-- For long README work, ask up to three option questions before drafting when choices are not obvious: delivery path, audience/tone, and optional visual elements such as badges, emoji, screenshots, or Star History.
+- For README work, ask exactly three concise questions in one message before drafting unless the user explicitly says to skip questions or draft immediately:
+  1. Delivery: local markdown file, chat-only draft, or remote repository update after review?
+  2. Style and visuals: documentation-first, community/product style, title/heading emoji, badges, screenshots, or Star History?
+  3. Required supplements: official website, docs/demo URL, reference projects or acknowledgements, file index, or any other must-include content?
 - For skill repositories, explain that the project is a portable writing skill, not a standalone app, README generator, or GitHub integration.
 - Keep runtime files focused: `SKILL.md` and `reference/` define behavior. Local research, examples, and validation outputs are not public runtime inputs unless the repository intentionally publishes them.
 - Use badges only when they answer a real reader question and link to evidence.

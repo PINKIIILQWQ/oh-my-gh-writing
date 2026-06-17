@@ -33,7 +33,7 @@ Refactor PR 必须保持外部行为不变。只在 diff、测试或用户输入
 | 来源 | 可借鉴点 |
 |------|----------|
 | GitHub PR template docs | https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/creating-a-pull-request-template-for-your-repository |
-| React PR Template | https://github.com/facebook/react/blob/main/.github/PULL_REQUEST_TEMPLATE.md |
+| React PR Template | https://github.com/react/react/blob/main/.github/PULL_REQUEST_TEMPLATE.md |
 | Moby PR Template | https://github.com/moby/moby/blob/master/.github/PULL_REQUEST_TEMPLATE.md |
 | Google Engineering Review Guide | https://google.github.io/eng-practices/review/ |
 | Kubernetes Review Ownership | https://github.com/kubernetes/community/blob/main/contributors/guide/owners.md |

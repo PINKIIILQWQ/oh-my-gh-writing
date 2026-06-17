@@ -143,6 +143,7 @@ Default behavior:
 | [`LICENSE`](./LICENSE) | MIT license |
 
 Final output hygiene and evidence checks live in [`reference/output-validation.md`](./reference/output-validation.md).
+Badges, emoji, Star History, and other GitHub Markdown components live in [`reference/weapons.md`](./reference/weapons.md), including a local common-emoji list and upstream full-list links.
 
 ## Acknowledgements
 

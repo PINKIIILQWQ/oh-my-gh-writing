@@ -38,10 +38,10 @@ Migration Guide 只写真实升级路径。环境变量、codemod、GA 日期、
 
 | 来源 | 可借鉴点 |
 |------|----------|
-| GitHub migrations docs | https://docs.github.com/en/migrations |
 | GitLab update docs | https://docs.gitlab.com/update/ |
 | pandas whatsnew / migration notes | https://pandas.pydata.org/docs/whatsnew/index.html |
 | React 19 Upgrade Guide | https://react.dev/blog/2024/04/25/react-19-upgrade-guide |
+| Vue 3 Migration Guide | https://v3-migration.vuejs.org/ |
 | Django upgrade guide | https://docs.djangoproject.com/en/stable/howto/upgrade-version/ |
 
 ## 必含元素 Checklist

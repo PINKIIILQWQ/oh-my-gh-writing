@@ -143,6 +143,7 @@ flowchart LR
 | [`LICENSE`](./LICENSE) | MIT license |
 
 最终输出前的清洁和事实边界检查见 [`reference/output-validation.md`](./reference/output-validation.md)。
+徽章、emoji、Star History 和其他 GitHub Markdown 组件见 [`reference/weapons.md`](./reference/weapons.md)，其中包含常用 emoji 本地清单和上游完整表链接。
 
 ## 致谢
 

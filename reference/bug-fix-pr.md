@@ -31,7 +31,7 @@ Bug Fix PR 只描述已经修复的缺陷。根因必须来自代码、日志、
 |------|----------|
 | GitHub PR template docs | https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/creating-a-pull-request-template-for-your-repository |
 | Kubernetes PR Template | https://github.com/kubernetes/kubernetes/blob/master/.github/PULL_REQUEST_TEMPLATE.md |
-| React PR Template | https://github.com/facebook/react/blob/main/.github/PULL_REQUEST_TEMPLATE.md |
+| React PR Template | https://github.com/react/react/blob/main/.github/PULL_REQUEST_TEMPLATE.md |
 | Node.js CONTRIBUTING | https://github.com/nodejs/node/blob/main/CONTRIBUTING.md |
 | Electron CONTRIBUTING | https://github.com/electron/electron/blob/main/CONTRIBUTING.md |
 | Helm CONTRIBUTING | https://github.com/helm/helm/blob/main/CONTRIBUTING.md |
