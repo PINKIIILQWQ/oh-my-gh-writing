@@ -15,7 +15,7 @@ GitHub writing skill for AI agents. Routes requests to the right scenario, loads
 4. Read [`reference/weapons.md`](./reference/weapons.md) when badges, alerts, Mermaid, collapsible blocks, emoji, or tables are needed
 5. Read [`reference/badge-catalog.md`](./reference/badge-catalog.md) only when the user asks for detailed badge design or exact shields.io URL patterns
 6. Read [`reference/emoji-guide.md`](./reference/emoji-guide.md) when emoji is requested or the repo already uses emoji
-7. Read [`reference/shared-principles.md`](./reference/shared-principles.md) for detailed output quality rules
+7. Read [`reference/shared-principles.md`](./reference/shared-principles.md) when the request is fact-heavy, high-risk, cross-scenario, or output quality rules need clarification
 8. Read [`reference/readme.md`](./reference/readme.md) when the scenario is README (badge rules, multi-language, acknowledgements, support table, table formatting, etc.)
 9. Before finalizing, apply [`reference/output-validation.md`](./reference/output-validation.md) mentally — remove wrapper text, stray fences, unsupported facts, and routing mistakes
 
@@ -79,7 +79,7 @@ If the user asks to turn a PR or postmortem into a future request, route by the 
 
 | File | When to load |
 |------|-------------|
-| [`reference/shared-principles.md`](./reference/shared-principles.md) | Any artifact — 19 output quality rules (usable first, evidence boundaries, formatting, drafting) |
+| [`reference/shared-principles.md`](./reference/shared-principles.md) | Fact-heavy, high-risk, cross-scenario, or quality-sensitive requests |
 | [`reference/readme.md`](./reference/readme.md) | README scenario — badge rules, multi-language, table formatting, section completeness, acknowledgements, contributing, form priority, support table, 3-question prompt |
 | [`reference/bug-report.md`](./reference/bug-report.md) | Bug Report scenario |
 | [`reference/feature-request.md`](./reference/feature-request.md) | Feature Request scenario |

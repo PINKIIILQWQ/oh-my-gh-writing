@@ -17,24 +17,24 @@
 
 ## 适用范围
 
-根据各平台对 skill、规则文件和自定义指令的支持程度，本仓库提供两类使用方式：
+根据各平台对 skill、规则文件和自定义指令的支持程度，本仓库可以有几种使用方式：
 
-**Direct（原生/近原生）**：工具可以加载包含 `SKILL.md` 的 skill 目录，并按需读取 `reference/`。这类方式最能保留场景路由和渐进加载能力。
+**作为 skill 使用**：工具可以加载包含 `SKILL.md` 的目录，并按需读取 `reference/`。这类方式最能保留场景路由和渐进加载能力。
 
-**Adapted（适配）**：工具不能直接消费本仓库格式，但可以把核心规则改写到自定义指令、规则文件、项目知识库或文档索引中。适配后仍可使用 18 个场景标准，但自动路由和按需加载能力取决于目标工具。
+**作为规则使用**：工具不能直接消费本仓库格式时，可以把 `SKILL.md` 的路由表和对应 `reference/*.md` 放进自定义指令、项目规则或知识库中。此时仍可复用 18 个场景标准，但触发和按需加载能力取决于目标工具。
 
-| Agent / Tool | 等级 | 推荐接入方式 | 官方文档 |
-|--------------|------|--------------|----------|
-| Codex | Direct | 克隆到 `$HOME/.agents/skills/oh-my-gh-writing`，或作为项目 skill 放到 `.agents/skills/oh-my-gh-writing` | [Codex Agent Skills](https://developers.openai.com/codex/skills) |
-| Claude Code | Direct | 克隆或软链接到 `~/.claude/skills/oh-my-gh-writing`，或项目内 `.claude/skills/oh-my-gh-writing` | [Claude Code Skills](https://code.claude.com/docs/en/skills) |
-| Gemini CLI / Antigravity CLI | Check current docs | Gemini CLI 文档列出 `~/.gemini/skills/`、`~/.agents/skills/` 和 `gemini skills install`；同时提示部分用户正在迁移到 Antigravity CLI，使用前按当前官方说明确认 | [Gemini CLI Agent Skills](https://geminicli.com/docs/cli/skills/) |
-| Hermes | Direct | 放入 `~/.hermes/skills/<category>/oh-my-gh-writing`；HTTP 单文件安装只适合 `SKILL.md`，本仓库建议保留 `reference/` 目录 | [Hermes Skills](https://hermes-agent.nousresearch.com/docs/guides/work-with-skills) |
-| Cursor | Adapted | 将路由摘要和需要的场景规则改写为 Cursor project rules；长 reference 可作为 Docs/知识库索引 | [Cursor Docs](https://cursor.com/docs) |
-| GitHub Copilot | Adapted | 改写为 `.github/copilot-instructions.md`、`.github/instructions/*.instructions.md` 或 Copilot agent skill 结构 | [Copilot Custom Instructions](https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-repository-instructions) |
-| Continue | Adapted | 改写为 `.continue/rules/*.md`；按场景拆规则比塞进单个文件更稳定 | [Continue Rules](https://docs.continue.dev/customize/rules) |
-| Windsurf | Adapted | 改写为 Windsurf rules / workspace instructions，并按场景保留短入口 | [Windsurf Docs](https://docs.windsurf.com) |
+| 图标 | Agent / Tool | 推荐接入方式 | 注意事项 / 文档 |
+|------|--------------|--------------|---------------|
+| <img src="https://openai.com/favicon.ico" width="14" height="14" alt="OpenAI"> | Codex | 克隆到 `$HOME/.agents/skills/oh-my-gh-writing`，或作为项目 skill 放到 `.agents/skills/oh-my-gh-writing` | [Codex Agent Skills](https://developers.openai.com/codex/skills) |
+| <img src="https://claude.ai/favicon.ico" width="14" height="14" alt="Claude"> | Claude Code | 克隆或软链接到 `~/.claude/skills/oh-my-gh-writing`，或项目内 `.claude/skills/oh-my-gh-writing` | [Claude Code Skills](https://code.claude.com/docs/en/skills) |
+| <img src="https://geminicli.com/favicon.ico" width="14" height="14" alt="Gemini CLI"> | Gemini CLI / Antigravity CLI | Gemini CLI 文档列出 `~/.gemini/skills/`、`~/.agents/skills/` 和 `gemini skills install` | 部分用户正在迁移到 Antigravity CLI，使用前按 [当前官方说明](https://geminicli.com/docs/cli/skills/) 确认 |
+| <img src="https://hermes-agent.nousresearch.com/favicon.ico" width="14" height="14" alt="Hermes"> | Hermes | 放入 `~/.hermes/skills/<category>/oh-my-gh-writing` | HTTP 单文件安装只适合 `SKILL.md`；本仓库建议保留 `reference/` 目录。见 [Hermes Skills](https://hermes-agent.nousresearch.com/docs/guides/work-with-skills) |
+| <img src="https://cursor.com/favicon.ico" width="14" height="14" alt="Cursor"> | Cursor | 将路由摘要和需要的场景规则改写为项目规则；长 reference 可作为知识库索引 | 具体规则格式按 [Cursor Docs](https://cursor.com/docs) 当前版本确认 |
+| <img src="https://github.com/favicon.ico" width="14" height="14" alt="GitHub"> | GitHub Copilot | 改写为 `.github/copilot-instructions.md`、`.github/instructions/*.instructions.md` 或 Copilot agent skill 结构 | [Copilot Custom Instructions](https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-repository-instructions) |
+| <img src="https://docs.continue.dev/favicon.ico" width="14" height="14" alt="Continue"> | Continue | 改写为 `.continue/rules/*.md`；按场景拆规则比塞进单个文件更稳定 | [Continue Rules](https://docs.continue.dev/customize/rules) |
+| <img src="https://docs.windsurf.com/favicon.ico" width="14" height="14" alt="Windsurf"> | Windsurf / Devin Desktop | 当前文档提到 memories and rules 可用于自定义行为 | 具体规则文件路径和接入方式需按 [Windsurf / Devin Docs](https://docs.windsurf.com) 当前版本确认 |
 
-表中未列出的工具只要支持读取 Markdown、自定义系统指令、项目规则或知识库，也可以用 Adapted 方式使用。最稳妥的适配方式是保留 `SKILL.md` 的路由表，再按任务只复制对应的 `reference/*.md`。
+表中未列出的工具只要支持读取 Markdown、自定义系统指令、项目规则或知识库，也可以使用本技能的规则。最稳妥的方式是保留 `SKILL.md` 的路由表，再按任务只复制对应的 `reference/*.md`。
 
 ## 快速开始
 
@@ -126,6 +126,9 @@ oh-my-gh-writing/
 - [Keep a Changelog](https://keepachangelog.com/) — CHANGELOG 格式标准
 - [shields.io](https://shields.io) — Badge 生成服务
 - [Google Engineering Practices](https://google.github.io/eng-practices/review/) — Code Review 实践指南
+- [Commitizen](https://github.com/commitizen/cz-cli) — 交互式 commit message 字段提示参考
+- [Best-README-Template](https://github.com/othneildrew/Best-README-Template) — README 基础章节和项目首页骨架参考
+- [Conventional Changelog](https://github.com/conventional-changelog/conventional-changelog) — 从 commit metadata 生成 CHANGELOG / Release Notes 的工具链参考
 - Angular、Kubernetes、React、TypeScript、VS Code、Node.js、Tailwind CSS 等开源项目的 Issue/PR 模板和贡献指南 — 场景结构参考
 - [ikatyang/emoji-cheat-sheet](https://github.com/ikatyang/emoji-cheat-sheet) 和 [carloscuesta/gitmoji](https://github.com/carloscuesta/gitmoji) — Emoji 与 commit intent 参考
 

@@ -26,6 +26,10 @@ Badge 写法遵循 [`weapons.md`](./weapons.md)。如果用户要求精细 badge
 
 表格前后必须有空行；用 `| --- | --- |` 对齐线；每行保持独立，不要把多行内容塞入一个单元格。超过 5 列或单元格内容超 30 字时，拆分为多个子表或用列表代替。不得出现文字堆积粘连。
 
+## Brand / Tool Icons
+
+当 README 表格或列表中出现品牌、工具、框架、平台或项目名称时，默认使用对应官方图标或稳定 favicon。优先级：官方站点 favicon / 官方 logo asset → simple-icons / skillicons / devicon → 省略图标。找不到稳定来源时不要自造图标。图标必须有 `alt`，尺寸保持 14-18px，表格列名可用 `Icon` / `图标`。
+
 ## Section Completeness
 
 Overview、Quick Start、Usage、Configuration、Architecture 等核心解释区应有实质内容，不能只有一句空泛口号。License、Contributing、Links、Acknowledgements 等入口型小节可以很短；如果某节没有真实信息，合并或省略。
@@ -70,13 +74,10 @@ If scenarios < 20, list all rows in a complete table. If ≥20 scenarios, replac
 
 - 对于此项目，支持表的覆盖类型不一定是 Agent，取决于实际需求确认。选择最合适的纵列（框架、平台、技术栈、工具）。本 skill 以 Agent 为例
 - 查阅最新官方文档后写支持声明，链接每个条目的官方文档
-- 表必须包含：icon、名称、支持等级、具体方法、官方文档链接
-- 主流条目尽可能多写，不超过 20 个。分三类：
-  1. **Direct** — 原生支持（直接加载格式）
-  2. **Adapted** — 需要适配导入自有规则体系
-  3. **Not supported** — 主流但不支持规则定制，标注"暂不支持"
-- 每个条目写明适配范围：本 skill 覆盖什么、有什么限制
-- 至少包含一个 direct 示例和一个 adapted 示例
+- 表必须包含：图标、名称、推荐接入方式、注意事项或官方文档链接
+- 不要硬分平台等级。直接说明是作为 skill 目录使用、作为项目规则使用、作为自定义指令使用，还是需要按当前文档确认
+- 每个条目写明使用范围：本规则覆盖什么、有什么限制
+- 对品牌/工具默认使用图标；没有稳定图标来源时省略，不要编造
 - 所有支持声明基于当前官方文档，不推断
 
 ## README Three-Question Prompt

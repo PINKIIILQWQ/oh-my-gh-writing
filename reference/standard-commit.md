@@ -38,6 +38,12 @@ Commit message 描述一个实际提交。不要编造 PR/Issue 编号、breakin
 - 不知道 Issue 编号时不写 footer。
 - breaking change 不确定时不要写 `!` 或 `BREAKING CHANGE`。
 
+## 结构化提示
+
+Commitizen 的价值在于把 commit message 拆成可回答字段。为用户起草 commit 时，也按字段判断：`type`、可选 `scope`、短描述、必要时的 body、breaking change、关联 issue。只询问会改变提交语义的缺失字段；普通单一变更可直接生成一行 commit。
+
+如果目标仓库存在 `.czrc`、`config.commitizen`、`commitlint`、`cz-conventional-changelog` 或自定义 adapter，优先遵循仓库配置。不要把 Commitizen badge、脚本或 adapter 配置写入目标仓库，除非用户明确要求配置提交工具。
+
 ## 禁止编造项
 
 - 不编造 issue/PR 编号、reviewer、co-author、DCO、breaking change 或测试状态。
@@ -48,6 +54,7 @@ Commit message 描述一个实际提交。不要编造 PR/Issue 编号、breakin
 | 来源 | 可借鉴点 |
 |------|----------|
 | Conventional Commits | https://www.conventionalcommits.org/en/v1.0.0/ |
+| Commitizen / cz-cli | https://github.com/commitizen/cz-cli |
 | Angular commit rules | https://github.com/angular/angular/blob/main/CONTRIBUTING.md#commit |
 | Linux submitting patches | https://www.kernel.org/doc/html/v4.10/process/submitting-patches.html |
 | Node.js commit guide | https://github.com/nodejs/node/blob/main/CONTRIBUTING.md#step-3-commit |
