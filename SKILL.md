@@ -122,7 +122,13 @@ When the scenario is README, follow `reference/readme.md` and apply these extra 
   - 每个语言版本的文件顶部（标题 logo 区之后）必须包含指向所有其他语言版本的链接，确保读者能从任一版本跳到任一其他版本。不得只在中文版放链接，其它版不放
   - If the user asks for multilingual output without specifying which languages, ask which languages to include as part of the README three-question prompt. Do not default to a large set.
 - For skill repositories, explain that the project is a portable writing skill, not a standalone app, README generator, or GitHub integration.
-- **表单 / Issue / PR 模板优先复用目标仓库自有格式：** 如果目标仓库已有 `.github/` 目录下的 ISSUE_TEMPLATE、PULL_REQUEST_TEMPLATE、bug_report.yml、feature_request.yml 等表单文件，直接使用该仓库自带的模板，不需要自行生成。如果仓库有 `.github/ISSUE_TEMPLATE/` 且有多个 yml 文件，和用户确认要写哪个场景。如果用户要求写标准模板但仓库没有现成的，再使用本 skill 的 `reference/issue-form-yaml.md` 或 `reference/pr-template.md`
+- **表单 / Issue / PR 模板优先复用目标仓库自有格式：** 如果目标仓库已有 `.github/` 目录下的 ISSUE_TEMPLATE、PULL_REQUEST_TEMPLATE、bug_report.yml、feature_request.yml 等表单文件，直接使用该仓库自带的模板，不需要自行生成。具体流程：
+  1. 搜索目标仓库的 `.github/` 目录，获取模板文件
+  2. 读取模板内容，解析所有字段和其 `validations.required` 状态
+  3. **必填项（required: true）** 如果用户描述中已覆盖，直接填入；如果未覆盖，**询问用户**，不猜测
+  4. **可选项（无 required 或 required: false）** 跳过，不填、不问、不留 TODO。用户没提就当不需要
+  5. 按模板结构输出完整的 artifact，去掉对话性包装
+  6. 如果仓库没有模板，再使用本 skill 的 `reference/bug-report.md` 等标准
 - Keep runtime files focused: `SKILL.md` and `reference/` define behavior. Local research, examples, and validation outputs are not public runtime inputs unless the repository intentionally publishes them.
 - Keep install commands copyable. If a repository owner or URL is unknown, label the placeholder clearly instead of presenting it as a ready-to-run command.
 - **Acknowledgements（感谢 / 参考项目）：** 默认在 README 底部包含 "Acknowledgements" 或 "Thanks" 小节，列出本项目使用或参考的关键项目、工具、资源。每个被参考的项目必须明确标注来源（"部分设计参考自 X"、"基于 Y 的开发模式"、"图标来自 Z"），不得笼统写 "Thanks to all open source projects"。如果用户明确说不想要，再跳过。不声明不存在的从属或背书关系
