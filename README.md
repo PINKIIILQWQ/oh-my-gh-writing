@@ -15,6 +15,17 @@
 
 它不是 README 生成器，也不是 GitHub 集成服务。它是一组可移植的 Markdown 写作规则：原生支持 Agent Skills 的工具可以直接加载；不支持 skill 格式的工具也可以把 `SKILL.md` 和对应 `reference/*.md` 改写为自己的规则、指令或知识库。
 
+## 为什么用 oh-my-gh-writing？
+
+GitHub 写作最难的不是把 Markdown 写满，而是判断当前场景该写什么、哪些事实必须核验、哪些内容不能编造，以及最终产物能否直接贴进 Issue、PR、Review 或 README。oh-my-gh-writing 把这些判断整理成一套可被 agent 按需读取的 GitHub 写作规则系统，让输出更接近真实开源项目的协作标准。
+
+- **覆盖 18 个 GitHub 写作场景**：Issue、PR、Code Review、Commit、README、CHANGELOG、Release Notes、Migration Guide、RFC、Issue Form、PR Template 等。
+- **先路由，再写作**：区分 Feature Request、Enhancement、Discussion、Feature PR、Bug Fix PR、Refactor PR，减少“把 issue 写成 PR”的常见错误。
+- **按需读取 reference**：`SKILL.md` 只做轻量入口，具体规则按场景加载，避免把所有模板一次性塞进上下文。
+- **内置事实边界**：版本号、命令、CI、兼容性、release 信息、issue/PR 编号等不能确认时不编造，改用 TODO / TBD / 待确认。
+- **输出可直接提交**：强调去掉对话前言、外层代码块、测试标题、复制残留和无关内容，让结果更像真实 GitHub artifact。
+- **参考真实开源项目**：规则吸收了 GitHub Docs、Conventional Commits、Keep a Changelog，以及 React、Kubernetes、TypeScript、Node.js、Tailwind CSS 等成熟项目的写作习惯。
+
 ## 适用范围
 
 根据各平台对 skill、规则文件和自定义指令的支持程度，本仓库可以有几种使用方式：
