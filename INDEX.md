@@ -8,7 +8,7 @@ Agent 执行写作任务时优先读取 [`SKILL.md`](./SKILL.md) 和对应 `refe
 
 | 层级 | 入口 | 适合谁 | 内容粒度 |
 |------|------|--------|----------|
-| 0 | [`README.md`](./README.md) / [`README.en.md`](./README.en.md) | 第一次打开仓库的人 | 项目定位、安装、最短路径 |
+| 0 | [`README.md`](./README.md) (中文) · [`README.en.md`](./README.en.md) · [`README.ja.md`](./README.ja.md) · [`README.ko.md`](./README.ko.md) · [`README.es.md`](./README.es.md) · [`README.fr.md`](./README.fr.md) · [`README.de.md`](./README.de.md) · [`README.pt.md`](./README.pt.md) | 第一次打开仓库的人 | 项目定位、安装、最短路径 |
 | 1 | [`INDEX.md`](./INDEX.md) | 想找某个场景或文档的人 | 全量索引和目录 |
 | 2 | [`SKILL.md`](./SKILL.md) | Agent / skill 使用者 | 入口规则、场景识别、摘要标准 |
 | 3 | [`reference/`](./reference) | 要改写法标准的人 | 每场景标准写法/checklist/输出验收 |
