@@ -9,12 +9,19 @@ Migration Guide 只写真实升级路径。环境变量、codemod、GA 日期、
 
 ## 标准结构
 
-1. **概览**：迁移范围 + 目标版本
-2. **迁移步骤**（分步操作，每步含旧代码→新代码 diff）
-3. **API 变更表**（旧 API → 新 API 映射）
-4. **自动迁移工具**（codemod 脚本等，已存在时）
-5. **回滚方案**（如何恢复；未知时写待确认）
-6. **废弃时间线**（各版本支持周期；只在已知时写）
+必需：
+
+1. **Who needs this**：谁需要迁移，哪些用户不受影响。
+2. **Before / After**：旧用法和新用法；可用代码、配置、命令或行为描述。
+3. **Step-by-step migration**：按可执行顺序写迁移步骤。
+4. **Known breaking changes**：只列已知不兼容点。
+
+条件项：
+
+5. **Codemod / automation**：仅当已有工具或命令时写。
+6. **Rollback**：仅当仓库或用户提供回滚方式时写；否则 `Rollback: To confirm`。
+7. **Deprecation timeline**：仅当版本计划、日期或支持周期有证据时写。
+8. **Compatibility matrix**：仅当平台、版本或依赖范围有证据时写。
 
 ## 信息不足时
 
@@ -39,6 +46,6 @@ Migration Guide 只写真实升级路径。环境变量、codemod、GA 日期、
 
 ## 必含元素 Checklist
 - [ ] 迁移步骤（旧→新）
-- [ ] API/配置变更表
-- [ ] 回滚方案或待确认项
+- [ ] API/配置/行为变化说明
+- [ ] 回滚、codemod、废弃时间线和兼容矩阵只在有证据时出现
 - [ ] 不虚构环境变量、自动迁移命令、GA 日期、下线日期或兼容周期

@@ -12,6 +12,7 @@ Agent 执行写作任务时优先读取 [`SKILL.md`](./SKILL.md) 和对应 `refe
 | 1 | [`INDEX.md`](./INDEX.md) | 想找某个场景或文档的人 | 全量索引和目录 |
 | 2 | [`SKILL.md`](./SKILL.md) | Agent / skill 使用者 | 入口规则、场景识别、摘要标准 |
 | 3 | [`reference/`](./reference) | 要改写法标准的人 | 每场景标准写法/checklist/输出验收 |
+| 4 | [`reference/source-catalog.md`](./reference/source-catalog.md) | 维护者和审查者 | 公开参考来源、选源规则和审查记录 |
 
 ## 18 场景索引
 
@@ -40,7 +41,7 @@ Agent 执行写作任务时优先读取 [`SKILL.md`](./SKILL.md) 和对应 `refe
 
 | 目录 | 作用 | 入口 |
 |------|------|------|
-| [`reference/`](./reference) | 场景标准、工具分析、格式武器库 | [`reference/readme.md`](./reference/readme.md) |
+| [`reference/`](./reference) | 场景标准、输出验收、格式工具和来源目录 | [`reference/readme.md`](./reference/readme.md) |
 | [`assets/`](./assets) | README 和项目展示素材 | [`assets/oh-my-gh-writing-logo.png`](./assets/oh-my-gh-writing-logo.png) |
 
 ## Reference 文件索引
@@ -53,7 +54,7 @@ Agent 执行写作任务时优先读取 [`SKILL.md`](./SKILL.md) 和对应 `refe
 | Docs | [`readme.md`](./reference/readme.md), [`contributing.md`](./reference/contributing.md), [`changelog.md`](./reference/changelog.md) |
 | Release / Design | [`release-notes.md`](./reference/release-notes.md), [`migration-guide.md`](./reference/migration-guide.md), [`rfc.md`](./reference/rfc.md) |
 | Templates | [`issue-form-yaml.md`](./reference/issue-form-yaml.md), [`pr-template.md`](./reference/pr-template.md) |
-| Appendix | [`weapons.md`](./reference/weapons.md), [`output-validation.md`](./reference/output-validation.md) |
+| Appendix | [`weapons.md`](./reference/weapons.md), [`output-validation.md`](./reference/output-validation.md), [`source-catalog.md`](./reference/source-catalog.md) |
 
 ## 维护规则
 
@@ -63,3 +64,4 @@ Agent 执行写作任务时优先读取 [`SKILL.md`](./SKILL.md) 和对应 `refe
 - 深层细节必须有上层入口可达，不能只散落在目录里
 - 本地研究、案例采集和验证输出默认不纳入公开索引
 - 输出验收规则放在 `reference/output-validation.md`；不要把测试标题、raw 来源和 verdict 元数据混进可提交 artifact
+- 参考来源集中记录在 `reference/source-catalog.md`；普通写作请求不需要读取完整来源目录

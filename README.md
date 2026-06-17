@@ -138,6 +138,7 @@ flowchart LR
 | [`SKILL.md`](./SKILL.md) | skill 入口：识别场景、说明通用原则 |
 | [`INDEX.md`](./INDEX.md) | 全量索引：18 个场景和对应标准文件 |
 | [`reference/`](./reference) | 每个场景的标准化写法、字段顺序、checklist 和输出验收 |
+| [`reference/source-catalog.md`](./reference/source-catalog.md) | 公开参考来源目录，用于审查规则依据；普通使用时不需要读取 |
 | [`assets/`](./assets) | README logo 和项目展示素材 |
 | [`LICENSE`](./LICENSE) | MIT license |
 
@@ -145,7 +146,7 @@ flowchart LR
 
 ## 致谢
 
-README 徽章和 GitHub 视觉入口规则参考了 [pudding0503/github-badge-collection](https://github.com/pudding0503/github-badge-collection)。本仓库只吸收结构原则和链接出处，不复制其徽章合集或素材文件。
+README 徽章和 GitHub 视觉入口规则参考了 [pudding0503/github-badge-collection](https://github.com/pudding0503/github-badge-collection)。更完整的公开来源见 [`reference/source-catalog.md`](./reference/source-catalog.md)。本仓库只吸收结构原则和链接出处，不复制其徽章合集或素材文件。
 
 ## License
 

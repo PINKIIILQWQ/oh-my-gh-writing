@@ -138,6 +138,7 @@ Default behavior:
 | [`SKILL.md`](./SKILL.md) | Skill entry: scenario routing and shared principles |
 | [`INDEX.md`](./INDEX.md) | Full index for all 18 scenarios and their standards |
 | [`reference/`](./reference) | Standardized writing rules, field order, checklists, and output validation |
+| [`reference/source-catalog.md`](./reference/source-catalog.md) | Public source catalog for auditing rule provenance; not required for normal use |
 | [`assets/`](./assets) | README logo and project presentation assets |
 | [`LICENSE`](./LICENSE) | MIT license |
 
@@ -145,7 +146,7 @@ Final output hygiene and evidence checks live in [`reference/output-validation.m
 
 ## Acknowledgements
 
-README badge and GitHub visual-entry rules were informed by [pudding0503/github-badge-collection](https://github.com/pudding0503/github-badge-collection). This repository uses it as a structural reference and source link, without copying its badge catalog or asset files.
+README badge and GitHub visual-entry rules were informed by [pudding0503/github-badge-collection](https://github.com/pudding0503/github-badge-collection). See the fuller public provenance list in [`reference/source-catalog.md`](./reference/source-catalog.md). This repository uses it as a structural reference and source link, without copying its badge catalog or asset files.
 
 ## License
 

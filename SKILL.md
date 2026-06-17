@@ -18,7 +18,7 @@ Use this skill as a GitHub writing operating system for AI agents. Keep the runt
 7. Read [`INDEX.md`](./INDEX.md) only for full repository navigation or maintenance work.
 8. Before finalizing, apply [`reference/output-validation.md`](./reference/output-validation.md) mentally to remove wrapper text, test metadata, stray fences, unsupported facts, and scenario-routing mistakes.
 
-Do not load every reference file for a normal writing request. Do not expose reference-project analysis in user-facing output unless the user explicitly asks for rationale or sources. Do not add test-gallery metadata such as `scenario`, `case-sources`, or `input-prompt` unless the task explicitly asks for a test output gallery.
+Do not load every reference file for a normal writing request. Do not expose reference-project analysis in user-facing output unless the user explicitly asks for rationale or sources. Do not add internal validation metadata such as scenario id, source notes, input prompt, raw output markers, or verdict unless the user explicitly asks for a validation report.
 
 ## Scenario Routing
 
@@ -83,7 +83,7 @@ If the user asks to turn a PR, implementation, or postmortem into a future reque
 
 ## Reference Source Policy
 
-Reference links in `reference/*.md` are evidence for structure and field design, not facts to copy into the user's artifact.
+Reference links in `reference/*.md` are evidence for structure and field design, not facts to copy into the user's artifact. For normal writing tasks, read the selected scenario rules and treat the links as maintenance context, not runtime material to quote or summarize. The fuller source inventory lives in [`reference/source-catalog.md`](./reference/source-catalog.md) and is for audits, maintenance, and release credibility checks.
 
 - Keep each scenario to about 5-6 high-quality references.
 - Prefer official specifications, official platform docs, current template files, contribution guides, single high-quality release pages, RFC templates, or migration guides.

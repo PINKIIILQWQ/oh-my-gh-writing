@@ -11,9 +11,7 @@
 - [Agent 支持矩阵](#agent-支持矩阵)
 - [中英双语](#中英双语)
 - [双语文件策略](#双语文件策略)
-- [徽章规则](#徽章规则)
-- [Emoji 和视觉组件](#emoji-和视觉组件)
-- [Star History](#star-history)
+- [视觉组件](#视觉组件)
 - [安装和快速开始](#安装和快速开始)
 - [不应出现在公开 README](#不应出现在公开-readme)
 - [Checklist](#checklist)
@@ -162,79 +160,15 @@ README 有些选择会显著改变最终效果，不能全靠 agent 猜。触发
 - 两个文件保持相同章节顺序、安装命令、场景表和许可证链接。
 - 只有极短 README 或一次性说明页，才允许用单文件锚点双语。
 
-## 徽章规则
+## 视觉组件
 
-徽章必须回答真实问题，并链接到证据页。先选择徽章意图，再生成 URL；不要看到可用徽章就堆到首屏。
+README 默认保持克制。徽章、emoji、截图、动图、Star History、贡献图和统计卡片都必须有明确用途，并且有真实来源或用户授权。
 
-| 类别 | 示例 | 证据页 |
-|------|------|--------|
-| 格式/载体 | `format-SKILL.md`、`template`、`CLI` | 核心入口文件或文档 |
-| 覆盖范围 | `18 scenarios`、`docs` | 索引或场景列表 |
-| 质量状态 | CI、coverage、checks | GitHub Actions 或覆盖率页面 |
-| 版本/发布 | release、npm、Docker tag | Releases 或包管理页 |
-| 许可 | MIT、Apache-2.0 | LICENSE |
-| 社区入口 | discussions、issues、docs | Discussions、Issues、文档站 |
-
-默认 3 到 6 个徽章；首屏最多保留读者决策需要的入口。徽章很多时，按状态、发布、文档、社区分组放到后文，不要把 README 顶部变成贴纸墙。
-
-动态徽章只在数据源真实存在时使用，例如 release、包版本、workflow、coverage、downloads。静态徽章适合表达项目载体、场景数、文档入口或 license，但也必须链接到对应文件或页面。
-
-视觉规则：
-
-- 同一个 README 内保持一致的 badge 样式、label 大小写和颜色强度。
-- 每个 badge 都写 `alt`，可点击时链接到证据页，而不是只展示图片。
-- 不默认添加访问量、Star History、GitHub stats、贡献图、profile 卡片或动图素材；这些更适合个人主页或营销型 README，只有项目读者真的需要时才使用。
-- Logo 或主图标需要兼容浅色/深色 GitHub 主题时，可使用 `#gh-light-mode-only` 和 `#gh-dark-mode-only` 分别提供图片。
-
-`pudding0503/github-badge-collection` 可作为徽章、卡片和 GitHub Markdown 视觉素材的发现入口；使用其中任何具体素材、图片或大段示例时，应保留来源链接，并重新核验服务是否仍可用。
-
-## Emoji 和视觉组件
-
-README 默认不加 emoji。只有在项目风格、用户要求或现有 README 已经使用 emoji 时才加入，并保持少量、稳定、语义明确。
-
-推荐规则：
-
-- 文档型、库、基础设施、企业工具：默认不用 emoji，或只在小节标题中极少量使用。
-- 社区项目、个人工具、学习型项目、产品型首页：可询问是否使用少量 emoji 增强导航。
-- 不在每个标题前机械加 emoji；不要用 emoji 替代准确标题。
-- 不使用动图、贡献图、统计卡片、profile 卡片来填充首屏。
+- 徽章默认 3 到 6 个，只回答读者决策问题，例如格式、版本、CI、文档、license 或社区入口。动态徽章必须有真实数据源，静态徽章也要链接到证据页。
+- Emoji 默认不加。只有用户要求、仓库已有风格如此，或项目明显偏社区/产品/教学型时才少量使用。
 - 截图、logo、架构图必须来自仓库、用户提供素材或明确授权的外部来源；没有素材时写 `TODO: add screenshot`，不要编造图片链接。
-
-如果用户要求可选方案，可以给两个 README 风格方向：
-
-| 方向 | 适用 |
-|------|------|
-| 文档型 | 克制标题、少徽章、无 emoji、强调安装和 API |
-| 社区型 | 少量 emoji、徽章分组、截图或 Star History 作为辅助 |
-
-## Star History
-
-Star History 默认不加入 README。它适合展示成熟开源项目的长期采用趋势，不适合新项目、私有测试仓库、低 star 仓库、内部工具或严肃的 API 文档首屏。
-
-使用前先确认：
-
-- 仓库是公开 GitHub 仓库。
-- 用户确实想展示增长趋势，而不是只需要当前 star 数。
-- 图表不会挤占 Quick Start、安装方式和核心说明。
-- 目标 README 已经有 Star History 时，优先更新现有图表，不新增重复区块。
-
-更新方式：
-
-1. 读取现有 README，搜索 `star-history.com`、`api.star-history.com` 或 `Star History`。
-2. 如果只是仓库迁移或 owner/repo 变化，替换 URL 中的 `owner/repo`，并保留原有位置和标题风格。
-3. 如果原 README 没有 Star History，先询问用户是否添加；默认不添加。
-4. 生成图表时优先使用 Star History 官方导出的 README 片段；不要手写未经验证的复杂 `<picture>`。
-5. 不需要用户手动打开网页才能更新已有链接；只有当需要官方导出深浅色 `<picture>`、多仓库比较、log scale、timeline mode 或访问 token 绕过速率限制时，才让用户在浏览器里导出片段或提供设置。
-
-常见占位写法：
-
-```markdown
-## Star History
-
-[![Star History Chart](https://api.star-history.com/svg?repos=owner/repo&type=Date)](https://star-history.com/#owner/repo&Date)
-```
-
-如果使用 Star History，应链接到 Star History 页面，而不是只嵌图片。
+- Star History 默认不加。已有 Star History 时可以更新 `owner/repo` 并保留原位置；新增 Star History 前先问用户。
+- 视觉组件的具体写法、badge 规则、Star History 示例和 GitHub Markdown 工具见 [`reference/weapons.md`](./weapons.md)。
 
 ## 安装和快速开始
 

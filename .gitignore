@@ -67,5 +67,6 @@ venv/
 # Local research and validation material kept out of the public release
 /DOCS/
 /test/
+/.local-validation/
 /案例/
 /效果测试/

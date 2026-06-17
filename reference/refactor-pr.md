@@ -9,10 +9,13 @@ Refactor PR 必须保持外部行为不变。只在 diff、测试或用户输入
 
 ## 标准结构
 
-1. **重构目标**：为什么要重构（可维护性/性能/安全性）
-2. **不变量说明**：重构后行为不变的部分
-3. **before-after 对比**：重构前后代码对比
-4. **测试覆盖**：保证行为不变的测试（回归保护）；未知时列出待运行验证
+普通重构 PR 保持轻量；复杂重构才展开设计背景。
+
+1. **Summary**：一句话说明整理了什么。
+2. **What changed**：列出文件移动、命名、模块拆分、抽取函数等可从 diff 证明的变化。
+3. **Behavior impact**：`No intended behavior change`、`To confirm`，或说明已知外部影响。
+4. **Verification / Verification to run**：只写真实运行过的测试；未知时列待运行项。
+5. **Reviewer notes**：仅复杂重构时补充 before/after 对比、迁移注意点或重点审查路径。
 
 ## 信息不足时
 
@@ -37,8 +40,7 @@ Refactor PR 必须保持外部行为不变。只在 diff、测试或用户输入
 | Rust CONTRIBUTING | https://github.com/rust-lang/rust/blob/main/CONTRIBUTING.md |
 
 ## 必含元素 Checklist
-- [ ] 重构动机
-- [ ] before-after 对比
+- [ ] 重构摘要和实际变化
+- [ ] 行为影响说明
 - [ ] 测试覆盖或待运行验证项
-- [ ] 行为不变声明
-- [ ] 不虚构文件数量、测试数量、测试通过状态或导入路径
+- [ ] 不虚构文件数量、测试数量、测试通过状态、性能收益、安全收益或导入路径

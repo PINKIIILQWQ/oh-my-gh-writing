@@ -14,7 +14,7 @@
 ```yaml
 name: Bug Report
 description: 提交 Bug 报告
-labels: [bug]
+# labels: [bug] # only if the repository already uses this label
 body:
   - type: markdown
     attributes:
@@ -61,6 +61,6 @@ body:
 ## 必含元素 Checklist
 - [ ] name + description
 - [ ] 必填字段验证
-- [ ] labels 自动打
+- [ ] labels 仅在用户要求或仓库已有 label 约定时添加
 - [ ] 请求的每一种表单类型都有对应 YAML
 - [ ] 不包含未验证的外链或 Markdown 包装（当输出目标是实际 YAML 文件时）

@@ -87,7 +87,7 @@
 维护者做本地回归时，建议使用三层文件：
 
 ```text
-local-validation/<编号>-<scenario>/
+.local-validation/<编号>-<scenario>/
   input.md
   output.raw.md
   output.clean.md
