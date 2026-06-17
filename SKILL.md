@@ -105,9 +105,12 @@ When the scenario is README, follow `reference/readme.md` and apply these extra 
 - **Title & logo default to centered.** Use `<p align="center">` for the logo image and `<h1 align="center">` for the title. Do not ask — center by default.
 - **Badge rules:**
   - Badge 写法遵循 [`reference/weapons.md`](./reference/weapons.md)，包含完整的摆放惯例、优先级顺序和 200+ URL 模式。
-  - 如果 shields.io 动态 badge 因数据源不存在返回 error/unknown，跳过该 badge 并告知用户。不重复 badge，同一意图只用一个。
-  - 默认 3–6 个，按优先级：CI → Version → License → Downloads → Security/Social。
+  - **Badge 项目适配检查：** 写 badge 前先判断项目类型（库/CLI 工具/应用/插件/文档等），只写该项目确实有的东西。有 CI 配置文件才写 CI badge；有发到包注册表（npm/PyPI/crates.io）才写 version badge；有下载量数据才写 downloads badge。没有的东西不写虚拟 badge。不确定时问用户，不猜测
+  - 如果 shields.io 动态 badge 因数据源不存在返回 error/unknown，跳过该 badge 并告知用户。不重复 badge，同一意图只用一个
+  - 默认 3–6 个，推荐顺序：CI → Version → License → Downloads → Security/Social
 - **Scenario index in README:** If scenarios < 20, list all rows in a complete table. If ≥20 scenarios, replace with a link: "See all scenarios in [INDEX.md](INDEX.md)". Do not enumerate 20+ items inline.
+- **Table formatting（可读性强制规则）：** 表格前后必须有空行；用 `| --- | --- |` 对齐线；每行保持独立，不要把多行内容塞入一个单元格。超过 5 列或单元格内容超过 30 字时，考虑拆分为多个子表或用列表代替。不要出现表格文字堆积粘连的情况
+- **Section content completeness：** README 每一节至少要有 2–3 句实质内容。不得以单句或孤立的列表结束一节。如果某节太薄，合并到相邻节或补充上下文。Overview 不能只有一句话，Quick Start 不能只有一条命令
 - For README work, ask exactly three concise questions in one message before drafting unless the user explicitly says to skip questions or draft immediately:
   1. Delivery: local markdown file, chat-only draft, or remote repository update after review?
   2. Style and visuals: documentation-first, community/product style, title/heading emoji, badges, screenshots, or Star History?
@@ -119,6 +122,8 @@ When the scenario is README, follow `reference/readme.md` and apply these extra 
 - For skill repositories, explain that the project is a portable writing skill, not a standalone app, README generator, or GitHub integration.
 - Keep runtime files focused: `SKILL.md` and `reference/` define behavior. Local research, examples, and validation outputs are not public runtime inputs unless the repository intentionally publishes them.
 - Keep install commands copyable. If a repository owner or URL is unknown, label the placeholder clearly instead of presenting it as a ready-to-run command.
+- **Acknowledgements（感谢 / 参考项目）：** 默认在 README 底部包含 "Acknowledgements" 或 "Thanks" 小节，列出本项目使用或参考的关键项目、工具、资源。每个被参考的项目必须明确标注来源（"部分设计参考自 X"、"基于 Y 的开发模式"、"图标来自 Z"），不得笼统写 "Thanks to all open source projects"。如果用户明确说不想要，再跳过。不声明不存在的从属或背书关系
+- **Contributing 精简版写入 README：** README 中必须包含一个 "Contributing" 节，写入精简版的贡献规则（怎么提 issue、PR 流程、代码风格要求），不能只放一个链接到 CONTRIBUTING.md。该节需要自包含、可直接阅读，同时在末尾加上"详细规则见 [CONTRIBUTING.md](CONTRIBUTING.md)"
 - **Agent & platform support table:**
   - 对于此项目，支持表横跨的通用的不一定是 Agent（可能取决于实际需求确认），覆盖的类型选择最合适的纵列（如框架、平台、技术栈、工具），本 skill 以 Agent 为例。
   - Research the latest official docs before writing support claims. Link each agent's docs.
