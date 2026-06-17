@@ -10,9 +10,10 @@ Agent 执行写作任务时优先读取 [`SKILL.md`](./SKILL.md) 和对应 `refe
 |------|------|--------|----------|
 | 0 | [`README.md`](./README.md) (中文) · [`README.en.md`](./README.en.md) · [`README.ja.md`](./README.ja.md) · [`README.ko.md`](./README.ko.md) · [`README.es.md`](./README.es.md) · [`README.fr.md`](./README.fr.md) · [`README.de.md`](./README.de.md) · [`README.pt.md`](./README.pt.md) | 第一次打开仓库的人 | 项目定位、安装、最短路径 |
 | 1 | [`INDEX.md`](./INDEX.md) | 想找某个场景或文档的人 | 全量索引和目录 |
-| 2 | [`SKILL.md`](./SKILL.md) | Agent / skill 使用者 | 入口规则、场景识别、摘要标准 |
-| 3 | [`reference/`](./reference) | 要改写法标准的人 | 每场景标准写法/checklist/输出验收 |
-| 4 | [`reference/source-catalog.md`](./reference/source-catalog.md) / [`CONTRIBUTING.md`](./CONTRIBUTING.md) | 维护者和贡献者 | 公开参考来源、选源规则、贡献和案例反馈流程 |
+| 2 | [`SKILL.md`](./SKILL.md) | Agent / skill 使用者 | 入口规则、场景识别、参考索引、摘要标准 |
+| 3 | [`reference/shared-principles.md`](./reference/shared-principles.md) | 所有场景 | 19 条输出质量通用规则 |
+| 4 | [`reference/`](./reference) | 要改写法标准的人 | 每场景标准/checklist/输出验收 |
+| 5 | [`reference/source-catalog.md`](./reference/source-catalog.md) / [`CONTRIBUTING.md`](./CONTRIBUTING.md) | 维护者和贡献者 | 公开参考来源、选源规则、贡献和案例反馈流程 |
 
 ## 18 场景索引
 
@@ -52,10 +53,10 @@ Agent 执行写作任务时优先读取 [`SKILL.md`](./SKILL.md) 和对应 `refe
 | Issue | [`bug-report.md`](./reference/bug-report.md), [`feature-request.md`](./reference/feature-request.md), [`enhancement.md`](./reference/enhancement.md), [`discussion.md`](./reference/discussion.md) |
 | PR | [`feature-pr.md`](./reference/feature-pr.md), [`bug-fix-pr.md`](./reference/bug-fix-pr.md), [`refactor-pr.md`](./reference/refactor-pr.md), [`documentation-pr.md`](./reference/documentation-pr.md) |
 | Review / Commit | [`code-review.md`](./reference/code-review.md), [`standard-commit.md`](./reference/standard-commit.md) |
-| Docs | [`readme.md`](./reference/readme.md), [`contributing.md`](./reference/contributing.md), [`changelog.md`](./reference/changelog.md) |
+| Docs | [`readme.md`](./reference/readme.md)（详细规则）, [`contributing.md`](./reference/contributing.md), [`changelog.md`](./reference/changelog.md) |
 | Release / Design | [`release-notes.md`](./reference/release-notes.md), [`migration-guide.md`](./reference/migration-guide.md), [`rfc.md`](./reference/rfc.md) |
 | Templates | [`issue-form-yaml.md`](./reference/issue-form-yaml.md), [`pr-template.md`](./reference/pr-template.md) |
-| Appendix | [`weapons.md`](./reference/weapons.md), [`emoji-guide.md`](./reference/emoji-guide.md), [`output-validation.md`](./reference/output-validation.md), [`source-catalog.md`](./reference/source-catalog.md) |
+| Appendix | [`shared-principles.md`](./reference/shared-principles.md), [`weapons.md`](./reference/weapons.md), [`emoji-guide.md`](./reference/emoji-guide.md), [`output-validation.md`](./reference/output-validation.md), [`source-catalog.md`](./reference/source-catalog.md) |
 
 ## 维护规则
 
