@@ -115,9 +115,11 @@ When the scenario is README, follow `reference/readme.md` and apply these extra 
   1. Delivery: local markdown file, chat-only draft, or remote repository update after review?
   2. Style and visuals: documentation-first, community/product style, title/heading emoji, badges, screenshots, or Star History?
   3. Required supplements: languages, official website, docs/demo URL, screenshot assets, reference projects or acknowledgements, file index, or any other must-include content?
-- **Multi-language README:**
+- **Multi-language README（语言版本位置 & 居中）：**
   - Default to English plus the language used in the user conversation. If the user uses English, do not list a second default language.
   - If the user signals "最多语言", "多语言", "尽量多语言", "3个及以上语言版本", "as many languages as possible", "all languages", or explicitly names 3+ languages, produce the full set: **zh-CN** (README.md), **en** (README.en.md), **ja** (README.ja.md), **ko** (README.ko.md), **es** (README.es.md), **fr** (README.fr.md), **de** (README.de.md), **pt** (README.pt.md). Include the same badges, centered logo, and project structure in each. Use separate files per language — do not stack multiple languages in one file.
+  - **语言版本切换区必须居中放置。** 放在标题 / badge 行下方、正文之前，使用 `<p align="center">` 包裹，每行一个语言链接，格式为 `🌐 [English](README.en.md) · [日本語](README.ja.md) · [한국어](README.ko.md) · [Español](README.es.md) · [Français](README.fr.md) · [Deutsch](README.de.md) · [Português](README.pt.md)`。README.md（中文）中的中文链接排在首位，其他语言版本中该语言排在首位
+  - 每个语言版本的文件顶部（标题 logo 区之后）必须包含指向所有其他语言版本的链接，确保读者能从任一版本跳到任一其他版本。不得只在中文版放链接，其它版不放
   - If the user asks for multilingual output without specifying which languages, ask which languages to include as part of the README three-question prompt. Do not default to a large set.
 - For skill repositories, explain that the project is a portable writing skill, not a standalone app, README generator, or GitHub integration.
 - Keep runtime files focused: `SKILL.md` and `reference/` define behavior. Local research, examples, and validation outputs are not public runtime inputs unless the repository intentionally publishes them.
