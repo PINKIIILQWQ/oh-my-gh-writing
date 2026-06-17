@@ -12,7 +12,7 @@ Treat the README as a public entry page, not a dump of every internal file. For 
 
 ## Badge
 
-Badge 写法遵循 [`weapons.md`](./weapons.md)，包含完整摆放惯例、优先级顺序和 200+ URL 模式。
+Badge 写法遵循 [`weapons.md`](./weapons.md)。如果用户要求精细 badge 设计或需要查找具体 shields.io URL 模式，再读取 [`badge-catalog.md`](./badge-catalog.md)。
 
 **项目适配检查：** 写 badge 前先判断项目类型（库/CLI 工具/应用/插件/文档等），只写确实有的东西：
 - 有 CI 配置文件 → 才写 CI badge
@@ -28,7 +28,7 @@ Badge 写法遵循 [`weapons.md`](./weapons.md)，包含完整摆放惯例、优
 
 ## Section Completeness
 
-README 每一节至少要有 2–3 句实质内容。不得以单句或孤立列表结束一节。某节太薄时合并到相邻节或补充上下文。Overview 不能只有一句话，Quick Start 不能只有一条命令。
+Overview、Quick Start、Usage、Configuration、Architecture 等核心解释区应有实质内容，不能只有一句空泛口号。License、Contributing、Links、Acknowledgements 等入口型小节可以很短；如果某节没有真实信息，合并或省略。
 
 ## Scenario Index
 
@@ -36,21 +36,23 @@ If scenarios < 20, list all rows in a complete table. If ≥20 scenarios, replac
 
 ## Multi-language
 
-**默认：** English + 用户对话所用语言。如果用户用英文，不列第二种。
+**默认：** English + 用户对话所用语言。如果用户用英文，只默认 English。
 
-**"最多语言"模式：** 当用户说"最多语言"、"多语言"、"尽量多语言"、"3个及以上语言版本"、"as many languages as possible"、"all languages"，或明确要求 3 种以上语言时，输出完整 8 种：**zh-CN**（README.md）、**en**（README.en.md）、**ja**（README.ja.md）、**ko**（README.ko.md）、**es**（README.es.md）、**fr**（README.fr.md）、**de**（README.de.md）、**pt**（README.pt.md）。每个文件包含相同 badge、居中 logo 和项目结构。使用独立文件，不堆叠在同一文件中。
+询问语言时标注默认值。中文对话示例：`目标语言（默认：English + 简体中文）`。英文对话示例：`Target language (default: English)`。
 
-**语言切换区必须居中**，放在 title/badge 下方、正文之前，用 `<p align="center">`。格式：`🌐 [English](README.en.md) · [日本語](README.ja.md) · [한국어](README.ko.md) …`。README.md（中文）中中文排首位，其他语言版本中该语言排首位。每个语言版本必须包含指向所有其他版本的链接。
+如用户要求多语言但未指定语言，在 README three-question prompt 的补充问题中询问具体语言列表。不要默认输出大语言集合。
 
-如用户要求多语言但未指定语言，在三个问题中询问。不默认输出大集合。
+只有当对应 README 文件会同步生成或已经存在时，才添加语言切换链接。不得链接不存在的 `README.*.md`。
+
+如果用户明确要求多语言，可建议这些候选：English、简体中文、Español、हिन्दी、العربية、Français、Português、日本語、한국어。最终输出语言以用户确认或已有文件为准。
 
 ## Acknowledgements
 
-默认在 README 底部包含 "Acknowledgements" 或 "Thanks" 小节，列出本项目使用或参考的关键项目、工具、资源。每个被参考的项目必须明确标注来源（"部分设计参考自 X"、"基于 Y 的开发模式"、"图标来自 Z"），不得笼统写 "Thanks to all open source projects"。如果用户明确说不想要，再跳过。不声明不存在的从属或背书关系。
+仅当仓库文件、依赖、用户输入、现有 README 或来源目录证明存在真实使用、参考、派生、借鉴或资源来源时，添加 "Acknowledgements" / "Thanks"。每个被参考的项目必须说明关系，例如 "结构参考自 X"、"badge 模式参考 Y"、"图标来自 Z"。不得写笼统感谢，不声明不存在的从属、授权或背书关系。
 
 ## Contributing in README
 
-README 中必须包含一个 "Contributing" 节，写入精简版的贡献规则（怎么提 issue、PR 流程、代码风格要求），不能只放一个链接到 CONTRIBUTING.md。该节需要自包含、可直接阅读，同时在末尾加上 "详细规则见 [CONTRIBUTING.md](../CONTRIBUTING.md)"。
+如果仓库存在 `CONTRIBUTING.md`，或项目明确面向外部贡献者，README 应包含一个简短 Contributing 入口，并链接到完整规则。不要为私有、一次性、内部或没有外部贡献流程的项目强行生成贡献流程。
 
 ## Form / Template Priority
 

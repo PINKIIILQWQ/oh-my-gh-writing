@@ -13,10 +13,11 @@ GitHub writing skill for AI agents. Routes requests to the right scenario, loads
 2. Estimate artifact length. If >120 lines / 4,000 CJK chars / 2,500 words, ask a brief scope question. For README, use the three-question prompt instead
 3. Read the matching `reference/*.md` before writing
 4. Read [`reference/weapons.md`](./reference/weapons.md) when badges, alerts, Mermaid, collapsible blocks, emoji, or tables are needed
-5. Read [`reference/emoji-guide.md`](./reference/emoji-guide.md) when emoji is requested or the repo already uses emoji
-6. Read [`reference/shared-principles.md`](./reference/shared-principles.md) for detailed output quality rules
-7. Read [`reference/readme.md`](./reference/readme.md) when the scenario is README (badge rules, multi-language, acknowledgements, support table, table formatting, etc.)
-8. Before finalizing, apply [`reference/output-validation.md`](./reference/output-validation.md) mentally — remove wrapper text, stray fences, unsupported facts, and routing mistakes
+5. Read [`reference/badge-catalog.md`](./reference/badge-catalog.md) only when the user asks for detailed badge design or exact shields.io URL patterns
+6. Read [`reference/emoji-guide.md`](./reference/emoji-guide.md) when emoji is requested or the repo already uses emoji
+7. Read [`reference/shared-principles.md`](./reference/shared-principles.md) for detailed output quality rules
+8. Read [`reference/readme.md`](./reference/readme.md) when the scenario is README (badge rules, multi-language, acknowledgements, support table, table formatting, etc.)
+9. Before finalizing, apply [`reference/output-validation.md`](./reference/output-validation.md) mentally — remove wrapper text, stray fences, unsupported facts, and routing mistakes
 
 Progressive disclosure: load only the files needed for the current task. Do not preload everything.
 
@@ -98,6 +99,7 @@ If the user asks to turn a PR or postmortem into a future request, route by the 
 | [`reference/issue-form-yaml.md`](./reference/issue-form-yaml.md) | Issue Form YAML scenario |
 | [`reference/pr-template.md`](./reference/pr-template.md) | PR Template scenario |
 | [`reference/weapons.md`](./reference/weapons.md) | When badges, alerts, Mermaid, tables, or other Markdown tools are needed |
+| [`reference/badge-catalog.md`](./reference/badge-catalog.md) | Detailed shields.io URL patterns; load only for exact badge design |
 | [`reference/emoji-guide.md`](./reference/emoji-guide.md) | When emoji is requested or repo uses them |
 | [`reference/output-validation.md`](./reference/output-validation.md) | Final validation before delivering any artifact |
 | [`reference/source-catalog.md`](./reference/source-catalog.md) | Auditing or checking reference source quality |
