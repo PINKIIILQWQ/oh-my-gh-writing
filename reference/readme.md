@@ -28,7 +28,7 @@ Badge 写法遵循 [`weapons.md`](./weapons.md)。如果用户要求精细 badge
 
 ## Brand / Tool Icons
 
-当 README 表格或列表中出现品牌、工具、框架、平台或项目名称时，默认使用对应官方图标或稳定 favicon。优先级：官方站点 favicon / 官方 logo asset → simple-icons / skillicons / devicon → 省略图标。找不到稳定来源时不要自造图标。图标必须有 `alt`，尺寸保持 14-18px，表格列名可用 `Icon` / `图标`。
+当 README 表格或列表中出现品牌、工具、框架、平台或项目名称时，默认使用对应官方图标或稳定 favicon。优先级：官方站点 favicon / 官方 logo asset → simple-icons / skillicons / devicon → 省略图标。找不到稳定来源时不要自造图标。图标必须有 `alt`，表格内默认使用 `width="18" height="18"`；只有特别紧凑的表格才降到 16px，不要使用 14px。表格列名可用 `Icon` / `图标`。
 
 ## Section Completeness
 

@@ -38,14 +38,14 @@
 
 | الأيقونة | Agent / Tool | الإعداد الموصى به | ملاحظات / وثائق |
 |---------|--------------|-------------------|-----------------|
-| <img src="https://openai.com/favicon.ico" width="14" height="14" alt="OpenAI"> | Codex | استنساخ إلى `$HOME/.agents/skills/oh-my-gh-writing` أو `.agents/skills/oh-my-gh-writing` | [Codex Agent Skills](https://developers.openai.com/codex/skills) |
-| <img src="https://claude.ai/favicon.ico" width="14" height="14" alt="Claude"> | Claude Code | استنساخ أو symlink إلى `~/.claude/skills/oh-my-gh-writing` أو `.claude/skills/oh-my-gh-writing` | [Claude Code Skills](https://code.claude.com/docs/en/skills) |
-| <img src="https://geminicli.com/favicon.ico" width="14" height="14" alt="Gemini CLI"> | Gemini CLI / Antigravity CLI | الوثائق تذكر `~/.gemini/skills/` و`~/.agents/skills/` و`gemini skills install` | تحقق من [الوثائق الرسمية](https://geminicli.com/docs/cli/skills/) الحالية |
-| <img src="https://hermes-agent.nousresearch.com/favicon.ico" width="14" height="14" alt="Hermes"> | Hermes | ضعه في `~/.hermes/skills/<category>/oh-my-gh-writing` | تثبيت HTTP لملف واحد مناسب فقط لـ `SKILL.md`؛ احتفظ بـ `reference/`. راجع [Hermes Skills](https://hermes-agent.nousresearch.com/docs/guides/work-with-skills) |
-| <img src="https://cursor.com/favicon.ico" width="14" height="14" alt="Cursor"> | Cursor | حوّل الموجه والقواعد المطلوبة إلى project rules أو knowledge base | راجع [Cursor Docs](https://cursor.com/docs) |
-| <img src="https://github.com/favicon.ico" width="14" height="14" alt="GitHub"> | GitHub Copilot | حوّلها إلى `.github/copilot-instructions.md` أو `.github/instructions/*.instructions.md` أو بنية skill | [Copilot Custom Instructions](https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-repository-instructions) |
-| <img src="https://docs.continue.dev/favicon.ico" width="14" height="14" alt="Continue"> | Continue | حوّلها إلى `.continue/rules/*.md`؛ الفصل حسب السيناريو أكثر ثباتا | [Continue Rules](https://docs.continue.dev/customize/rules) |
-| <img src="https://docs.windsurf.com/favicon.ico" width="14" height="14" alt="Windsurf"> | Windsurf / Devin Desktop | الوثائق الحالية تذكر memories وrules للتخصيص | تحقق من الطريقة الحالية في [Windsurf / Devin Docs](https://docs.windsurf.com) |
+| <img src="https://openai.com/favicon.ico" width="18" height="18" alt="OpenAI"> | Codex | استنساخ إلى `$HOME/.agents/skills/oh-my-gh-writing` أو `.agents/skills/oh-my-gh-writing` | [Codex Agent Skills](https://developers.openai.com/codex/skills) |
+| <img src="https://claude.ai/favicon.ico" width="18" height="18" alt="Claude"> | Claude Code | استنساخ أو symlink إلى `~/.claude/skills/oh-my-gh-writing` أو `.claude/skills/oh-my-gh-writing` | [Claude Code Skills](https://code.claude.com/docs/en/skills) |
+| <img src="https://geminicli.com/favicon.ico" width="18" height="18" alt="Gemini CLI"> | Gemini CLI / Antigravity CLI | الوثائق تذكر `~/.gemini/skills/` و`~/.agents/skills/` و`gemini skills install` | تحقق من [الوثائق الرسمية](https://geminicli.com/docs/cli/skills/) الحالية |
+| <img src="https://hermes-agent.nousresearch.com/favicon.ico" width="18" height="18" alt="Hermes"> | Hermes | ضعه في `~/.hermes/skills/<category>/oh-my-gh-writing` | تثبيت HTTP لملف واحد مناسب فقط لـ `SKILL.md`؛ احتفظ بـ `reference/`. راجع [Hermes Skills](https://hermes-agent.nousresearch.com/docs/guides/work-with-skills) |
+| <img src="https://cursor.com/favicon.ico" width="18" height="18" alt="Cursor"> | Cursor | حوّل الموجه والقواعد المطلوبة إلى project rules أو knowledge base | راجع [Cursor Docs](https://cursor.com/docs) |
+| <img src="https://github.com/favicon.ico" width="18" height="18" alt="GitHub"> | GitHub Copilot | حوّلها إلى `.github/copilot-instructions.md` أو `.github/instructions/*.instructions.md` أو بنية skill | [Copilot Custom Instructions](https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-repository-instructions) |
+| <img src="https://docs.continue.dev/favicon.ico" width="18" height="18" alt="Continue"> | Continue | حوّلها إلى `.continue/rules/*.md`؛ الفصل حسب السيناريو أكثر ثباتا | [Continue Rules](https://docs.continue.dev/customize/rules) |
+| <img src="https://docs.windsurf.com/favicon.ico" width="18" height="18" alt="Windsurf"> | Windsurf / Devin Desktop | الوثائق الحالية تذكر memories وrules للتخصيص | تحقق من الطريقة الحالية في [Windsurf / Devin Docs](https://docs.windsurf.com) |
 
 ## البدء السريع
 

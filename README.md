@@ -40,14 +40,14 @@ GitHub 写作最难的不是把 Markdown 写满，而是判断当前场景该写
 
 | 图标 | Agent / Tool | 推荐接入方式 | 注意事项 / 文档 |
 |------|--------------|--------------|---------------|
-| <img src="https://openai.com/favicon.ico" width="14" height="14" alt="OpenAI"> | Codex | 克隆到 `$HOME/.agents/skills/oh-my-gh-writing`，或作为项目 skill 放到 `.agents/skills/oh-my-gh-writing` | [Codex Agent Skills](https://developers.openai.com/codex/skills) |
-| <img src="https://claude.ai/favicon.ico" width="14" height="14" alt="Claude"> | Claude Code | 克隆或软链接到 `~/.claude/skills/oh-my-gh-writing`，或项目内 `.claude/skills/oh-my-gh-writing` | [Claude Code Skills](https://code.claude.com/docs/en/skills) |
-| <img src="https://geminicli.com/favicon.ico" width="14" height="14" alt="Gemini CLI"> | Gemini CLI / Antigravity CLI | Gemini CLI 文档列出 `~/.gemini/skills/`、`~/.agents/skills/` 和 `gemini skills install` | 部分用户正在迁移到 Antigravity CLI，使用前按 [当前官方说明](https://geminicli.com/docs/cli/skills/) 确认 |
-| <img src="https://hermes-agent.nousresearch.com/favicon.ico" width="14" height="14" alt="Hermes"> | Hermes | 放入 `~/.hermes/skills/<category>/oh-my-gh-writing` | HTTP 单文件安装只适合 `SKILL.md`；本仓库建议保留 `reference/` 目录。见 [Hermes Skills](https://hermes-agent.nousresearch.com/docs/guides/work-with-skills) |
-| <img src="https://cursor.com/favicon.ico" width="14" height="14" alt="Cursor"> | Cursor | 将路由摘要和需要的场景规则改写为项目规则；长 reference 可作为知识库索引 | 具体规则格式按 [Cursor Docs](https://cursor.com/docs) 当前版本确认 |
-| <img src="https://github.com/favicon.ico" width="14" height="14" alt="GitHub"> | GitHub Copilot | 改写为 `.github/copilot-instructions.md`、`.github/instructions/*.instructions.md` 或 Copilot agent skill 结构 | [Copilot Custom Instructions](https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-repository-instructions) |
-| <img src="https://docs.continue.dev/favicon.ico" width="14" height="14" alt="Continue"> | Continue | 改写为 `.continue/rules/*.md`；按场景拆规则比塞进单个文件更稳定 | [Continue Rules](https://docs.continue.dev/customize/rules) |
-| <img src="https://docs.windsurf.com/favicon.ico" width="14" height="14" alt="Windsurf"> | Windsurf / Devin Desktop | 当前文档提到 memories and rules 可用于自定义行为 | 具体规则文件路径和接入方式需按 [Windsurf / Devin Docs](https://docs.windsurf.com) 当前版本确认 |
+| <img src="https://openai.com/favicon.ico" width="18" height="18" alt="OpenAI"> | Codex | 克隆到 `$HOME/.agents/skills/oh-my-gh-writing`，或作为项目 skill 放到 `.agents/skills/oh-my-gh-writing` | [Codex Agent Skills](https://developers.openai.com/codex/skills) |
+| <img src="https://claude.ai/favicon.ico" width="18" height="18" alt="Claude"> | Claude Code | 克隆或软链接到 `~/.claude/skills/oh-my-gh-writing`，或项目内 `.claude/skills/oh-my-gh-writing` | [Claude Code Skills](https://code.claude.com/docs/en/skills) |
+| <img src="https://geminicli.com/favicon.ico" width="18" height="18" alt="Gemini CLI"> | Gemini CLI / Antigravity CLI | Gemini CLI 文档列出 `~/.gemini/skills/`、`~/.agents/skills/` 和 `gemini skills install` | 部分用户正在迁移到 Antigravity CLI，使用前按 [当前官方说明](https://geminicli.com/docs/cli/skills/) 确认 |
+| <img src="https://hermes-agent.nousresearch.com/favicon.ico" width="18" height="18" alt="Hermes"> | Hermes | 放入 `~/.hermes/skills/<category>/oh-my-gh-writing` | HTTP 单文件安装只适合 `SKILL.md`；本仓库建议保留 `reference/` 目录。见 [Hermes Skills](https://hermes-agent.nousresearch.com/docs/guides/work-with-skills) |
+| <img src="https://cursor.com/favicon.ico" width="18" height="18" alt="Cursor"> | Cursor | 将路由摘要和需要的场景规则改写为项目规则；长 reference 可作为知识库索引 | 具体规则格式按 [Cursor Docs](https://cursor.com/docs) 当前版本确认 |
+| <img src="https://github.com/favicon.ico" width="18" height="18" alt="GitHub"> | GitHub Copilot | 改写为 `.github/copilot-instructions.md`、`.github/instructions/*.instructions.md` 或 Copilot agent skill 结构 | [Copilot Custom Instructions](https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-repository-instructions) |
+| <img src="https://docs.continue.dev/favicon.ico" width="18" height="18" alt="Continue"> | Continue | 改写为 `.continue/rules/*.md`；按场景拆规则比塞进单个文件更稳定 | [Continue Rules](https://docs.continue.dev/customize/rules) |
+| <img src="https://docs.windsurf.com/favicon.ico" width="18" height="18" alt="Windsurf"> | Windsurf / Devin Desktop | 当前文档提到 memories and rules 可用于自定义行为 | 具体规则文件路径和接入方式需按 [Windsurf / Devin Docs](https://docs.windsurf.com) 当前版本确认 |
 
 表中未列出的工具只要支持读取 Markdown、自定义系统指令、项目规则或知识库，也可以使用本技能的规则。最稳妥的方式是保留 `SKILL.md` 的路由表，再按任务只复制对应的 `reference/*.md`。
 
