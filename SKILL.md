@@ -20,6 +20,18 @@ GitHub writing skill for AI agents. Routes requests to the right scenario, loads
 
 Progressive disclosure: load only the files needed for the current task. Do not preload everything.
 
+## Quick Start
+
+以下是三种典型用法，用户说出类似指令即可触发对应场景：
+
+| 用户指令 | 匹配场景 | Agent 行为 |
+|---------|---------|-----------|
+| `帮我写个 Bug Report，描述 Vite 构建时 Module not found 的问题` | Bug Report | 加载 `reference/bug-report.md` → 输出复现步骤、环境、期望/实际对比。仓库有 Issue 模板时自动读取字段 |
+| `review 这个 PR：https://github.com/owner/repo/pull/123` | Code Review | 加载 `reference/code-review.md` → 读 diff → 按文件/行号输出发现，标注 blocking/major/minor/nit |
+| `给这个项目写个 README` | README | 加载 `reference/readme.md` → 先问三个问题（交付方式、风格、补充内容）→ 按标准结构输出 |
+
+每个场景的具体标准文件见下方表格。
+
 ## Scenario Routing
 
 | User intent | Scenario | Reference |
