@@ -5,8 +5,8 @@
 <h1 align="center">oh-my-gh-writing</h1>
 
 <p align="center">
-  <a href="https://github.com/PINKIIILQWQ/oh-my-gh-writing/blob/main/LICENSE"><img src="https://img.shields.io/github/license/PINKIIILQWQ/oh-my-gh-writing?style=flat&label=License" alt="MIT"></a>
-  <a href="https://github.com/PINKIIILQWQ/oh-my-gh-writing/commits/main"><img src="https://img.shields.io/github/last-commit/PINKIIILQWQ/oh-my-gh-writing?style=flat&label=Updated" alt="Last Commit"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-0f766e?style=flat" alt="MIT License"></a>
+  <a href="SKILL.md"><img src="https://img.shields.io/badge/Status-Release%20Candidate-2563eb?style=flat" alt="Release Candidate"></a>
   <a href="INDEX.md"><img src="https://img.shields.io/badge/Scenarios-18-6a0dad?style=flat" alt="18 Scenarios"></a>
   <a href="SKILL.md"><img src="https://img.shields.io/badge/Format-SKILL.md-22AA66?style=flat" alt="SKILL.md"></a>
 </p>
@@ -64,7 +64,11 @@ git clone https://github.com/PINKIIILQWQ/oh-my-gh-writing.git "$HOME/.claude/ski
 本地开发或测试时，也可以把当前仓库软链接到目标工具的 skill 目录：
 
 ```bash
+# Codex / Gemini CLI
 ln -sfn "$PWD" "$HOME/.agents/skills/oh-my-gh-writing"
+
+# Claude Code
+ln -sfn "$PWD" "$HOME/.claude/skills/oh-my-gh-writing"
 ```
 
 安装后，在支持自动触发的 agent 中直接提出任务即可，例如：

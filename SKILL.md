@@ -5,21 +5,23 @@ description: "Use when drafting or revising GitHub issues, PR descriptions, code
 
 # oh-my-gh-writing
 
-GitHub writing skill for AI agents. Routes requests to the right scenario, loads the matching standard, enforces evidence boundaries, and produces submission-ready artifacts.
+GitHub writing skill for AI agents. Routes requests to the right scenario, loads the matching standard, enforces evidence boundaries, and produces near-submission-ready GitHub drafts.
 
 ## Workflow
 
 1. Identify the scenario from the user's request (see scenario routing below)
-2. Estimate artifact length. If >120 lines / 4,000 CJK chars / 2,500 words, ask a brief scope question. For README, use the three-question prompt instead
+2. Ask a brief scope question when the user requests an exhaustive, all-in-one, or clearly oversized artifact. For README, use the three-question prompt instead
 3. **Critical:** explicitly open and read the matching `reference/*.md` before writing user-facing output. Do not infer or guess the reference contents from memory
 4. Read [`reference/weapons.md`](./reference/weapons.md) when badges, alerts, Mermaid, collapsible blocks, emoji, or tables are needed
 5. Read [`reference/badge-catalog.md`](./reference/badge-catalog.md) only when the user asks for detailed badge design or exact shields.io URL patterns
 6. Read [`reference/emoji-guide.md`](./reference/emoji-guide.md) when emoji is requested or the repo already uses emoji
 7. Read [`reference/shared-principles.md`](./reference/shared-principles.md) when the request is fact-heavy, high-risk, cross-scenario, or output quality rules need clarification
 8. Read [`reference/readme.md`](./reference/readme.md) when the scenario is README (badge rules, multi-language, acknowledgements, support table, table formatting, etc.)
-9. Before finalizing, apply [`reference/output-validation.md`](./reference/output-validation.md) mentally — remove wrapper text, stray fences, unsupported facts, and routing mistakes
+9. Before finalizing, use [`reference/output-validation.md`](./reference/output-validation.md) as a silent revision checklist. If the draft fails a check, revise it before delivering. Do not output validation notes unless the user asks
 
-Progressive disclosure: load only the files needed for the current task. Do not preload everything.
+If local file reading is unavailable, ask the user to provide the relevant `reference/*.md` content or state that references are unavailable and produce only a conservative draft from the scenario routing and shared principles. Do not pretend to have read files you cannot access.
+
+Progressive disclosure: load only the files needed for the current task. Do not preload everything. When several references are truly needed and the platform supports it, read them in one batch instead of serial tool calls.
 
 Language fidelity: match the user's requested language or the target repository's primary language. The language of this skill's instructions or reference files must not leak into the final GitHub artifact.
 
