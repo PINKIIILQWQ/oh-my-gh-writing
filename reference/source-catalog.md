@@ -18,7 +18,7 @@ It is a maintenance and credibility document, not runtime instruction for normal
 
 Large repositories with strong artifacts may appear in multiple scenarios. Reuse is intentional only when the linked artifact fits that scenario directly.
 
-## Scenario Sources
+## Scenario And Tool Sources
 
 | Scenario | Strong sources | Why they are useful |
 |----------|----------------|---------------------|
@@ -40,6 +40,7 @@ Large repositories with strong artifacts may appear in multiple scenarios. Reuse
 | RFC | [React RFCs](https://github.com/reactjs/rfcs), [Rust RFCs](https://github.com/rust-lang/rfcs), [Kubernetes Enhancement Proposals](https://github.com/kubernetes/enhancements/blob/master/keps/README.md), [Python PEP 1](https://peps.python.org/pep-0001/), [Swift Evolution](https://github.com/swiftlang/swift-evolution), [TC39 proposals](https://github.com/tc39/proposals) | Motivation, design details, alternatives, unresolved questions, formal proposal lifecycle |
 | Issue Form YAML | [GitHub Issue forms docs](https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository), [VS Code Issue Templates](https://github.com/microsoft/vscode/tree/main/.github/ISSUE_TEMPLATE), [Next.js Issue Templates](https://github.com/vercel/next.js/tree/canary/.github/ISSUE_TEMPLATE), [TypeScript Issue Templates](https://github.com/microsoft/TypeScript/tree/main/.github/ISSUE_TEMPLATE), [Kubernetes Issue Templates](https://github.com/kubernetes/kubernetes/tree/master/.github/ISSUE_TEMPLATE), [Home Assistant Issue Templates](https://github.com/home-assistant/core/tree/dev/.github/ISSUE_TEMPLATE) | YAML structure, validations, fields, contact links, labels only when repository conventions exist |
 | PR Template | [GitHub PR template docs](https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/creating-a-pull-request-template-for-your-repository), [Kubernetes PR Template](https://github.com/kubernetes/kubernetes/blob/master/.github/PULL_REQUEST_TEMPLATE.md), [React PR Template](https://github.com/react/react/blob/main/.github/PULL_REQUEST_TEMPLATE.md), [Moby PR Template](https://github.com/moby/moby/blob/master/.github/PULL_REQUEST_TEMPLATE.md), [ESLint PR Template](https://github.com/eslint/eslint/blob/main/.github/PULL_REQUEST_TEMPLATE.md), [Tailwind CSS PR Template](https://github.com/tailwindlabs/tailwindcss/blob/main/.github/PULL_REQUEST_TEMPLATE.md) | Summary, change type, verification checklist, unchecked defaults, repo-specific fields only |
+| Emoji / Markdown Tools | [GitHub Markdown syntax](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax), [Emoji-Cheat-Sheet](https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md), [rxaviers markdown emoji markup](https://gist.github.com/rxaviers/7360908), [gitmoji](https://github.com/carloscuesta/gitmoji) | GitHub emoji syntax, full shortcode lookup, and commit/PR title intent semantics |
 
 ## Maintenance Notes
 
@@ -54,6 +55,8 @@ Large repositories with strong artifacts may appear in multiple scenarios. Reuse
 |--------|--------|--------|
 | [VS Code README](https://github.com/microsoft/vscode/blob/main/README.md) | Supporting README example | Useful as a mature project homepage pattern, but not a README writing standard. |
 | [GitHub migrations docs](https://docs.github.com/en/migrations) | Downgraded for Migration Guide | Useful for GitHub platform migrations, but too platform-specific for general library/API migration guide rules. |
+| [rxaviers markdown emoji markup](https://gist.github.com/rxaviers/7360908) | Supporting emoji lookup | High-coverage community-maintained shortcode table; useful for lookup, not a normative writing-style rule. |
+| [gitmoji](https://github.com/carloscuesta/gitmoji) | Supporting commit intent guide | Useful when a project already uses gitmoji-style commits or PR titles; not a default style requirement. |
 | PR / issue / discussion search pages | Avoid | Dynamic result pages are unstable and do not provide durable artifact structure. |
 | Repository homepages | Avoid | Too generic for scenario-specific writing rules unless the homepage itself is the artifact under review. |
 | Release indexes | Avoid | Prefer one concrete release page when shaping Release Notes. |

@@ -139,11 +139,16 @@ Default behavior:
 | [`INDEX.md`](./INDEX.md) | Full index for all 18 scenarios and their standards |
 | [`reference/`](./reference) | Standardized writing rules, field order, checklists, and output validation |
 | [`reference/source-catalog.md`](./reference/source-catalog.md) | Public source catalog for auditing rule provenance; not required for normal use |
+| [`CONTRIBUTING.md`](./CONTRIBUTING.md) | Contribution guide for rule changes, reference sources, and case feedback |
 | [`assets/`](./assets) | README logo and project presentation assets |
 | [`LICENSE`](./LICENSE) | MIT license |
 
 Final output hygiene and evidence checks live in [`reference/output-validation.md`](./reference/output-validation.md).
-Badges, emoji, Star History, and other GitHub Markdown components live in [`reference/weapons.md`](./reference/weapons.md), including a local common-emoji list and upstream full-list links.
+Badges, Star History, and other GitHub Markdown components live in [`reference/weapons.md`](./reference/weapons.md); common emoji shortcuts live in [`reference/emoji-guide.md`](./reference/emoji-guide.md).
+
+## Contributing
+
+Contributions are welcome for scenario rules, reference sources, README wording, output validation, and case feedback. Please submit cases through an issue or discussion first with the source, scenario, validation goal, and cleanup notes; do not open PRs with large batches of case files without prior discussion. See [`CONTRIBUTING.md`](./CONTRIBUTING.md).
 
 ## Acknowledgements
 

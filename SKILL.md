@@ -15,8 +15,9 @@ Use this skill as a GitHub writing operating system for AI agents. Keep the runt
 4. Even when source code is available, do not skip the README questions unless the user has already explicitly chosen the delivery mode, style/visual direction, and required supplemental content.
 5. Read the matching `reference/*.md` file before writing the final output.
 6. Read [`reference/weapons.md`](./reference/weapons.md) only when badges, alerts, collapsible logs, Mermaid, tables, emoji, Star History, or other formatting tools are needed.
-7. Read [`INDEX.md`](./INDEX.md) only for full repository navigation or maintenance work.
-8. Before finalizing, apply [`reference/output-validation.md`](./reference/output-validation.md) mentally to remove wrapper text, test metadata, stray fences, unsupported facts, and scenario-routing mistakes.
+7. Read [`reference/emoji-guide.md`](./reference/emoji-guide.md) only when emoji usage is requested, the existing repository style uses emoji, or README/PR title visual style requires emoji.
+8. Read [`INDEX.md`](./INDEX.md) only for full repository navigation or maintenance work.
+9. Before finalizing, apply [`reference/output-validation.md`](./reference/output-validation.md) mentally to remove wrapper text, test metadata, stray fences, unsupported facts, and scenario-routing mistakes.
 
 Do not load every reference file for a normal writing request. Do not expose reference-project analysis in user-facing output unless the user explicitly asks for rationale or sources. Do not add internal validation metadata such as scenario id, source notes, input prompt, raw output markers, or verdict unless the user explicitly asks for a validation report.
 
@@ -101,7 +102,8 @@ When the scenario is README, follow `reference/readme.md` and apply these extra 
 - For README work, ask exactly three concise questions in one message before drafting unless the user explicitly says to skip questions or draft immediately:
   1. Delivery: local markdown file, chat-only draft, or remote repository update after review?
   2. Style and visuals: documentation-first, community/product style, title/heading emoji, badges, screenshots, or Star History?
-  3. Required supplements: official website, docs/demo URL, reference projects or acknowledgements, file index, or any other must-include content?
+  3. Required supplements: languages, official website, docs/demo URL, screenshot assets, reference projects or acknowledgements, file index, or any other must-include content?
+- For README languages, default to English plus the language used in the user conversation. If the user asks for multilingual output without specifying languages, use English, Simplified Chinese, Spanish, Hindi, Arabic, French, Portuguese, Japanese, and Korean unless the user adjusts the list.
 - For skill repositories, explain that the project is a portable writing skill, not a standalone app, README generator, or GitHub integration.
 - Keep runtime files focused: `SKILL.md` and `reference/` define behavior. Local research, examples, and validation outputs are not public runtime inputs unless the repository intentionally publishes them.
 - Use badges only when they answer a real reader question and link to evidence.

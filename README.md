@@ -139,11 +139,16 @@ flowchart LR
 | [`INDEX.md`](./INDEX.md) | 全量索引：18 个场景和对应标准文件 |
 | [`reference/`](./reference) | 每个场景的标准化写法、字段顺序、checklist 和输出验收 |
 | [`reference/source-catalog.md`](./reference/source-catalog.md) | 公开参考来源目录，用于审查规则依据；普通使用时不需要读取 |
+| [`CONTRIBUTING.md`](./CONTRIBUTING.md) | 贡献指南：规则修改、参考来源和案例反馈流程 |
 | [`assets/`](./assets) | README logo 和项目展示素材 |
 | [`LICENSE`](./LICENSE) | MIT license |
 
 最终输出前的清洁和事实边界检查见 [`reference/output-validation.md`](./reference/output-validation.md)。
-徽章、emoji、Star History 和其他 GitHub Markdown 组件见 [`reference/weapons.md`](./reference/weapons.md)，其中包含常用 emoji 本地清单和上游完整表链接。
+徽章、Star History 和其他 GitHub Markdown 组件见 [`reference/weapons.md`](./reference/weapons.md)；常用 emoji 速查见 [`reference/emoji-guide.md`](./reference/emoji-guide.md)。
+
+## Contributing
+
+欢迎贡献场景规则、参考来源、README 文案、输出验收规则和案例反馈。案例请先通过 issue 或 discussion 提交来源、场景、验证目标和清理说明，不要直接 PR 大量案例文件。详情见 [`CONTRIBUTING.md`](./CONTRIBUTING.md)。
 
 ## 致谢
 

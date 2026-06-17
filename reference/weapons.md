@@ -107,22 +107,13 @@ def hello():
 :white_check_mark: → ✅
 :wrench: → 🔧
 ```
-GitHub 自动渲染，常用在标题、摘要、任务列表和轻量状态提示。GitHub 官方文档说明可用 `:EMOJICODE:` 语法，并指向 [Emoji-Cheat-Sheet](https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md) 作为完整代码表；[gist markdown-emoji](https://gist.github.com/rxaviers/7360908) 也可作为快速查找来源。
+GitHub 自动渲染，常用在标题、摘要、任务列表和轻量状态提示。常用 GitHub artifact emoji 见 [`emoji-guide.md`](./emoji-guide.md)。
 
-常用本地清单：
+完整 shortcode 查找：
 
-| 用途 | 常用代码 |
-|------|----------|
-| 发布 / 启动 | `:rocket:`, `:tada:`, `:sparkles:`, `:zap:`, `:fire:` |
-| Bug / 修复 | `:bug:`, `:ambulance:`, `:adhesive_bandage:`, `:mag:`, `:test_tube:` |
-| 文档 / 学习 | `:book:`, `:books:`, `:memo:`, `:pencil:`, `:bulb:` |
-| 工具 / 配置 | `:wrench:`, `:hammer:`, `:gear:`, `:package:`, `:bricks:` |
-| 安全 / 权限 | `:lock:`, `:unlock:`, `:shield:`, `:key:`, `:warning:` |
-| 状态 / 结果 | `:white_check_mark:`, `:x:`, `:heavy_check_mark:`, `:hourglass_flowing_sand:`, `:construction:` |
-| 协作 / 社区 | `:busts_in_silhouette:`, `:handshake:`, `:speech_balloon:`, `:pray:`, `:heart:` |
-| 平台 / Web | `:globe_with_meridians:`, `:link:`, `:computer:`, `:iphone:`, `:cloud:` |
-| 导航 / 结构 | `:pushpin:`, `:bookmark:`, `:triangular_flag_on_post:`, `:label:`, `:file_folder:` |
-| 数据 / 性能 | `:bar_chart:`, `:chart_with_upwards_trend:`, `:speedboat:`, `:stopwatch:`, `:floppy_disk:` |
+- GitHub Docs linked Emoji-Cheat-Sheet: https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md
+- rxaviers markdown emoji markup: https://gist.github.com/rxaviers/7360908
+- gitmoji commit intent guide: https://github.com/carloscuesta/gitmoji
 
 README 默认不使用 emoji。只有用户要求、仓库已有风格如此，或项目明显偏社区/产品/教学型时才少量使用。不要给每个标题机械加 emoji；文档型、库、基础设施和企业工具默认保持克制。
 
