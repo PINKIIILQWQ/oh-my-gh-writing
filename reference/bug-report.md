@@ -3,9 +3,12 @@
 ## 适用场景
 提交 Bug 报告，要求可复现、环境完整的 Issue。
 
-## 标准写法（vscode, nextjs, tailwindcss）
+## 输出边界
 
-### 结构
+Bug Report 只描述已经观察到的缺陷。不要把未验证原因写成结论，不要发明环境采集脚本、复现仓库、日志、截图或版本号。
+
+## 标准结构
+
 1. **标题**：`[Component] 简短问题描述`，用前缀标记模块
 2. **描述**：一句话概述问题影响
 3. **重现步骤**（编号列表，每一步精确到输入→操作→结果）
@@ -15,23 +18,28 @@
 7. **日志/截图**：控制台错误、截图、录屏
 8. **附加上下文**：频率、相关 Issue、已验证线索或待确认假设
 
-### 参考仓库写法
+## 信息不足时
 
-**vscode**（YAML Issue Form 量产型）
-- 12 字段表单：Bug 类型→扩展名→VS Code 版本→OS→重现步骤→日志等
-- 自动采集 `Help → About` 的环境信息
-- 示例：https://github.com/microsoft/vscode/issues/new
+- 缺少复现步骤时，写 `Steps to reproduce: TODO`，不要补想象步骤。
+- 缺少环境时，列出需要用户补充的字段。
+- 只有症状、没有原因时，用 `Suspected cause` 或 `Needs confirmation`。
 
-**nextjs**（复现链接驱动）
-- 核心字段：复现链接（CodeSandbox/StackBlitz 必填）→描述→环境
-- 强制 CodeSandbox 模板，减少"I can't reproduce"
-- 示例：https://github.com/vercel/nextjs/issues
+## 禁止编造项
 
-**tailwindcss**（精确最小复现）
-- 倾向极小化示例（单一配置 + 单一组件）
-- 要求贴 Play CDN 链接
-- 不要求大段日志，聚焦配置等价
+- 不编造复现仓库、sandbox 链接、日志、截图、版本号、平台或 root cause。
+- 不声称“已确认 regression”或“已定位到某文件”，除非用户或代码证据已给出。
+- 不把参考仓库的字段和标签直接当成目标仓库事实。
 
+## 高质量参考来源
+
+| 来源 | 可借鉴点 |
+|------|----------|
+| GitHub Issue templates | https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository |
+| VS Code Bug Report | https://github.com/microsoft/vscode/blob/main/.github/ISSUE_TEMPLATE/bug_report.md |
+| Next.js Bug Report | https://github.com/vercel/next.js/blob/canary/.github/ISSUE_TEMPLATE/1.bug_report.yml |
+| Tailwind CSS Bug Report | https://github.com/tailwindlabs/tailwindcss/blob/main/.github/ISSUE_TEMPLATE/bug-report.md |
+| TypeScript Bug Report | https://github.com/microsoft/TypeScript/blob/main/.github/ISSUE_TEMPLATE/bug_report.yml |
+| Kubernetes Issue Templates | https://github.com/kubernetes/kubernetes/tree/master/.github/ISSUE_TEMPLATE |
 
 ## 必含元素 Checklist
 - [ ] 可复现的最小示例
@@ -39,18 +47,3 @@
 - [ ] 环境信息
 - [ ] 错误信息全文
 - [ ] 未验证原因写成“可能原因”或“待确认”，不要写成确定 root cause
-
-## 可选项
-- 环境自动采集脚本：默认开启
-- 截图粘贴区：默认建议
-
-## 参考链接
-
-| 仓库 | 链接 |
-|------|------|
-| vscode Bug Report YAML 表单 | https://github.com/microsoft/vscode/blob/main/.github/ISSUE_TEMPLATE/bug_report.yml |
-| nextjs Bug Report YAML 表单 | https://github.com/vercel/next.js/blob/canary/.github/ISSUE_TEMPLATE/1.bug.yml |
-| tailwindcss Bug Report 表单 | https://github.com/tailwindlabs/tailwindcss/blob/next/.github/ISSUE_TEMPLATE/bug-report.yml |
-| golang/go Issue 分类页 | https://github.com/golang/go/issues/new/choose |
-| electron Bug Report | https://github.com/electron/electron/issues/new/choose |
-| eslint Bug Report | https://github.com/eslint/eslint/issues/new/choose |

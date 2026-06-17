@@ -252,7 +252,7 @@ ln -sfn "$PWD" "$HOME/.agents/skills/<skill-name>"
 
 ```markdown
 # Replace REPO_URL with this repository or your fork.
-REPO_URL=https://github.com/owner/project.git
+REPO_URL="<your repository URL>"
 git clone "$REPO_URL" project-name
 ```
 
@@ -296,11 +296,8 @@ git clone "$REPO_URL" project-name
 | 类型 | 链接 |
 |------|------|
 | GitHub README 指南 | https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes |
+| GitHub Markdown 基础语法 | https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax |
 | shields.io | https://shields.io |
 | Star History 使用说明 | https://www.star-history.com/blog/how-to-use-github-star-history |
 | GitHub Badge Collection | https://github.com/pudding0503/github-badge-collection |
-| vscode README | https://github.com/microsoft/vscode |
-| nextjs README | https://github.com/vercel/next.js |
-| tailwindcss README | https://github.com/tailwindlabs/tailwindcss |
-| deno README | https://github.com/denoland/deno |
-| supabase README | https://github.com/supabase/supabase |
+| VS Code README | https://github.com/microsoft/vscode/blob/main/README.md |

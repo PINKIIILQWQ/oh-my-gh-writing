@@ -3,46 +3,43 @@
 ## 适用场景
 请求新功能或能力增强，需要阐明使用场景和期望行为。
 
-## 标准写法（angular, typescript, rails）
+## 输出边界
 
-### 结构
+Feature Request 描述未来希望支持的能力。没有实现 diff 时，不写成 PR；没有 API 证据时，不把接口、版本、兼容范围写成已确认事实。
+
+## 标准结构
+
 1. **动机**：当前缺失的能力或痛点
 2. **Use Case**（列出 2-3 个典型场景，含具体输入→输出）
-3. **期望 API**：伪代码或接口签名，标明这是提案草案
+3. **期望行为**：用户可观察到的行为；只有 API/CLI/配置类请求才写接口草案
 4. **替代方案**：当前 workaround，为什么不够
 5. **兼容性**：对现有 API 的影响；未知版本或支持范围用 `TBD`
 
-### 参考仓库写法
+## 信息不足时
 
-**angular**
-- Feature 模板：动机→Use Case→期望行为→备选→兼容性
-- 每个 Use Case 详细描述用户操作流程
-- API 草案常用 TypeScript 类型签名
+- 缺少 API 细节时，用行为描述代替接口签名。
+- 缺少目标版本时，用 `Target version: TBD`。
+- 需求仍在征求意见时，路由到 Discussion，而不是替用户决定方案。
 
-**rails**
-- Rails 的 feature discussion 格式：动机→实施想法→备选
-- 开放式的社区讨论风格，但结构完整
-- 示例：https://github.com/rails/rails/issues
+## 禁止编造项
 
-**microsoft/typescript**
-- 建议模板：`Search Terms` → `Suggestion` → `Use Cases` → `Examples` → `Checklist`
-- 用 `Playground Link` 跑示例
-- 最规范的 TS 社区 feature request
+- 不编造 API 签名、兼容版本、迁移成本、性能数字或维护者态度。
+- 不把搜索页、讨论页里的单个观点写成项目共识。
+- 不把“希望支持”写成“已经实现”。
 
+## 高质量参考来源
+
+| 来源 | 可借鉴点 |
+|------|----------|
+| GitHub Issue templates | https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository |
+| Angular Feature Request | https://github.com/angular/angular/blob/main/.github/ISSUE_TEMPLATE/2-feature-request.yaml |
+| TypeScript Feature Request | https://github.com/microsoft/TypeScript/blob/main/.github/ISSUE_TEMPLATE/feature_request.yml |
+| VS Code Feature Request | https://github.com/microsoft/vscode/blob/main/.github/ISSUE_TEMPLATE/feature_request.md |
+| React RFCs | https://github.com/reactjs/rfcs |
+| Rust RFCs | https://github.com/rust-lang/rfcs |
 
 ## 必含元素 Checklist
 - [ ] 使用场景描述
-- [ ] 期望行为/API
+- [ ] 期望行为；仅在需要时写 API/CLI/配置草案
 - [ ] 替代方案
 - [ ] API、版本和兼容性没有被写成已确认事实，除非用户或资料已提供证据
-
-## 参考链接
-
-| 仓库 | 链接 |
-|------|------|
-| angular Feature Request 表单 | https://github.com/angular/angular/blob/main/.github/ISSUE_TEMPLATE/feature_request.yml |
-| TypeScript Suggestion 模板 | https://github.com/microsoft/TypeScript/blob/main/.github/ISSUE_TEMPLATE/suggestion.yml |
-| rails Feature Issue 列表 | https://github.com/rails/rails/issues?q=label%3Afeature |
-| svelte Feature 讨论 | https://github.com/sveltejs/svelte/discussions |
-| nuxt Feature Request | https://github.com/nuxt/nuxt/issues/new/choose |
-| babel Feature 讨论 | https://github.com/babel/babel/issues?q=label%3A%22Feature+Request%22 |

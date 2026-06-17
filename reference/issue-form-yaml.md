@@ -9,9 +9,8 @@
 
 在对话中展示多个 YAML 文件时，用 `## File: ...` 标题加 fenced `yaml` 代码块。真正写入 `.github/ISSUE_TEMPLATE/*.yml` 时，文件内只保留有效 YAML，不要包含 Markdown 标题或说明。
 
-## 标准写法（vscode, nextjs, rails）
+## 标准结构
 
-### 结构
 ```yaml
 name: Bug Report
 description: 提交 Bug 报告
@@ -31,27 +30,33 @@ body:
     id: version
     attributes:
       label: 版本
-      options: [v1.x, v2.x, v3.x]
+      options:
+        - TODO: add supported versions
     validations:
       required: true
 ```
 
-### 参考仓库写法
+## 信息不足时
 
-**microsoft/vscode**
-- 10+ 个 YAML 表单：Bug / Feature / Performance / Regression 等
-- 二级下拉 + 环境采集 + 自动 labels
-- 最完整的 YAML Issue Form 实践
+- 不知道版本列表时，用文本输入或 `TODO`，不要写假版本。
+- 不知道文档/安全/讨论链接时，不写 `contact_links`。
+- 多个表单必须分别输出文件名和内容。
 
-**vercel/nextjs**
-- 3 种表单：Bug / Feature / 其他
-- CodeSandbox 链接必填验证
-- 环境字段 `required: true`
+## 禁止编造项
 
-**rails/rails**
-- 复选框 + 验证 + 关联版 type
-- 风格简洁但完整
+- 不编造 label、project、assignee、外链、版本号或环境字段。
+- 不把 Markdown 展示标题写进实际 YAML 文件。
 
+## 高质量参考来源
+
+| 来源 | 可借鉴点 |
+|------|----------|
+| GitHub Issue forms docs | https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository |
+| VS Code Issue Templates | https://github.com/microsoft/vscode/tree/main/.github/ISSUE_TEMPLATE |
+| Next.js Issue Templates | https://github.com/vercel/next.js/tree/canary/.github/ISSUE_TEMPLATE |
+| TypeScript Issue Templates | https://github.com/microsoft/TypeScript/tree/main/.github/ISSUE_TEMPLATE |
+| Kubernetes Issue Templates | https://github.com/kubernetes/kubernetes/tree/master/.github/ISSUE_TEMPLATE |
+| Home Assistant Issue Templates | https://github.com/home-assistant/core/tree/dev/.github/ISSUE_TEMPLATE |
 
 ## 必含元素 Checklist
 - [ ] name + description
@@ -59,14 +64,3 @@ body:
 - [ ] labels 自动打
 - [ ] 请求的每一种表单类型都有对应 YAML
 - [ ] 不包含未验证的外链或 Markdown 包装（当输出目标是实际 YAML 文件时）
-
-## 参考链接
-
-| 仓库 | 链接 |
-|------|------|
-| vscode .github/ISSUE_TEMPLATE/ | https://github.com/microsoft/vscode/tree/main/.github/ISSUE_TEMPLATE |
-| nextjs Issue 表单 | https://github.com/vercel/next.js/tree/canary/.github/ISSUE_TEMPLATE |
-| rails Issue 表单 | https://github.com/rails/rails/tree/main/.github/ISSUE_TEMPLATE |
-| github/docs Issue 表单 | https://github.com/github/docs/tree/main/.github/ISSUE_TEMPLATE |
-| home-assistant Issue 表单 | https://github.com/home-assistant/core/tree/dev/.github/ISSUE_TEMPLATE |
-| terraform Issue 表单 | https://github.com/hashicorp/terraform/tree/main/.github/ISSUE_TEMPLATE |

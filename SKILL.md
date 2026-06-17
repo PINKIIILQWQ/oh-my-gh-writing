@@ -81,6 +81,17 @@ If the user asks to turn a PR, implementation, or postmortem into a future reque
 17. Fact-heavy scenarios require evidence. Versions, release dates, PR/issue numbers, CI workflow names, package-manager commands, platform support, dependency versions, migration timelines, screenshots, and links must come from user input, repository files, diffs, tool output, or official sources. Unknown facts become `TODO`, `TBD`, or "To confirm".
 18. Never claim a test, check, benchmark, build, or review passed unless it was actually run or provided. For unknown verification, write "Verification to run" or leave checklist boxes unchecked.
 
+## Reference Source Policy
+
+Reference links in `reference/*.md` are evidence for structure and field design, not facts to copy into the user's artifact.
+
+- Keep each scenario to about 5-6 high-quality references.
+- Prefer official specifications, official platform docs, current template files, contribution guides, single high-quality release pages, RFC templates, or migration guides.
+- Avoid using search pages, PR lists, issue lists, discussion lists, repository homepages, or release indexes as primary evidence.
+- A 100k+ star repository may be reused across 2-3 scenarios when it has genuinely strong artifacts for each scenario.
+- If a reference link breaks or becomes too generic, remove or replace it before relying on that scenario reference.
+- Keep scenario rules independent from reference-project facts. Never transfer project-specific versions, commands, test status, labels, file paths, or issue numbers from a reference project into the user's target artifact.
+
 ## README Guardrails
 
 When the scenario is README, follow `reference/readme.md` and apply these extra constraints:
