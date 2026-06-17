@@ -50,6 +50,30 @@ Shields.io 生成，URL 基础路径：`https://img.shields.io/`
 - 如果 shields.io 动态 badge 因数据源不存在返回 error/unknown，跳过并告知用户。不重复 badge。
 - 查询参数通用：`?style=flat`（默认）| `flat-square` | `plastic` | `for-the-badge` | `social`；`&logo=`（simple-icons slug）；`&logoColor=`（颜色）；`&label=`（覆盖左侧文本）；`&labelColor=`（左侧底色）；`&color=`（右侧底色）
 
+### Badge 摆放惯例（基于 GitHub 头部仓库调研）
+
+| 维度 | 主流做法 | 说明 |
+|------|---------|------|
+| **位置** | H1 标题行 inline，或标题下方（1–4行） | React/Vue/K8s 放标题行内；TypeScript/Oh My Zsh 放标题下方独立行。不设"## Badges"小节 |
+| **居中** | 有 hero/banner 区（logo + 标题 + 描述）时，用 HTML 包裹居中 | Next.js、Tailwind 用 `<p align="center">` |
+| **样式** | shields.io `flat` 或 `flat-square` 默认样式 | 不使用 `for-the-badge` |
+| **格式** | `[![alt](badge-url)](target-url)` | 标准 Markdown 图片链接包在超链接里 |
+| **数量** | 3–6 个，一行放完 | 超过 6 个时换行或分组 |
+| **基础设施项目** | 通常不使用 badge | Linux、Go、Rust 官方仓库均无 badge |
+
+**Badge 优先级顺序**（按最常见的前→后排列）：
+
+| 优先级 | Badge | 出现频率 | 示例 |
+|--------|-------|---------|------|
+| 1 | **CI / Build** | 6/7 仓库排第一或第二 | GitHub Actions workflow status |
+| 2 | **Package version** | 6/7 仓库使用 | npm / PyPI / Crates.io / GitHub release |
+| 3 | **License** | 4/7 仓库使用 | MIT / Apache-2.0 / GPL |
+| 3 | **Downloads** | 4/7 仓库使用 | npm/dm / PyPI/dm / Docker pulls |
+| 5 | **Security / OpenSSF** | 3/7 仓库使用 | CII Best Practices / Scorecard |
+| 6 | **Social / Community** | 2/7 仓库使用 | Discord / X / Mastodon |
+
+对于典型开源项目，推荐 5-badge 标准集（按优先级）：**CI → Version → License → Downloads → Security/Social**
+
 ### 静态 Badge（任意文字）
 
 ```

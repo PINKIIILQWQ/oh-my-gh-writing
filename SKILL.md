@@ -104,9 +104,9 @@ When the scenario is README, follow `reference/readme.md` and apply these extra 
 - Before producing or editing a README from source code, confirm whether the user wants a local markdown draft, a chat-only draft, or a remote repository update. Do not assume upload is authorized because source code is available.
 - **Title & logo default to centered.** Use `<p align="center">` for the logo image and `<h1 align="center">` for the title. Do not ask — center by default.
 - **Badge rules:**
-  - Badge 写法遵循 [`reference/weapons.md`](./reference/weapons.md) 的 Badge 规则。
+  - Badge 写法遵循 [`reference/weapons.md`](./reference/weapons.md)，包含完整的摆放惯例、优先级顺序和 200+ URL 模式。
   - 如果 shields.io 动态 badge 因数据源不存在返回 error/unknown，跳过该 badge 并告知用户。不重复 badge，同一意图只用一个。
-  - 默认 3–6 个。更多应分组或移到后文。
+  - 默认 3–6 个，按优先级：CI → Version → License → Downloads → Security/Social。
 - **Scenario index in README:** If scenarios < 20, list all rows in a complete table. If ≥20 scenarios, replace with a link: "See all scenarios in [INDEX.md](INDEX.md)". Do not enumerate 20+ items inline.
 - For README work, ask exactly three concise questions in one message before drafting unless the user explicitly says to skip questions or draft immediately:
   1. Delivery: local markdown file, chat-only draft, or remote repository update after review?
