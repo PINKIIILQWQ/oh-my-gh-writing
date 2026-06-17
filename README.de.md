@@ -19,6 +19,25 @@
 
 Der gesamte Regelsatz ist als Markdown-Dateien in diesem Repository gespeichert, ohne externe Abhängigkeiten. Jeder KI-Agent, der das Laden lokaler Kompetenzen unterstützt, kann ihn direkt verwenden.
 
+## Unterstützte Agenten
+
+oh-my-gh-writing wurde für KI-Agenten entwickelt. Jedes KI-Coding-Tool, das das Laden benutzerdefinierter Regeln, Wissensdatenbanken oder Systemanweisungen unterstützt, kann diese Kompetenz nutzen. Die Unterstützungsstufen variieren je nach Plattform:
+
+**Direct** — Kann `SKILL.md` und das `reference/`-Verzeichnis nativ laden, mit automatischer Szenarioerkennung und Weiterleitung. Keine manuelle Szenarioauswahl erforderlich.
+
+**Adapted** — Kann das Kompetenzformat nicht direkt laden, kann aber über Projektregeldateien (z. B. `.cursorrules`, `copilot-instructions.md`), benutzerdefinierte Anweisungen oder Dokumentationsindizierung auf die Schreibstandards verweisen. Die automatische Weiterleitung ist eingeschränkt – Benutzer müssen das Szenario manuell angeben.
+
+| Symbol | Agent | Stufe | Verwendung | Dokumentation |
+|--------|-------|-------|------------|---------------|
+| <img src="https://docs.anthropic.com/favicon.ico" width="14" height="14"> | **Claude Code** | Direct | Dieses Repository zur Skill-Liste hinzufügen; automatische Weiterleitung | [Claude Code Docs](https://docs.anthropic.com/en/docs/claude-code) |
+| <img src="https://docs.anthropic.com/favicon.ico" width="14" height="14"> | **Claude** (Web/API) | Adapted | `SKILL.md` und `reference/*.md` in Systemanweisungen einfügen | [Claude API Docs](https://docs.anthropic.com/en/docs) |
+| <img src="https://cursor.sh/favicon.ico" width="14" height="14"> | **Cursor** | Adapted | Regeln via `.cursorrules` referenzieren oder `reference/` mit Docs indizieren | [Cursor Docs](https://docs.cursor.com) |
+| <img src="https://github.com/favicon.ico" width="14" height="14"> | **GitHub Copilot** | Adapted | Kernregeln in `.github/copilot-instructions.md` referenzieren | [Copilot Docs](https://docs.github.com/en/copilot) |
+| <img src="https://docs.continue.dev/favicon.ico" width="14" height="14"> | **Continue** | Adapted | Docs-Quelle auf `reference/` verweisen; via `@docs` abrufen | [Continue Docs](https://docs.continue.dev) |
+| <img src="https://codeium.com/favicon.ico" width="14" height="14"> | **Windsurf** | Adapted | Regeln via `.windsurfrules` oder AI Rules-Konfiguration referenzieren | [Windsurf Docs](https://docs.codeium.com) |
+
+Nicht aufgeführte KI-Tools können diese Kompetenz ebenfalls im Adapted-Modus nutzen, sofern sie benutzerdefinierte Anweisungen oder das Laden von Regeldateien unterstützen. Die Kern-Schreibstandards (`reference/*.md`) sind reines Markdown – jedes Tool, das Markdown lesen kann, kann sie referenzieren.
+
 ## Szenarien
 
 | # | Kategorie | Szenario | Verwendungszweck |

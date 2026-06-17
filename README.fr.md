@@ -19,6 +19,25 @@
 
 L'ensemble des règles est stocké sous forme de fichiers Markdown dans ce dépôt, sans dépendance externe. Tout Agent IA prenant en charge le chargement de compétences locales peut l'utiliser directement.
 
+## Agents compatibles
+
+oh-my-gh-writing est conçu pour les Agents IA. Tout outil de codage IA prenant en charge le chargement de règles personnalisées, de bases de connaissances ou d'instructions système peut utiliser cette compétence. Les niveaux de prise en charge varient selon la plateforme :
+
+**Direct** — Peut charger `SKILL.md` et son répertoire `reference/` nativement, avec correspondance et routage automatiques des scénarios. Aucune sélection manuelle de scénario requise.
+
+**Adapted** — Ne peut pas charger le format de compétence directement, mais peut référencer les normes d'écriture via des fichiers de règles du projet (par exemple, `.cursorrules`, `copilot-instructions.md`), des instructions personnalisées ou l'indexation de documentation. Le routage automatique est limité — les utilisateurs doivent spécifier le scénario manuellement.
+
+| Icône | Agent | Niveau | Comment utiliser | Documentation |
+|-------|-------|--------|-----------------|---------------|
+| <img src="https://docs.anthropic.com/favicon.ico" width="14" height="14"> | **Claude Code** | Direct | Ajouter ce dépôt à la liste des compétences ; routage automatique | [Docs Claude Code](https://docs.anthropic.com/en/docs/claude-code) |
+| <img src="https://docs.anthropic.com/favicon.ico" width="14" height="14"> | **Claude** (Web/API) | Adapted | Injecter `SKILL.md` et `reference/*.md` dans les instructions système | [Docs Claude API](https://docs.anthropic.com/en/docs) |
+| <img src="https://cursor.sh/favicon.ico" width="14" height="14"> | **Cursor** | Adapted | Référencer les règles via `.cursorrules` ou indexer `reference/` avec Docs | [Docs Cursor](https://docs.cursor.com) |
+| <img src="https://github.com/favicon.ico" width="14" height="14"> | **GitHub Copilot** | Adapted | Référencer les règles principales dans `.github/copilot-instructions.md` | [Docs Copilot](https://docs.github.com/en/copilot) |
+| <img src="https://docs.continue.dev/favicon.ico" width="14" height="14"> | **Continue** | Adapted | Pointer la source docs vers `reference/` ; interroger via `@docs` | [Docs Continue](https://docs.continue.dev) |
+| <img src="https://codeium.com/favicon.ico" width="14" height="14"> | **Windsurf** | Adapted | Référencer les règles via `.windsurfrules` ou la configuration AI Rules | [Docs Windsurf](https://docs.codeium.com) |
+
+Les outils d'IA non listés ici peuvent également utiliser cette compétence en mode Adapted s'ils prennent en charge les instructions personnalisées ou le chargement de fichiers de règles. Les normes d'écriture principales (`reference/*.md`) sont en Markdown simple — tout outil capable de lire le Markdown peut les référencer.
+
 ## Scénarios
 
 | # | Catégorie | Scénario | Quand l'utiliser |

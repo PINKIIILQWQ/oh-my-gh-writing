@@ -19,6 +19,25 @@
 
 整套规则以 Markdown 文件形式存放在仓库中，不依赖任何外部服务。任何支持加载本地技能的 AI Agent 都可以直接加载使用。
 
+## 适用范围
+
+oh-my-gh-writing 面向 AI Agent 设计。任何支持加载自定义规则、知识库或系统指令的 AI 编程工具都可以使用本技能。根据各平台对技能/规则系统的支持程度，分为两个等级：
+
+**Direct（原生支持）**：可直接加载 `SKILL.md` 及其引用的 `reference/` 目录，自动完成场景识别和路由。配置后 Agent 会在用户提出写作需求时匹配对应的场景标准，按规范生成内容，无需手动指定场景。
+
+**Adapted（适配使用）**：不支持直接加载 skill 格式，但可以通过项目规则文件（如 `.cursorrules`、`copilot-instructions.md`）、自定义指令或文档索引等方式引用写作标准。部分自动路由能力受限，用户需要手动指明当前写作场景。
+
+| 图标 | Agent | 等级 | 使用方法 | 官方文档 |
+|------|-------|------|---------|---------|
+| <img src="https://docs.anthropic.com/favicon.ico" width="14" height="14"> | **Claude Code** | Direct | 将本仓库路径添加到 skill 列表；Agent 自动路由到对应场景 | [Claude Code 文档](https://docs.anthropic.com/en/docs/claude-code) |
+| <img src="https://docs.anthropic.com/favicon.ico" width="14" height="14"> | **Claude**（Web/API） | Adapted | 将 `SKILL.md` 和对应 `reference/*.md` 内容注入到系统指令 | [Claude API 文档](https://docs.anthropic.com/en/docs) |
+| <img src="https://cursor.sh/favicon.ico" width="14" height="14"> | **Cursor** | Adapted | 通过 `.cursorrules` 引用规则，或 Docs 索引 `reference/` 目录 | [Cursor 文档](https://docs.cursor.com) |
+| <img src="https://github.com/favicon.ico" width="14" height="14"> | **GitHub Copilot** | Adapted | 在 `.github/copilot-instructions.md` 中引用核心规则 | [Copilot 文档](https://docs.github.com/en/copilot) |
+| <img src="https://docs.continue.dev/favicon.ico" width="14" height="14"> | **Continue** | Adapted | 配置 docs 源指向 `reference/` 目录，通过 `@docs` 检索 | [Continue 文档](https://docs.continue.dev) |
+| <img src="https://codeium.com/favicon.ico" width="14" height="14"> | **Windsurf** | Adapted | 通过 `.windsurfrules` 或 AI Rules 配置引用规则 | [Windsurf 文档](https://docs.codeium.com) |
+
+表中未列出的 AI 工具只要支持自定义指令或规则文件加载，同样可以通过 Adapted 方式参考本技能。核心写作标准（`reference/*.md`）是纯 Markdown，不依赖特定平台格式，任何能读取 Markdown 的工具都可以使用。
+
 ## 场景
 
 | # | 类别 | 场景 | 适用时机 |

@@ -19,6 +19,25 @@
 
 The entire rule set is stored as Markdown files in this repository with no external dependencies. Any AI agent that supports loading local skills can use it directly.
 
+## Supported Agents
+
+oh-my-gh-writing is designed for AI agents. Any AI coding tool that supports loading custom rules, knowledge bases, or system instructions can use this skill. Support levels vary by platform:
+
+**Direct** — Can load `SKILL.md` and its `reference/` directory natively, with automatic scenario matching and routing. No manual scenario selection required.
+
+**Adapted** — Cannot load the skill format directly, but can reference writing standards through project rules files (e.g., `.cursorrules`, `copilot-instructions.md`), custom instructions, or documentation indexing. Automatic routing is limited — users need to specify the writing scenario manually.
+
+| Icon | Agent | Level | How to use | Official docs |
+|------|-------|-------|------------|---------------|
+| <img src="https://docs.anthropic.com/favicon.ico" width="14" height="14"> | **Claude Code** | Direct | Add this repository to the skill list; agent routes automatically | [Claude Code docs](https://docs.anthropic.com/en/docs/claude-code) |
+| <img src="https://docs.anthropic.com/favicon.ico" width="14" height="14"> | **Claude** (Web/API) | Adapted | Inject `SKILL.md` and corresponding `reference/*.md` into system instructions | [Claude API docs](https://docs.anthropic.com/en/docs) |
+| <img src="https://cursor.sh/favicon.ico" width="14" height="14"> | **Cursor** | Adapted | Reference rules via `.cursorrules` or index `reference/` with Docs | [Cursor docs](https://docs.cursor.com) |
+| <img src="https://github.com/favicon.ico" width="14" height="14"> | **GitHub Copilot** | Adapted | Reference core rules in `.github/copilot-instructions.md` | [Copilot docs](https://docs.github.com/en/copilot) |
+| <img src="https://docs.continue.dev/favicon.ico" width="14" height="14"> | **Continue** | Adapted | Point docs source to `reference/` directory; retrieve via `@docs` | [Continue docs](https://docs.continue.dev) |
+| <img src="https://codeium.com/favicon.ico" width="14" height="14"> | **Windsurf** | Adapted | Reference rules via `.windsurfrules` or AI Rules configuration | [Windsurf docs](https://docs.codeium.com) |
+
+AI tools not listed here can still use this skill in Adapted mode as long as they support custom instructions or rules file loading. The core writing standards (`reference/*.md`) are plain Markdown — any tool that can read Markdown can reference them.
+
 ## Scenarios
 
 | # | Category | Scenario | When to use |

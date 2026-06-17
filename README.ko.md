@@ -19,6 +19,25 @@
 
 전체 규칙 세트는 Markdown 파일로 이 리포지토리에 저장되어 있으며, 외부 서비스에 의존하지 않습니다. 로컬 스킬 로딩을 지원하는 모든 AI Agent가 직접 사용할 수 있습니다.
 
+## 지원 Agent
+
+oh-my-gh-writing는 AI Agent용으로 설계되었습니다. 사용자 정의 규칙, 지식 베이스 또는 시스템 지시 로딩을 지원하는 AI 코딩 도구라면 본 스킬을 사용할 수 있습니다. 플랫폼별 지원 수준은 다음과 같습니다.
+
+**Direct** — `SKILL.md`와 `reference/` 디렉토리를 네이티브로 로드하여 시나리오 자동 인식 및 라우팅이 가능합니다. 사용자가 시나리오를 수동으로 지정할 필요가 없습니다.
+
+**Adapted** — 스킬 형식을 직접 로드할 수 없지만, 프로젝트 규칙 파일(`.cursorrules`, `copilot-instructions.md` 등), 사용자 정의 지시 또는 문서 인덱싱을 통해 라이팅 표준을 참조할 수 있습니다. 자동 라우팅이 제한되며 사용자가 시나리오를 수동으로 지정해야 합니다.
+
+| 아이콘 | Agent | 수준 | 사용 방법 | 공식 문서 |
+|--------|-------|------|----------|-----------|
+| <img src="https://docs.anthropic.com/favicon.ico" width="14" height="14"> | **Claude Code** | Direct | 스킬 목록에 이 리포지토리 추가, 자동 라우팅 | [Claude Code 문서](https://docs.anthropic.com/en/docs/claude-code) |
+| <img src="https://docs.anthropic.com/favicon.ico" width="14" height="14"> | **Claude**（Web/API） | Adapted | `SKILL.md`와 해당 `reference/*.md`를 시스템 지시에 주입 | [Claude API 문서](https://docs.anthropic.com/en/docs) |
+| <img src="https://cursor.sh/favicon.ico" width="14" height="14"> | **Cursor** | Adapted | `.cursorrules` 또는 Docs로 `reference/` 인덱싱 | [Cursor 문서](https://docs.cursor.com) |
+| <img src="https://github.com/favicon.ico" width="14" height="14"> | **GitHub Copilot** | Adapted | `.github/copilot-instructions.md`에서 코어 규칙 참조 | [Copilot 문서](https://docs.github.com/en/copilot) |
+| <img src="https://docs.continue.dev/favicon.ico" width="14" height="14"> | **Continue** | Adapted | docs 소스를 `reference/`로 설정, `@docs`로 검색 | [Continue 문서](https://docs.continue.dev) |
+| <img src="https://codeium.com/favicon.ico" width="14" height="14"> | **Windsurf** | Adapted | `.windsurfrules` 또는 AI Rules 설정으로 참조 | [Windsurf 문서](https://docs.codeium.com) |
+
+표에 없는 AI 도구도 사용자 정의 지시나 규칙 파일 로딩을 지원하면 Adapted 방식으로 활용할 수 있습니다. 핵심 라이팅 표준(`reference/*.md`)은 일반 Markdown이므로 Markdown을 읽을 수 있는 모든 도구에서 참조 가능합니다.
+
 ## 시나리오
 
 | # | 카테고리 | 시나리오 | 사용时机 |

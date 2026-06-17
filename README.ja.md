@@ -22,6 +22,25 @@
   ルールセット全体は Markdown ファイルとしてこのリポジトリに保存されており、外部サービスに依存しません。ローカルスキルの読み込みをサポートする AI Agent であれば、直接使用できます。
 </p>
 
+## 対応 Agent
+
+oh-my-gh-writing は AI Agent 向けに設計されています。カスタムルール、ナレッジベース、システム指示の読み込みをサポートする AI コーディングツールであれば、本スキルを利用できます。プラットフォームごとのサポートレベルは以下のとおりです。
+
+**Direct** — `SKILL.md` と `reference/` ディレクトリをネイティブに読み込み、シナリオの自動認識とルーティングが可能。ユーザーがシナリオを手動で指定する必要はありません。
+
+**Adapted** — スキル形式を直接読み込めませんが、プロジェクトルールファイル（`.cursorrules`、`copilot-instructions.md` など）、カスタム指示、またはドキュメントインデックスを介してライティング標準を参照できます。自動ルーティングは制限され、ユーザーがシナリオを手動で指定する必要があります。
+
+| アイコン | Agent | レベル | 使用方法 | 公式ドキュメント |
+|---------|-------|-------|---------|----------------|
+| <img src="https://docs.anthropic.com/favicon.ico" width="14" height="14"> | **Claude Code** | Direct | スキル一覧にこのリポジトリを追加、自動ルーティング | [Claude Code ドキュメント](https://docs.anthropic.com/en/docs/claude-code) |
+| <img src="https://docs.anthropic.com/favicon.ico" width="14" height="14"> | **Claude**（Web/API） | Adapted | `SKILL.md` と対応 `reference/*.md` をシステム指示に注入 | [Claude API ドキュメント](https://docs.anthropic.com/en/docs) |
+| <img src="https://cursor.sh/favicon.ico" width="14" height="14"> | **Cursor** | Adapted | `.cursorrules` 経由、または Docs で `reference/` を参照 | [Cursor ドキュメント](https://docs.cursor.com) |
+| <img src="https://github.com/favicon.ico" width="14" height="14"> | **GitHub Copilot** | Adapted | `.github/copilot-instructions.md` でコアルールを参照 | [Copilot ドキュメント](https://docs.github.com/en/copilot) |
+| <img src="https://docs.continue.dev/favicon.ico" width="14" height="14"> | **Continue** | Adapted | docs ソースを `reference/` に設定、`@docs` で検索 | [Continue ドキュメント](https://docs.continue.dev) |
+| <img src="https://codeium.com/favicon.ico" width="14" height="14"> | **Windsurf** | Adapted | `.windsurfrules` または AI Rules 設定で参照 | [Windsurf ドキュメント](https://docs.codeium.com) |
+
+表中にない AI ツールでも、カスタム指示やルールファイルの読み込みに対応していれば Adapted 方式で利用できます。コアのライティング標準（`reference/*.md`）はプレーン Markdown であり、Markdown を読めるツールであれば参照可能です。
+
 ## シナリオ
 
 | # | カテゴリ | シナリオ | 使用タイミング |
