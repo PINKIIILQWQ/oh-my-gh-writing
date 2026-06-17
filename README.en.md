@@ -28,10 +28,10 @@ It is not a README generator or a GitHub App. The project works as a portable wr
 
 ### Local Codex Install
 
-Replace `<repo-url>` with this repository or your fork, then install with one command:
+Install it into your Codex user skills directory with one command:
 
 ```bash
-git clone <repo-url> "$HOME/.agents/skills/oh-my-gh-writing"
+git clone https://github.com/PINKIIILQWQ/oh-my-gh-writing.git "$HOME/.agents/skills/oh-my-gh-writing"
 ```
 
 If you already have a local checkout, run this from the repository root:
@@ -44,7 +44,7 @@ ln -sfn "$PWD" "$HOME/.agents/skills/oh-my-gh-writing"
 You can also hand this prompt to an agent:
 
 ```text
-Install <repo-url> as a Codex skill named oh-my-gh-writing. If the target agent does not support SKILL.md skills, adapt SKILL.md and reference/ into that agent's native rule format.
+Install https://github.com/PINKIIILQWQ/oh-my-gh-writing.git as a Codex skill named oh-my-gh-writing. If the target agent does not support SKILL.md skills, adapt SKILL.md and reference/ into that agent's native rule format.
 ```
 
 After restarting Codex, use prompts like:
@@ -66,17 +66,17 @@ Support levels are checked against each agent's official documentation; each age
 | <img src="https://icons.duckduckgo.com/ip3/openai.com.ico" width="18" alt="Codex"> | [Codex](https://developers.openai.com/codex/skills) | Direct skill folder install | Put this repository at `$HOME/.agents/skills/oh-my-gh-writing` or repo-local `.agents/skills/oh-my-gh-writing`, keeping both `SKILL.md` and `reference/` |
 | <img src="https://icons.duckduckgo.com/ip3/hermes-agent.nousresearch.com.ico" width="18" alt="Hermes Agent"> | [Hermes Agent](https://hermes-agent.nousresearch.com/docs/guides/work-with-skills) | Direct `SKILL.md` URL or skill folder install | Use `hermes skills install`; when full scenario rules are needed, make sure `reference/` is available inside the skill directory |
 | <img src="https://icons.duckduckgo.com/ip3/claude.ai.ico" width="18" alt="Claude Code"> | [Claude Code](https://code.claude.com/docs/en/skills) | Direct skill folder install | Link this repository to `~/.claude/skills/oh-my-gh-writing` or project-local `.claude/skills/oh-my-gh-writing` |
-| <img src="https://icons.duckduckgo.com/ip3/gemini.google.com.ico" width="18" alt="Gemini CLI"> | [Gemini CLI](https://geminicli.com/docs/cli/skills/) | Direct skill repository or local folder install | Use `gemini skills install <repo-url>`; for local development, use `/skills link "$PWD"` inside a Gemini session |
+| <img src="https://icons.duckduckgo.com/ip3/gemini.google.com.ico" width="18" alt="Gemini CLI"> | [Gemini CLI / Antigravity CLI](https://geminicli.com/docs/cli/skills/) | Verify against current official docs | Gemini CLI currently supports Agent Skills and `gemini skills install`, but availability is migrating; confirm whether Gemini CLI or Antigravity CLI is the right path before release |
 | <img src="https://icons.duckduckgo.com/ip3/cursor.com.ico" width="18" alt="Cursor"> | [Cursor](https://cursor.com/docs/rules) | Adapt into Project Rules | Rewrite the `SKILL.md` workflow and the needed `reference/*.md` summaries into `.cursor/rules/oh-my-gh-writing.mdc` |
 | <img src="https://icons.duckduckgo.com/ip3/github.com.ico" width="18" alt="GitHub Copilot"> | [GitHub Copilot](https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-repository-instructions) | Adapt into custom instructions | Put the core rules in `.github/copilot-instructions.md`; split scenario-specific rules into `.github/instructions/*.instructions.md` when needed |
 
 ### Example: Direct Hermes Agent Install
 
-Hermes CLI can install from a remote `SKILL.md` URL. Replace `<repo-owner>` with the GitHub owner for this repository or your fork.
+Hermes CLI can install from a remote `SKILL.md` URL. This installs the entry file only; prefer a full folder install when the scenario reference files are needed.
 
 ```bash
 hermes skills install \
-  https://raw.githubusercontent.com/<repo-owner>/oh-my-gh-writing/main/SKILL.md \
+  https://raw.githubusercontent.com/PINKIIILQWQ/oh-my-gh-writing/main/SKILL.md \
   --name oh-my-gh-writing
 ```
 
@@ -96,7 +96,7 @@ Read oh-my-gh-writing's SKILL.md and reference/, then adapt them into Cursor Pro
 1. Create .cursor/rules/oh-my-gh-writing.mdc
 2. Preserve scenario routing, evidence boundaries, and README guardrails
 3. Reference or inline the relevant reference/*.md summaries when needed
-4. Do not treat the case library as runtime rules; use it only when I ask for examples
+4. Do not treat local research or validation material as runtime rules
 ```
 
 If you do it manually, the minimum rule file is `.cursor/rules/oh-my-gh-writing.mdc`, derived from `SKILL.md`'s Workflow, Scenario Routing, and Shared Principles.
@@ -126,7 +126,7 @@ flowchart LR
 
 Default behavior:
 
-- Produce a complete GitHub-ready draft by default
+- Produce a GitHub-ready draft by default
 - Produce a usable draft when information is missing, then mark the gaps clearly
 - Preserve existing heading levels, date formats, labels, and link style when updating documents
 - Prefer badge navigation, copyable commands, conditional sections, and compact structure for README work
@@ -138,18 +138,10 @@ Default behavior:
 | [`SKILL.md`](./SKILL.md) | Skill entry: scenario routing and shared principles |
 | [`INDEX.md`](./INDEX.md) | Full index for all 18 scenarios and their standards |
 | [`reference/`](./reference) | Standardized writing rules, field order, checklists, and output validation |
-| [`案例/`](./案例) | Current case library: source links, excerpts, and structure notes from real repositories |
-| [`效果测试/`](./效果测试) | Fixed prompts and standard outputs across all 18 scenarios |
+| [`assets/`](./assets) | README logo and project presentation assets |
+| [`LICENSE`](./LICENSE) | MIT license |
 
 Final output hygiene and evidence checks live in [`reference/output-validation.md`](./reference/output-validation.md).
-
-## Viewing Cases
-
-Open [`案例/README.md`](./案例/README.md) for the 18-scenario case index. GitHub renders these Markdown files directly. README cases also include a rendered-view link to the original repository README, while the raw-source link remains available for comparing the underlying Markdown.
-
-## Viewing Output Results
-
-Open [`效果测试/README.md`](./效果测试/README.md) to compare the fixed input prompt and standard output for each scenario. This directory is useful for reviewing how skill changes affect real generated artifacts.
 
 ## Acknowledgements
 
@@ -157,4 +149,4 @@ README badge and GitHub visual-entry rules were informed by [pudding0503/github-
 
 ## License
 
-[MIT](./LICENSE)
+[MIT](./LICENSE). The logo in `assets/` is part of this repository and is distributed under the same MIT license unless otherwise noted.

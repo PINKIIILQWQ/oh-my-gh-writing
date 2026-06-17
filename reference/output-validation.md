@@ -15,7 +15,7 @@
 - 整篇 Markdown 外层代码块，例如 ```markdown 包住完整 README 或 Issue。
 - 复制污染，例如多余反引号、终端残留、无关 docker-compose 片段、半截代码块。
 - 来源清单、测试元数据、case source、input prompt，除非用户明确要求测试报告。
-- 已勾选但没有证据的 checklist。
+- 已勾选但没有证据的 checklist。模板、未来工作和待验证事项默认保持未勾选。
 
 允许内容：
 
@@ -74,7 +74,8 @@
 - [ ] 没有整篇外层 `markdown` 代码块。
 - [ ] 没有对话性前言或结尾。
 - [ ] 没有无关代码片段、终端残留或复制污染。
-- [ ] 没有未解释的 `#XXXXX`、`Fixes #`、`TODO`、`TBD`。
+- [ ] 没有未解释、不可行动、或不适合提交位置的 `#XXXXX`、`Fixes #`、`TODO`、`TBD`。
+- [ ] 没有把待验证 checklist 预先打钩；只有用户输入、仓库、diff 或工具输出证明完成的项目才勾选。
 - [ ] YAML 能被解析；多文件展示和单文件落盘边界清楚。
 - [ ] Markdown 表格、代码块、details 和 alert 没有破坏渲染。
 - [ ] PR/Review 没有声明未实际运行的测试。
@@ -86,7 +87,7 @@
 长期测试集建议使用三层文件：
 
 ```text
-效果测试/<编号>-<scenario>/
+local-validation/<编号>-<scenario>/
   input.md
   output.raw.md
   output.clean.md

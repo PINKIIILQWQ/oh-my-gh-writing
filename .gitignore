@@ -63,3 +63,9 @@ venv/
 
 # GitHub template cache — we pull raw content, not clone repos
 .github-template-cache/
+
+# Local research and validation material kept out of the public release
+/DOCS/
+/test/
+/案例/
+/效果测试/

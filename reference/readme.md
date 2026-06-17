@@ -130,7 +130,7 @@ README 有些选择会显著改变最终效果，不能全靠 agent 猜。触发
 | Agent | 支持方式 | 如何接入 |
 |-------|----------|----------|
 | Hermes Agent | 直接安装 `SKILL.md` URL 或 skill 文件夹 | `hermes skills install <raw-skill-url> --name <skill-name>`；需要引用文件时安装完整文件夹 |
-| Gemini CLI | 直接安装 skill 仓库或本地文件夹 | `gemini skills install <repo-url>`；本地链接在会话内使用 `/skills link <path>` |
+| Gemini CLI / Antigravity CLI | 需按当前官方文档确认 | Gemini CLI 当前支持 Agent Skills，但可用范围正在迁移；发布前确认应使用 Gemini CLI 还是 Antigravity CLI |
 | Cursor | 需要改写为 Project Rules | 把入口规则写入 `.cursor/rules/<skill-name>.mdc`，并复制需要的 `reference/` |
 ```
 
@@ -251,8 +251,9 @@ ln -sfn "$PWD" "$HOME/.agents/skills/<skill-name>"
 如果必须使用占位符，先说明：
 
 ```markdown
-# Replace <repo-url> with this repository or your fork.
-git clone <repo-url> <project-name>
+# Replace REPO_URL with this repository or your fork.
+REPO_URL=https://github.com/owner/project.git
+git clone "$REPO_URL" project-name
 ```
 
 不要把含 `<owner>`、`<repo>` 的命令直接放在“复制即可运行”的位置。

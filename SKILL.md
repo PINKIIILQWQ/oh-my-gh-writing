@@ -1,6 +1,6 @@
 ---
 name: oh-my-gh-writing
-description: "GitHub writing standards for AI agents. Use when drafting or revising GitHub issues, pull request descriptions, code reviews, commit messages, README/CONTRIBUTING/CHANGELOG docs, release notes, migration guides, RFCs, issue forms, or PR templates with progressive reference loading."
+description: "Use when drafting or revising GitHub issues, PR descriptions, code reviews, commit messages, README, CHANGELOG, release notes, migration guides, RFCs, issue forms, or PR templates."
 ---
 
 # oh-my-gh-writing
@@ -16,8 +16,7 @@ Use this skill as a GitHub writing operating system for AI agents. Keep the runt
 5. Read the matching `reference/*.md` file before writing the final output.
 6. Read [`reference/weapons.md`](./reference/weapons.md) only when badges, alerts, collapsible logs, Mermaid, tables, emoji, Star History, or other formatting tools are needed.
 7. Read [`INDEX.md`](./INDEX.md) only for full repository navigation or maintenance work.
-8. When the user asks for real-world examples, case studies, or reference projects for a scenario, read the matching file in [`案例/`](./案例/) after loading the scenario reference.
-9. Before finalizing, apply [`reference/output-validation.md`](./reference/output-validation.md) mentally to remove wrapper text, test metadata, stray fences, unsupported facts, and scenario-routing mistakes.
+8. Before finalizing, apply [`reference/output-validation.md`](./reference/output-validation.md) mentally to remove wrapper text, test metadata, stray fences, unsupported facts, and scenario-routing mistakes.
 
 Do not load every reference file for a normal writing request. Do not expose reference-project analysis in user-facing output unless the user explicitly asks for rationale or sources. Do not add test-gallery metadata such as `scenario`, `case-sources`, or `input-prompt` unless the task explicitly asks for a test output gallery.
 
@@ -69,9 +68,9 @@ If the user asks to turn a PR, implementation, or postmortem into a future reque
 4. Put critical information in the body, not only behind links.
 5. Record reproducible context: versions, platform, environment, affected commands, expected behavior, actual behavior, and tests where relevant.
 6. Use clear, neutral language. Prefer precise impact and verification over persuasion.
-7. Treat user-provided facts, repository files, tool output, and verified links as the only factual source. Use `案例/` files for structure and style only; do not copy their project facts into the user's artifact.
+7. Treat user-provided facts, repository files, tool output, and verified links as the only factual source. Do not copy project facts from unrelated reference material into the user's artifact.
 8. Do not invent CI status, versions, compatibility, benchmarks, screenshots, links, issue numbers, PR numbers, file paths, line numbers, package-manager install commands, release URLs, deprecation dates, migration timelines, or support matrices. If evidence is unavailable, omit the claim or label it as `TODO` / `TBD`.
-9. Do not mark checkboxes as completed unless the user, diff, repository, or tool output proves they are done. Use unchecked boxes or a `Verification to run` section for unknown work.
+9. Do not mark checkboxes as completed unless the user, diff, repository, or tool output proves they are done. Use unchecked boxes, "N/A", or a `Verification to run` section for unknown work. Templates and future-work checklists should stay unchecked by default.
 10. Do not turn hypotheses into conclusions. Use "Suspected cause", "Likely cause", or "Needs confirmation" unless the root cause is shown by code, logs, or the user's explicit statement.
 11. Use fenced code blocks with language hints for multi-line code, config, diffs, YAML, JSON, logs, or templates. Do not use raw HTML `<code>` blocks to force formatting.
 12. For templates and YAML, separate display wrappers from file content. In chat, use headings plus fenced blocks when multiple files are requested; when editing or generating a single target file, produce valid file content without explanatory wrappers.
@@ -90,7 +89,7 @@ When the scenario is README, follow `reference/readme.md` and apply these extra 
 - Before producing or editing a README from source code, confirm whether the user wants a local markdown draft, a chat-only draft, or a remote repository update. Do not assume upload is authorized because source code is available.
 - For long README work, ask up to three option questions before drafting when choices are not obvious: delivery path, audience/tone, and optional visual elements such as badges, emoji, screenshots, or Star History.
 - For skill repositories, explain that the project is a portable writing skill, not a standalone app, README generator, or GitHub integration.
-- Keep runtime files focused: `SKILL.md` and `reference/` define behavior; `案例/` is supporting material for examples and calibration, not the primary runtime source.
+- Keep runtime files focused: `SKILL.md` and `reference/` define behavior. Local research, examples, and validation outputs are not public runtime inputs unless the repository intentionally publishes them.
 - Use badges only when they answer a real reader question and link to evidence.
 - Keep install commands copyable. If a repository owner or URL is unknown, label the placeholder clearly instead of presenting it as a ready-to-run command.
 - If bilingual README content is requested, prefer separate files for non-trivial documents, such as `README.md` plus `README.en.md`. Do not stack a full Chinese README above a full English README in the same file.
@@ -114,5 +113,4 @@ When updating this skill repository itself:
 - Put scenario-specific rules in the matching `reference/*.md`.
 - Keep `INDEX.md` as navigation only.
 - Keep local research and validation runs out of tracked repository content unless they are intentionally published.
-- Keep `案例/` useful for review by linking source, raw text, rendered view, and a short structure analysis where applicable.
 - Update README-facing lessons in `reference/readme.md` so future README drafts do not repeat the same mistakes.
