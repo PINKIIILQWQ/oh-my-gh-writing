@@ -103,7 +103,7 @@ When the scenario is README, follow `reference/readme.md` and apply these extra 
   1. Delivery: local markdown file, chat-only draft, or remote repository update after review?
   2. Style and visuals: documentation-first, community/product style, title/heading emoji, badges, screenshots, or Star History?
   3. Required supplements: languages, official website, docs/demo URL, screenshot assets, reference projects or acknowledgements, file index, or any other must-include content?
-- For README languages, default to English plus the language used in the user conversation. If the user asks for multilingual output without specifying languages, use English, Simplified Chinese, Spanish, Hindi, Arabic, French, Portuguese, Japanese, and Korean unless the user adjusts the list.
+- For README languages, default to English plus the language used in the user conversation. If the user uses English, do not list a second default language. If the user asks for multilingual output without specifying languages, ask which languages to include as part of the README three-question prompt; do not default to a large language set.
 - For skill repositories, explain that the project is a portable writing skill, not a standalone app, README generator, or GitHub integration.
 - Keep runtime files focused: `SKILL.md` and `reference/` define behavior. Local research, examples, and validation outputs are not public runtime inputs unless the repository intentionally publishes them.
 - Use badges only when they answer a real reader question and link to evidence.
