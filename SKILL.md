@@ -11,7 +11,7 @@ GitHub writing skill for AI agents. Routes requests to the right scenario, loads
 
 1. Identify the scenario from the user's request (see scenario routing below)
 2. Estimate artifact length. If >120 lines / 4,000 CJK chars / 2,500 words, ask a brief scope question. For README, use the three-question prompt instead
-3. Read the matching `reference/*.md` before writing
+3. **Critical:** explicitly open and read the matching `reference/*.md` before writing user-facing output. Do not infer or guess the reference contents from memory
 4. Read [`reference/weapons.md`](./reference/weapons.md) when badges, alerts, Mermaid, collapsible blocks, emoji, or tables are needed
 5. Read [`reference/badge-catalog.md`](./reference/badge-catalog.md) only when the user asks for detailed badge design or exact shields.io URL patterns
 6. Read [`reference/emoji-guide.md`](./reference/emoji-guide.md) when emoji is requested or the repo already uses emoji
@@ -21,17 +21,19 @@ GitHub writing skill for AI agents. Routes requests to the right scenario, loads
 
 Progressive disclosure: load only the files needed for the current task. Do not preload everything.
 
+Language fidelity: match the user's requested language or the target repository's primary language. The language of this skill's instructions or reference files must not leak into the final GitHub artifact.
+
 ## Quick Start
 
-以下是三种典型用法，用户说出类似指令即可触发对应场景：
+Typical requests and expected routing:
 
-| 用户指令 | 匹配场景 | Agent 行为 |
-|---------|---------|-----------|
-| `帮我写个 Bug Report，描述 Vite 构建时 Module not found 的问题` | Bug Report | 加载 `reference/bug-report.md` → 输出复现步骤、环境、期望/实际对比。只有用户要求按目标仓库提交或填写仓库模板时，才读取目标仓库模板字段 |
-| `review 这个 PR：https://github.com/owner/repo/pull/123` | Code Review | 加载 `reference/code-review.md` → 读 diff → 按文件/行号输出发现，标注 blocking/major/minor/nit |
-| `给这个项目写个 README` | README | 加载 `reference/readme.md` → 先问三个问题（交付方式、风格、补充内容）→ 按标准结构输出 |
+| User request | Scenario | Agent behavior |
+|--------------|----------|----------------|
+| `Write a Bug Report for a Vite "Module not found" build failure` | Bug Report | Read `reference/bug-report.md`, then output reproduction steps, environment, expected/actual behavior. Read target repository issue templates only when the user asks to submit to or fill that repository's template |
+| `Review this PR: https://github.com/owner/repo/pull/123` | Code Review | Read `reference/code-review.md`, inspect the diff, then report findings by file/line with blocking/major/minor/nit severity |
+| `Write a README for this project` | README | Read `reference/readme.md`, ask the three README questions first, then draft using the README standard |
 
-每个场景的具体标准文件见下方表格。
+Each scenario's standard file is listed below.
 
 ## Scenario Routing
 

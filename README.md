@@ -23,7 +23,7 @@ GitHub 写作最难的不是把 Markdown 写满，而是判断当前场景该写
 - **先路由，再写作**：区分 Feature Request、Enhancement、Discussion、Feature PR、Bug Fix PR、Refactor PR，减少“把 issue 写成 PR”的常见错误。
 - **按需读取 reference**：`SKILL.md` 只做轻量入口，具体规则按场景加载，避免把所有模板一次性塞进上下文。
 - **内置事实边界**：版本号、命令、CI、兼容性、release 信息、issue/PR 编号等不能确认时不编造，改用 TODO / TBD / 待确认。
-- **输出可直接提交**：强调去掉对话前言、外层代码块、测试标题、复制残留和无关内容，让结果更像真实 GitHub artifact。
+- **输出更接近可提交 artifact**：强调去掉对话前言、外层代码块、测试标题、复制残留和无关内容，让结果更像真实 GitHub artifact。
 - **参考真实开源项目**：规则吸收了 GitHub Docs、Conventional Commits、Keep a Changelog，以及 React、Kubernetes、TypeScript、Node.js、Tailwind CSS 等成熟项目的写作习惯。
 
 ## 适用范围
@@ -119,7 +119,9 @@ oh-my-gh-writing/
     ├── shared-principles.md  # 通用输出质量规则
     ├── output-validation.md  # 输出验收清单
     ├── source-catalog.md     # 参考来源目录
-    └── weapons / emoji / badge helpers
+    ├── weapons.md            # GitHub Markdown 工具
+    ├── emoji-guide.md        # 常用 emoji 场景索引
+    └── badge-catalog.md      # badge 模式目录
 ```
 
 ## 贡献

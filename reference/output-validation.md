@@ -6,7 +6,7 @@
 
 ## 输出清洁
 
-目标输出必须是 GitHub artifact 本身。
+目标输出必须是 GitHub artifact 本身。对话中的说明、文件分隔标题和 fenced block 只允许作为“多文件展示包装”，不得混入任何单个目标文件的实际内容。
 
 禁止内容：
 
@@ -19,7 +19,7 @@
 
 允许内容：
 
-- YAML 多文件展示时，在对话中用 `## File: ...` 加 fenced `yaml`。
+- 用户要求在聊天中展示多个 YAML/Markdown 文件时，可以用 `## File: ...` 加对应 fenced block；这些标题和外层 fence 只是展示包装，不属于文件内容。
 - 单个目标文件落盘时，只写文件内容，不加 Markdown 包装。
 - Issue/PR 正文需要代码、日志、diff、配置时，使用局部 fenced code block。
 
