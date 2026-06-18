@@ -34,6 +34,8 @@ REQUIRED_FIELDS = {
     "expected_output",
     "assertions",
 }
+OPTIONAL_FIELDS = {"expected_file", "must_contain", "must_not_contain"}
+ALLOWED_EVAL_FIELDS = REQUIRED_FIELDS | OPTIONAL_FIELDS
 
 
 def load_json(path: Path) -> object:
@@ -48,6 +50,24 @@ def require_list(value: object, field: str, eval_id: str) -> list[object]:
     if not isinstance(value, list):
         raise ValueError(f"{eval_id}: `{field}` must be an array")
     return value
+
+
+def require_non_empty_string(value: object, field: str, context: str) -> str:
+    if not isinstance(value, str) or not value.strip():
+        raise ValueError(f"{context}: `{field}` must be a non-empty string")
+    return value
+
+
+def require_string_list(value: object, field: str, context: str, *, non_empty: bool) -> list[str]:
+    items = require_list(value, field, context)
+    if non_empty and not items:
+        raise ValueError(f"{context}: `{field}` must not be empty")
+    for index, item in enumerate(items, start=1):
+        if not isinstance(item, str) or not item.strip():
+            raise ValueError(
+                f"{context}: `{field}` item #{index} must be a non-empty string"
+            )
+    return items
 
 
 def validate_trigger_queries() -> None:
@@ -74,12 +94,11 @@ def validate_trigger_queries() -> None:
                 f"trigger query #{index}: fields must be exactly `query` and `should_trigger`"
             )
 
-        query = item["query"]
-        if not isinstance(query, str) or not query.strip():
-            raise ValueError(f"trigger query #{index}: `query` must be a non-empty string")
-        if query in seen_queries:
+        query = require_non_empty_string(item["query"], "query", f"trigger query #{index}")
+        normalized_query = " ".join(query.split()).casefold()
+        if normalized_query in seen_queries:
             raise ValueError(f"trigger query #{index}: duplicate query")
-        seen_queries.add(query)
+        seen_queries.add(normalized_query)
 
         should_trigger = item["should_trigger"]
         if not isinstance(should_trigger, bool):
@@ -112,34 +131,48 @@ def validate_evals() -> None:
         if not isinstance(item, dict):
             raise ValueError(f"eval #{index}: item must be an object")
 
-        eval_id = str(item.get("id", f"#{index}"))
+        extra_fields = sorted(set(item) - ALLOWED_EVAL_FIELDS)
+        if extra_fields:
+            raise ValueError(
+                f"eval #{index}: unsupported fields: {', '.join(extra_fields)}"
+            )
+
+        raw_eval_id = item.get("id", f"#{index}")
+        eval_id = raw_eval_id if isinstance(raw_eval_id, str) else f"#{index}"
         missing = sorted(REQUIRED_FIELDS - item.keys())
         if missing:
             raise ValueError(f"{eval_id}: missing required fields: {', '.join(missing)}")
+        eval_id = require_non_empty_string(item["id"], "id", eval_id)
         if eval_id in seen_ids:
             raise ValueError(f"{eval_id}: duplicate id")
         seen_ids.add(eval_id)
 
-        if item["output_type"] not in OUTPUT_TYPES:
+        require_non_empty_string(item["prompt"], "prompt", eval_id)
+        require_non_empty_string(item["expected_output"], "expected_output", eval_id)
+
+        output_type = require_non_empty_string(item["output_type"], "output_type", eval_id)
+        if output_type not in OUTPUT_TYPES:
             raise ValueError(f"{eval_id}: unsupported output_type `{item['output_type']}`")
 
-        expected_route = item["expected_route"]
-        if not isinstance(expected_route, str):
-            raise ValueError(f"{eval_id}: `expected_route` must be a string")
+        expected_route = require_non_empty_string(
+            item["expected_route"], "expected_route", eval_id
+        )
         if expected_route.startswith("references/") and not (ROOT / expected_route).is_file():
             raise ValueError(f"{eval_id}: expected route not found: {expected_route}")
 
-        risk_category = require_list(item["risk_category"], "risk_category", eval_id)
-        if not risk_category:
-            raise ValueError(f"{eval_id}: `risk_category` must not be empty")
+        risk_category = require_string_list(
+            item["risk_category"], "risk_category", eval_id, non_empty=True
+        )
+        if len(set(risk_category)) != len(risk_category):
+            raise ValueError(f"{eval_id}: `risk_category` must not contain duplicates")
         for category in risk_category:
             if category not in RISK_CATEGORIES:
                 raise ValueError(f"{eval_id}: unsupported risk category `{category}`")
 
-        require_list(item["assertions"], "assertions", eval_id)
+        require_string_list(item["assertions"], "assertions", eval_id, non_empty=True)
         for optional in ("must_contain", "must_not_contain"):
             if optional in item:
-                require_list(item[optional], optional, eval_id)
+                require_string_list(item[optional], optional, eval_id, non_empty=False)
 
         expected_file = item.get("expected_file")
         if expected_file is None and (
@@ -149,8 +182,7 @@ def validate_evals() -> None:
                 f"{eval_id}: containment checks require an `expected_file` fixture"
             )
         if expected_file is not None:
-            if not isinstance(expected_file, str):
-                raise ValueError(f"{eval_id}: `expected_file` must be a string")
+            expected_file = require_non_empty_string(expected_file, "expected_file", eval_id)
             expected_path = EVALS / expected_file
             if not expected_path.is_file():
                 raise ValueError(f"{eval_id}: expected file not found: evals/{expected_file}")

@@ -4,7 +4,7 @@ Adds CSV export for reports.
 
 ## Motivation
 
-Users need a downloadable report format for offline review and sharing.
+TBD: user motivation was not provided.
 
 ## Changes
 
