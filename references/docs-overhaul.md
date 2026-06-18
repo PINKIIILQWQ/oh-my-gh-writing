@@ -14,7 +14,7 @@ Do not push docs, open PRs, or publish docs sites unless explicitly requested.
 
 ## Decision Rule
 
-If docs changes are release-facing, include a changelog docs entry. If the user only wants homepage copy, route to Homepage refresh and do not create a full docs launch.
+If docs changes are release-facing, include a changelog docs entry. If the user only wants a repository README homepage refresh, route to Repository homepage refresh and do not create a full docs launch.
 
 ## Required Package Question
 
@@ -24,7 +24,7 @@ Ask this when the Decision Rule cannot safely choose a package option:
 Which docs overhaul package should I prepare?
 
 A. Docs PR pack (Recommended): Documentation PR + README updates + changelog docs entry if release-facing.
-B. Homepage refresh: README + file index + contribution/docs entry.
+B. Repository homepage refresh: README + file index + contribution/docs entry.
 C. Full docs launch: README + CONTRIBUTING docs + Documentation PR + release/changelog notes only when confirmed.
 
 Add any supplements in the same reply: target audience, docs site URL, outdated sections, new file index, screenshots, release impact, language requirements, or style preference.
@@ -35,7 +35,7 @@ Add any supplements in the same reply: target audience, docs site URL, outdated 
 | Option | Load |
 |--------|------|
 | Docs PR pack | `documentation-pr.md`, `readme.md`; `changelog.md` only when release-facing |
-| Homepage refresh | `readme.md`, `contributing.md` when contribution/docs entry is needed |
+| Repository homepage refresh | `readme.md`, `contributing.md` when contribution/docs entry is needed |
 | Full docs launch | `readme.md`, `contributing.md`, `documentation-pr.md`; `release-notes.md` or `changelog.md` only with release impact |
 
 Read `weapons.md` when file indexes, badges, diagrams, or visual tables are needed.

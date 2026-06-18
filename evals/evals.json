@@ -14,6 +14,12 @@
         "Output does not imply publishing, tagging, or creating a GitHub Release.",
         "Unknown version date, compare URL, and release URL are omitted or marked TBD."
       ],
+      "must_contain": [
+        "v1.2.0",
+        "TBD",
+        "Highlights",
+        "Changes"
+      ],
       "must_not_contain": [
         "git tag",
         "gh release create",

@@ -14,7 +14,7 @@ Do not open discussions, issues, or PRs unless explicitly requested.
 
 ## Decision Rule
 
-If no decision exists yet, default to Proposal pack. Generate Implementation pack only when the user provides an accepted design, diff, or explicit implementation intent.
+If no decision exists yet, default to Proposal pack. Generate Implementation pack only when the user provides a branch, diff, PR, or explicitly asks for a draft implementation PR artifact. An accepted design alone should produce RFC or Feature Request follow-up, not Feature PR.
 
 ## Required Package Question
 
@@ -35,7 +35,7 @@ Add any supplements in the same reply: target audience, current constraints, pre
 | Option | Load |
 |--------|------|
 | Proposal pack | `discussion.md`, `rfc.md`, `feature-request.md` |
-| Implementation pack | `rfc.md`, `feature-pr.md` |
+| Implementation pack | `rfc.md`; add `feature-pr.md` only when branch, diff, PR, or explicit draft PR request exists |
 | Full lifecycle pack | `discussion.md`, `rfc.md`, `feature-request.md`, `feature-pr.md` |
 
 ## Evidence Rules

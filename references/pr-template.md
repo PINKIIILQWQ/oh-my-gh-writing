@@ -52,6 +52,26 @@ Recommended template style:
 - Do not pre-check boxes.
 - Do not make every optional item required.
 
+## Good Output Shape
+
+```markdown
+## Summary
+
+## Testing
+- [ ] Not run
+- [ ] Manual test
+- [ ] Automated tests
+
+## Related issues
+Fixes #
+```
+
+## Common Failure
+
+- Pre-filling `Fixes #123`.
+- Adding project-specific CI, release-note, label, or cherry-pick instructions without evidence.
+- Checking boxes by default.
+
 ## Strong Sources
 
 | Source | Useful Pattern |
