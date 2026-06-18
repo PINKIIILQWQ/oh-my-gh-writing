@@ -12,6 +12,10 @@ Write local drafts under `.github-writing/proposal-to-implementation/<version-or
 
 Do not open discussions, issues, or PRs unless explicitly requested.
 
+## Decision Rule
+
+If no decision exists yet, default to Proposal pack. Generate Implementation pack only when the user provides an accepted design, diff, or explicit implementation intent.
+
 ## Required Package Question
 
 Ask this before drafting unless the user already chose:

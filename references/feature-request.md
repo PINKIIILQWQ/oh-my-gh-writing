@@ -29,6 +29,25 @@ Feature requests describe the desired future state. Do not write as if the featu
 - Do not invent performance numbers, roadmap dates, labels, owners, issue numbers, or compatibility commitments.
 - Do not prescribe one implementation as final when the request is still exploratory.
 
+## Good Output Shape
+
+```markdown
+## Problem
+Users cannot export filtered reports for offline sharing.
+
+## Proposed solution
+Add CSV export for the current filtered report view.
+
+## Open questions
+- Should exports include hidden columns?
+```
+
+## Common Failure
+
+- Writing as if the requested feature has already shipped.
+- Adding implementation details when no diff exists.
+- Claiming backwards compatibility without API or configuration evidence.
+
 ## Strong Sources
 
 | Source | Useful Pattern |

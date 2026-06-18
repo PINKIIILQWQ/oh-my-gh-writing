@@ -12,6 +12,10 @@ Write local drafts under `.github-writing/project-launch/<version-or-date>/`. If
 
 Do not publish the repository, push files, create releases, or open PRs unless explicitly requested.
 
+## Decision Rule
+
+If the repository has no public contribution policy, default to Public launch pack. If license status is unknown, mark it `TBD` and do not add public-readiness claims.
+
 ## Required Package Question
 
 Ask this before drafting unless the user already chose:

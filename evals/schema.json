@@ -11,7 +11,15 @@
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["id", "prompt", "expected_output"],
+        "required": [
+          "id",
+          "prompt",
+          "expected_route",
+          "output_type",
+          "risk_category",
+          "expected_output",
+          "assertions"
+        ],
         "properties": {
           "id": {
             "type": "string"
@@ -19,11 +27,58 @@
           "prompt": {
             "type": "string"
           },
+          "expected_route": {
+            "type": "string"
+          },
+          "output_type": {
+            "type": "string",
+            "enum": [
+              "markdown-artifact",
+              "yaml-artifact",
+              "multi-file-package",
+              "routing-only"
+            ]
+          },
+          "risk_category": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "routing",
+                "format",
+                "evidence",
+                "cleanliness",
+                "workflow",
+                "language"
+              ]
+            },
+            "minItems": 1,
+            "uniqueItems": true
+          },
           "expected_output": {
             "type": "string"
           },
           "expected_file": {
             "type": "string"
+          },
+          "assertions": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "minItems": 1
+          },
+          "must_contain": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "must_not_contain": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           }
         },
         "additionalProperties": false

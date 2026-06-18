@@ -12,6 +12,10 @@ Write local drafts under `.github-writing/docs-overhaul/<version-or-date>/`. If 
 
 Do not push docs, open PRs, or publish docs sites unless explicitly requested.
 
+## Decision Rule
+
+If docs changes are release-facing, include a changelog docs entry. If the user only wants homepage copy, route to Homepage refresh and do not create a full docs launch.
+
 ## Required Package Question
 
 Ask this before drafting unless the user already chose:

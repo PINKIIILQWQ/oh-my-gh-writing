@@ -67,6 +67,8 @@ venv/
 # Local research and validation material kept out of the public release
 /DOCS/
 /test/
+
+# Legacy local scratch directory from earlier iterations; do not publish.
 /reference/
 /evals/runs/
 /.local-validation/

@@ -9,9 +9,10 @@ These files are not runtime references. Agents should not load them for normal G
 | Path | Purpose |
 |------|---------|
 | `trigger-queries.json` | Positive and negative prompts for checking whether `SKILL.md` should trigger |
-| `evals.json` | Output-quality tasks and expected behavior summaries |
-| `schema.json` | Minimal schema for `evals.json` |
+| `evals.json` | Output-quality tasks with expected routes, output types, assertions, and containment checks |
+| `schema.json` | Schema for `evals.json` fields such as `expected_route`, `output_type`, `risk_category`, `assertions`, `must_contain`, and `must_not_contain` |
 | `expected/` | Short clean outputs that illustrate passable artifact shape |
+| `runs/` | Local raw validation outputs only; ignored by git |
 
 ## Labels
 
@@ -30,5 +31,6 @@ Use these labels when reviewing eval results:
 
 - Keep expected outputs short and sanitized.
 - Do not add copied private artifacts, large case collections, or raw local validation logs.
+- Keep raw run outputs under `evals/runs/`; they are local-only and ignored. Public run results need a reviewed manifest, grading notes, and sanitized excerpts.
 - Add or update an eval when changing `SKILL.md` routing, a workflow pack, or an output hygiene rule.
 - Expected outputs should demonstrate artifact shape, not claim project-specific facts.

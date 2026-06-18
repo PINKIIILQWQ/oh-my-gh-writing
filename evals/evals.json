@@ -4,48 +4,183 @@
     {
       "id": "single-release-notes-routing",
       "prompt": "Write release notes for v1.2.0 using these merged PR summaries: fix login redirect, add CSV export, update docs.",
-      "expected_output": "Routes to the single Release Notes standard, not the Version Release workflow pack. Output contains highlights, changes, upgrade notes only when evidenced, and no publishing action."
+      "expected_route": "references/release-notes.md",
+      "output_type": "markdown-artifact",
+      "risk_category": ["routing", "evidence"],
+      "expected_output": "Routes to the single Release Notes standard, not the Version Release workflow pack. Output contains highlights, changes, upgrade notes only when evidenced, and no publishing action.",
+      "assertions": [
+        "Output is release notes, not a release workflow package.",
+        "Output does not imply publishing, tagging, or creating a GitHub Release.",
+        "Unknown version date, compare URL, and release URL are omitted or marked TBD."
+      ],
+      "must_not_contain": [
+        "git tag",
+        "gh release create",
+        "Published",
+        "Full Changelog: https://github.com/"
+      ]
     },
     {
       "id": "version-release-pack-routing",
       "prompt": "Prepare the full v1.2.0 release materials for this repository.",
+      "expected_route": "references/version-release.md",
+      "output_type": "multi-file-package",
+      "risk_category": ["routing", "workflow", "evidence"],
       "expected_output": "Routes to Version Release. Asks one package-selection question with three options and a recommended default, includes optional supplements, defaults to local .github-writing/version-release/v1.2.0/ drafts, and includes package-manifest.md.",
-      "expected_file": "expected/version-release.manifest.md"
+      "expected_file": "expected/version-release.manifest.md",
+      "assertions": [
+        "Output asks or records the selected release package option.",
+        "Output defaults to local .github-writing/version-release/v1.2.0/ drafts.",
+        "Output includes package-manifest.md.",
+        "Output does not publish, tag, open a PR, or modify remote state by default."
+      ],
+      "must_contain": [
+        "package-manifest.md",
+        ".github-writing/version-release/v1.2.0/"
+      ],
+      "must_not_contain": [
+        "git push",
+        "gh release create",
+        "opened PR"
+      ]
     },
     {
       "id": "readme-required-scope",
       "prompt": "Write a README for this agent skill repository.",
+      "expected_route": "references/readme.md",
+      "output_type": "markdown-artifact",
+      "risk_category": ["evidence", "format"],
       "expected_output": "Uses the README three-choice prompt unless the user skips questions. README output includes applicability scope, install or usage, file index, evidence-bounded support claims, and no links to nonexistent README language files.",
-      "expected_file": "expected/readme-scope-excerpt.clean.md"
+      "expected_file": "expected/readme-scope-excerpt.clean.md",
+      "assertions": [
+        "README includes project applicability scope.",
+        "README separates built-in features from applicability scope.",
+        "README does not link nonexistent README language files.",
+        "Support claims are evidenced or marked To confirm."
+      ],
+      "must_contain": [
+        "Applicability"
+      ],
+      "must_not_contain": [
+        "README.es.md",
+        "README.fr.md",
+        "fully supported everywhere"
+      ]
     },
     {
       "id": "issue-pr-routing-boundary",
       "prompt": "I have a PR postmortem. Rewrite it as a feature request for future work, not as a PR description.",
-      "expected_output": "Routes by requested output to Feature Request. Does not produce a PR description. Includes motivation, use cases, proposed behavior, alternatives, compatibility, and open questions as evidence allows."
+      "expected_route": "references/feature-request.md",
+      "output_type": "markdown-artifact",
+      "risk_category": ["routing"],
+      "expected_output": "Routes by requested output to Feature Request. Does not produce a PR description. Includes motivation, use cases, proposed behavior, alternatives, compatibility, and open questions as evidence allows.",
+      "assertions": [
+        "Output is framed as a future request, not an implemented PR.",
+        "Output does not include PR testing claims.",
+        "Output does not imply the feature has shipped."
+      ],
+      "must_not_contain": [
+        "## Testing",
+        "This PR",
+        "Implemented"
+      ]
     },
     {
       "id": "output-cleanliness",
       "prompt": "Create a GitHub bug report from this messy note: app crashes after clicking Export, expected CSV download, actual blank page, Chrome 125, macOS, logs attached.",
+      "expected_route": "references/bug-report.md",
+      "output_type": "markdown-artifact",
+      "risk_category": ["cleanliness", "evidence"],
       "expected_output": "Produces only the GitHub bug report artifact. No chat preface, no outer markdown fence, no test title, no unrelated code block, and no invented root cause.",
-      "expected_file": "expected/bug-report.clean.md"
+      "expected_file": "expected/bug-report.clean.md",
+      "assertions": [
+        "Output contains expected and actual behavior.",
+        "Output includes environment facts provided by the prompt.",
+        "Output does not invent a root cause.",
+        "Output has no chat preface or outer markdown fence."
+      ],
+      "must_contain": [
+        "Expected behavior",
+        "Actual behavior",
+        "Chrome 125"
+      ],
+      "must_not_contain": [
+        "```markdown",
+        "Here is",
+        "Root cause:"
+      ]
     },
     {
       "id": "issue-form-no-invented-labels",
       "prompt": "Create a GitHub Issue Form YAML for reporting bugs. I have not told you our label names.",
+      "expected_route": "references/issue-form-yaml.md",
+      "output_type": "yaml-artifact",
+      "risk_category": ["format", "evidence"],
       "expected_output": "Produces valid GitHub issue-form YAML and omits labels, projects, assignees, SIGs, version lists, and required fields that are not evidenced.",
-      "expected_file": "expected/issue-form-yaml.clean.yml"
+      "expected_file": "expected/issue-form-yaml.clean.yml",
+      "assertions": [
+        "Output parses as YAML.",
+        "Output uses GitHub issue form supported fields.",
+        "Output omits labels, projects, assignees, SIGs, and version lists.",
+        "Output does not make optional policy confirmations required without maintainer input."
+      ],
+      "must_contain": [
+        "name:",
+        "body:"
+      ],
+      "must_not_contain": [
+        "labels:",
+        "projects:",
+        "assignees:",
+        "SIG"
+      ]
     },
     {
       "id": "feature-pr-testing-boundary",
       "prompt": "Write a feature PR description for adding CSV export to reports. I have not run tests.",
+      "expected_route": "references/feature-pr.md",
+      "output_type": "markdown-artifact",
+      "risk_category": ["evidence"],
       "expected_output": "Routes to Feature PR and marks testing as not run instead of claiming verification.",
-      "expected_file": "expected/feature-pr.clean.md"
+      "expected_file": "expected/feature-pr.clean.md",
+      "assertions": [
+        "Output contains a Testing section.",
+        "Testing section says Not run or not provided.",
+        "Output does not claim tests passed.",
+        "Output does not invent issue IDs."
+      ],
+      "must_contain": [
+        "Testing",
+        "Not run"
+      ],
+      "must_not_contain": [
+        "All tests pass",
+        "CI passed",
+        "Fixes #123"
+      ]
     },
     {
       "id": "code-review-findings-first",
       "prompt": "Review this diff and lead with actionable findings before summary.",
+      "expected_route": "references/code-review.md",
+      "output_type": "markdown-artifact",
+      "risk_category": ["format", "evidence"],
       "expected_output": "Routes to Code Review. Findings appear before summary, are severity-labeled, and avoid invented line numbers or tests.",
-      "expected_file": "expected/code-review-finding.clean.md"
+      "expected_file": "expected/code-review-finding.clean.md",
+      "assertions": [
+        "Findings appear before summary.",
+        "Each finding has severity and actionable fix.",
+        "Output does not invent tests or CI status.",
+        "Output says when behavior cannot be verified."
+      ],
+      "must_contain": [
+        "Findings"
+      ],
+      "must_not_contain": [
+        "LGTM",
+        "Approved",
+        "CI passed"
+      ]
     }
   ]
 }

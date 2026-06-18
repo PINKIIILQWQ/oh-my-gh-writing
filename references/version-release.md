@@ -12,6 +12,10 @@ Write local drafts under `.github-writing/version-release/<version-or-date>/`. I
 
 Do not publish releases, create GitHub releases, push tags, open PRs, or modify remote state unless explicitly requested.
 
+## Decision Rule
+
+If version, changelog source, and release scope are known, default to Standard release pack without asking. Ask only when major/breaking status, migration need, or output target is ambiguous.
+
 ## Required Package Question
 
 Ask this before drafting unless the user already chose:

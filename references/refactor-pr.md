@@ -28,6 +28,25 @@ Refactor PRs must make the no-behavior-change claim explicit and honest. If beha
 - Do not invent tests, benchmarks, file paths, issue IDs, or migration notes.
 - Do not frame a feature or bug fix as a refactor.
 
+## Good Output Shape
+
+```markdown
+## Summary
+- Splits report export helpers into a dedicated module.
+
+## Behavior impact
+No behavior change intended.
+
+## Testing
+Not run (not provided).
+```
+
+## Common Failure
+
+- Hiding behavior changes under a refactor label.
+- Claiming performance benefits without measurements.
+- Omitting tests or risk areas for broad file moves.
+
 ## Strong Sources
 
 | Source | Useful Pattern |

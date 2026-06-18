@@ -30,6 +30,23 @@ Feature PR descriptions explain what changed, why, and how it was verified. Do n
 - Do not mark checklist items as completed without evidence.
 - Do not describe unimplemented future work as shipped behavior.
 
+## Good Output Shape
+
+```markdown
+## Summary
+- Adds CSV export for the filtered report view.
+- Keeps the export action disabled until report data is loaded.
+
+## Testing
+Not run (not provided).
+```
+
+## Common Failure
+
+- Claiming tests, CI, screenshots, or benchmarks passed without evidence.
+- Writing the PR as a future feature request instead of implemented behavior.
+- Inventing linked issues, release notes, or file paths.
+
 ## Strong Sources
 
 | Source | Useful Pattern |

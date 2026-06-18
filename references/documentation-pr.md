@@ -26,6 +26,22 @@ Documentation PRs should not be written like code PRs. If code behavior changes,
 - Do not invent docs build results, screenshots, links, issue IDs, or code behavior.
 - Do not claim user-facing runtime behavior changed unless code changes prove it.
 
+## Good Output Shape
+
+```markdown
+## Summary
+- Documents the CSV export workflow in the reporting guide.
+
+## Validation
+Docs preview not run (not provided).
+```
+
+## Common Failure
+
+- Claiming a docs build, link check, or screenshot exists without evidence.
+- Implying runtime behavior changed when the PR is docs-only.
+- Inventing docs URLs, issue IDs, or navigation paths.
+
 ## Strong Sources
 
 | Source | Useful Pattern |

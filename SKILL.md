@@ -1,6 +1,6 @@
 ---
 name: oh-my-gh-writing
-description: "Use this skill when the user wants to draft, revise, or package GitHub-facing artifacts: issues, pull request descriptions, code reviews, commit messages, README/CONTRIBUTING/CHANGELOG docs, release notes, migration guides, RFCs, issue forms, PR templates, or multi-artifact workflows such as releases, open-source launches, contribution setup, bug-fix workflows, breaking changes, and docs overhauls. Do not use for generic prose, UI copy, or code implementation unless the output is a GitHub artifact."
+description: "Draft and revise GitHub-facing writing artifacts: issues, PR descriptions, code reviews, commit messages, README/CONTRIBUTING/CHANGELOG docs, release notes, migration guides, RFCs, issue forms, PR templates, and local multi-file release/launch/contribution workflow packs. Use only for GitHub repository artifacts; do not use for generic prose, UI copy, marketing, or code implementation."
 ---
 
 # oh-my-gh-writing

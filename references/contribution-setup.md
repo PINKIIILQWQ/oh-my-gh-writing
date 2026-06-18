@@ -12,6 +12,10 @@ Write local drafts under `.github-writing/contribution-setup/<version-or-date>/`
 
 Do not create GitHub labels, settings, PRs, or repository files unless explicitly requested.
 
+## Decision Rule
+
+If the user asks to accept outside contributors and no existing process is known, default to Community intake pack. If setup/test commands or governance are unknown, mark them `TBD` instead of inventing.
+
 ## Required Package Question
 
 Ask this before drafting unless the user already chose:

@@ -28,6 +28,26 @@ Discussions invite input. Do not make final decisions, assign owners, promise ti
 - Do not claim consensus, votes, maintainer approval, roadmap status, or implementation dates.
 - Do not turn a discussion into a release announcement or PR description.
 
+## Good Output Shape
+
+```markdown
+## Topic
+Should the CLI support a project-level configuration file?
+
+## Options
+- Keep command-line flags only.
+- Add a local config file.
+
+## Questions
+- Which options need to be shareable across a team?
+```
+
+## Common Failure
+
+- Deciding for the community before feedback exists.
+- Promising roadmap timing or maintainer ownership.
+- Converting an exploratory discussion into a feature request or PR.
+
 ## Strong Sources
 
 | Source | Useful Pattern |

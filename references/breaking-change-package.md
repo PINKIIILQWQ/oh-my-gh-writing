@@ -12,6 +12,10 @@ Write local drafts under `.github-writing/breaking-change-package/<version-or-da
 
 Do not publish, tag, open PRs, or modify remote state unless explicitly requested.
 
+## Decision Rule
+
+If breaking-change intent is not confirmed, ask before creating Migration Guide or major-release claims. Default to Pre-implementation pack when design is still under discussion.
+
 ## Required Package Question
 
 Ask this before drafting unless the user already chose:

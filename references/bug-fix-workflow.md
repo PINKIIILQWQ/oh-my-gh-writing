@@ -12,6 +12,10 @@ Write local drafts under `.github-writing/bug-fix-workflow/<version-or-date>/`. 
 
 Do not open issues, branches, PRs, or reviews unless explicitly requested.
 
+## Decision Rule
+
+If no fix diff exists, do not generate Bug Fix PR as final; generate Issue-only triage or a draft PR shell marked `DRAFT_ONLY`.
+
 ## Required Package Question
 
 Ask this before drafting unless the user already chose:

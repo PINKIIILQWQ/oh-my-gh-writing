@@ -16,6 +16,8 @@
   <a href="README.md">English</a> · 简体中文
 </p>
 
+> 英文 README 是 canonical 版本；本文档是同步维护的简体中文译本。
+
 **oh-my-gh-writing** 是一个面向 AI Agent 的 GitHub 写作 Skill。它帮助 agent 起草更干净的 GitHub Issue、PR 描述、Review、Commit、README、CHANGELOG、Release Notes、Migration Guide、RFC、Issue Form、PR Template，以及多文件 workflow pack。
 
 核心思路很简单：先判断请求属于哪类 GitHub 写作任务，再只加载对应标准，明确事实边界，最后输出更少需要清理的 GitHub artifact 或本地草稿包。
@@ -91,17 +93,23 @@ Workflow pack 只做编排：先询问你需要哪种材料包，再按需读取
 
 ## 🤖 Agent 支持
 
-| Agent / Tool | 推荐接入方式 | 说明 |
-| --- | --- | --- |
-| [Codex](https://developers.openai.com/codex/skills) | 克隆到 `$HOME/.agents/skills/oh-my-gh-writing` 或项目 `.agents/skills/oh-my-gh-writing` | 原生 Agent Skills 模型 |
-| [Claude Code](https://code.claude.com/docs/en/skills) | 克隆或软链接到 `~/.claude/skills/oh-my-gh-writing` | 使用 `SKILL.md` frontmatter |
-| [Gemini CLI](https://geminicli.com/docs/cli/skills/) | 按当前文档确认 skill 路径和安装命令 | Gemini / Antigravity 可用范围正在变化，使用前核对官方文档 |
-| [Antigravity](https://antigravity.google/) | 按当前文档确认 rules 或 skill 支持 | 以最新官方说明为准 |
-| [Hermes](https://hermes-agent.nousresearch.com/docs/guides/work-with-skills) | 将完整目录放入 Hermes skills 目录 | HTTP 单文件安装只覆盖 `SKILL.md`，不包含 `references/` |
-| [Cursor](https://cursor.com/docs) | 将路由和选定 reference 改写为项目规则 | 只放当前任务相关的场景规则 |
-| [GitHub Copilot](https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-repository-instructions) | 改写为 Copilot repository instructions 或 agent skill 文件 | 默认不能直接加载完整 skill 目录 |
-| [Continue](https://docs.continue.dev/customize/rules) | 改写为 `.continue/rules/*.md` | 按场景拆分比一个大规则更稳 |
-| [Windsurf / Devin Desktop](https://docs.windsurf.com) | 按当前 memories / rules 文档确认 | 路径和支持细节需使用前核对 |
+### 直接安装 / 目录兼容
+
+| Agent / Tool | 支持类型 | 推荐接入方式 | 维护者已验证 | 最后检查 | 说明 |
+| --- | --- | --- | --- | --- | --- |
+| [Codex](https://developers.openai.com/codex/skills) | 原生 skill 目录 | `$HOME/.agents/skills/oh-my-gh-writing` 或项目 `.agents/skills/oh-my-gh-writing` | 是 | 2026-06-18 | 推荐保留完整目录 |
+| [Claude Code](https://code.claude.com/docs/en/skills) | 原生 skill 目录 | `~/.claude/skills/oh-my-gh-writing` | 暂未 | 2026-06-18 | 基于当前文档；保留完整目录 |
+| [Hermes](https://hermes-agent.nousresearch.com/docs/guides/work-with-skills) | 目录兼容 / 单文件受限 | Hermes skills 目录 | 暂未 | 2026-06-18 | HTTP 单文件安装只覆盖 `SKILL.md`，不包含 `references/` |
+
+### 适配目标
+
+| 工具 | 支持类型 | 推荐适配方式 | 维护者已验证 | 最后检查 | 说明 |
+| --- | --- | --- | --- | --- | --- |
+| [Gemini CLI / Antigravity](https://geminicli.com/docs/cli/skills/) | 按当前文档确认 | 仅在当前文档确认支持时使用 skill 目录或 rules | 暂未 | 2026-06-18 | 可用范围正在变化 |
+| [Cursor](https://cursor.com/docs) | 项目规则 / 知识库 | 改写路由和选定 references | 暂未 | 2026-06-18 | 只保留相关场景规则 |
+| [GitHub Copilot](https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-repository-instructions) | 仓库指令 / agent skill 文件 | 改写为 `.github/copilot-instructions.md` 或 `.github/instructions/*.instructions.md` | 暂未 | 2026-06-18 | 默认不能直接加载完整目录 |
+| [Continue](https://docs.continue.dev/customize/rules) | Rules | 改写为 `.continue/rules/*.md` | 暂未 | 2026-06-18 | 按场景拆分 |
+| [Windsurf / Devin Desktop](https://docs.windsurf.com) | 按当前文档确认 | 如当前支持，可适配为 memories/rules | 暂未 | 2026-06-18 | 使用前确认路径 |
 
 ## 📂 文件
 
@@ -124,9 +132,27 @@ Workflow pack 只做编排：先询问你需要哪种材料包，再按需读取
 - [`evals/evals.json`](evals/evals.json) 记录输出质量任务，覆盖路由、输出清洁、事实边界和 workflow pack 行为。
 - [`evals/expected/`](evals/expected) 保存短小 clean outputs，用来展示合格 artifact 的形态。
 
+## 🧪 示例：有证据边界的 PR 测试说明
+
+输入：
+
+```text
+Write a feature PR for CSV export. I have not run tests.
+```
+
+输出片段：
+
+```markdown
+## Testing
+
+Not run (not provided).
+```
+
 ## 📚 参考来源
 
 本项目标准参考 [Agent Skills specification](https://agentskills.io/specification)、[GitHub Docs](https://docs.github.com/en)、[Conventional Commits](https://www.conventionalcommits.org/)、[Keep a Changelog](https://keepachangelog.com/)、[Google Engineering Practices](https://google.github.io/eng-practices/review/)，以及 React、Kubernetes、TypeScript、Node.js、Tailwind CSS、Angular、VS Code 等成熟开源项目的写作模式。完整来源见 [`references/source-catalog.md`](references/source-catalog.md)。
+
+source catalog 不会被复制到用户产物中；它只记录结构模式和维护依据。
 
 ## 📄 许可证
 

@@ -28,6 +28,25 @@ Enhancements refine an existing feature. If the request introduces a new API, ma
 - Do not invent benchmarks, compatibility commitments, config keys, or labels.
 - Do not overstate impact when the user only described a local inconvenience.
 
+## Good Output Shape
+
+```markdown
+## Current behavior
+Search results reset whenever the filter panel is closed.
+
+## Desired improvement
+Preserve active filters while the user navigates within the search page.
+
+## Acceptance criteria
+- Existing filters remain selected after closing and reopening the panel.
+```
+
+## Common Failure
+
+- Treating a wholly new API or workflow as a small enhancement.
+- Claiming benchmark or UX improvements without evidence.
+- Omitting the current behavior, which makes the improvement impossible to judge.
+
 ## Strong Sources
 
 | Source | Useful Pattern |

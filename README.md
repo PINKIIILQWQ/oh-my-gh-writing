@@ -91,17 +91,23 @@ Workflow packs are thin orchestrators. They ask which package shape you want, th
 
 ## 🤖 Agent Support
 
-| Agent / Tool | Recommended setup | Notes |
-| --- | --- | --- |
-| [Codex](https://developers.openai.com/codex/skills) | Clone to `$HOME/.agents/skills/oh-my-gh-writing` or project `.agents/skills/oh-my-gh-writing` | Native Agent Skills model |
-| [Claude Code](https://code.claude.com/docs/en/skills) | Clone or symlink to `~/.claude/skills/oh-my-gh-writing` | Uses `SKILL.md` frontmatter |
-| [Gemini CLI](https://geminicli.com/docs/cli/skills/) | Check current skill paths and install commands | Gemini / Antigravity availability is changing; verify current docs |
-| [Antigravity](https://antigravity.google/) | Check current rules or skill support | Use the current official documentation |
-| [Hermes](https://hermes-agent.nousresearch.com/docs/guides/work-with-skills) | Keep the full folder under a Hermes skills directory | Single-file HTTP installs only cover `SKILL.md`, not `references/` |
-| [Cursor](https://cursor.com/docs) | Adapt the router and selected references into project rules | Keep only relevant scenario rules |
-| [GitHub Copilot](https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-repository-instructions) | Adapt to Copilot repository instructions or agent skill files | Does not directly consume this full skill folder by default |
-| [Continue](https://docs.continue.dev/customize/rules) | Adapt to `.continue/rules/*.md` | Split by scenario instead of one large rule |
-| [Windsurf / Devin Desktop](https://docs.windsurf.com) | Check current memories / rules documentation | Path and support details should be confirmed before use |
+### Direct / Folder-Compatible Install
+
+| Agent / Tool | Support type | Recommended setup | Maintainer verified | Last checked | Notes |
+| --- | --- | --- | --- | --- | --- |
+| [Codex](https://developers.openai.com/codex/skills) | Native skill directory | `$HOME/.agents/skills/oh-my-gh-writing` or project `.agents/skills/oh-my-gh-writing` | Yes | 2026-06-18 | Full folder recommended |
+| [Claude Code](https://code.claude.com/docs/en/skills) | Native skill directory | `~/.claude/skills/oh-my-gh-writing` | Not yet | 2026-06-18 | Based on current docs; keep the full folder |
+| [Hermes](https://hermes-agent.nousresearch.com/docs/guides/work-with-skills) | Folder-compatible / single-file limited | Hermes skills directory | Not yet | 2026-06-18 | HTTP single-file install only covers `SKILL.md`, not `references/` |
+
+### Adaptation Targets
+
+| Tool | Support type | Recommended adaptation | Maintainer verified | Last checked | Notes |
+| --- | --- | --- | --- | --- | --- |
+| [Gemini CLI / Antigravity](https://geminicli.com/docs/cli/skills/) | Check current docs | Use a skill directory or rules only if current docs confirm support | Not yet | 2026-06-18 | Availability is changing |
+| [Cursor](https://cursor.com/docs) | Project rules / knowledge base | Adapt the router and selected references | Not yet | 2026-06-18 | Keep only relevant scenario rules |
+| [GitHub Copilot](https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-repository-instructions) | Repository instructions / agent skill files | Adapt to `.github/copilot-instructions.md` or `.github/instructions/*.instructions.md` | Not yet | 2026-06-18 | Does not directly consume the full folder by default |
+| [Continue](https://docs.continue.dev/customize/rules) | Rules | Adapt to `.continue/rules/*.md` | Not yet | 2026-06-18 | Split by scenario |
+| [Windsurf / Devin Desktop](https://docs.windsurf.com) | Check current docs | Adapt to memories/rules if supported | Not yet | 2026-06-18 | Confirm the path before use |
 
 ## 📂 Files
 
@@ -124,9 +130,27 @@ This repository includes lightweight eval fixtures for skill maintenance:
 - [`evals/evals.json`](evals/evals.json) records output-quality tasks for routing, cleanliness, evidence boundaries, and workflow-pack behavior.
 - [`evals/expected/`](evals/expected) stores short clean outputs that illustrate passable artifact shape.
 
+## 🧪 Example: Evidence-Bounded PR Testing
+
+Input:
+
+```text
+Write a feature PR for CSV export. I have not run tests.
+```
+
+Output excerpt:
+
+```markdown
+## Testing
+
+Not run (not provided).
+```
+
 ## 📚 Sources
 
 The standards reference the [Agent Skills specification](https://agentskills.io/specification), [GitHub Docs](https://docs.github.com/en), [Conventional Commits](https://www.conventionalcommits.org/), [Keep a Changelog](https://keepachangelog.com/), [Google Engineering Practices](https://google.github.io/eng-practices/review/), and selected patterns from mature open-source repositories such as React, Kubernetes, TypeScript, Node.js, Tailwind CSS, Angular, and VS Code. See [`references/source-catalog.md`](references/source-catalog.md).
+
+The source catalog is not copied into user artifacts; it records structural patterns and maintenance evidence only.
 
 ## 📄 License
 
