@@ -14,7 +14,7 @@ Do not open issues, branches, PRs, or reviews unless explicitly requested.
 
 ## Decision Rule
 
-If no fix diff exists, do not generate Bug Fix PR as final; generate Issue-only triage or a draft PR shell marked `DRAFT_ONLY`.
+If no fix diff exists, do not generate Bug Fix PR as final; generate Issue-only triage.
 
 ## Required Package Question
 

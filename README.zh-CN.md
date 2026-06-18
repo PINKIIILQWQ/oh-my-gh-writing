@@ -89,7 +89,7 @@ npx skills add PINKIIILQWQ/oh-my-gh-writing -g -a claude-code
 | 7 个 workflow pack | Version Release、Project Launch、Contribution Setup、Bug Fix Workflow、Proposal to Implementation、Breaking Change Package、Docs Overhaul |
 | 质量附录 | shared principles、output validation、badge patterns、emoji guide、GitHub Markdown tools、source catalog |
 
-Workflow pack 只做编排：先询问你需要哪种材料包，再按需读取单项 artifact 标准。默认输出到本地 `.github-writing/...` 草稿目录，不默认发布 release、推 tag、开 PR 或修改远端状态。
+Workflow pack 只做编排：能安全判断时会推断最合适的材料包，无法安全判断时才询问，并把所选方案记录到 `package-manifest.md`。默认输出到本地 `.github-writing/...` 草稿目录，不默认发布 release、推 tag、开 PR 或修改远端状态。
 
 ## 🤖 Agent 支持
 

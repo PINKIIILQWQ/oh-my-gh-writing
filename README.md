@@ -87,7 +87,7 @@ This project is a portable Markdown rulebase for AI agents and rule-based coding
 | 7 workflow packs | Version Release, Project Launch, Contribution Setup, Bug Fix Workflow, Proposal to Implementation, Breaking Change Package, Docs Overhaul |
 | Quality appendices | Shared principles, output validation, badge patterns, emoji guide, GitHub Markdown tools, source catalog |
 
-Workflow packs are thin orchestrators. They ask which package shape you want, then load only the selected single-artifact standards. By default they write local drafts under `.github-writing/...`; they do not publish releases, push tags, open PRs, or modify remote state unless you explicitly ask.
+Workflow packs are thin orchestrators. They infer the safest package shape when possible, ask only when the package shape is ambiguous, and record the selected option in `package-manifest.md`. By default they write local drafts under `.github-writing/...`; they do not publish releases, push tags, open PRs, or modify remote state unless you explicitly ask.
 
 ## 🤖 Agent Support
 

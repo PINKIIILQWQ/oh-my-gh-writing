@@ -72,7 +72,7 @@ Use Mermaid only when a relationship, flow, state machine, or sequence becomes c
 
 Common patterns:
 
-```markdown
+````markdown
 ```mermaid
 flowchart TD
   Request --> Route
@@ -80,7 +80,7 @@ flowchart TD
   Reference --> Draft
   Draft --> Validate
 ```
-```
+````
 
 Rules:
 

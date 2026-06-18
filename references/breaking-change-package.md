@@ -35,7 +35,7 @@ Add any supplements in the same reply: old behavior, new behavior, affected user
 | Option | Load |
 |--------|------|
 | Major release pack | `rfc.md`, `migration-guide.md`, `changelog.md`, `release-notes.md` |
-| Pre-implementation pack | `rfc.md`, `feature-pr.md` or `refactor-pr.md` based on implementation shape |
+| Pre-implementation pack | `rfc.md`; add `migration-guide.md` only when breaking intent is confirmed; add `feature-pr.md` or `refactor-pr.md` only when a branch, diff, or explicit PR draft request exists |
 | Release-only pack | `migration-guide.md`, `changelog.md`, `release-notes.md` |
 
 Read `shared-principles.md` because breaking-change facts are high risk.

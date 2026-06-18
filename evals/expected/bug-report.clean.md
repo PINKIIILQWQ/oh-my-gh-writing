@@ -1,6 +1,6 @@
 ## Summary
 
-Exporting a report as CSV opens a blank page instead of downloading the file.
+Clicking Export results in a blank page instead of downloading a CSV.
 
 ## Environment
 
@@ -10,9 +10,8 @@ Exporting a report as CSV opens a blank page instead of downloading the file.
 
 ## Steps to reproduce
 
-1. Open the Reports page.
-2. Click **Export CSV**.
-3. Observe the page after the export action.
+1. Click **Export**.
+2. Observe the page after the export action.
 
 ## Expected behavior
 

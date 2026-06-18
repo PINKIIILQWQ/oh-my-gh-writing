@@ -8,6 +8,7 @@
       "output_type": "markdown-artifact",
       "risk_category": ["routing", "evidence"],
       "expected_output": "Routes to the single Release Notes standard, not the Version Release workflow pack. Output contains highlights, changes, upgrade notes only when evidenced, and no publishing action.",
+      "expected_file": "expected/release-notes.clean.md",
       "assertions": [
         "Output is release notes, not a release workflow package.",
         "Output does not imply publishing, tagging, or creating a GitHub Release.",
@@ -22,7 +23,7 @@
     },
     {
       "id": "version-release-pack-routing",
-      "prompt": "Prepare the full v1.2.0 release materials for this repository.",
+      "prompt": "Prepare the full v1.2.0 release materials for this repository using these merged PR summaries as the changelog source and release scope: fix login redirect, add CSV export, update docs.",
       "expected_route": "references/version-release.md",
       "output_type": "multi-file-package",
       "risk_category": ["routing", "workflow", "evidence"],
@@ -74,6 +75,7 @@
       "output_type": "markdown-artifact",
       "risk_category": ["routing"],
       "expected_output": "Routes by requested output to Feature Request. Does not produce a PR description. Includes motivation, use cases, proposed behavior, alternatives, compatibility, and open questions as evidence allows.",
+      "expected_file": "expected/feature-request-from-postmortem.clean.md",
       "assertions": [
         "Output is framed as a future request, not an implemented PR.",
         "Output does not include PR testing claims.",
@@ -175,7 +177,8 @@
       ],
       "must_contain": [
         "Findings",
-        "src/export.ts"
+        "src/export.ts",
+        "cannot be verified"
       ],
       "must_not_contain": [
         "LGTM",

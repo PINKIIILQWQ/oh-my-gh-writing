@@ -7,6 +7,10 @@
 
 - Is an empty filtered report expected to download an empty CSV or show an in-app empty state?
 
+## Test gaps
+
+Behavior for empty rows cannot be verified from the provided diff alone.
+
 ## Change Summary
 
-The diff adds CSV export behavior for reports.
+The diff changes CSV column selection in `buildCsv`.
