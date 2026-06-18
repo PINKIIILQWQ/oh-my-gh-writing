@@ -68,6 +68,7 @@ venv/
 /DOCS/
 /test/
 /reference/
+/evals/runs/
 /.local-validation/
 /.github-writing/
 /案例/
