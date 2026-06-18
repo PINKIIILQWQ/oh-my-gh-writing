@@ -34,6 +34,31 @@ Badge 写法遵循 [`weapons.md`](./weapons.md)。如果用户要求精细 badge
 
 Overview、Quick Start、Usage、Configuration、Architecture 等核心解释区应有实质内容，不能只有一句空泛口号。License、Contributing、Links、Acknowledgements 等入口型小节可以很短；如果某节没有真实信息，合并或省略。
 
+## Project Applicability Scope
+
+每个 README 都必须写清项目适用范围。它回答“这个项目适用于哪些用户、环境、框架、平台、产品、运行时、集成方式或 artifact 类型”，不是功能列表、营销卖点、使用场景或案例集合。
+
+简单项目可在 Overview / Usage 中用一段话或 3–5 个 bullets 写清。工具、框架、AI 产品、插件、模板、SDK、平台类项目应使用独立的 `适用范围` / `Applicability` / `Supported Targets` / `Compatibility` 小节或表格。
+
+不要把项目内置能力当成项目适用范围。例如本项目的 18 个 GitHub 写作场景是 product features / built-in scenarios；项目适用范围应说明它适用于哪些 agent products、rule/custom-instruction hosts、GitHub writing workflows, and adaptation modes。
+
+适用范围必须基于仓库证据、用户输入、配置文件、依赖、现有文档或官方来源。不确定的范围使用 `TBD` / `To confirm`，或省略；不要把“理论上可用”写成“已支持”。
+
+常用适用范围词条：
+
+- **Libraries / frameworks:** language, runtime, framework versions, package manager, modules/plugins, target developers
+- **CLI / developer tools:** operating systems, shells, runtime, package manager, config files, local/CI workflows
+- **Web apps / SaaS:** browsers, deployment targets, user roles, auth providers, data sources, admin/user workflows
+- **APIs / SDKs:** protocol, auth method, client languages, server runtime, API version, environments, rate limits
+- **Agent skills / prompt packs / AI products:** agent products, host apps, load paths, native skill support, adapted rules/custom instructions, unsupported direct loading
+- **MCP servers / plugins / extensions:** host clients, transport, permissions, auth, local/remote boundary, supported commands
+- **GitHub Actions / CI templates:** events, runners, permissions, required secrets, target repository types
+- **Data / model projects:** input formats, output formats, tasks, model/runtime requirements, hardware, dataset/license boundaries
+- **Mobile / desktop apps:** OS versions, architectures, device types, distribution channels
+- **Infrastructure / DevOps:** cloud providers, Kubernetes/Terraform/Helm versions, regions/environments, required permissions
+- **Design systems / UI kits:** UI frameworks, styling stack, component libraries, design tools, theming modes
+- **Docs / templates / rulebases:** target artifact types, audience, required host format, conversion/adaptation paths
+
 ## Scenario Index
 
 If scenarios < 20, list all rows in a complete table. If ≥20 scenarios, replace with a link: "See all scenarios in [INDEX.md](../INDEX.md)". Do not enumerate 20+ items inline.
@@ -88,4 +113,4 @@ If scenarios < 20, list all rows in a complete table. If ≥20 scenarios, replac
 
 1. **Delivery:** local markdown file, chat-only draft, or remote repository update after review?
 2. **Style & visuals:** documentation-first, community/product style, title/heading emoji, badges, screenshots, or Star History?
-3. **Required supplements:** languages, official website, docs/demo URL, screenshot assets, reference projects or acknowledgements, file index, or any other must-include content?
+3. **Required supplements:** project applicability scope, supported frameworks/products/platforms/runtimes/integrations, languages, official website, docs/demo URL, screenshot assets, reference projects or acknowledgements, file index, or any other must-include content?

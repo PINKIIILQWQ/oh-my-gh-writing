@@ -84,7 +84,7 @@ If the user asks to turn a PR or postmortem into a future request, route by the 
 | File | When to load |
 |------|-------------|
 | [`reference/shared-principles.md`](./reference/shared-principles.md) | Fact-heavy, high-risk, cross-scenario, or quality-sensitive requests |
-| [`reference/readme.md`](./reference/readme.md) | README scenario — badge rules, multi-language, table formatting, section completeness, acknowledgements, contributing, form priority, support table, 3-question prompt |
+| [`reference/readme.md`](./reference/readme.md) | README scenario — badge rules, multi-language, table formatting, section completeness, project applicability scope, acknowledgements, contributing, form priority, support table, 3-question prompt |
 | [`reference/bug-report.md`](./reference/bug-report.md) | Bug Report scenario |
 | [`reference/feature-request.md`](./reference/feature-request.md) | Feature Request scenario |
 | [`reference/enhancement.md`](./reference/enhancement.md) | Enhancement scenario |

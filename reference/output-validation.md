@@ -53,6 +53,7 @@
 | PR 描述声称测试已通过但没有证据 | FACT_CHECK_REQUIRED |
 | Discussion 已经替用户决定方案 | DRAFT_ONLY |
 | README 整篇包在代码块里 | FORMAT_FAIL |
+| README 缺少项目适用范围，或把功能/场景当成适用范围 | FACT_CHECK_REQUIRED |
 | YAML 文件带外层解释标题并要直接落盘 | FORMAT_FAIL |
 
 ## 验收标签
@@ -78,6 +79,7 @@
 - [ ] 没有把待验证 checklist 预先打钩；只有用户输入、仓库、diff 或工具输出证明完成的项目才勾选。
 - [ ] YAML 能被解析；多文件展示和单文件落盘边界清楚。
 - [ ] Markdown 表格、代码块、details 和 alert 没有破坏渲染。
+- [ ] README 已明确项目适用范围，且没有把功能列表、内置场景或案例集合当成适用范围。
 - [ ] PR/Review 没有声明未实际运行的测试。
 - [ ] 场景路由和用户请求一致。
 - [ ] 高风险事实都有来源，或者已标为待确认。
