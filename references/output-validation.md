@@ -66,6 +66,28 @@ When evidence is missing:
 | FACT_CHECK_REQUIRED | Fact-heavy content lacks sources or confirmation |
 | FORMAT_FAIL | Format is not submit-ready |
 
+## Post-output Submission Notes
+
+Validation is silent by default. Do not add scores.
+
+Add a short `Submission Notes` block after the artifact only when one of these is true:
+
+- The output is a large or multi-file artifact, such as README, CONTRIBUTING, CHANGELOG, release materials, migration guide, RFC, issue forms, PR template sets, or any composite workflow package.
+- The output contains unresolved `TODO`, `TBD`, `To confirm`, unrun tests, missing required target-repository fields, or unsupported publication/install/support claims.
+- The route is correct but the artifact is still `DRAFT_ONLY`, `PASS_AFTER_CLEANUP`, or `FACT_CHECK_REQUIRED`.
+- The user explicitly asks whether the result is ready to submit.
+
+Do not estimate readiness by word count or line count. Use structural signals: number of files, number of target locations, fact density, required confirmations, publishing risk, and whether the draft can be pasted without misleading maintainers.
+
+For small artifacts with no obvious issue, omit the notes. When notes are needed, keep them outside the target artifact:
+
+```markdown
+## Submission Notes
+
+- Blocking: confirm the test command before submitting.
+- Suggested: replace `TBD` with the real target version.
+```
+
 ## Pre-submission Checklist
 
 - [ ] No test title or test metadata.

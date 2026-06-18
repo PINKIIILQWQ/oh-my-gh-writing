@@ -24,7 +24,7 @@ Use this skill for GitHub-facing writing artifacts and local GitHub writing draf
 9. Read `references/badge-catalog.md` only when the user asks for detailed badge design or exact shields.io URL patterns.
 10. Read `references/emoji-guide.md` when emoji is requested or the target repository already uses emoji.
 11. Read `references/shared-principles.md` when the request is fact-heavy, high-risk, cross-scenario, or when output quality rules need clarification.
-12. Before finalizing, use `references/output-validation.md` as a silent revision checklist. If the draft fails a check, revise it before delivering. Do not output validation notes unless the user asks.
+12. Before finalizing, use `references/output-validation.md` as a silent revision checklist. If the draft fails a check, revise it before delivering. Keep validation silent for small clean artifacts; add brief post-output submission notes only when the artifact is complex, high-risk, or has obvious blockers.
 
 If local file reading is unavailable, ask the user to provide the relevant `references/*.md` content or state that references are unavailable and produce only a conservative draft from the visible routing rules and shared principles. Do not pretend to have read files you cannot access.
 
