@@ -38,14 +38,15 @@
 
 | الأيقونة | Agent / Tool | الإعداد الموصى به | ملاحظات / وثائق |
 |---------|--------------|-------------------|-----------------|
-| <img src="https://openai.com/favicon.ico" width="18" height="18" alt="OpenAI"> | Codex | استنساخ إلى `$HOME/.agents/skills/oh-my-gh-writing` أو `.agents/skills/oh-my-gh-writing` | [Codex Agent Skills](https://developers.openai.com/codex/skills) |
-| <img src="https://claude.ai/favicon.ico" width="18" height="18" alt="Claude"> | Claude Code | استنساخ أو symlink إلى `~/.claude/skills/oh-my-gh-writing` أو `.claude/skills/oh-my-gh-writing` | [Claude Code Skills](https://code.claude.com/docs/en/skills) |
-| <img src="https://geminicli.com/favicon.ico" width="18" height="18" alt="Gemini CLI"> | Gemini CLI / Antigravity CLI | الوثائق تذكر `~/.gemini/skills/` و`~/.agents/skills/` و`gemini skills install` | تحقق من [الوثائق الرسمية](https://geminicli.com/docs/cli/skills/) الحالية |
-| <img src="https://hermes-agent.nousresearch.com/favicon.ico" width="18" height="18" alt="Hermes"> | Hermes | ضعه في `~/.hermes/skills/<category>/oh-my-gh-writing` | تثبيت HTTP لملف واحد مناسب فقط لـ `SKILL.md`؛ احتفظ بـ `reference/`. راجع [Hermes Skills](https://hermes-agent.nousresearch.com/docs/guides/work-with-skills) |
-| <img src="https://cursor.com/favicon.ico" width="18" height="18" alt="Cursor"> | Cursor | حوّل الموجه والقواعد المطلوبة إلى project rules أو knowledge base | راجع [Cursor Docs](https://cursor.com/docs) |
-| <img src="https://github.com/favicon.ico" width="18" height="18" alt="GitHub"> | GitHub Copilot | حوّلها إلى `.github/copilot-instructions.md` أو `.github/instructions/*.instructions.md` أو بنية skill | [Copilot Custom Instructions](https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-repository-instructions) |
-| <img src="https://docs.continue.dev/favicon.ico" width="18" height="18" alt="Continue"> | Continue | حوّلها إلى `.continue/rules/*.md`؛ الفصل حسب السيناريو أكثر ثباتا | [Continue Rules](https://docs.continue.dev/customize/rules) |
-| <img src="https://docs.windsurf.com/favicon.ico" width="18" height="18" alt="Windsurf"> | Windsurf / Devin Desktop | الوثائق الحالية تذكر memories وrules للتخصيص | تحقق من الطريقة الحالية في [Windsurf / Devin Docs](https://docs.windsurf.com) |
+| <a href="https://developers.openai.com/codex/skills"><img src="https://www.google.com/s2/favicons?domain=openai.com&sz=64" width="24" height="24" alt="OpenAI"></a> | [Codex](https://developers.openai.com/codex/skills) | استنساخ إلى `$HOME/.agents/skills/oh-my-gh-writing` أو `.agents/skills/oh-my-gh-writing` | [Codex Agent Skills](https://developers.openai.com/codex/skills) |
+| <a href="https://code.claude.com/docs/en/skills"><img src="https://www.google.com/s2/favicons?domain=claude.ai&sz=64" width="24" height="24" alt="Claude"></a> | [Claude Code](https://code.claude.com/docs/en/skills) | استنساخ أو symlink إلى `~/.claude/skills/oh-my-gh-writing` أو `.claude/skills/oh-my-gh-writing` | [Claude Code Skills](https://code.claude.com/docs/en/skills) |
+| <a href="https://geminicli.com/docs/cli/skills/"><img src="https://www.google.com/s2/favicons?domain=geminicli.com&sz=64" width="24" height="24" alt="Gemini CLI"></a> | [Gemini CLI](https://geminicli.com/docs/cli/skills/) | الوثائق تذكر `~/.gemini/skills/` و`~/.agents/skills/` و`gemini skills install` | تحقق من [الوثائق الرسمية](https://geminicli.com/docs/cli/skills/) الحالية |
+| <a href="https://antigravity.google/"><img src="https://www.google.com/s2/favicons?domain=antigravity.google&sz=64" width="24" height="24" alt="Antigravity"></a> | [Antigravity CLI](https://antigravity.google/) | تحقق من مسار دمج skills / rules في الوثائق الحالية | [Google Antigravity](https://antigravity.google/) |
+| <a href="https://hermes-agent.nousresearch.com/docs/guides/work-with-skills"><img src="https://www.google.com/s2/favicons?domain=hermes-agent.nousresearch.com&sz=64" width="24" height="24" alt="Hermes"></a> | [Hermes](https://hermes-agent.nousresearch.com/docs/guides/work-with-skills) | ضعه في `~/.hermes/skills/<category>/oh-my-gh-writing` | تثبيت HTTP لملف واحد مناسب فقط لـ `SKILL.md`؛ احتفظ بـ `reference/`. راجع [Hermes Skills](https://hermes-agent.nousresearch.com/docs/guides/work-with-skills) |
+| <a href="https://cursor.com/docs"><img src="https://www.google.com/s2/favicons?domain=cursor.com&sz=64" width="24" height="24" alt="Cursor"></a> | [Cursor](https://cursor.com/docs) | حوّل الموجه والقواعد المطلوبة إلى project rules أو knowledge base | راجع [Cursor Docs](https://cursor.com/docs) |
+| <a href="https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-repository-instructions"><img src="https://www.google.com/s2/favicons?domain=github.com&sz=64" width="24" height="24" alt="GitHub"></a> | [GitHub Copilot](https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-repository-instructions) | حوّلها إلى `.github/copilot-instructions.md` أو `.github/instructions/*.instructions.md` أو بنية skill | [Copilot Custom Instructions](https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-repository-instructions) |
+| <a href="https://docs.continue.dev/customize/rules"><img src="https://www.google.com/s2/favicons?domain=continue.dev&sz=64" width="24" height="24" alt="Continue"></a> | [Continue](https://docs.continue.dev/customize/rules) | حوّلها إلى `.continue/rules/*.md`؛ الفصل حسب السيناريو أكثر ثباتا | [Continue Rules](https://docs.continue.dev/customize/rules) |
+| <a href="https://docs.windsurf.com"><img src="https://www.google.com/s2/favicons?domain=windsurf.com&sz=64" width="24" height="24" alt="Windsurf"></a> | [Windsurf / Devin Desktop](https://docs.windsurf.com) | الوثائق الحالية تذكر memories وrules للتخصيص | تحقق من الطريقة الحالية في [Windsurf / Devin Docs](https://docs.windsurf.com) |
 
 ## البدء السريع
 
@@ -107,6 +108,7 @@ ln -sfn "$PWD" "$HOME/.claude/skills/oh-my-gh-writing"
 oh-my-gh-writing/
 ├── README.md
 ├── README.*.md
+├── README_Example.md
 ├── SKILL.md
 ├── INDEX.md
 ├── CONTRIBUTING.md

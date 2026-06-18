@@ -28,7 +28,7 @@ Badge 写法遵循 [`weapons.md`](./weapons.md)。如果用户要求精细 badge
 
 ## Brand / Tool Icons
 
-当 README 表格或列表中出现品牌、工具、框架、平台或项目名称时，默认使用对应官方图标或稳定 favicon。优先级：官方站点 favicon / 官方 logo asset → simple-icons / skillicons / devicon → 省略图标。找不到稳定来源时不要自造图标。图标必须有 `alt`，表格内默认使用 `width="18" height="18"`；只有特别紧凑的表格才降到 16px，不要使用 14px。表格列名可用 `Icon` / `图标`。
+当 README 表格或列表中出现品牌、工具、框架、平台或项目名称时，默认使用对应官方图标或稳定 favicon。优先级：官方站点 favicon / 官方 logo asset → simple-icons / skillicons / devicon → 稳定 favicon 聚合服务 → 省略图标。若 direct favicon 返回 403、404、HTML 或在 GitHub 中无法显示，改用稳定 favicon 聚合 URL。找不到稳定来源时不要自造图标。图标必须有 `alt`，表格内默认使用 `width="24" height="24"`；只有特别紧凑的表格才降到 18px，不要使用 14px。品牌/工具名称默认链接到官网、官方文档或官方仓库；图标也默认包在同一官方链接里。表格列名可用 `Icon` / `图标`。
 
 ## Section Completeness
 
@@ -79,7 +79,7 @@ If scenarios < 20, list all rows in a complete table. If ≥20 scenarios, replac
 - 表必须包含：图标、名称、推荐接入方式、注意事项或官方文档链接
 - 不要硬分平台等级。直接说明是作为 skill 目录使用、作为项目规则使用、作为自定义指令使用，还是需要按当前文档确认
 - 每个条目写明使用范围：本规则覆盖什么、有什么限制
-- 对品牌/工具默认使用图标；没有稳定图标来源时省略，不要编造
+- 对品牌/工具默认使用图标；图标和品牌名都链接官网、官方文档或官方仓库；没有稳定图标来源时省略，不要编造
 - 所有支持声明基于当前官方文档，不推断
 
 ## README Three-Question Prompt
