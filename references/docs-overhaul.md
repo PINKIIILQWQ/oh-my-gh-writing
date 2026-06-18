@@ -47,6 +47,18 @@ Read `weapons.md` when file indexes, badges, diagrams, or visual tables are need
 - `documentation-pr.md`
 - `docs-overhaul-plan.md`
 - `changelog-docs-entry.md`
+- `package-manifest.md`
+
+## Package Manifest
+
+Every workflow package should include `package-manifest.md` with:
+
+- Selected package option.
+- Generated files and intended target paths.
+- Assumptions and evidence sources.
+- `TODO` / `TBD` fields.
+- Files safe to write directly.
+- Files requiring maintainer confirmation before use.
 
 ## Checklist
 

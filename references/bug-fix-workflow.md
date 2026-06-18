@@ -47,6 +47,18 @@ Read `shared-principles.md` when root cause, test results, or affected versions 
 - `bug-fix-pr.md`
 - `verification-notes.md`
 - `review-notes.md`
+- `package-manifest.md`
+
+## Package Manifest
+
+Every workflow package should include `package-manifest.md` with:
+
+- Selected package option.
+- Generated files and intended target paths.
+- Assumptions and evidence sources.
+- `TODO` / `TBD` fields.
+- Files safe to write directly.
+- Files requiring maintainer confirmation before use.
 
 ## Checklist
 

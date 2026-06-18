@@ -62,9 +62,27 @@ When README tables or lists mention brands, tools, frameworks, platforms, or pro
 
 Icons must have `alt`. In tables, default to `width="24" height="24"`; use 18px only for especially compact tables. Do not use 14px. Brand/tool names link to official sites, docs, or repositories. Icons should link to the same official destination. Use `Icon` as the column name.
 
+Do not store third-party brand logos in this repository's `assets/`; keep `assets/` for project-owned visuals only. If icon stability, licensing, or maintenance cost is not worth it, omit the icon column entirely.
+
 ## Section Completeness
 
 Core explanatory sections such as Overview, Quick Start, Usage, Configuration, and Architecture need real substance, not one-line slogans. Entry sections such as License, Contributing, Links, and Acknowledgements may be short. Merge or omit sections with no real information.
+
+## Good Output Shape
+
+```markdown
+## Quick Start
+<first reliable install command>
+
+## Applicability
+<who and what environments this project actually supports>
+```
+
+## Common Failure
+
+- Putting the first runnable install command below long feature tables.
+- Listing platforms or frameworks without repository evidence.
+- Linking language README files that were not generated.
 
 ## Quick Start Placement
 
@@ -72,9 +90,9 @@ For installable tools, agent skills, CLIs, plugins, templates, SDKs, or librarie
 
 When a project supports both a universal installer and manual clone/symlink paths, use this order:
 
-1. Universal or recommended install command.
-2. Optional target-host command variants.
-3. Manual install commands for common hosts.
+1. Recommended official or manual install path from the project's own docs.
+2. Optional universal installer only when the host/tool actually supports it.
+3. Optional target-host command variants.
 4. One or more example prompts or usage commands.
 
 ## Project Applicability Scope
@@ -146,8 +164,7 @@ When a README includes a support table:
 
 - The table axis should match the project, such as frameworks, platforms, tech stacks, tools, or agents.
 - Verify current official docs before writing support claims, and link each row to official docs.
-- Include icon, name, recommended setup, and notes or official docs.
+- Include name, recommended setup, and notes or official docs. Add an icon column only when icon sources are stable and worth maintaining.
 - Do not force platform tiers. Say whether the project is used as a skill directory, project rule, custom instruction, knowledge base, or "check current docs".
 - Each row should state what is covered and what is limited.
-- Use brand/tool icons by default; link both icon and name to official site, docs, or repository.
 - Omit icons when no stable source exists. Do not invent support claims.

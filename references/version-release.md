@@ -48,6 +48,18 @@ Read `shared-principles.md` because release materials are fact-heavy.
 - `RELEASE_NOTES.md`
 - `MIGRATION.md`
 - `release-draft.md`
+- `package-manifest.md`
+
+## Package Manifest
+
+Every workflow package should include `package-manifest.md` with:
+
+- Selected package option.
+- Generated files and intended target paths.
+- Assumptions and evidence sources.
+- `TODO` / `TBD` fields.
+- Files safe to write directly.
+- Files requiring maintainer confirmation before use.
 
 ## Checklist
 

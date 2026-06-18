@@ -22,20 +22,7 @@
 
 ## 🚀 快速开始
 
-支持开放 `skills` CLI 的 [Agent Skills](https://agentskills.io) host 可以直接安装：
-
-```bash
-npx skills add PINKIIILQWQ/oh-my-gh-writing -g
-```
-
-需要指定目标 host 时：
-
-```bash
-npx skills add PINKIIILQWQ/oh-my-gh-writing -g -a codex
-npx skills add PINKIIILQWQ/oh-my-gh-writing -g -a claude-code
-```
-
-手动安装：
+推荐手动安装：
 
 ```bash
 # Codex / Gemini 类 skill 路径
@@ -43,6 +30,14 @@ git clone https://github.com/PINKIIILQWQ/oh-my-gh-writing.git "$HOME/.agents/ski
 
 # Claude Code
 git clone https://github.com/PINKIIILQWQ/oh-my-gh-writing.git "$HOME/.claude/skills/oh-my-gh-writing"
+```
+
+如果目标 host 支持开放 [Agent Skills](https://agentskills.io) `skills` CLI：
+
+```bash
+npx skills add PINKIIILQWQ/oh-my-gh-writing -g
+npx skills add PINKIIILQWQ/oh-my-gh-writing -g -a codex
+npx skills add PINKIIILQWQ/oh-my-gh-writing -g -a claude-code
 ```
 
 `-g` 表示安装到当前用户全局目录；如果目标工具支持项目级 skill，可以去掉 `-g` 做项目内安装。
@@ -62,13 +57,21 @@ git clone https://github.com/PINKIIILQWQ/oh-my-gh-writing.git "$HOME/.claude/ski
 - **不只是模板，而是 workflow pack**：发版准备、项目首发、贡献流程、Bug 修复链路、从提案到实现、破坏性变更沟通、文档重写都被当作多文件 GitHub 写作任务处理。
 - **先路由，再写作**：区分 Feature Request、Enhancement、Discussion、Feature PR、Bug Fix PR、Refactor PR、Documentation PR，减少把 Issue 写成 PR、把讨论写成需求的情况。
 - **默认保护事实边界**：版本号、命令、CI 名称、兼容性、issue/PR 编号、release 信息必须来自用户输入、仓库文件、diff 或官方来源。
-- **渐进读取 reference**：`SKILL.md` 保持轻量，具体规则放在 `reference/*.md`，按场景读取，避免一次性塞满上下文。
+- **渐进读取 reference**：`SKILL.md` 保持轻量，具体规则放在 `references/*.md`，按场景读取，避免一次性塞满上下文。
 - **输出更干净**：明确避免对话前言、外层 Markdown 代码块、旧测试标题、复制残留、未实际完成却打勾的 checklist 和编造事实。
 - **参考真实 GitHub 实践**：规则参考 GitHub Docs、Conventional Commits、Keep a Changelog、Google Engineering Practices 和成熟开源项目的写作模式。
 
+## 🛡️ 它能避免什么？
+
+- PR 描述声称测试已通过，但没有证据。
+- Bug Report 编造 root cause 或受影响版本。
+- README 宣称不支持或未确认的平台、安装方式。
+- Release Notes 编造迁移命令、日期、贡献者或 compare link。
+- Issue Form 从无关项目复制 labels、SIG、版本列表或 required checkbox。
+
 ## 🎯 适用范围
 
-本项目是一个可移植的 Markdown rulebase，适用于 AI Agent 和支持自定义规则的编码工具。最理想的使用方式是让工具读取 `SKILL.md` 和本地 `reference/*.md`；如果工具不支持 Skill 目录，也可以把相关标准改写为项目规则、自定义指令或知识库。
+本项目是一个可移植的 Markdown rulebase，适用于 AI Agent 和支持自定义规则的编码工具。最理想的使用方式是让工具读取 `SKILL.md` 和本地 `references/*.md`；如果工具不支持 Skill 目录，也可以把相关标准改写为项目规则、自定义指令或知识库。
 
 | 使用方式 | 适用对象 | 保留能力 | 限制 |
 | --- | --- | --- | --- |
@@ -88,17 +91,17 @@ Workflow pack 只做编排：先询问你需要哪种材料包，再按需读取
 
 ## 🤖 Agent 支持
 
-| 图标 | Agent / Tool | 推荐接入方式 | 说明 |
-| --- | --- | --- | --- |
-| <a href="https://developers.openai.com/codex/skills"><img src="https://www.google.com/s2/favicons?domain=openai.com&sz=64" width="24" height="24" alt="OpenAI"></a> | [Codex](https://developers.openai.com/codex/skills) | 克隆到 `$HOME/.agents/skills/oh-my-gh-writing` 或项目 `.agents/skills/oh-my-gh-writing` | 原生 Agent Skills 模型 |
-| <a href="https://code.claude.com/docs/en/skills"><img src="https://www.google.com/s2/favicons?domain=claude.ai&sz=64" width="24" height="24" alt="Claude"></a> | [Claude Code](https://code.claude.com/docs/en/skills) | 克隆或软链接到 `~/.claude/skills/oh-my-gh-writing` | 使用 `SKILL.md` frontmatter |
-| <a href="https://geminicli.com/docs/cli/skills/"><img src="https://www.google.com/s2/favicons?domain=geminicli.com&sz=64" width="24" height="24" alt="Gemini CLI"></a> | [Gemini CLI](https://geminicli.com/docs/cli/skills/) | 按当前文档确认 skill 路径和安装命令 | Gemini / Antigravity 可用范围正在变化，使用前核对官方文档 |
-| <a href="https://antigravity.google/"><img src="https://www.google.com/s2/favicons?domain=antigravity.google&sz=64" width="24" height="24" alt="Antigravity"></a> | [Antigravity](https://antigravity.google/) | 按当前文档确认 rules 或 skill 支持 | 以最新官方说明为准 |
-| <a href="https://hermes-agent.nousresearch.com/docs/guides/work-with-skills"><img src="assets/hermeslogo.png" width="24" height="24" alt="Hermes"></a> | [Hermes](https://hermes-agent.nousresearch.com/docs/guides/work-with-skills) | 将完整目录放入 Hermes skills 目录 | HTTP 单文件安装只覆盖 `SKILL.md`，不包含 `reference/` |
-| <a href="https://cursor.com/docs"><img src="https://www.google.com/s2/favicons?domain=cursor.com&sz=64" width="24" height="24" alt="Cursor"></a> | [Cursor](https://cursor.com/docs) | 将路由和选定 reference 改写为项目规则 | 只放当前任务相关的场景规则 |
-| <a href="https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-repository-instructions"><img src="https://www.google.com/s2/favicons?domain=github.com&sz=64" width="24" height="24" alt="GitHub"></a> | [GitHub Copilot](https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-repository-instructions) | 改写为 Copilot repository instructions 或 agent skill 文件 | 默认不能直接加载完整 skill 目录 |
-| <a href="https://docs.continue.dev/customize/rules"><img src="https://www.google.com/s2/favicons?domain=continue.dev&sz=64" width="24" height="24" alt="Continue"></a> | [Continue](https://docs.continue.dev/customize/rules) | 改写为 `.continue/rules/*.md` | 按场景拆分比一个大规则更稳 |
-| <a href="https://docs.windsurf.com"><img src="https://www.google.com/s2/favicons?domain=windsurf.com&sz=64" width="24" height="24" alt="Windsurf"></a> | [Windsurf / Devin Desktop](https://docs.windsurf.com) | 按当前 memories / rules 文档确认 | 路径和支持细节需使用前核对 |
+| Agent / Tool | 推荐接入方式 | 说明 |
+| --- | --- | --- |
+| [Codex](https://developers.openai.com/codex/skills) | 克隆到 `$HOME/.agents/skills/oh-my-gh-writing` 或项目 `.agents/skills/oh-my-gh-writing` | 原生 Agent Skills 模型 |
+| [Claude Code](https://code.claude.com/docs/en/skills) | 克隆或软链接到 `~/.claude/skills/oh-my-gh-writing` | 使用 `SKILL.md` frontmatter |
+| [Gemini CLI](https://geminicli.com/docs/cli/skills/) | 按当前文档确认 skill 路径和安装命令 | Gemini / Antigravity 可用范围正在变化，使用前核对官方文档 |
+| [Antigravity](https://antigravity.google/) | 按当前文档确认 rules 或 skill 支持 | 以最新官方说明为准 |
+| [Hermes](https://hermes-agent.nousresearch.com/docs/guides/work-with-skills) | 将完整目录放入 Hermes skills 目录 | HTTP 单文件安装只覆盖 `SKILL.md`，不包含 `references/` |
+| [Cursor](https://cursor.com/docs) | 将路由和选定 reference 改写为项目规则 | 只放当前任务相关的场景规则 |
+| [GitHub Copilot](https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-repository-instructions) | 改写为 Copilot repository instructions 或 agent skill 文件 | 默认不能直接加载完整 skill 目录 |
+| [Continue](https://docs.continue.dev/customize/rules) | 改写为 `.continue/rules/*.md` | 按场景拆分比一个大规则更稳 |
+| [Windsurf / Devin Desktop](https://docs.windsurf.com) | 按当前 memories / rules 文档确认 | 路径和支持细节需使用前核对 |
 
 ## 📂 文件
 
@@ -106,9 +109,9 @@ Workflow pack 只做编排：先询问你需要哪种材料包，再按需读取
 | --- | --- |
 | [`SKILL.md`](SKILL.md) | 轻量运行时路由和工作流规则 |
 | [`INDEX.md`](INDEX.md) | 18 个 artifact 标准和 7 个 workflow pack 的导航 |
-| [`reference/`](reference) | 场景标准、workflow pack 和质量附录 |
-| [`reference/readme.md`](reference/readme.md) | README 写作标准 |
-| [`reference/source-catalog.md`](reference/source-catalog.md) | 公开参考来源和维护说明 |
+| [`references/`](references) | 场景标准、workflow pack 和质量附录 |
+| [`references/readme.md`](references/readme.md) | README 写作标准 |
+| [`references/source-catalog.md`](references/source-catalog.md) | 公开参考来源和维护说明 |
 | [`evals/`](evals) | 用于后续 skill 迭代的触发和输出质量 eval fixtures |
 | [`CONTRIBUTING.md`](CONTRIBUTING.md) | 贡献说明 |
 | [`assets/`](assets) | Logo 和 README 本地资产 |
@@ -119,10 +122,11 @@ Workflow pack 只做编排：先询问你需要哪种材料包，再按需读取
 
 - [`evals/trigger-queries.json`](evals/trigger-queries.json) 用来检查 skill description 是否会在真实 GitHub 写作请求中触发，并避开相近但不该触发的请求。
 - [`evals/evals.json`](evals/evals.json) 记录输出质量任务，覆盖路由、输出清洁、事实边界和 workflow pack 行为。
+- [`evals/expected/`](evals/expected) 保存短小 clean outputs，用来展示合格 artifact 的形态。
 
 ## 📚 参考来源
 
-本项目标准参考 [Agent Skills specification](https://agentskills.io/specification)、[GitHub Docs](https://docs.github.com/en)、[Conventional Commits](https://www.conventionalcommits.org/)、[Keep a Changelog](https://keepachangelog.com/)、[Google Engineering Practices](https://google.github.io/eng-practices/review/)，以及 React、Kubernetes、TypeScript、Node.js、Tailwind CSS、Angular、VS Code 等成熟开源项目的写作模式。完整来源见 [`reference/source-catalog.md`](reference/source-catalog.md)。
+本项目标准参考 [Agent Skills specification](https://agentskills.io/specification)、[GitHub Docs](https://docs.github.com/en)、[Conventional Commits](https://www.conventionalcommits.org/)、[Keep a Changelog](https://keepachangelog.com/)、[Google Engineering Practices](https://google.github.io/eng-practices/review/)，以及 React、Kubernetes、TypeScript、Node.js、Tailwind CSS、Angular、VS Code 等成熟开源项目的写作模式。完整来源见 [`references/source-catalog.md`](references/source-catalog.md)。
 
 ## 📄 许可证
 

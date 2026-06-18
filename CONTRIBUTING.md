@@ -4,8 +4,8 @@ Thanks for helping improve `oh-my-gh-writing`. This repository is a portable Git
 
 ## What to Contribute
 
-- Scenario rule fixes in `reference/*.md`
-- Source quality updates in `reference/source-catalog.md`
+- Scenario rule fixes in `references/*.md`
+- Source quality updates in `references/source-catalog.md`
 - README, install, or cross-agent wording fixes
 - Output hygiene and fact-boundary improvements
 - Small GitHub Markdown utility additions such as emoji, badges, alerts, or Mermaid guidance
@@ -14,7 +14,7 @@ Thanks for helping improve `oh-my-gh-writing`. This repository is a portable Git
 ## Contribution Principles
 
 - Keep `SKILL.md` focused on routing and shared runtime rules.
-- Put scenario-specific guidance in the matching `reference/*.md`.
+- Put scenario-specific guidance in the matching `references/*.md`.
 - Keep long reference material out of the normal runtime path.
 - Do not add generated test outputs, private notes, or large case collections to the public repository.
 - Do not copy project-specific facts from reference repositories into this skill's general rules.
@@ -48,5 +48,15 @@ Do not submit large batches of copied artifacts without prior discussion. If a c
 - [ ] The change keeps normal runtime loading narrow.
 - [ ] New rules distinguish evidence from examples.
 - [ ] Links are current and useful for the target scenario.
-- [ ] README-facing changes are reflected in `reference/readme.md` when needed.
+- [ ] README-facing changes are reflected in `references/readme.md` when needed.
 - [ ] No local validation outputs, private notes, or unrelated cases are included.
+
+## Validation Before PR
+
+Before opening a PR:
+
+1. Run the skill validator and basic Markdown/JSON checks when files changed.
+2. Add or update at least one eval when changing `SKILL.md` routing, description triggers, workflow packs, or output hygiene rules.
+3. For scenario rule changes, include either a short `Good output shape` / `Common failure` note or an eval expected output when the change affects artifact shape.
+4. Confirm `SKILL.md`, `INDEX.md`, README files, and `references/` paths stay synchronized.
+5. Keep `README.md` canonical and update `README.zh-CN.md` when public-facing README content changes.

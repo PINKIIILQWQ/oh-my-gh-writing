@@ -16,17 +16,17 @@ Use this skill for GitHub-facing writing artifacts and local GitHub writing draf
 1. Identify whether the user wants a single artifact or a multi-artifact workflow pack.
 2. If the user explicitly names a single artifact, route to that artifact even if the topic is broad.
 3. If the user asks for a broad workflow, launch, setup, release package, or end-to-end material set, route to the matching composite workflow pack.
-4. For README requests, use the three-question prompt in `reference/readme.md`.
+4. For README requests, use the three-question prompt in `references/readme.md`.
 5. For composite workflow packs, ask the package-selection question defined in the matching composite reference before drafting.
-6. Explicitly open and read the matching `reference/*.md` before writing user-facing output. Do not infer or guess reference contents from memory.
+6. Explicitly open and read the matching `references/*.md` before writing user-facing output. Do not infer or guess reference contents from memory.
 7. Read only the single-artifact references selected by a composite pack. Do not preload every reference.
-8. Read `reference/weapons.md` when badges, alerts, Mermaid, collapsible blocks, emoji, or complex tables are needed.
-9. Read `reference/badge-catalog.md` only when the user asks for detailed badge design or exact shields.io URL patterns.
-10. Read `reference/emoji-guide.md` when emoji is requested or the target repository already uses emoji.
-11. Read `reference/shared-principles.md` when the request is fact-heavy, high-risk, cross-scenario, or when output quality rules need clarification.
-12. Before finalizing, use `reference/output-validation.md` as a silent revision checklist. If the draft fails a check, revise it before delivering. Do not output validation notes unless the user asks.
+8. Read `references/weapons.md` when badges, alerts, Mermaid, collapsible blocks, emoji, or complex tables are needed.
+9. Read `references/badge-catalog.md` only when the user asks for detailed badge design or exact shields.io URL patterns.
+10. Read `references/emoji-guide.md` when emoji is requested or the target repository already uses emoji.
+11. Read `references/shared-principles.md` when the request is fact-heavy, high-risk, cross-scenario, or when output quality rules need clarification.
+12. Before finalizing, use `references/output-validation.md` as a silent revision checklist. If the draft fails a check, revise it before delivering. Do not output validation notes unless the user asks.
 
-If local file reading is unavailable, ask the user to provide the relevant `reference/*.md` content or state that references are unavailable and produce only a conservative draft from the visible routing rules and shared principles. Do not pretend to have read files you cannot access.
+If local file reading is unavailable, ask the user to provide the relevant `references/*.md` content or state that references are unavailable and produce only a conservative draft from the visible routing rules and shared principles. Do not pretend to have read files you cannot access.
 
 Progressive disclosure: load only files needed for the current task. When several references are truly needed and the platform supports batched reads, read them in one batch instead of serial tool calls.
 
@@ -41,13 +41,13 @@ Use these top-level routing rules:
 | Signal | Route to |
 |--------|----------|
 | The user asks for one explicit artifact, such as "write release notes" or "create a PR template" | The matching single-artifact reference |
-| The user asks for a release package, version update materials, major release prep, or software update bundle | `reference/version-release.md` |
-| The user wants to publish or open-source a repository for the first time | `reference/project-launch.md` |
-| The user wants a project ready for outside contributors | `reference/contribution-setup.md` |
-| The user wants to handle a bug from report or triage through a fix PR | `reference/bug-fix-workflow.md` |
-| The user wants to turn an idea into discussion, design, issue, and implementation materials | `reference/proposal-to-implementation.md` |
-| The user wants a breaking-change communication package | `reference/breaking-change-package.md` |
-| The user wants a broad documentation refresh or docs overhaul | `reference/docs-overhaul.md` |
+| The user asks for a release package, version update materials, major release prep, or software update bundle | `references/version-release.md` |
+| The user wants to publish or open-source a repository for the first time | `references/project-launch.md` |
+| The user wants a project ready for outside contributors | `references/contribution-setup.md` |
+| The user wants to handle a bug from report or triage through a fix PR | `references/bug-fix-workflow.md` |
+| The user wants to turn an idea into discussion, design, issue, and implementation materials | `references/proposal-to-implementation.md` |
+| The user wants a breaking-change communication package | `references/breaking-change-package.md` |
+| The user wants a broad documentation refresh or docs overhaul | `references/docs-overhaul.md` |
 
 When the prompt mixes issue, PR, and discussion language:
 
@@ -72,6 +72,7 @@ Composite workflow packs are orchestrators, not templates. They select which exi
 - Include optional supplements in the same message.
 - Default output location is local draft files under `.github-writing/<pack-name>/<version-or-date>/`.
 - If no version or date is known, use `.github-writing/<pack-name>/TBD/`.
+- Include `package-manifest.md` in every composite package, listing generated files, assumptions, `TODO` / `TBD` fields, files safe to write, and files requiring maintainer confirmation.
 - If file writing is unavailable, display the package as multi-file chat output using `## File: ...` headings and fenced blocks. Do not claim files were written.
 - Do not publish, create GitHub releases, push tags, open PRs, or modify remote state unless the user explicitly asks.
 
@@ -97,8 +98,8 @@ Ask a short follow-up only when a required choice cannot be inferred safely, suc
 ## Repository Maintenance
 
 - Keep `SKILL.md` as the thin runtime router.
-- Put scenario-specific and composite-pack rules in the matching `reference/*.md`.
+- Put scenario-specific and composite-pack rules in the matching `references/*.md`.
 - Keep `INDEX.md` as navigation only.
 - Keep runtime instructions in English by default.
-- Update README-facing lessons in `reference/readme.md` when README mistakes are discovered.
+- Update README-facing lessons in `references/readme.md` when README mistakes are discovered.
 - Keep local research and validation outputs out of tracked runtime content.

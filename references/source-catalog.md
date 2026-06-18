@@ -1,6 +1,6 @@
 # Reference Source Catalog
 
-This catalog records the public sources used to shape the scenario rules in `reference/*.md`.
+This catalog records the public sources used to shape the scenario rules in `references/*.md`.
 It is a maintenance and credibility document, not runtime instruction for normal writing tasks.
 
 - Last reviewed: 2026-06-18

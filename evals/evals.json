@@ -9,12 +9,14 @@
     {
       "id": "version-release-pack-routing",
       "prompt": "Prepare the full v1.2.0 release materials for this repository.",
-      "expected_output": "Routes to Version Release. Asks one package-selection question with three options and a recommended default, includes optional supplements, and defaults to local .github-writing/version-release/v1.2.0/ drafts."
+      "expected_output": "Routes to Version Release. Asks one package-selection question with three options and a recommended default, includes optional supplements, defaults to local .github-writing/version-release/v1.2.0/ drafts, and includes package-manifest.md.",
+      "expected_file": "expected/version-release.manifest.md"
     },
     {
       "id": "readme-required-scope",
       "prompt": "Write a README for this agent skill repository.",
-      "expected_output": "Uses the README three-choice prompt unless the user skips questions. README output includes applicability scope, install or usage, file index, evidence-bounded support claims, and no links to nonexistent README language files."
+      "expected_output": "Uses the README three-choice prompt unless the user skips questions. README output includes applicability scope, install or usage, file index, evidence-bounded support claims, and no links to nonexistent README language files.",
+      "expected_file": "expected/readme-scope-excerpt.clean.md"
     },
     {
       "id": "issue-pr-routing-boundary",
@@ -24,12 +26,26 @@
     {
       "id": "output-cleanliness",
       "prompt": "Create a GitHub bug report from this messy note: app crashes after clicking Export, expected CSV download, actual blank page, Chrome 125, macOS, logs attached.",
-      "expected_output": "Produces only the GitHub bug report artifact. No chat preface, no outer markdown fence, no test title, no unrelated code block, and no invented root cause."
+      "expected_output": "Produces only the GitHub bug report artifact. No chat preface, no outer markdown fence, no test title, no unrelated code block, and no invented root cause.",
+      "expected_file": "expected/bug-report.clean.md"
     },
     {
       "id": "issue-form-no-invented-labels",
       "prompt": "Create a GitHub Issue Form YAML for reporting bugs. I have not told you our label names.",
-      "expected_output": "Produces valid GitHub issue-form YAML and omits labels, projects, assignees, SIGs, version lists, and required fields that are not evidenced."
+      "expected_output": "Produces valid GitHub issue-form YAML and omits labels, projects, assignees, SIGs, version lists, and required fields that are not evidenced.",
+      "expected_file": "expected/issue-form-yaml.clean.yml"
+    },
+    {
+      "id": "feature-pr-testing-boundary",
+      "prompt": "Write a feature PR description for adding CSV export to reports. I have not run tests.",
+      "expected_output": "Routes to Feature PR and marks testing as not run instead of claiming verification.",
+      "expected_file": "expected/feature-pr.clean.md"
+    },
+    {
+      "id": "code-review-findings-first",
+      "prompt": "Review this diff and lead with actionable findings before summary.",
+      "expected_output": "Routes to Code Review. Findings appear before summary, are severity-labeled, and avoid invented line numbers or tests.",
+      "expected_file": "expected/code-review-finding.clean.md"
     }
   ]
 }

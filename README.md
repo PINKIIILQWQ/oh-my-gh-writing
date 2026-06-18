@@ -22,20 +22,7 @@ The core idea is simple: route the request first, load only the matching writing
 
 ## 🚀 Quick Start
 
-For [Agent Skills](https://agentskills.io) hosts that support the open `skills` CLI:
-
-```bash
-npx skills add PINKIIILQWQ/oh-my-gh-writing -g
-```
-
-Target a specific host when needed:
-
-```bash
-npx skills add PINKIIILQWQ/oh-my-gh-writing -g -a codex
-npx skills add PINKIIILQWQ/oh-my-gh-writing -g -a claude-code
-```
-
-Manual install:
+Recommended manual install:
 
 ```bash
 # Codex / Gemini-style skill paths
@@ -43,6 +30,14 @@ git clone https://github.com/PINKIIILQWQ/oh-my-gh-writing.git "$HOME/.agents/ski
 
 # Claude Code
 git clone https://github.com/PINKIIILQWQ/oh-my-gh-writing.git "$HOME/.claude/skills/oh-my-gh-writing"
+```
+
+If your host supports the open [Agent Skills](https://agentskills.io) `skills` CLI:
+
+```bash
+npx skills add PINKIIILQWQ/oh-my-gh-writing -g
+npx skills add PINKIIILQWQ/oh-my-gh-writing -g -a codex
+npx skills add PINKIIILQWQ/oh-my-gh-writing -g -a claude-code
 ```
 
 `-g` installs globally for your user. Omit it for a project-local install when your host supports local skills.
@@ -62,13 +57,21 @@ Make this repository ready for outside contributors.
 - **Workflow packs, not just templates**: release prep, project launch, contribution setup, bug-fix workflow, proposal-to-implementation, breaking-change communication, and docs overhaul are treated as multi-file GitHub writing jobs.
 - **Artifact routing before writing**: separates Feature Request, Enhancement, Discussion, Feature PR, Bug Fix PR, Refactor PR, and Documentation PR so agents do not turn one GitHub artifact into another.
 - **Evidence boundaries by default**: versions, commands, CI names, compatibility claims, issue numbers, PR numbers, and release facts must come from user input, repository files, diffs, or official sources.
-- **Progressive reference loading**: `SKILL.md` stays lightweight; detailed rules live in `reference/*.md` and are loaded only when needed.
+- **Progressive reference loading**: `SKILL.md` stays lightweight; detailed rules live in `references/*.md` and are loaded only when needed.
 - **Cleaner output**: rules explicitly guard against chat prefaces, outer Markdown fences, stale test titles, copied residue, unchecked checklist items, and invented facts.
 - **Grounded in real GitHub practice**: the rulebase is shaped by GitHub Docs, Conventional Commits, Keep a Changelog, Google Engineering Practices, and mature open-source project patterns.
 
+## 🛡️ What This Prevents
+
+- PR descriptions that claim tests passed without evidence.
+- Bug reports that invent root causes or affected versions.
+- READMEs that advertise unsupported platforms or missing install paths.
+- Release notes that invent migration commands, dates, contributors, or compare links.
+- Issue forms that copy labels, SIGs, version lists, or required checkboxes from unrelated projects.
+
 ## 🎯 Applicability
 
-This project is a portable Markdown rulebase for AI agents and rule-based coding tools. It is most useful when the tool can read `SKILL.md` plus local `reference/*.md` files, but the same standards can be adapted into project rules, custom instructions, or a knowledge base.
+This project is a portable Markdown rulebase for AI agents and rule-based coding tools. It is most useful when the tool can read `SKILL.md` plus local `references/*.md` files, but the same standards can be adapted into project rules, custom instructions, or a knowledge base.
 
 | Use mode | Best for | What works well | Limit |
 | --- | --- | --- | --- |
@@ -88,17 +91,17 @@ Workflow packs are thin orchestrators. They ask which package shape you want, th
 
 ## 🤖 Agent Support
 
-| Icon | Agent / Tool | Recommended setup | Notes |
-| --- | --- | --- | --- |
-| <a href="https://developers.openai.com/codex/skills"><img src="https://www.google.com/s2/favicons?domain=openai.com&sz=64" width="24" height="24" alt="OpenAI"></a> | [Codex](https://developers.openai.com/codex/skills) | Clone to `$HOME/.agents/skills/oh-my-gh-writing` or project `.agents/skills/oh-my-gh-writing` | Native Agent Skills model |
-| <a href="https://code.claude.com/docs/en/skills"><img src="https://www.google.com/s2/favicons?domain=claude.ai&sz=64" width="24" height="24" alt="Claude"></a> | [Claude Code](https://code.claude.com/docs/en/skills) | Clone or symlink to `~/.claude/skills/oh-my-gh-writing` | Uses `SKILL.md` frontmatter |
-| <a href="https://geminicli.com/docs/cli/skills/"><img src="https://www.google.com/s2/favicons?domain=geminicli.com&sz=64" width="24" height="24" alt="Gemini CLI"></a> | [Gemini CLI](https://geminicli.com/docs/cli/skills/) | Check current skill paths and install commands | Gemini / Antigravity availability is changing; verify current docs |
-| <a href="https://antigravity.google/"><img src="https://www.google.com/s2/favicons?domain=antigravity.google&sz=64" width="24" height="24" alt="Antigravity"></a> | [Antigravity](https://antigravity.google/) | Check current rules or skill support | Use the current official documentation |
-| <a href="https://hermes-agent.nousresearch.com/docs/guides/work-with-skills"><img src="assets/hermeslogo.png" width="24" height="24" alt="Hermes"></a> | [Hermes](https://hermes-agent.nousresearch.com/docs/guides/work-with-skills) | Keep the full folder under a Hermes skills directory | Single-file HTTP installs only cover `SKILL.md`, not `reference/` |
-| <a href="https://cursor.com/docs"><img src="https://www.google.com/s2/favicons?domain=cursor.com&sz=64" width="24" height="24" alt="Cursor"></a> | [Cursor](https://cursor.com/docs) | Adapt the router and selected references into project rules | Keep only relevant scenario rules |
-| <a href="https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-repository-instructions"><img src="https://www.google.com/s2/favicons?domain=github.com&sz=64" width="24" height="24" alt="GitHub"></a> | [GitHub Copilot](https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-repository-instructions) | Adapt to Copilot repository instructions or agent skill files | Does not directly consume this full skill folder by default |
-| <a href="https://docs.continue.dev/customize/rules"><img src="https://www.google.com/s2/favicons?domain=continue.dev&sz=64" width="24" height="24" alt="Continue"></a> | [Continue](https://docs.continue.dev/customize/rules) | Adapt to `.continue/rules/*.md` | Split by scenario instead of one large rule |
-| <a href="https://docs.windsurf.com"><img src="https://www.google.com/s2/favicons?domain=windsurf.com&sz=64" width="24" height="24" alt="Windsurf"></a> | [Windsurf / Devin Desktop](https://docs.windsurf.com) | Check current memories / rules documentation | Path and support details should be confirmed before use |
+| Agent / Tool | Recommended setup | Notes |
+| --- | --- | --- |
+| [Codex](https://developers.openai.com/codex/skills) | Clone to `$HOME/.agents/skills/oh-my-gh-writing` or project `.agents/skills/oh-my-gh-writing` | Native Agent Skills model |
+| [Claude Code](https://code.claude.com/docs/en/skills) | Clone or symlink to `~/.claude/skills/oh-my-gh-writing` | Uses `SKILL.md` frontmatter |
+| [Gemini CLI](https://geminicli.com/docs/cli/skills/) | Check current skill paths and install commands | Gemini / Antigravity availability is changing; verify current docs |
+| [Antigravity](https://antigravity.google/) | Check current rules or skill support | Use the current official documentation |
+| [Hermes](https://hermes-agent.nousresearch.com/docs/guides/work-with-skills) | Keep the full folder under a Hermes skills directory | Single-file HTTP installs only cover `SKILL.md`, not `references/` |
+| [Cursor](https://cursor.com/docs) | Adapt the router and selected references into project rules | Keep only relevant scenario rules |
+| [GitHub Copilot](https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-repository-instructions) | Adapt to Copilot repository instructions or agent skill files | Does not directly consume this full skill folder by default |
+| [Continue](https://docs.continue.dev/customize/rules) | Adapt to `.continue/rules/*.md` | Split by scenario instead of one large rule |
+| [Windsurf / Devin Desktop](https://docs.windsurf.com) | Check current memories / rules documentation | Path and support details should be confirmed before use |
 
 ## 📂 Files
 
@@ -106,9 +109,9 @@ Workflow packs are thin orchestrators. They ask which package shape you want, th
 | --- | --- |
 | [`SKILL.md`](SKILL.md) | Thin runtime router and workflow rules |
 | [`INDEX.md`](INDEX.md) | Navigation for 18 artifact standards and 7 workflow packs |
-| [`reference/`](reference) | Scenario standards, workflow packs, and quality appendices |
-| [`reference/readme.md`](reference/readme.md) | README writing standard used by this skill |
-| [`reference/source-catalog.md`](reference/source-catalog.md) | Public source catalog and maintenance notes |
+| [`references/`](references) | Scenario standards, workflow packs, and quality appendices |
+| [`references/readme.md`](references/readme.md) | README writing standard used by this skill |
+| [`references/source-catalog.md`](references/source-catalog.md) | Public source catalog and maintenance notes |
 | [`evals/`](evals) | Trigger and output-quality eval fixtures for future skill iteration |
 | [`CONTRIBUTING.md`](CONTRIBUTING.md) | Contribution guidance |
 | [`assets/`](assets) | Logo and local README assets |
@@ -119,10 +122,11 @@ This repository includes lightweight eval fixtures for skill maintenance:
 
 - [`evals/trigger-queries.json`](evals/trigger-queries.json) checks whether the skill description should activate for realistic GitHub-writing prompts and avoid near-miss prompts.
 - [`evals/evals.json`](evals/evals.json) records output-quality tasks for routing, cleanliness, evidence boundaries, and workflow-pack behavior.
+- [`evals/expected/`](evals/expected) stores short clean outputs that illustrate passable artifact shape.
 
 ## 📚 Sources
 
-The standards reference the [Agent Skills specification](https://agentskills.io/specification), [GitHub Docs](https://docs.github.com/en), [Conventional Commits](https://www.conventionalcommits.org/), [Keep a Changelog](https://keepachangelog.com/), [Google Engineering Practices](https://google.github.io/eng-practices/review/), and selected patterns from mature open-source repositories such as React, Kubernetes, TypeScript, Node.js, Tailwind CSS, Angular, and VS Code. See [`reference/source-catalog.md`](reference/source-catalog.md).
+The standards reference the [Agent Skills specification](https://agentskills.io/specification), [GitHub Docs](https://docs.github.com/en), [Conventional Commits](https://www.conventionalcommits.org/), [Keep a Changelog](https://keepachangelog.com/), [Google Engineering Practices](https://google.github.io/eng-practices/review/), and selected patterns from mature open-source repositories such as React, Kubernetes, TypeScript, Node.js, Tailwind CSS, Angular, and VS Code. See [`references/source-catalog.md`](references/source-catalog.md).
 
 ## 📄 License
 

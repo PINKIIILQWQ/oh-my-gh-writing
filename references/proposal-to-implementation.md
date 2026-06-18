@@ -46,6 +46,18 @@ Add any supplements in the same reply: target audience, current constraints, pre
 - `rfc.md`
 - `feature-request.md`
 - `feature-pr.md`
+- `package-manifest.md`
+
+## Package Manifest
+
+Every workflow package should include `package-manifest.md` with:
+
+- Selected package option.
+- Generated files and intended target paths.
+- Assumptions and evidence sources.
+- `TODO` / `TBD` fields.
+- Files safe to write directly.
+- Files requiring maintainer confirmation before use.
 
 ## Checklist
 

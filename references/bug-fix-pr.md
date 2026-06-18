@@ -28,6 +28,22 @@ Bug Fix PRs explain the defect, root cause when known, the fix, and verification
 - Do not invent root causes, issue IDs, test results, CI status, screenshots, benchmark changes, or release-note labels.
 - Do not claim a regression is fixed without implementation evidence.
 
+## Good Output Shape
+
+```markdown
+## Summary
+Fixes CSV export returning a blank page when report filters include archived rows.
+
+## Testing
+- Not run (not provided)
+```
+
+## Common Failure
+
+- Claiming tests passed when no command or CI output was provided.
+- Writing a root cause as fact when only the symptom is known.
+- Adding `Fixes #123` without an evidenced issue number.
+
 ## Strong Sources
 
 | Source | Useful Pattern |

@@ -67,6 +67,7 @@ venv/
 # Local research and validation material kept out of the public release
 /DOCS/
 /test/
+/reference/
 /.local-validation/
 /.github-writing/
 /案例/

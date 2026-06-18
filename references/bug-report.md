@@ -30,6 +30,24 @@ Bug reports describe symptoms and reproduction evidence. Do not turn a bug repor
 - Do not mark the bug as confirmed unless the user, repository, logs, or tool output proves it.
 - Do not write fix implementation details unless the user asked for a PR or fix plan.
 
+## Good Output Shape
+
+```markdown
+## Summary
+Exporting a CSV from the reports page opens a blank screen instead of downloading the file.
+
+## Steps to reproduce
+1. Open Reports.
+2. Click Export CSV.
+3. Observe the blank page.
+```
+
+## Common Failure
+
+- Writing "Root cause: CSV serializer crashes" without logs, diff, or user evidence.
+- Omitting expected vs actual behavior.
+- Filling version, browser, or OS fields with guesses.
+
 ## Strong Sources
 
 | Source | Useful Pattern |

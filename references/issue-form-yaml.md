@@ -38,6 +38,27 @@ Recommended inputs:
 - `checkboxes` for confirmations and checklist items.
 - `markdown` for short instructions.
 
+## Good Output Shape
+
+```yaml
+name: Bug report
+description: Report a reproducible problem
+title: "[Bug]: "
+body:
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to reproduce
+    validations:
+      required: true
+```
+
+## Common Failure
+
+- Adding `labels`, `projects`, `assignees`, or SIG fields copied from another repository.
+- Making optional policy confirmations required without maintainer input.
+- Wrapping a single YAML file in explanatory Markdown.
+
 ## Missing Information
 
 - If labels, default title, or options are unknown, omit them instead of inventing.

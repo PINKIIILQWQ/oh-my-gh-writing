@@ -37,6 +37,27 @@ Each finding should include:
 - Do not provide broad style commentary unless it affects correctness, maintainability, or requested scope.
 - Do not bury blocking findings under a long summary.
 
+## Review Discipline
+
+- Do not approve, merge, or say `LGTM` unless the user explicitly asks for an approval-style summary.
+- Separate correctness, security, and data-loss findings from style preferences.
+- If the diff is too small to verify behavior, say what cannot be verified.
+- Prefer the smallest safe fix over broad rewrites unless the risk requires a larger change.
+
+## Good Output Shape
+
+```markdown
+## Findings
+- Major: `src/export.ts:42` can throw before the response is closed when `rows` is empty.
+  Suggested fix: return an empty CSV response before calling `rows[0]`.
+```
+
+## Common Failure
+
+- Starting with a long summary before findings.
+- Commenting on style while missing a correctness issue.
+- Inventing exact line numbers when only a pasted snippet is available.
+
 ## Strong Sources
 
 | Source | Useful Pattern |

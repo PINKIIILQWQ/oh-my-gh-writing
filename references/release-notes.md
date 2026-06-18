@@ -42,6 +42,24 @@ If release notes come from Conventional Changelog, semantic-release, commit-and-
 - Do not invent release URLs, contributors, migration commands, built-in plugin lists, screenshots/GIFs, platform support, or benchmarks.
 - Do not rewrite changelog entries into unsupported promotional claims.
 
+## Good Output Shape
+
+```markdown
+## v1.2.0 - TBD
+
+### Highlights
+- Adds CSV export for reports.
+
+### Fixes
+- Fixes login redirect loops after session expiry.
+```
+
+## Common Failure
+
+- Adding a release date, compare URL, or contributor list without evidence.
+- Turning internal changelog bullets into marketing claims.
+- Adding migration steps for a release with no breaking-change evidence.
+
 ## Strong Sources
 
 | Source | Useful Pattern |

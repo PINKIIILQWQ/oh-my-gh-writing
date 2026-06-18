@@ -48,6 +48,18 @@ Read `shared-principles.md` because breaking-change facts are high risk.
 - `changelog-entry.md`
 - `release-notes.md`
 - `breaking-change-summary.md`
+- `package-manifest.md`
+
+## Package Manifest
+
+Every workflow package should include `package-manifest.md` with:
+
+- Selected package option.
+- Generated files and intended target paths.
+- Assumptions and evidence sources.
+- `TODO` / `TBD` fields.
+- Files safe to write directly.
+- Files requiring maintainer confirmation before use.
 
 ## Checklist
 
