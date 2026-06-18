@@ -1,0 +1,86 @@
+{
+  "skill_name": "oh-my-gh-writing",
+  "purpose": "Evaluate whether the SKILL.md description activates for GitHub-facing writing tasks and avoids near-miss prompts.",
+  "queries": [
+    {
+      "query": "Write a PR description from the current diff, including risk and tests.",
+      "should_trigger": true
+    },
+    {
+      "query": "Turn this crash report into a clean GitHub bug issue with reproduction steps.",
+      "should_trigger": true
+    },
+    {
+      "query": "Prepare the full v1.2.0 release materials for this repo.",
+      "should_trigger": true
+    },
+    {
+      "query": "Make this repository ready for outside contributors.",
+      "should_trigger": true
+    },
+    {
+      "query": "Draft a migration guide for users moving from v1 to v2.",
+      "should_trigger": true
+    },
+    {
+      "query": "Create a GitHub issue form YAML for feature requests.",
+      "should_trigger": true
+    },
+    {
+      "query": "Review this pull request and separate blocking, major, minor, and nit comments.",
+      "should_trigger": true
+    },
+    {
+      "query": "Write a conventional commit for these staged changes.",
+      "should_trigger": true
+    },
+    {
+      "query": "Turn this design idea into an RFC and follow-up feature request.",
+      "should_trigger": true
+    },
+    {
+      "query": "Refresh all docs for this repository and prepare the docs PR notes.",
+      "should_trigger": true
+    },
+    {
+      "query": "Implement the authentication middleware described in this issue.",
+      "should_trigger": false
+    },
+    {
+      "query": "Write homepage hero copy for our SaaS landing page.",
+      "should_trigger": false
+    },
+    {
+      "query": "Summarize this PDF contract in plain English.",
+      "should_trigger": false
+    },
+    {
+      "query": "Generate a React dashboard with charts and filters.",
+      "should_trigger": false
+    },
+    {
+      "query": "Create a marketing email announcing our product launch.",
+      "should_trigger": false
+    },
+    {
+      "query": "Fix the failing unit tests in this repository.",
+      "should_trigger": false
+    },
+    {
+      "query": "Convert this CSV to JSON and save the result.",
+      "should_trigger": false
+    },
+    {
+      "query": "Write a project roadmap for the next quarter.",
+      "should_trigger": false
+    },
+    {
+      "query": "Design a logo and color palette for this project.",
+      "should_trigger": false
+    },
+    {
+      "query": "Explain what GitHub Actions are to a beginner.",
+      "should_trigger": false
+    }
+  ]
+}

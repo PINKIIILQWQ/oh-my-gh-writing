@@ -22,7 +22,7 @@
 
 ## 🚀 快速开始
 
-支持开放 `skills` CLI 的 Agent Skills host 可以直接安装：
+支持开放 `skills` CLI 的 [Agent Skills](https://agentskills.io) host 可以直接安装：
 
 ```bash
 npx skills add PINKIIILQWQ/oh-my-gh-writing -g
@@ -109,12 +109,20 @@ Workflow pack 只做编排：先询问你需要哪种材料包，再按需读取
 | [`reference/`](reference) | 场景标准、workflow pack 和质量附录 |
 | [`reference/readme.md`](reference/readme.md) | README 写作标准 |
 | [`reference/source-catalog.md`](reference/source-catalog.md) | 公开参考来源和维护说明 |
+| [`evals/`](evals) | 用于后续 skill 迭代的触发和输出质量 eval fixtures |
 | [`CONTRIBUTING.md`](CONTRIBUTING.md) | 贡献说明 |
 | [`assets/`](assets) | Logo 和 README 本地资产 |
 
+## 🧪 评估
+
+本仓库包含轻量 eval fixtures，便于后续维护：
+
+- [`evals/trigger-queries.json`](evals/trigger-queries.json) 用来检查 skill description 是否会在真实 GitHub 写作请求中触发，并避开相近但不该触发的请求。
+- [`evals/evals.json`](evals/evals.json) 记录输出质量任务，覆盖路由、输出清洁、事实边界和 workflow pack 行为。
+
 ## 📚 参考来源
 
-本项目标准参考 [GitHub Docs](https://docs.github.com/en)、[Conventional Commits](https://www.conventionalcommits.org/)、[Keep a Changelog](https://keepachangelog.com/)、[Google Engineering Practices](https://google.github.io/eng-practices/review/)，以及 React、Kubernetes、TypeScript、Node.js、Tailwind CSS、Angular、VS Code 等成熟开源项目的写作模式。完整来源见 [`reference/source-catalog.md`](reference/source-catalog.md)。
+本项目标准参考 [Agent Skills specification](https://agentskills.io/specification)、[GitHub Docs](https://docs.github.com/en)、[Conventional Commits](https://www.conventionalcommits.org/)、[Keep a Changelog](https://keepachangelog.com/)、[Google Engineering Practices](https://google.github.io/eng-practices/review/)，以及 React、Kubernetes、TypeScript、Node.js、Tailwind CSS、Angular、VS Code 等成熟开源项目的写作模式。完整来源见 [`reference/source-catalog.md`](reference/source-catalog.md)。
 
 ## 📄 许可证
 

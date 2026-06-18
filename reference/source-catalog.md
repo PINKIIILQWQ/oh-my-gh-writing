@@ -18,6 +18,16 @@ It is a maintenance and credibility document, not runtime instruction for normal
 
 Large repositories with strong artifacts may appear in multiple scenarios. Reuse is intentional only when the linked artifact fits that scenario directly.
 
+## Skill Design Sources
+
+| Source | Why it is useful |
+|--------|------------------|
+| [Agent Skills Overview](https://agentskills.io/home) | Defines skills as portable folders loaded through progressive disclosure |
+| [Agent Skills Specification](https://agentskills.io/specification) | Frontmatter constraints, directory structure, relative file references, and validation expectations |
+| [Best practices for skill creators](https://agentskills.io/skill-creation/best-practices) | Context budgeting, defaults over menus, validation loops, and progressive disclosure guidance |
+| [Optimizing skill descriptions](https://agentskills.io/skill-creation/optimizing-descriptions) | Trigger-description design and positive/negative eval query patterns |
+| [Evaluating skill output quality](https://agentskills.io/skill-creation/evaluating-skills) | Eval fixture structure, with-skill/baseline comparison, and iteration loop |
+
 ## Scenario And Tool Sources
 
 | Scenario | Strong sources | Why they are useful |

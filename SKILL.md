@@ -1,11 +1,15 @@
 ---
 name: oh-my-gh-writing
-description: "Use when drafting or revising GitHub issues, pull request descriptions, code reviews, commit messages, README/CONTRIBUTING/CHANGELOG docs, release notes, migration guides, RFCs, issue forms, PR templates, or multi-artifact GitHub workflow packs such as releases, project launches, contribution setup, bug-fix workflows, breaking changes, and documentation overhauls."
+description: "Use this skill when the user wants to draft, revise, or package GitHub-facing artifacts: issues, pull request descriptions, code reviews, commit messages, README/CONTRIBUTING/CHANGELOG docs, release notes, migration guides, RFCs, issue forms, PR templates, or multi-artifact workflows such as releases, open-source launches, contribution setup, bug-fix workflows, breaking changes, and docs overhauls. Do not use for generic prose, UI copy, or code implementation unless the output is a GitHub artifact."
 ---
 
 # oh-my-gh-writing
 
 GitHub writing skill for AI agents. Route the request, load the matching standard, keep evidence boundaries explicit, and produce near-submission-ready GitHub drafts.
+
+## Trigger Boundary
+
+Use this skill for GitHub-facing writing artifacts and local GitHub writing draft packages. Do not use it for general copywriting, UI text, code implementation, product strategy, or broad documentation work unless the requested output is a GitHub artifact or GitHub repository file.
 
 ## Workflow
 

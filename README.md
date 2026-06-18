@@ -22,7 +22,7 @@ The core idea is simple: route the request first, load only the matching writing
 
 ## 🚀 Quick Start
 
-For Agent Skills hosts that support the open `skills` CLI:
+For [Agent Skills](https://agentskills.io) hosts that support the open `skills` CLI:
 
 ```bash
 npx skills add PINKIIILQWQ/oh-my-gh-writing -g
@@ -109,12 +109,20 @@ Workflow packs are thin orchestrators. They ask which package shape you want, th
 | [`reference/`](reference) | Scenario standards, workflow packs, and quality appendices |
 | [`reference/readme.md`](reference/readme.md) | README writing standard used by this skill |
 | [`reference/source-catalog.md`](reference/source-catalog.md) | Public source catalog and maintenance notes |
+| [`evals/`](evals) | Trigger and output-quality eval fixtures for future skill iteration |
 | [`CONTRIBUTING.md`](CONTRIBUTING.md) | Contribution guidance |
 | [`assets/`](assets) | Logo and local README assets |
 
+## 🧪 Evaluation
+
+This repository includes lightweight eval fixtures for skill maintenance:
+
+- [`evals/trigger-queries.json`](evals/trigger-queries.json) checks whether the skill description should activate for realistic GitHub-writing prompts and avoid near-miss prompts.
+- [`evals/evals.json`](evals/evals.json) records output-quality tasks for routing, cleanliness, evidence boundaries, and workflow-pack behavior.
+
 ## 📚 Sources
 
-The standards reference [GitHub Docs](https://docs.github.com/en), [Conventional Commits](https://www.conventionalcommits.org/), [Keep a Changelog](https://keepachangelog.com/), [Google Engineering Practices](https://google.github.io/eng-practices/review/), and selected patterns from mature open-source repositories such as React, Kubernetes, TypeScript, Node.js, Tailwind CSS, Angular, and VS Code. See [`reference/source-catalog.md`](reference/source-catalog.md).
+The standards reference the [Agent Skills specification](https://agentskills.io/specification), [GitHub Docs](https://docs.github.com/en), [Conventional Commits](https://www.conventionalcommits.org/), [Keep a Changelog](https://keepachangelog.com/), [Google Engineering Practices](https://google.github.io/eng-practices/review/), and selected patterns from mature open-source repositories such as React, Kubernetes, TypeScript, Node.js, Tailwind CSS, Angular, and VS Code. See [`reference/source-catalog.md`](reference/source-catalog.md).
 
 ## 📄 License
 
