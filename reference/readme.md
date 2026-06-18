@@ -66,6 +66,17 @@ Icons must have `alt`. In tables, default to `width="24" height="24"`; use 18px 
 
 Core explanatory sections such as Overview, Quick Start, Usage, Configuration, and Architecture need real substance, not one-line slogans. Entry sections such as License, Contributing, Links, and Acknowledgements may be short. Merge or omit sections with no real information.
 
+## Quick Start Placement
+
+For installable tools, agent skills, CLIs, plugins, templates, SDKs, or libraries, place Quick Start immediately after the short overview and before long rationale, support, or architecture sections. Start with the shortest reliable install command, then add host-specific or manual alternatives. Do not bury the first runnable command below broad applicability or feature tables.
+
+When a project supports both a universal installer and manual clone/symlink paths, use this order:
+
+1. Universal or recommended install command.
+2. Optional target-host command variants.
+3. Manual install commands for common hosts.
+4. One or more example prompts or usage commands.
+
 ## Project Applicability Scope
 
 Every README must state project applicability scope. It answers which users, environments, frameworks, platforms, products, runtimes, integrations, or artifact types the project applies to. It is not a feature list, marketing pitch, usage scenario list, or example gallery.
@@ -98,6 +109,8 @@ If scenarios or standards are under 20, a complete table is acceptable. If 20 or
 ## Multi-language
 
 Default languages: English plus the language used in the user conversation. If the user uses English, default to English only.
+
+For this skill repository's public documentation, maintain only `README.md` as the English default homepage and `README.zh-CN.md` as the Simplified Chinese secondary page unless the maintainer explicitly requests additional languages.
 
 When asking about languages, include the default value. Example for a Chinese conversation: `Target languages (default: English + Simplified Chinese)`. Example for English: `Target language (default: English)`.
 

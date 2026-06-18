@@ -16,7 +16,7 @@ Use GitHub-supported fields:
 name: Bug report
 description: Report a reproducible problem
 title: "[Bug]: "
-labels: ["bug"]
+# labels omitted until repository label conventions are known
 body:
   - type: markdown
     attributes:

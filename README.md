@@ -2,188 +2,120 @@
   <img src="assets/oh-my-gh-writing-logo.png" alt="oh-my-gh-writing logo" width="200">
 </p>
 
-<h1 align="center">oh-my-gh-writing</h1>
+<h1 align="center">✨ oh-my-gh-writing</h1>
 
 <p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-0f766e?style=flat" alt="MIT License"></a>
-  <a href="https://github.com/PINKIIILQWQ/oh-my-gh-writing/releases/tag/v0.1.0"><img src="https://img.shields.io/badge/Version-v0.1.0-2563eb?style=flat" alt="Version v0.1.0"></a>
+  <a href="SKILL.md"><img src="https://img.shields.io/badge/Status-Pre--release-2563eb?style=flat" alt="Pre-release"></a>
   <a href="INDEX.md"><img src="https://img.shields.io/badge/Artifacts-18-6a0dad?style=flat" alt="18 artifact standards"></a>
   <a href="INDEX.md"><img src="https://img.shields.io/badge/Workflows-7-0f766e?style=flat" alt="7 workflow packs"></a>
   <a href="SKILL.md"><img src="https://img.shields.io/badge/Format-SKILL.md-22AA66?style=flat" alt="SKILL.md"></a>
 </p>
 
 <p align="center">
-  简体中文 · <a href="README.en.md">English</a> · <a href="README.es.md">Español</a> · <a href="README.hi.md">हिन्दी</a> · <a href="README.ar.md">العربية</a> · <a href="README.fr.md">Français</a> · <a href="README.pt.md">Português</a> · <a href="README.ja.md">日本語</a> · <a href="README.ko.md">한국어</a>
+  English · <a href="README.zh-CN.md">简体中文</a>
 </p>
 
-**oh-my-gh-writing** 是一个面向 AI Agent 的 GitHub 写作技能包。它把 Issue、PR、Review、Commit、README、CHANGELOG、Release Notes、Migration Guide、RFC、Issue Form 和 PR Template 等常见 GitHub 写作任务路由到对应标准，帮助 agent 生成结构清晰、事实边界明确、接近可提交的 Markdown 或 YAML 草稿。
+**oh-my-gh-writing** is an Agent Skill for GitHub writing. It helps AI agents draft cleaner GitHub issues, pull request descriptions, reviews, commits, README files, changelogs, release notes, migration guides, RFCs, issue forms, PR templates, and multi-artifact workflow packs.
 
-它不是 README 生成器，也不是 GitHub 集成服务。它是一组可移植的 Markdown 写作规则：原生支持 Agent Skills 的工具可以直接加载；不支持 skill 格式的工具也可以把 `SKILL.md` 和对应 `reference/*.md` 改写为自己的规则、指令或知识库。
+The core idea is simple: route the request first, load only the matching writing standard, keep uncertain facts explicit, and output a GitHub artifact or local draft package that needs less cleanup.
 
-## ✨ 为什么用 oh-my-gh-writing？
+## 🚀 Quick Start
 
-GitHub 写作最难的不是把 Markdown 写满，而是判断当前场景该写什么、哪些事实必须核验、哪些内容不能编造，以及最终产物能否直接贴进 Issue、PR、Review 或 README。oh-my-gh-writing 把这些判断整理成一套可被 agent 按需读取的 GitHub 写作规则系统，让输出更接近真实开源项目的协作标准。
-
-- **覆盖 18 个 GitHub artifact 标准 + 7 个 workflow pack**：Issue、PR、Code Review、Commit、README、CHANGELOG、Release Notes、Migration Guide、RFC、Issue Form、PR Template，以及发版、项目首发、贡献流程、Bug 修复链路等复合场景。
-- **先路由，再写作**：区分 Feature Request、Enhancement、Discussion、Feature PR、Bug Fix PR、Refactor PR，减少“把 issue 写成 PR”的常见错误。
-- **按需读取 reference**：`SKILL.md` 只做轻量入口，具体规则按场景加载，避免把所有模板一次性塞进上下文。
-- **内置事实边界**：版本号、命令、CI、兼容性、release 信息、issue/PR 编号等不能确认时不编造，改用 TODO / TBD / 待确认。
-- **输出更接近可提交 artifact**：强调去掉对话前言、外层代码块、测试标题、复制残留和无关内容，让结果更像真实 GitHub artifact。
-- **参考真实开源项目**：规则吸收了 GitHub Docs、Conventional Commits、Keep a Changelog，以及 React、Kubernetes、TypeScript、Node.js、Tailwind CSS 等成熟项目的写作习惯。
-
-## 🎯 适用范围
-
-根据各平台对 skill、规则文件和自定义指令的支持程度，本仓库可以有几种使用方式：
-
-| 使用方式 | 适用对象 | 保留能力 | 注意事项 |
-|----------|----------|----------|----------|
-| Skill 目录 | 支持加载 `SKILL.md` 和本地 reference 的 agent | 场景路由、按需读取、输出验收最完整 | 推荐保留整个仓库目录，不只复制 `SKILL.md` |
-| 项目规则 / 自定义指令 | Cursor、Copilot、Continue、Windsurf / Devin 等规则型工具 | 可复用路由表和单场景标准 | 需要按目标工具格式改写；按任务复制相关 `reference/*.md` |
-| 知识库 / 文档索引 | 支持检索 Markdown 的 agent 或团队知识库 | 可作为 GitHub 写作规范来源 | 触发、路由和校验依赖目标工具能力 |
-
-18 个 GitHub artifact 标准和 7 个 workflow pack 是本项目的内置能力，不是项目适用范围。项目适用范围指它能被哪些 agent 产品、规则系统、知识库或 GitHub 写作流程采用。
-
-| 图标 | Agent / Tool | 推荐接入方式 | 注意事项 / 文档 |
-|------|--------------|--------------|---------------|
-| <a href="https://developers.openai.com/codex/skills"><img src="https://www.google.com/s2/favicons?domain=openai.com&sz=64" width="24" height="24" alt="OpenAI"></a> | [Codex](https://developers.openai.com/codex/skills) | 克隆到 `$HOME/.agents/skills/oh-my-gh-writing`，或作为项目 skill 放到 `.agents/skills/oh-my-gh-writing` | [Codex Agent Skills](https://developers.openai.com/codex/skills) |
-| <a href="https://code.claude.com/docs/en/skills"><img src="https://www.google.com/s2/favicons?domain=claude.ai&sz=64" width="24" height="24" alt="Claude"></a> | [Claude Code](https://code.claude.com/docs/en/skills) | 克隆或软链接到 `~/.claude/skills/oh-my-gh-writing`，或项目内 `.claude/skills/oh-my-gh-writing` | [Claude Code Skills](https://code.claude.com/docs/en/skills) |
-| <a href="https://geminicli.com/docs/cli/skills/"><img src="https://www.google.com/s2/favicons?domain=geminicli.com&sz=64" width="24" height="24" alt="Gemini CLI"></a> | [Gemini CLI](https://geminicli.com/docs/cli/skills/) | Gemini CLI 文档列出 `~/.gemini/skills/`、`~/.agents/skills/` 和 `gemini skills install` | 使用前按 [当前官方说明](https://geminicli.com/docs/cli/skills/) 确认 |
-| <a href="https://antigravity.google/"><img src="https://www.google.com/s2/favicons?domain=antigravity.google&sz=64" width="24" height="24" alt="Antigravity"></a> | [Antigravity CLI](https://antigravity.google/) | 按 Antigravity 当前文档确认 skill / rules 接入方式 | [Google Antigravity](https://antigravity.google/) |
-| <a href="https://hermes-agent.nousresearch.com/docs/guides/work-with-skills"><img src="assets/hermeslogo.png" width="24" height="24" alt="Hermes"></a> | [Hermes](https://hermes-agent.nousresearch.com/docs/guides/work-with-skills) | 放入 `~/.hermes/skills/<category>/oh-my-gh-writing` | HTTP 单文件安装只适合 `SKILL.md`；本仓库建议保留 `reference/` 目录。见 [Hermes Skills](https://hermes-agent.nousresearch.com/docs/guides/work-with-skills) |
-| <a href="https://cursor.com/docs"><img src="https://www.google.com/s2/favicons?domain=cursor.com&sz=64" width="24" height="24" alt="Cursor"></a> | [Cursor](https://cursor.com/docs) | 将路由摘要和需要的场景规则改写为项目规则；长 reference 可作为知识库索引 | 具体规则格式按 [Cursor Docs](https://cursor.com/docs) 当前版本确认 |
-| <a href="https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-repository-instructions"><img src="https://www.google.com/s2/favicons?domain=github.com&sz=64" width="24" height="24" alt="GitHub"></a> | [GitHub Copilot](https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-repository-instructions) | 改写为 `.github/copilot-instructions.md`、`.github/instructions/*.instructions.md` 或 Copilot agent skill 结构 | [Copilot Custom Instructions](https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-repository-instructions) |
-| <a href="https://docs.continue.dev/customize/rules"><img src="https://www.google.com/s2/favicons?domain=continue.dev&sz=64" width="24" height="24" alt="Continue"></a> | [Continue](https://docs.continue.dev/customize/rules) | 改写为 `.continue/rules/*.md`；按场景拆规则比塞进单个文件更稳定 | [Continue Rules](https://docs.continue.dev/customize/rules) |
-| <a href="https://docs.windsurf.com"><img src="https://www.google.com/s2/favicons?domain=windsurf.com&sz=64" width="24" height="24" alt="Windsurf"></a> | [Windsurf / Devin Desktop](https://docs.windsurf.com) | 当前文档提到 memories and rules 可用于自定义行为 | 具体规则文件路径和接入方式需按 [Windsurf / Devin Docs](https://docs.windsurf.com) 当前版本确认 |
-
-表中未列出的工具只要支持读取 Markdown、自定义系统指令、项目规则或知识库，也可以使用本技能的规则。最稳妥的方式是保留 `SKILL.md` 的路由表，再按任务只复制对应的 `reference/*.md`。
-
-## 🚀 快速开始
-
-Codex 用户可以直接安装到用户级 skills 目录：
+For Agent Skills hosts that support the open `skills` CLI:
 
 ```bash
-git clone https://github.com/PINKIIILQWQ/oh-my-gh-writing.git "$HOME/.agents/skills/oh-my-gh-writing"
+npx skills add PINKIIILQWQ/oh-my-gh-writing -g
 ```
 
-Claude Code 用户可以安装到个人 skills 目录：
+Target a specific host when needed:
 
 ```bash
+npx skills add PINKIIILQWQ/oh-my-gh-writing -g -a codex
+npx skills add PINKIIILQWQ/oh-my-gh-writing -g -a claude-code
+```
+
+Manual install:
+
+```bash
+# Codex / Gemini-style skill paths
+git clone https://github.com/PINKIIILQWQ/oh-my-gh-writing.git "$HOME/.agents/skills/oh-my-gh-writing"
+
+# Claude Code
 git clone https://github.com/PINKIIILQWQ/oh-my-gh-writing.git "$HOME/.claude/skills/oh-my-gh-writing"
 ```
 
-本地开发或测试时，也可以把当前仓库软链接到目标工具的 skill 目录：
+`-g` installs globally for your user. Omit it for a project-local install when your host supports local skills.
 
-```bash
-# Codex / Gemini CLI
-ln -sfn "$PWD" "$HOME/.agents/skills/oh-my-gh-writing"
-
-# Claude Code
-ln -sfn "$PWD" "$HOME/.claude/skills/oh-my-gh-writing"
-```
-
-安装后，在支持自动触发的 agent 中直接提出任务即可，例如：
+Example prompts:
 
 ```text
-帮我根据这个仓库写一个 README。
-把这个 bug 描述整理成 GitHub Issue。
-根据当前 diff 写一个 PR description。
-review 这个 PR，按 blocking / major / minor / nit 分类。
+Write a README for this repository.
+Turn this bug report into a GitHub Issue.
+Write a PR description from the current diff.
+Prepare the full v1.2.0 release materials.
+Make this repository ready for outside contributors.
 ```
 
-如果目标工具不支持 skill 目录，把 `SKILL.md` 中的路由表放入项目规则，再按场景补充对应 `reference/*.md`。不要一次性塞入所有 reference；这会降低触发精度，也会浪费上下文。
+## ✨ Why oh-my-gh-writing?
 
-## 🧭 Artifact 标准
+- **Workflow packs, not just templates**: release prep, project launch, contribution setup, bug-fix workflow, proposal-to-implementation, breaking-change communication, and docs overhaul are treated as multi-file GitHub writing jobs.
+- **Artifact routing before writing**: separates Feature Request, Enhancement, Discussion, Feature PR, Bug Fix PR, Refactor PR, and Documentation PR so agents do not turn one GitHub artifact into another.
+- **Evidence boundaries by default**: versions, commands, CI names, compatibility claims, issue numbers, PR numbers, and release facts must come from user input, repository files, diffs, or official sources.
+- **Progressive reference loading**: `SKILL.md` stays lightweight; detailed rules live in `reference/*.md` and are loaded only when needed.
+- **Cleaner output**: rules explicitly guard against chat prefaces, outer Markdown fences, stale test titles, copied residue, unchecked checklist items, and invented facts.
+- **Grounded in real GitHub practice**: the rulebase is shaped by GitHub Docs, Conventional Commits, Keep a Changelog, Google Engineering Practices, and mature open-source project patterns.
 
-### 🐛 Issue
+## 🎯 Applicability
 
-| 场景 | 适用时机 | 标准文件 |
-|------|----------|----------|
-| Bug Report | 报告可复现缺陷 | [`reference/bug-report.md`](reference/bug-report.md) |
-| Feature Request | 提议新功能或新 API | [`reference/feature-request.md`](reference/feature-request.md) |
-| Enhancement | 改进已有能力 | [`reference/enhancement.md`](reference/enhancement.md) |
-| Discussion | 开放式社区讨论 | [`reference/discussion.md`](reference/discussion.md) |
+This project is a portable Markdown rulebase for AI agents and rule-based coding tools. It is most useful when the tool can read `SKILL.md` plus local `reference/*.md` files, but the same standards can be adapted into project rules, custom instructions, or a knowledge base.
 
-### 🔀 Pull Request
+| Use mode | Best for | What works well | Limit |
+| --- | --- | --- | --- |
+| Skill directory | Codex, Claude Code, Gemini-style skill hosts | Routing, progressive reference loading, validation rules | Requires local file access |
+| Project rules | Cursor, Continue, Copilot, Windsurf / Devin-style rules | Reusing selected standards inside a project | Needs manual adaptation to each host format |
+| Knowledge base | Teams or agents that search Markdown docs | Standards, examples of structure, source catalog | Routing depends on the host tool |
 
-| 场景 | 适用时机 | 标准文件 |
-|------|----------|----------|
-| Feature PR | 描述新功能 Pull Request | [`reference/feature-pr.md`](reference/feature-pr.md) |
-| Bug Fix PR | 描述缺陷修复 Pull Request | [`reference/bug-fix-pr.md`](reference/bug-fix-pr.md) |
-| Refactor PR | 描述不改变行为的重构 | [`reference/refactor-pr.md`](reference/refactor-pr.md) |
-| Documentation PR | 描述文档改动 Pull Request | [`reference/documentation-pr.md`](reference/documentation-pr.md) |
+## 🧭 What It Covers
 
-### 👓 Review & Commit
+| Type | Coverage |
+| --- | --- |
+| 18 artifact standards | Bug Report, Feature Request, Enhancement, Discussion, Feature PR, Bug Fix PR, Refactor PR, Documentation PR, Code Review, Standard Commit, README, CONTRIBUTING, CHANGELOG, Release Notes, Migration Guide, RFC, Issue Form YAML, PR Template |
+| 7 workflow packs | Version Release, Project Launch, Contribution Setup, Bug Fix Workflow, Proposal to Implementation, Breaking Change Package, Docs Overhaul |
+| Quality appendices | Shared principles, output validation, badge patterns, emoji guide, GitHub Markdown tools, source catalog |
 
-| 场景 | 适用时机 | 标准文件 |
-|------|----------|----------|
-| Code Review | 审查代码变更 | [`reference/code-review.md`](reference/code-review.md) |
-| Standard Commit | 写提交信息 | [`reference/standard-commit.md`](reference/standard-commit.md) |
+Workflow packs are thin orchestrators. They ask which package shape you want, then load only the selected single-artifact standards. By default they write local drafts under `.github-writing/...`; they do not publish releases, push tags, open PRs, or modify remote state unless you explicitly ask.
 
-### 📝 Documentation
+## 🤖 Agent Support
 
-| 场景 | 适用时机 | 标准文件 |
-|------|----------|----------|
-| README | 创建或修改项目首页 | [`reference/readme.md`](reference/readme.md) |
-| CONTRIBUTING | 创建贡献指南 | [`reference/contributing.md`](reference/contributing.md) |
-| CHANGELOG | 写版本变更记录 | [`reference/changelog.md`](reference/changelog.md) |
+| Icon | Agent / Tool | Recommended setup | Notes |
+| --- | --- | --- | --- |
+| <a href="https://developers.openai.com/codex/skills"><img src="https://www.google.com/s2/favicons?domain=openai.com&sz=64" width="24" height="24" alt="OpenAI"></a> | [Codex](https://developers.openai.com/codex/skills) | Clone to `$HOME/.agents/skills/oh-my-gh-writing` or project `.agents/skills/oh-my-gh-writing` | Native Agent Skills model |
+| <a href="https://code.claude.com/docs/en/skills"><img src="https://www.google.com/s2/favicons?domain=claude.ai&sz=64" width="24" height="24" alt="Claude"></a> | [Claude Code](https://code.claude.com/docs/en/skills) | Clone or symlink to `~/.claude/skills/oh-my-gh-writing` | Uses `SKILL.md` frontmatter |
+| <a href="https://geminicli.com/docs/cli/skills/"><img src="https://www.google.com/s2/favicons?domain=geminicli.com&sz=64" width="24" height="24" alt="Gemini CLI"></a> | [Gemini CLI](https://geminicli.com/docs/cli/skills/) | Check current skill paths and install commands | Gemini / Antigravity availability is changing; verify current docs |
+| <a href="https://antigravity.google/"><img src="https://www.google.com/s2/favicons?domain=antigravity.google&sz=64" width="24" height="24" alt="Antigravity"></a> | [Antigravity](https://antigravity.google/) | Check current rules or skill support | Use the current official documentation |
+| <a href="https://hermes-agent.nousresearch.com/docs/guides/work-with-skills"><img src="assets/hermeslogo.png" width="24" height="24" alt="Hermes"></a> | [Hermes](https://hermes-agent.nousresearch.com/docs/guides/work-with-skills) | Keep the full folder under a Hermes skills directory | Single-file HTTP installs only cover `SKILL.md`, not `reference/` |
+| <a href="https://cursor.com/docs"><img src="https://www.google.com/s2/favicons?domain=cursor.com&sz=64" width="24" height="24" alt="Cursor"></a> | [Cursor](https://cursor.com/docs) | Adapt the router and selected references into project rules | Keep only relevant scenario rules |
+| <a href="https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-repository-instructions"><img src="https://www.google.com/s2/favicons?domain=github.com&sz=64" width="24" height="24" alt="GitHub"></a> | [GitHub Copilot](https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-repository-instructions) | Adapt to Copilot repository instructions or agent skill files | Does not directly consume this full skill folder by default |
+| <a href="https://docs.continue.dev/customize/rules"><img src="https://www.google.com/s2/favicons?domain=continue.dev&sz=64" width="24" height="24" alt="Continue"></a> | [Continue](https://docs.continue.dev/customize/rules) | Adapt to `.continue/rules/*.md` | Split by scenario instead of one large rule |
+| <a href="https://docs.windsurf.com"><img src="https://www.google.com/s2/favicons?domain=windsurf.com&sz=64" width="24" height="24" alt="Windsurf"></a> | [Windsurf / Devin Desktop](https://docs.windsurf.com) | Check current memories / rules documentation | Path and support details should be confirmed before use |
 
-### 🚀 Release & Design
+## 📂 Files
 
-| 场景 | 适用时机 | 标准文件 |
-|------|----------|----------|
-| Release Notes | 写发布说明 | [`reference/release-notes.md`](reference/release-notes.md) |
-| Migration Guide | 说明升级步骤 | [`reference/migration-guide.md`](reference/migration-guide.md) |
-| RFC | 提出设计方案 | [`reference/rfc.md`](reference/rfc.md) |
+| Path | Purpose |
+| --- | --- |
+| [`SKILL.md`](SKILL.md) | Thin runtime router and workflow rules |
+| [`INDEX.md`](INDEX.md) | Navigation for 18 artifact standards and 7 workflow packs |
+| [`reference/`](reference) | Scenario standards, workflow packs, and quality appendices |
+| [`reference/readme.md`](reference/readme.md) | README writing standard used by this skill |
+| [`reference/source-catalog.md`](reference/source-catalog.md) | Public source catalog and maintenance notes |
+| [`CONTRIBUTING.md`](CONTRIBUTING.md) | Contribution guidance |
+| [`assets/`](assets) | Logo and local README assets |
 
-### 🧩 Templates
+## 📚 Sources
 
-| 场景 | 适用时机 | 标准文件 |
-|------|----------|----------|
-| Issue Form YAML | 创建 GitHub Issue 表单 | [`reference/issue-form-yaml.md`](reference/issue-form-yaml.md) |
-| PR Template | 创建 Pull Request 模板 | [`reference/pr-template.md`](reference/pr-template.md) |
+The standards reference [GitHub Docs](https://docs.github.com/en), [Conventional Commits](https://www.conventionalcommits.org/), [Keep a Changelog](https://keepachangelog.com/), [Google Engineering Practices](https://google.github.io/eng-practices/review/), and selected patterns from mature open-source repositories such as React, Kubernetes, TypeScript, Node.js, Tailwind CSS, Angular, and VS Code. See [`reference/source-catalog.md`](reference/source-catalog.md).
 
-每个场景都有对应的标准文件，位于 `reference/`。这些文件提供结构、必含字段、事实边界、格式要求和参考来源提示。完整导航见 [`INDEX.md`](INDEX.md)。
-
-## 🧩 Workflow Packs
-
-| Pack | 适用时机 | 编排文件 |
-|------|----------|----------|
-| Version Release | 准备版本发布、软件更新或 major release 材料 | [`reference/version-release.md`](reference/version-release.md) |
-| Project Launch | 准备首次公开仓库或开源首发材料 | [`reference/project-launch.md`](reference/project-launch.md) |
-| Contribution Setup | 让项目具备接收外部贡献的流程 | [`reference/contribution-setup.md`](reference/contribution-setup.md) |
-| Bug Fix Workflow | 从 Bug 报告/排查到修复 PR 的材料包 | [`reference/bug-fix-workflow.md`](reference/bug-fix-workflow.md) |
-| Proposal to Implementation | 把想法推进为讨论、RFC、Feature Request 和 PR 草稿 | [`reference/proposal-to-implementation.md`](reference/proposal-to-implementation.md) |
-| Breaking Change Package | 准备破坏性变更的设计、迁移和发布沟通 | [`reference/breaking-change-package.md`](reference/breaking-change-package.md) |
-| Docs Overhaul | 准备文档重写、首页刷新或 docs PR 材料 | [`reference/docs-overhaul.md`](reference/docs-overhaul.md) |
-
-Workflow pack 只做编排：先询问需要哪种材料包，再按需读取单项 artifact 标准。默认输出到本地 `.github-writing/...` 草稿目录，不默认发布、打 tag、开 PR 或修改远端。
-
-## 📂 文件索引
-
-| 路径 | 作用 |
-|------|------|
-| [`SKILL.md`](SKILL.md) | Agent 入口规则：场景路由、工作流、reference 索引 |
-| [`INDEX.md`](INDEX.md) | 全量导航：18 个 artifact 标准、7 个 workflow pack、阅读路径、维护索引 |
-| [`CONTRIBUTING.md`](CONTRIBUTING.md) | 贡献规则：来源质量、案例贡献、维护边界 |
-| [`README_Example.md`](README_Example.md) | README 效果示例，不作为运行时规则加载 |
-| [`reference/`](reference) | 场景标准和附录规则目录 |
-| [`reference/readme.md`](reference/readme.md) | README 写作规则：适用范围、badge、表格、多语言、支持表 |
-| [`reference/shared-principles.md`](reference/shared-principles.md) | 通用输出质量规则和事实边界 |
-| [`reference/output-validation.md`](reference/output-validation.md) | 输出验收清单 |
-| [`reference/weapons.md`](reference/weapons.md) | GitHub Markdown 工具：badge、alert、Mermaid、表格等 |
-| [`reference/source-catalog.md`](reference/source-catalog.md) | 公开参考来源目录 |
-| [`assets/`](assets) | Logo 和展示资产 |
-
-## 🤝 贡献
-
-欢迎贡献场景规则、参考来源、输出验收规则和小型 Markdown 工具改进。案例也有价值，但请先通过 Issue 或 Discussion 描述来源、场景、测试目标和授权/隐私边界，不要直接提交大批复制内容或本地验证输出。
-
-贡献时请保持 `SKILL.md` 轻量，把场景细节写入对应 `reference/*.md`。详细规则见 [`CONTRIBUTING.md`](CONTRIBUTING.md)。
-
-## 📚 参考来源
-
-本项目的场景规则参考了 [GitHub Docs](https://docs.github.com/en)、[Conventional Commits](https://www.conventionalcommits.org/)、[Keep a Changelog](https://keepachangelog.com/)、[Google Engineering Practices](https://google.github.io/eng-practices/review/)，以及 Angular、Kubernetes、React、TypeScript、VS Code、Node.js、Tailwind CSS 等成熟开源项目的 Issue/PR 模板和贡献指南。完整来源见 [`reference/source-catalog.md`](reference/source-catalog.md)。
-
-## 📄 许可证
+## 📄 License
 
 [MIT](LICENSE) © 2026 oh-my-gh-writing contributors

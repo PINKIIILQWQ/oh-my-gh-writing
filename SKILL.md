@@ -68,6 +68,7 @@ Composite workflow packs are orchestrators, not templates. They select which exi
 - Include optional supplements in the same message.
 - Default output location is local draft files under `.github-writing/<pack-name>/<version-or-date>/`.
 - If no version or date is known, use `.github-writing/<pack-name>/TBD/`.
+- If file writing is unavailable, display the package as multi-file chat output using `## File: ...` headings and fenced blocks. Do not claim files were written.
 - Do not publish, create GitHub releases, push tags, open PRs, or modify remote state unless the user explicitly asks.
 
 ## Reference Index

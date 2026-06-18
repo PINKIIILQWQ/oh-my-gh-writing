@@ -42,6 +42,20 @@ Large repositories with strong artifacts may appear in multiple scenarios. Reuse
 | PR Template | [GitHub PR template docs](https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/creating-a-pull-request-template-for-your-repository), [Kubernetes PR Template](https://github.com/kubernetes/kubernetes/blob/master/.github/PULL_REQUEST_TEMPLATE.md), [React PR Template](https://github.com/react/react/blob/main/.github/PULL_REQUEST_TEMPLATE.md), [Moby PR Template](https://github.com/moby/moby/blob/master/.github/PULL_REQUEST_TEMPLATE.md), [ESLint PR Template](https://github.com/eslint/eslint/blob/main/.github/PULL_REQUEST_TEMPLATE.md), [Tailwind CSS PR Template](https://github.com/tailwindlabs/tailwindcss/blob/main/.github/PULL_REQUEST_TEMPLATE.md) | Summary, change type, verification checklist, unchecked defaults, repo-specific fields only |
 | Emoji / Markdown Tools | [GitHub Markdown syntax](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax), [Emoji-Cheat-Sheet](https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md), [rxaviers markdown emoji markup](https://gist.github.com/rxaviers/7360908), [gitmoji](https://github.com/carloscuesta/gitmoji) | GitHub emoji syntax, full shortcode lookup, and commit/PR title intent semantics |
 
+## Composite Workflow Pack Sources
+
+Workflow packs are thin orchestrators built from the single-artifact standards above. They do not introduce independent factual claims or new template sources; they select which existing standards to load for a broader GitHub writing job.
+
+| Workflow pack | Built from |
+|---------------|------------|
+| Version Release | CHANGELOG, Release Notes, Migration Guide, optional PR or tag notes |
+| Project Launch | README, CONTRIBUTING, Issue Form YAML, PR Template, source or credits notes |
+| Contribution Setup | CONTRIBUTING, Issue Form YAML, PR Template, README contribution entry |
+| Bug Fix Workflow | Bug Report or triage summary, Bug Fix PR, verification and review notes |
+| Proposal to Implementation | Discussion, RFC, Feature Request, Feature PR |
+| Breaking Change Package | RFC, Feature or Refactor PR, Migration Guide, CHANGELOG, Release Notes |
+| Docs Overhaul | README, Documentation PR, CONTRIBUTING docs section, optional changelog docs entry |
+
 ## Maintenance Notes
 
 - Keep scenario files focused on rules. Add only the strongest 3-6 sources directly in each file.
