@@ -6,7 +6,7 @@
 
 <p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-0f766e?style=flat" alt="MIT License"></a>
-  <a href="SKILL.md"><img src="https://img.shields.io/badge/Status-Pre--release-2563eb?style=flat" alt="Pre-release"></a>
+  <a href="SKILL.md"><img src="https://img.shields.io/badge/Version-v0.1.0-2563eb?style=flat" alt="v0.1.0"></a>
   <a href="INDEX.md"><img src="https://img.shields.io/badge/Artifacts-18-6a0dad?style=flat" alt="18 artifact standards"></a>
   <a href="INDEX.md"><img src="https://img.shields.io/badge/Workflows-7-0f766e?style=flat" alt="7 workflow packs"></a>
   <a href="SKILL.md"><img src="https://img.shields.io/badge/Format-SKILL.md-22AA66?style=flat" alt="SKILL.md"></a>
@@ -25,7 +25,7 @@ The core idea is simple: route the request first, load only the matching writing
 Recommended manual install:
 
 ```bash
-# Codex / Gemini-style skill paths
+# Codex-style / hosts that support .agents/skills
 git clone https://github.com/PINKIIILQWQ/oh-my-gh-writing.git "$HOME/.agents/skills/oh-my-gh-writing"
 
 # Claude Code
@@ -75,7 +75,7 @@ This project is a portable Markdown rulebase for AI agents and rule-based coding
 
 | Use mode | Best for | What works well | Limit |
 | --- | --- | --- | --- |
-| Skill directory | Codex, Claude Code, Gemini-style skill hosts | Routing, progressive reference loading, validation rules | Requires local file access |
+| Skill directory | Codex, Claude Code, folder-compatible skill hosts | Routing, progressive reference loading, validation rules | Requires local file access |
 | Project rules | Cursor, Continue, Copilot, Windsurf / Devin-style rules | Reusing selected standards inside a project | Needs manual adaptation to each host format |
 | Knowledge base | Teams or agents that search Markdown docs | Standards, examples of structure, source catalog | Routing depends on the host tool |
 

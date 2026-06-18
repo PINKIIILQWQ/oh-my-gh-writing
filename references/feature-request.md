@@ -33,13 +33,13 @@ Feature requests describe the desired future state. Do not write as if the featu
 
 ```markdown
 ## Problem
-Users cannot export filtered reports for offline sharing.
+Teams cannot share CLI defaults across contributors without copying long command strings.
 
 ## Proposed solution
-Add CSV export for the current filtered report view.
+Add support for a project-level configuration file.
 
 ## Open questions
-- Should exports include hidden columns?
+- Which options should be allowed in committed config?
 ```
 
 ## Common Failure

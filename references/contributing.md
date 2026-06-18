@@ -28,6 +28,25 @@ CONTRIBUTING files describe how people should contribute to the target project. 
 - Do not invent Node/npm/pnpm versions, test commands, devcontainers, Storybook, Playwright, semantic-release, coverage thresholds, release permissions, security contacts, or governance.
 - Do not require a code of conduct unless it exists or the user asks for one.
 
+## Good Output Shape
+
+```markdown
+## Development setup
+
+TBD: install and test commands were not provided.
+
+## Pull requests
+
+- Describe the change and why it is needed.
+- Include tests or explain why tests were not run.
+```
+
+## Common Failure
+
+- Copying setup commands from another project.
+- Adding security, governance, or release rules without repository evidence.
+- Turning a small private project into a heavy public contributor program.
+
 ## Strong Sources
 
 | Source | Useful Pattern |

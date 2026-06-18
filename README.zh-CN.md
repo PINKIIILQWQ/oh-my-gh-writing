@@ -6,7 +6,7 @@
 
 <p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-0f766e?style=flat" alt="MIT License"></a>
-  <a href="SKILL.md"><img src="https://img.shields.io/badge/Status-Pre--release-2563eb?style=flat" alt="Pre-release"></a>
+  <a href="SKILL.md"><img src="https://img.shields.io/badge/Version-v0.1.0-2563eb?style=flat" alt="v0.1.0"></a>
   <a href="INDEX.md"><img src="https://img.shields.io/badge/Artifacts-18-6a0dad?style=flat" alt="18 artifact standards"></a>
   <a href="INDEX.md"><img src="https://img.shields.io/badge/Workflows-7-0f766e?style=flat" alt="7 workflow packs"></a>
   <a href="SKILL.md"><img src="https://img.shields.io/badge/Format-SKILL.md-22AA66?style=flat" alt="SKILL.md"></a>
@@ -27,7 +27,7 @@
 推荐手动安装：
 
 ```bash
-# Codex / Gemini 类 skill 路径
+# Codex 类 / 支持 .agents/skills 的 host
 git clone https://github.com/PINKIIILQWQ/oh-my-gh-writing.git "$HOME/.agents/skills/oh-my-gh-writing"
 
 # Claude Code
@@ -77,7 +77,7 @@ npx skills add PINKIIILQWQ/oh-my-gh-writing -g -a claude-code
 
 | 使用方式 | 适用对象 | 保留能力 | 限制 |
 | --- | --- | --- | --- |
-| Skill 目录 | Codex、Claude Code、Gemini 类 skill host | 路由、按需读取、输出验收最完整 | 需要本地文件读取能力 |
+| Skill 目录 | Codex、Claude Code、目录兼容的 skill host | 路由、按需读取、输出验收最完整 | 需要本地文件读取能力 |
 | 项目规则 | Cursor、Continue、Copilot、Windsurf / Devin 类规则系统 | 在项目内复用选定标准 | 需要按工具格式手动适配 |
 | 知识库 | 可检索 Markdown 的 agent 或团队规范库 | 结构标准、来源说明、质量规则 | 路由依赖宿主工具能力 |
 

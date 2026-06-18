@@ -29,6 +29,7 @@ Use these labels when reviewing eval results:
 
 ## Maintenance
 
+- Validate fixtures with `python3 scripts/validate-evals.py` from the repository root.
 - Keep expected outputs short and sanitized.
 - Do not add copied private artifacts, large case collections, or raw local validation logs.
 - Keep raw run outputs under `evals/runs/`; they are local-only and ignored. Public run results need a reviewed manifest, grading notes, and sanitized excerpts.

@@ -30,7 +30,7 @@ Documentation PRs should not be written like code PRs. If code behavior changes,
 
 ```markdown
 ## Summary
-- Documents the CSV export workflow in the reporting guide.
+- Documents plugin setup and local configuration paths.
 
 ## Validation
 Docs preview not run (not provided).

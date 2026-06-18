@@ -55,7 +55,7 @@ Do not submit large batches of copied artifacts without prior discussion. If a c
 
 Before opening a PR:
 
-1. Run the skill validator and basic Markdown/JSON checks when files changed.
+1. Run `python3 scripts/validate-evals.py` when eval fixtures change, and run basic Markdown/JSON checks for changed files.
 2. Add or update at least one eval when changing `SKILL.md` routing, description triggers, workflow packs, or output hygiene rules.
 3. For scenario rule changes, include either a short `Good output shape` / `Common failure` note or an eval expected output when the change affects artifact shape.
 4. Confirm `SKILL.md`, `INDEX.md`, README files, and `references/` paths stay synchronized.

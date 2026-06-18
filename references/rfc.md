@@ -29,6 +29,26 @@ RFCs explore and justify a proposal. Do not write final implementation claims, a
 - Do not hide unresolved decisions.
 - Do not turn an RFC into a PR description unless the user asks.
 
+## Good Output Shape
+
+```markdown
+## Summary
+Introduce a project-level configuration file for shared CLI defaults.
+
+## Alternatives
+- Keep command-line flags only.
+- Use environment variables.
+
+## Open questions
+- Which settings are safe to persist in the repository?
+```
+
+## Common Failure
+
+- Writing open questions as accepted decisions.
+- Inventing owners, deadlines, benchmark results, or migration dates.
+- Describing implementation status when no diff or accepted design exists.
+
 ## Strong Sources
 
 | Source | Useful Pattern |

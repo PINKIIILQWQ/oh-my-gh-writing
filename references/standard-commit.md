@@ -46,6 +46,20 @@ Common types:
 - Do not use vague summaries such as `update files` or `fix stuff`.
 - Do not include long explanations in the subject line.
 
+## Good Output Shape
+
+```text
+docs(readme): clarify agent support matrix
+
+Separate direct skill-directory installs from tools that need rule adaptation.
+```
+
+## Common Failure
+
+- Adding `Fixes #123` without a real issue.
+- Marking `!` or `BREAKING CHANGE` without confirmed breaking behavior.
+- Using broad subjects such as `update docs` when the changed area is known.
+
 ## Strong Sources
 
 | Source | Useful Pattern |

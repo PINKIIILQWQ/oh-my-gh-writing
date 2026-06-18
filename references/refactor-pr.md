@@ -32,7 +32,7 @@ Refactor PRs must make the no-behavior-change claim explicit and honest. If beha
 
 ```markdown
 ## Summary
-- Splits report export helpers into a dedicated module.
+- Splits authentication middleware into parser, verifier, and error-response helpers.
 
 ## Behavior impact
 No behavior change intended.
