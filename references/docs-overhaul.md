@@ -18,7 +18,7 @@ If docs changes are release-facing, include a changelog docs entry. If the user 
 
 ## Required Package Question
 
-Ask this before drafting unless the user already chose:
+Ask this when the Decision Rule cannot safely choose a package option:
 
 ```text
 Which docs overhaul package should I prepare?

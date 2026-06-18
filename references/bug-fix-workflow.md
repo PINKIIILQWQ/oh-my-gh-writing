@@ -18,7 +18,7 @@ If no fix diff exists, do not generate Bug Fix PR as final; generate Issue-only 
 
 ## Required Package Question
 
-Ask this before drafting unless the user already chose:
+Ask this when the Decision Rule cannot safely choose a package option:
 
 ```text
 Which bug-fix workflow package should I prepare?

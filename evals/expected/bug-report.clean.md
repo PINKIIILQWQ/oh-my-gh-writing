@@ -25,4 +25,3 @@ The page becomes blank.
 ## Additional context
 
 - Logs/screenshots: mentioned but not provided
-- Root cause: TBD

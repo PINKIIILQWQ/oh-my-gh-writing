@@ -18,7 +18,7 @@ If the repository has no public contribution policy, default to Public launch pa
 
 ## Required Package Question
 
-Ask this before drafting unless the user already chose:
+Ask this when the Decision Rule cannot safely choose a package option:
 
 ```text
 Which project launch package should I prepare?

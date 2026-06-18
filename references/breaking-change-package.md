@@ -18,7 +18,7 @@ If breaking-change intent is not confirmed, ask before creating Migration Guide 
 
 ## Required Package Question
 
-Ask this before drafting unless the user already chose:
+Ask this when the Decision Rule cannot safely choose a package option:
 
 ```text
 Which breaking-change package should I prepare?

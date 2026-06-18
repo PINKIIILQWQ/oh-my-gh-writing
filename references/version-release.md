@@ -18,7 +18,7 @@ If version, changelog source, and release scope are known, default to Standard r
 
 ## Required Package Question
 
-Ask this before drafting unless the user already chose:
+Ask this when the Decision Rule cannot safely choose a package option:
 
 ```text
 Which release package should I prepare?

@@ -18,7 +18,7 @@ If no decision exists yet, default to Proposal pack. Generate Implementation pac
 
 ## Required Package Question
 
-Ask this before drafting unless the user already chose:
+Ask this when the Decision Rule cannot safely choose a package option:
 
 ```text
 Which proposal package should I prepare?

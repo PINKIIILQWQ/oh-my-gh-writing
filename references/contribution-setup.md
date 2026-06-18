@@ -18,7 +18,7 @@ If the user asks to accept outside contributors and no existing process is known
 
 ## Required Package Question
 
-Ask this before drafting unless the user already chose:
+Ask this when the Decision Rule cannot safely choose a package option:
 
 ```text
 Which contribution setup package should I prepare?

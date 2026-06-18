@@ -48,7 +48,7 @@ Each finding should include:
 
 ```markdown
 ## Findings
-- Major: `src/export.ts:42` can throw before the response is closed when `rows` is empty.
+- Major: `src/export.ts` can throw before the response is closed when `rows` is empty.
   Suggested fix: return an empty CSV response before calling `rows[0]`.
 ```
 

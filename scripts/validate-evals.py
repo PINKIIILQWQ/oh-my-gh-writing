@@ -80,6 +80,12 @@ def validate_evals() -> None:
         if item["output_type"] not in OUTPUT_TYPES:
             raise ValueError(f"{eval_id}: unsupported output_type `{item['output_type']}`")
 
+        expected_route = item["expected_route"]
+        if not isinstance(expected_route, str):
+            raise ValueError(f"{eval_id}: `expected_route` must be a string")
+        if expected_route.startswith("references/") and not (ROOT / expected_route).is_file():
+            raise ValueError(f"{eval_id}: expected route not found: {expected_route}")
+
         risk_category = require_list(item["risk_category"], "risk_category", eval_id)
         if not risk_category:
             raise ValueError(f"{eval_id}: `risk_category` must not be empty")
@@ -96,8 +102,20 @@ def validate_evals() -> None:
         if expected_file is not None:
             if not isinstance(expected_file, str):
                 raise ValueError(f"{eval_id}: `expected_file` must be a string")
-            if not (EVALS / expected_file).is_file():
+            expected_path = EVALS / expected_file
+            if not expected_path.is_file():
                 raise ValueError(f"{eval_id}: expected file not found: evals/{expected_file}")
+            expected_text = expected_path.read_text(encoding="utf-8")
+            for needle in item.get("must_contain", []):
+                if needle not in expected_text:
+                    raise ValueError(
+                        f"{eval_id}: expected file missing required text: {needle!r}"
+                    )
+            for needle in item.get("must_not_contain", []):
+                if needle in expected_text:
+                    raise ValueError(
+                        f"{eval_id}: expected file contains forbidden text: {needle!r}"
+                    )
 
 
 def main() -> int:

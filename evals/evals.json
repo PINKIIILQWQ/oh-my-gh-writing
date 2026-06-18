@@ -26,7 +26,7 @@
       "expected_route": "references/version-release.md",
       "output_type": "multi-file-package",
       "risk_category": ["routing", "workflow", "evidence"],
-      "expected_output": "Routes to Version Release. Asks one package-selection question with three options and a recommended default, includes optional supplements, defaults to local .github-writing/version-release/v1.2.0/ drafts, and includes package-manifest.md.",
+      "expected_output": "Routes to Version Release. Asks one package-selection question only when the package shape cannot be inferred safely; otherwise records the recommended default, defaults to local .github-writing/version-release/v1.2.0/ drafts, and includes package-manifest.md.",
       "expected_file": "expected/version-release.manifest.md",
       "assertions": [
         "Output asks or records the selected release package option.",
@@ -161,7 +161,7 @@
     },
     {
       "id": "code-review-findings-first",
-      "prompt": "Review this diff and lead with actionable findings before summary.",
+      "prompt": "Review this diff and lead with actionable findings before summary:\n\n```diff\ndiff --git a/src/export.ts b/src/export.ts\n@@\n export function buildCsv(rows: Row[]) {\n-  const columns = rows.map(row => row.columns)\n+  const columns = rows[0].columns\n   return serializeCsv(columns, rows)\n }\n```",
       "expected_route": "references/code-review.md",
       "output_type": "markdown-artifact",
       "risk_category": ["format", "evidence"],
@@ -174,7 +174,8 @@
         "Output says when behavior cannot be verified."
       ],
       "must_contain": [
-        "Findings"
+        "Findings",
+        "src/export.ts"
       ],
       "must_not_contain": [
         "LGTM",

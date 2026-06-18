@@ -7,6 +7,7 @@
 
 | File | Intended target | Status |
 |------|-----------------|--------|
+| `package-manifest.md` | Local workflow package manifest | Safe local draft |
 | `CHANGELOG.md` | Repository changelog update | Requires maintainer review |
 | `RELEASE_NOTES.md` | GitHub release draft body | Requires maintainer review |
 
