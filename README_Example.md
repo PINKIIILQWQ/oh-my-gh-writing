@@ -16,14 +16,14 @@
   <a href="./INDEX.md"><img src="https://img.shields.io/badge/Scenarios-18-6a0dad?style=flat-square" alt="18 Scenarios"></a>
   <a href="./LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue?style=flat-square" alt="License: MIT"></a>
   <a href="./CONTRIBUTING.md"><img src="https://img.shields.io/badge/PRs-Welcome-brightgreen?style=flat-square" alt="PRs Welcome"></a>
-  <a href="./SKILL.md"><img src="https://img.shields.io/badge/Agent-Claude%20Code-8A2BE2?style=flat-square" alt="Agent: Claude Code"></a>
+  <a href="./SKILL.md"><img src="https://img.shields.io/badge/Agent-Skill-8A2BE2?style=flat-square" alt="Agent Skill"></a>
 </p>
 
 ---
 
 ## 🧭 Overview
 
-oh-my-gh-writing is a **portable Claude Code skill** for producing near-submission-ready GitHub artifacts. It doesn't generate prompts or templates from scratch — it routes each request to the correct scenario standard, loads the matching rules, enforces evidence boundaries, and validates output before delivery.
+oh-my-gh-writing is a **portable GitHub writing skill** for AI agents. It doesn't generate prompts or templates from scratch — it routes each request to the correct scenario standard, loads the matching rules, enforces evidence boundaries, and validates output before delivery.
 
 Built for agents that write on GitHub: Issues, PRs, reviews, docs, releases, and templates.
 
@@ -35,15 +35,44 @@ Built for agents that write on GitHub: Issues, PRs, reviews, docs, releases, and
 - **Output validation** — built-in checklist catches format pollution, routing errors, and fact gaps
 - **Language fidelity** — matches the target repository's language, never leaks skill instructions
 
+## 🎯 Applicability
+
+oh-my-gh-writing is designed for projects and teams that want AI agents to write GitHub artifacts with consistent structure and clear evidence boundaries.
+
+| Scope | Applies to | Notes |
+|-------|------------|-------|
+| Native skill hosts | Codex, Claude Code, Gemini CLI, and other agents that can load a `SKILL.md` folder with local references | Best fit: keep the full repository so the agent can read `reference/*.md` progressively |
+| Rule-based agents | Cursor, GitHub Copilot custom instructions, Continue rules, Windsurf / Devin-style rules, or similar project instruction systems | Adapt `SKILL.md` plus the needed scenario files instead of copying every reference into one prompt |
+| GitHub writing workflows | Issues, pull requests, reviews, commits, docs, releases, migration guides, RFCs, issue forms, and PR templates | These 18 scenarios are built-in capabilities, not the project compatibility scope |
+| Knowledge bases | Teams that want a reusable Markdown rulebase for GitHub writing standards | Search/retrieval quality depends on the host tool |
+
+It is not a GitHub API client, CI bot, repository analyzer, or standalone README generator. It works best when the agent can inspect user input, repository files, diffs, or official sources before drafting.
+
 ## 🚀 Quick Start
 
-Clone the skill to your Claude Code skills directory:
+Install for Codex:
 
 ```bash
-git clone https://github.com/<your-org>/oh-my-gh-writing.git ~/.claude/skills/oh-my-gh-writing
+git clone https://github.com/PINKIIILQWQ/oh-my-gh-writing.git "$HOME/.agents/skills/oh-my-gh-writing"
 ```
 
-Then invoke it through Claude Code:
+Install for Claude Code:
+
+```bash
+git clone https://github.com/PINKIIILQWQ/oh-my-gh-writing.git "$HOME/.claude/skills/oh-my-gh-writing"
+```
+
+For local development, symlink the current checkout into your agent's skill directory:
+
+```bash
+# Codex / Gemini CLI
+ln -sfn "$PWD" "$HOME/.agents/skills/oh-my-gh-writing"
+
+# Claude Code
+ln -sfn "$PWD" "$HOME/.claude/skills/oh-my-gh-writing"
+```
+
+Then ask your agent for a GitHub writing artifact:
 
 ```
 > Write a Bug Report for a Vite "Module not found" build failure
@@ -51,7 +80,7 @@ Then invoke it through Claude Code:
 > Write a README for this project
 ```
 
-The skill identifies the scenario, loads the matching standard, and drafts the artifact — no manual setup required.
+If your tool does not support skill directories, adapt `SKILL.md` into project rules and add only the scenario files needed for the task.
 
 ## 🎯 Scenarios
 
@@ -148,7 +177,7 @@ User request
 - **SKILL.md stays thin.** It routes; it doesn't contain scenario rules.
 - **One standard per scenario.** Each `reference/*.md` covers exactly one artifact type.
 - **Evidence is the floor.** No fact appears without a source — user input, repo files, tool output, or verified links.
-- **Output is submission-ready.** The validation pass strips chat wrappers, format pollution, and unverified claims.
+- **Output is closer to submission-ready.** The validation pass strips chat wrappers, format pollution, and unverified claims.
 - **Progressive by default.** No eager loads, no large context dumps — the agent fetches what it needs.
 
 ## 🤝 Contributing
