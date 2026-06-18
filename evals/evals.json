@@ -121,7 +121,7 @@
       "expected_output": "Produces valid GitHub issue-form YAML and omits labels, projects, assignees, SIGs, version lists, and required fields that are not evidenced.",
       "expected_file": "expected/issue-form-yaml.clean.yml",
       "assertions": [
-        "Output parses as YAML.",
+        "YAML parseability is reviewed manually.",
         "Output uses GitHub issue form supported fields.",
         "Output omits labels, projects, assignees, SIGs, and version lists.",
         "Output does not make optional policy confirmations required without maintainer input."

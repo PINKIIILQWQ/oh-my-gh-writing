@@ -5,7 +5,7 @@
 
 ## Open Questions
 
-- Is an empty filtered report expected to download an empty CSV or show an in-app empty state?
+- Should empty `rows` produce an empty CSV, a header-only CSV, or an explicit error?
 
 ## Test gaps
 

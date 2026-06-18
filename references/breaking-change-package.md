@@ -24,7 +24,7 @@ Ask this when the Decision Rule cannot safely choose a package option:
 Which breaking-change package should I prepare?
 
 A. Major release pack (Recommended): RFC + Migration Guide + CHANGELOG + Release Notes.
-B. Pre-implementation pack: RFC + Feature/Refactor PR notes.
+B. Pre-implementation pack: RFC first; add Feature/Refactor PR notes only when a branch, diff, or explicit PR draft request exists.
 C. Release-only pack: Migration Guide + CHANGELOG + Release Notes.
 
 Add any supplements in the same reply: old behavior, new behavior, affected users, deprecation timeline, migration commands, compatibility window, rollback path, or target release.

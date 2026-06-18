@@ -17,4 +17,4 @@ Not run (not provided).
 
 ## Risk
 
-- CSV formatting and browser download behavior need confirmation.
+- CSV formatting and export delivery behavior need confirmation.

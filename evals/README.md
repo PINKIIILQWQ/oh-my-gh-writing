@@ -32,6 +32,7 @@ Use these labels when reviewing eval results:
 - Validate fixtures with `python3 scripts/validate-evals.py` from the repository root.
 - Keep expected outputs short and sanitized.
 - Any eval with `must_contain` or `must_not_contain` must include an `expected_file` fixture so containment checks are executable.
+- `assertions` are human-review criteria; only fixture structure and containment checks are executable in the validator.
 - `schema.json` documents the fixture shape; `scripts/validate-evals.py` is the executable validator.
 - Do not add copied private artifacts, large case collections, or raw local validation logs.
 - Keep raw run outputs under `evals/runs/`; they are local-only and ignored. Public run results need a reviewed manifest, grading notes, and sanitized excerpts.
