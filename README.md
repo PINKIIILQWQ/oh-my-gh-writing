@@ -7,7 +7,8 @@
 <p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-0f766e?style=flat" alt="MIT License"></a>
   <a href="https://github.com/PINKIIILQWQ/oh-my-gh-writing/releases/tag/v0.1.0"><img src="https://img.shields.io/badge/Version-v0.1.0-2563eb?style=flat" alt="Version v0.1.0"></a>
-  <a href="INDEX.md"><img src="https://img.shields.io/badge/Scenarios-18-6a0dad?style=flat" alt="18 Scenarios"></a>
+  <a href="INDEX.md"><img src="https://img.shields.io/badge/Artifacts-18-6a0dad?style=flat" alt="18 artifact standards"></a>
+  <a href="INDEX.md"><img src="https://img.shields.io/badge/Workflows-7-0f766e?style=flat" alt="7 workflow packs"></a>
   <a href="SKILL.md"><img src="https://img.shields.io/badge/Format-SKILL.md-22AA66?style=flat" alt="SKILL.md"></a>
 </p>
 
@@ -23,7 +24,7 @@
 
 GitHub 写作最难的不是把 Markdown 写满，而是判断当前场景该写什么、哪些事实必须核验、哪些内容不能编造，以及最终产物能否直接贴进 Issue、PR、Review 或 README。oh-my-gh-writing 把这些判断整理成一套可被 agent 按需读取的 GitHub 写作规则系统，让输出更接近真实开源项目的协作标准。
 
-- **覆盖 18 个 GitHub 写作场景**：Issue、PR、Code Review、Commit、README、CHANGELOG、Release Notes、Migration Guide、RFC、Issue Form、PR Template 等。
+- **覆盖 18 个 GitHub artifact 标准 + 7 个 workflow pack**：Issue、PR、Code Review、Commit、README、CHANGELOG、Release Notes、Migration Guide、RFC、Issue Form、PR Template，以及发版、项目首发、贡献流程、Bug 修复链路等复合场景。
 - **先路由，再写作**：区分 Feature Request、Enhancement、Discussion、Feature PR、Bug Fix PR、Refactor PR，减少“把 issue 写成 PR”的常见错误。
 - **按需读取 reference**：`SKILL.md` 只做轻量入口，具体规则按场景加载，避免把所有模板一次性塞进上下文。
 - **内置事实边界**：版本号、命令、CI、兼容性、release 信息、issue/PR 编号等不能确认时不编造，改用 TODO / TBD / 待确认。
@@ -40,7 +41,7 @@ GitHub 写作最难的不是把 Markdown 写满，而是判断当前场景该写
 | 项目规则 / 自定义指令 | Cursor、Copilot、Continue、Windsurf / Devin 等规则型工具 | 可复用路由表和单场景标准 | 需要按目标工具格式改写；按任务复制相关 `reference/*.md` |
 | 知识库 / 文档索引 | 支持检索 Markdown 的 agent 或团队知识库 | 可作为 GitHub 写作规范来源 | 触发、路由和校验依赖目标工具能力 |
 
-18 个 GitHub 写作场景是本项目的内置能力，不是项目适用范围。项目适用范围指它能被哪些 agent 产品、规则系统、知识库或 GitHub 写作流程采用。
+18 个 GitHub artifact 标准和 7 个 workflow pack 是本项目的内置能力，不是项目适用范围。项目适用范围指它能被哪些 agent 产品、规则系统、知识库或 GitHub 写作流程采用。
 
 | 图标 | Agent / Tool | 推荐接入方式 | 注意事项 / 文档 |
 |------|--------------|--------------|---------------|
@@ -91,7 +92,7 @@ review 这个 PR，按 blocking / major / minor / nit 分类。
 
 如果目标工具不支持 skill 目录，把 `SKILL.md` 中的路由表放入项目规则，再按场景补充对应 `reference/*.md`。不要一次性塞入所有 reference；这会降低触发精度，也会浪费上下文。
 
-## 🧭 场景
+## 🧭 Artifact 标准
 
 ### 🐛 Issue
 
@@ -143,12 +144,26 @@ review 这个 PR，按 blocking / major / minor / nit 分类。
 
 每个场景都有对应的标准文件，位于 `reference/`。这些文件提供结构、必含字段、事实边界、格式要求和参考来源提示。完整导航见 [`INDEX.md`](INDEX.md)。
 
+## 🧩 Workflow Packs
+
+| Pack | 适用时机 | 编排文件 |
+|------|----------|----------|
+| Version Release | 准备版本发布、软件更新或 major release 材料 | [`reference/version-release.md`](reference/version-release.md) |
+| Project Launch | 准备首次公开仓库或开源首发材料 | [`reference/project-launch.md`](reference/project-launch.md) |
+| Contribution Setup | 让项目具备接收外部贡献的流程 | [`reference/contribution-setup.md`](reference/contribution-setup.md) |
+| Bug Fix Workflow | 从 Bug 报告/排查到修复 PR 的材料包 | [`reference/bug-fix-workflow.md`](reference/bug-fix-workflow.md) |
+| Proposal to Implementation | 把想法推进为讨论、RFC、Feature Request 和 PR 草稿 | [`reference/proposal-to-implementation.md`](reference/proposal-to-implementation.md) |
+| Breaking Change Package | 准备破坏性变更的设计、迁移和发布沟通 | [`reference/breaking-change-package.md`](reference/breaking-change-package.md) |
+| Docs Overhaul | 准备文档重写、首页刷新或 docs PR 材料 | [`reference/docs-overhaul.md`](reference/docs-overhaul.md) |
+
+Workflow pack 只做编排：先询问需要哪种材料包，再按需读取单项 artifact 标准。默认输出到本地 `.github-writing/...` 草稿目录，不默认发布、打 tag、开 PR 或修改远端。
+
 ## 📂 文件索引
 
 | 路径 | 作用 |
 |------|------|
 | [`SKILL.md`](SKILL.md) | Agent 入口规则：场景路由、工作流、reference 索引 |
-| [`INDEX.md`](INDEX.md) | 全量导航：18 个场景、阅读路径、维护索引 |
+| [`INDEX.md`](INDEX.md) | 全量导航：18 个 artifact 标准、7 个 workflow pack、阅读路径、维护索引 |
 | [`CONTRIBUTING.md`](CONTRIBUTING.md) | 贡献规则：来源质量、案例贡献、维护边界 |
 | [`README_Example.md`](README_Example.md) | README 效果示例，不作为运行时规则加载 |
 | [`reference/`](reference) | 场景标准和附录规则目录 |

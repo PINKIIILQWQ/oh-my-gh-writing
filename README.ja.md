@@ -7,7 +7,8 @@
 <p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-0f766e?style=flat" alt="MIT License"></a>
   <a href="SKILL.md"><img src="https://img.shields.io/badge/Status-Release%20Candidate-2563eb?style=flat" alt="Release Candidate"></a>
-  <a href="INDEX.md"><img src="https://img.shields.io/badge/Scenarios-18-6a0dad?style=flat" alt="18 scenarios"></a>
+  <a href="INDEX.md"><img src="https://img.shields.io/badge/Artifacts-18-6a0dad?style=flat" alt="18 artifact standards"></a>
+  <a href="INDEX.md"><img src="https://img.shields.io/badge/Workflows-7-0f766e?style=flat" alt="7 workflow packs"></a>
   <a href="SKILL.md"><img src="https://img.shields.io/badge/Format-SKILL.md-22AA66?style=flat" alt="SKILL.md"></a>
 </p>
 
@@ -77,7 +78,7 @@ ln -sfn "$PWD" "$HOME/.claude/skills/oh-my-gh-writing"
 この PR を review して blocking / major / minor / nit に分類して。
 ```
 
-## Scenarios
+## Artifact Standards
 
 | # | Category | Scenario | Use when |
 |---|----------|----------|----------|

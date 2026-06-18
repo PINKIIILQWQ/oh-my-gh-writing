@@ -1,67 +1,63 @@
-# Standard Commit — 写作标准
+# Standard Commit Standard
 
-## 适用场景
-日常代码提交，要求语义清晰的 commit message。
+## Use When
 
-## 输出边界
+Use when the user asks for a commit message, commit title, commit body, or Conventional Commit.
 
-Commit message 描述一个实际提交。不要编造 PR/Issue 编号、breaking change、Co-authored-by、Signed-off-by 或测试结果。
+## Output Boundary
 
-## 标准结构
+Commit messages summarize committed changes. Do not include uncommitted claims, test results, issue closing keywords, or breaking-change markers unless supported by the diff, user input, or repository convention.
 
+## Standard Structure
+
+Prefer Conventional Commits unless the target repository uses a different style:
+
+```text
+type(scope): concise summary
+
+Optional body explaining why and important context.
+
+Optional footer such as:
+BREAKING CHANGE: ...
+Refs: #123
 ```
-<type>(<scope>): <subject>
 
-<body>
+Common types:
 
-<footer>
-```
+- `feat`: new capability
+- `fix`: bug fix
+- `docs`: documentation only
+- `refactor`: behavior-preserving cleanup
+- `test`: tests
+- `chore`: tooling, config, maintenance
+- `perf`: performance improvement with evidence
+- `ci`: CI configuration
+- `build`: build system or dependencies
 
-`body` 和 `footer` 是可选项；只有复杂变更、breaking change、关联 Issue/PR 或项目规范要求时才写。
+## Missing Information
 
-**type 表**：
-| type | 含义 | 示例 |
-|------|------|------|
-| feat | 新功能 | `feat(auth): add OAuth2 login` |
-| fix | 修复 | `fix(parser): handle empty input` |
-| docs | 文档 | `docs: add migration guide` |
-| refactor | 重构 | `refactor(core): extract auth module` |
-| perf | 性能 | `perf(query): lazy load` |
-| test | 测试 | `test: add api regression tests` |
-| chore | 杂项 | `chore: update dependencies` |
-| style | 格式 | `style: fix indent` |
-| revert | 回滚 | `revert: "feat: add X"` |
+- If scope is unclear, omit it instead of guessing.
+- If breaking-change intent is unclear, ask before adding `!` or `BREAKING CHANGE`.
+- If issue IDs are unknown, omit `Fixes #...`.
 
-## 信息不足时
+## Do Not Invent
 
-- 无法确认 scope 时省略 scope。
-- 不知道 Issue 编号时不写 footer。
-- breaking change 不确定时不要写 `!` 或 `BREAKING CHANGE`。
+- Do not invent issue IDs, tests, breaking-change status, package names, or scopes.
+- Do not use vague summaries such as `update files` or `fix stuff`.
+- Do not include long explanations in the subject line.
 
-## 结构化提示
+## Strong Sources
 
-Commitizen 的价值在于把 commit message 拆成可回答字段。为用户起草 commit 时，也按字段判断：`type`、可选 `scope`、短描述、必要时的 body、breaking change、关联 issue。只询问会改变提交语义的缺失字段；普通单一变更可直接生成一行 commit。
+| Source | Useful Pattern |
+|--------|----------------|
+| Conventional Commits | Type/scope/description and breaking-change footer |
+| Commitizen / cz-cli | Prompted commit structure |
+| Conventional Changelog | Commit metadata used for changelogs |
+| Angular commit convention | Practical type and scope discipline |
 
-如果目标仓库存在 `.czrc`、`config.commitizen`、`commitlint`、`cz-conventional-changelog` 或自定义 adapter，优先遵循仓库配置。不要把 Commitizen badge、脚本或 adapter 配置写入目标仓库，除非用户明确要求配置提交工具。
+## Checklist
 
-## 禁止编造项
-
-- 不编造 issue/PR 编号、reviewer、co-author、DCO、breaking change 或测试状态。
-- 不把多个无关变更塞进一个 commit message。
-
-## 高质量参考来源
-
-| 来源 | 可借鉴点 |
-|------|----------|
-| Conventional Commits | https://www.conventionalcommits.org/en/v1.0.0/ |
-| Commitizen / cz-cli | https://github.com/commitizen/cz-cli |
-| Angular commit rules | https://github.com/angular/angular/blob/main/CONTRIBUTING.md#commit |
-| Linux submitting patches | https://www.kernel.org/doc/html/v4.10/process/submitting-patches.html |
-| Node.js commit guide | https://github.com/nodejs/node/blob/main/CONTRIBUTING.md#step-3-commit |
-| Go commit messages | https://go.dev/doc/contribute#commit_messages |
-| Gitea CONTRIBUTING | https://github.com/go-gitea/gitea/blob/main/CONTRIBUTING.md |
-
-## 必含元素 Checklist
-- [ ] type(scope): subject
-- [ ] 必要时用 body 说明动机
-- [ ] 关联 PR/Issue（footer，可选，且只在编号已知时写）
+- [ ] Subject is concise and imperative enough for git history.
+- [ ] Type matches the change.
+- [ ] Scope is included only when known.
+- [ ] Breaking-change and issue footers are evidenced.

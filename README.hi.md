@@ -7,7 +7,8 @@
 <p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-0f766e?style=flat" alt="MIT License"></a>
   <a href="SKILL.md"><img src="https://img.shields.io/badge/Status-Release%20Candidate-2563eb?style=flat" alt="Release Candidate"></a>
-  <a href="INDEX.md"><img src="https://img.shields.io/badge/Scenarios-18-6a0dad?style=flat" alt="18 Scenarios"></a>
+  <a href="INDEX.md"><img src="https://img.shields.io/badge/Artifacts-18-6a0dad?style=flat" alt="18 artifact standards"></a>
+  <a href="INDEX.md"><img src="https://img.shields.io/badge/Workflows-7-0f766e?style=flat" alt="7 workflow packs"></a>
   <a href="SKILL.md"><img src="https://img.shields.io/badge/Format-SKILL.md-22AA66?style=flat" alt="SKILL.md"></a>
 </p>
 
@@ -23,7 +24,7 @@
 
 GitHub पर अच्छा लिखना सिर्फ Markdown भरना नहीं है। मुश्किल हिस्सा यह है कि सही scenario पहचाना जाए, कौन-से facts verify करने हैं, क्या invent नहीं करना है, और final artifact Issue, PR, Review या README में साफ तरीके से paste किया जा सकता है या नहीं।
 
-- **18 GitHub writing scenarios**: Issues, PRs, Code Review, Commit, README, CHANGELOG, Release Notes, Migration Guide, RFC, Issue Form, PR Template आदि।
+- **18 GitHub artifact standards + 7 workflow packs**: Issues, PRs, Code Review, Commit, README, CHANGELOG, Release Notes, Migration Guide, RFC, Issue Form, PR Template, और composite workflow packs।
 - **पहले routing, फिर writing**: Feature Request, Enhancement, Discussion, Feature PR, Bug Fix PR और Refactor PR को अलग रखता है।
 - **Progressive reference loading**: `SKILL.md` हल्का रहता है; detailed standards जरूरत पर ही load होते हैं।
 - **Evidence boundaries**: versions, commands, CI, compatibility, releases और issue/PR numbers guess नहीं किए जाते।
@@ -77,7 +78,7 @@ current diff से PR description लिखो।
 इस PR को review करो और findings को blocking / major / minor / nit में बांटो।
 ```
 
-## Scenarios
+## Artifact Standards
 
 | # | Category | Scenario | Use when |
 |---|----------|----------|----------|

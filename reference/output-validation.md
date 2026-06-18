@@ -1,103 +1,101 @@
-# Output Validation — 提交前验收
+# Output Validation
 
-## 适用场景
+## Use When
 
-所有场景在最终输出前都应经过这一层检查。它不是第 19 个用户写作场景，而是内部验收清单：判断产物能否不经解释地粘贴到 GitHub。
+Apply this internal validation layer before final output for every scenario. It is not a user-facing scenario; it checks whether the artifact can be pasted into the target GitHub location without extra explanation.
 
-## 输出清洁
+## Output Cleanliness
 
-目标输出必须是 GitHub artifact 本身。对话中的说明、文件分隔标题和 fenced block 只允许作为“多文件展示包装”，不得混入任何单个目标文件的实际内容。
+The target output must be the GitHub artifact itself. Conversational explanations, file-separator headings, and fenced wrappers are allowed only as multi-file display wrappers; they must not become part of a single target file.
 
-禁止内容：
+Forbidden content:
 
-- 对话前言，例如“下面是”“可以直接使用”“我为你写好了”。
-- 测试标题，例如 `# 02 Feature Request 测试`。
-- 整篇 Markdown 外层代码块，例如 ```markdown 包住完整 README 或 Issue。
-- 复制污染，例如多余反引号、终端残留、无关 docker-compose 片段、半截代码块。
-- 来源清单、测试元数据、来源元数据、input prompt，除非用户明确要求测试报告。
-- 已勾选但没有证据的 checklist。模板、未来工作和待验证事项默认保持未勾选。
+- Conversational prefaces such as "Here is", "You can copy this", or "I wrote this for you".
+- Test titles such as `# 02 Feature Request Test`.
+- Whole-document outer Markdown fences such as wrapping an entire README or Issue in ```markdown.
+- Copy pollution: extra backticks, terminal residue, unrelated docker-compose snippets, or half-open code blocks.
+- Source lists, test metadata, source metadata, or input prompts unless the user explicitly asked for a test report.
+- Checked checklist items without evidence. Template, future-work, and to-verify items stay unchecked by default.
 
-允许内容：
+Allowed content:
 
-- 用户要求在聊天中展示多个 YAML/Markdown 文件时，可以用 `## File: ...` 加对应 fenced block；这些标题和外层 fence 只是展示包装，不属于文件内容。
-- 单个目标文件落盘时，只写文件内容，不加 Markdown 包装。
-- Issue/PR 正文需要代码、日志、diff、配置时，使用局部 fenced code block。
+- When the user asks to display multiple YAML/Markdown files in chat, use `## File: ...` headings plus fenced blocks. These wrappers are display-only and not file content.
+- When writing a single target file, output only file content.
+- When Issue/PR bodies need code, logs, diffs, or config, use local fenced code blocks.
 
-## 事实边界
+## Evidence Boundaries
 
-以下事实必须有来源：
+| Fact type | Valid sources |
+|-----------|---------------|
+| Version, date, release URL | User input, release page, tag, CHANGELOG |
+| PR/Issue number, commit hash | Diff, GitHub page, repository history, user input |
+| Test result, CI name, workflow name | Tool output, CI config, user input |
+| Install command, package name, Node/Rust/Python version | Package/config files, official docs, user input |
+| Platform support, compatibility range, migration timeline | Official docs, release notes, repository files, user input |
+| Screenshot, GIF, Star History, badge | Repository assets, user assets, official service, verifiable link |
 
-| 事实类型 | 合法来源 |
-|----------|----------|
-| 版本号、发布日期、release URL | 用户输入、release 页面、tag、CHANGELOG |
-| PR/Issue 编号、提交哈希 | diff、GitHub 页面、仓库历史、用户输入 |
-| 测试结果、CI 名称、workflow 名称 | 工具输出、CI 配置、用户输入 |
-| 安装命令、包名、Node/Rust/Python 版本 | package/config 文件、官方文档、用户输入 |
-| 平台支持、兼容范围、迁移时间线 | 官方文档、release notes、仓库文件、用户输入 |
-| 截图、GIF、Star History、徽章 | 仓库资源、用户素材、官方服务或可验证链接 |
+When evidence is missing:
 
-没有证据时：
+- Write `TODO`, `TBD`, or `To confirm`.
+- Remove optional sections.
+- Frame causes as `Suspected cause` or `Needs confirmation`.
+- Do not use model memory or reference-project facts as target-project facts.
 
-- 写 `TODO`、`TBD`、`To confirm`。
-- 删除可选段落。
-- 把原因写成 "Suspected cause" 或 "Needs confirmation"。
-- 不把模型记忆或案例事实当作目标仓库事实。
+## Routing Validation
 
-## 场景路由验收
+| Output symptom | Label |
+|----------------|-------|
+| Future capability request is written as an implemented PR | ROUTING_FAIL |
+| "Turn a PR postmortem into a Feature Request" is written as a PR description | ROUTING_FAIL |
+| Line-level review appears without a diff | FORMAT_FAIL |
+| PR description claims tests passed without evidence | FACT_CHECK_REQUIRED |
+| Discussion decides the solution for the user | DRAFT_ONLY |
+| README is wrapped in a whole-document code block | FORMAT_FAIL |
+| README lacks project applicability scope, or uses features/scenarios as applicability scope | FACT_CHECK_REQUIRED |
+| YAML file includes explanatory headings when meant for direct file write | FORMAT_FAIL |
+| Composite workflow publishes, tags, opens PRs, or modifies remote state by default | FORMAT_FAIL |
 
-| 输出症状 | 判定 |
-|----------|------|
-| 未来能力请求被写成已实现 PR | ROUTING_FAIL |
-| "从 PR 复盘重构为 Feature Request" 被写成 PR 描述 | ROUTING_FAIL |
-| 没有 diff 却输出行号级 review | FORMAT_FAIL |
-| PR 描述声称测试已通过但没有证据 | FACT_CHECK_REQUIRED |
-| Discussion 已经替用户决定方案 | DRAFT_ONLY |
-| README 整篇包在代码块里 | FORMAT_FAIL |
-| README 缺少项目适用范围，或把功能/场景当成适用范围 | FACT_CHECK_REQUIRED |
-| YAML 文件带外层解释标题并要直接落盘 | FORMAT_FAIL |
+## Validation Labels
 
-## 验收标签
+| Label | Meaning |
+|-------|---------|
+| PASS | Can be submitted to the target GitHub location as-is |
+| PASS_AFTER_CLEANUP | Content is sound but needs wrapper, title, placeholder, or format cleanup |
+| DRAFT_ONLY | Useful draft but not directly submit-ready |
+| ROUTING_FAIL | Wrong scenario or workflow route |
+| FACT_CHECK_REQUIRED | Fact-heavy content lacks sources or confirmation |
+| FORMAT_FAIL | Format is not submit-ready |
 
-测试时给每次输出一个标签：
+## Pre-submission Checklist
 
-| 标签 | 含义 |
-|------|------|
-| PASS | 原样可提交到目标 GitHub 位置 |
-| PASS_AFTER_CLEANUP | 内容成立，但需要清掉包装、标题、占位或格式污染 |
-| DRAFT_ONLY | 可当草稿，不能直接提交 |
-| ROUTING_FAIL | 场景识别错误 |
-| FACT_CHECK_REQUIRED | 事实密集内容缺少来源或需要核验 |
-| FORMAT_FAIL | 格式不可提交 |
+- [ ] No test title or test metadata.
+- [ ] No whole-document outer `markdown` fence.
+- [ ] No conversational preface or ending.
+- [ ] No unrelated code snippet, terminal residue, or copy pollution.
+- [ ] No unexplained, unactionable, or submission-inappropriate `#XXXXX`, `Fixes #`, `TODO`, or `TBD`.
+- [ ] No checklist item is checked without proof from user input, repository files, diff, or tool output.
+- [ ] YAML parses; multi-file display and single-file write boundaries are clear.
+- [ ] Markdown tables, code blocks, details, and alerts render correctly.
+- [ ] README has clear project applicability scope and does not confuse features, built-in scenarios, or examples with applicability.
+- [ ] PR/Review does not claim unrun tests.
+- [ ] Scenario route matches the user request.
+- [ ] Composite workflows default to local `.github-writing/...` drafts unless publishing is explicitly requested.
+- [ ] High-risk facts have sources or are marked for confirmation.
 
-## 提交前 Checklist
+## Maintainer Local Validation
 
-- [ ] 没有测试标题或测试元数据。
-- [ ] 没有整篇外层 `markdown` 代码块。
-- [ ] 没有对话性前言或结尾。
-- [ ] 没有无关代码片段、终端残留或复制污染。
-- [ ] 没有未解释、不可行动、或不适合提交位置的 `#XXXXX`、`Fixes #`、`TODO`、`TBD`。
-- [ ] 没有把待验证 checklist 预先打钩；只有用户输入、仓库、diff 或工具输出证明完成的项目才勾选。
-- [ ] YAML 能被解析；多文件展示和单文件落盘边界清楚。
-- [ ] Markdown 表格、代码块、details 和 alert 没有破坏渲染。
-- [ ] README 已明确项目适用范围，且没有把功能列表、内置场景或案例集合当成适用范围。
-- [ ] PR/Review 没有声明未实际运行的测试。
-- [ ] 场景路由和用户请求一致。
-- [ ] 高风险事实都有来源，或者已标为待确认。
-
-## 维护者本地验收
-
-维护者做本地回归时，建议使用三层文件：
+For local regression testing, use a three-layer file set:
 
 ```text
-.local-validation/<编号>-<scenario>/
+.local-validation/<number>-<scenario>/
   input.md
   output.raw.md
   output.clean.md
   verdict.md
 ```
 
-- `output.raw.md` 保留 agent 原始输出，用于观察污染来源。
-- `output.clean.md` 只放可提交 artifact，不能有测试标题或解释。
-- `verdict.md` 记录标签、来源、暴露问题和是否需要改 skill。
+- `output.raw.md` preserves raw agent output to observe pollution.
+- `output.clean.md` contains only a submit-ready artifact, without test titles or explanations.
+- `verdict.md` records label, source, exposed problem, and whether the skill needs changes.
 
-不要把 `output.clean.md` 当成展示报告；它必须满足“可以不经解释地粘贴到 GitHub”的标准。
+Do not treat `output.clean.md` as a showcase report. It must satisfy "can be pasted into GitHub without explanation".

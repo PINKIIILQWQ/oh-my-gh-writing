@@ -13,7 +13,8 @@
 
 <p align="center">
   <a href="./SKILL.md"><img src="https://img.shields.io/badge/format-SKILL.md-22AA66?style=flat-square" alt="Format: SKILL.md"></a>
-  <a href="./INDEX.md"><img src="https://img.shields.io/badge/Scenarios-18-6a0dad?style=flat-square" alt="18 Scenarios"></a>
+  <a href="./INDEX.md"><img src="https://img.shields.io/badge/Artifacts-18-6a0dad?style=flat-square" alt="18 artifact standards"></a>
+  <a href="./INDEX.md"><img src="https://img.shields.io/badge/Workflows-7-0f766e?style=flat-square" alt="7 workflow packs"></a>
   <a href="./LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue?style=flat-square" alt="License: MIT"></a>
   <a href="./CONTRIBUTING.md"><img src="https://img.shields.io/badge/PRs-Welcome-brightgreen?style=flat-square" alt="PRs Welcome"></a>
   <a href="./SKILL.md"><img src="https://img.shields.io/badge/Agent-Skill-8A2BE2?style=flat-square" alt="Agent Skill"></a>
@@ -29,7 +30,7 @@ Built for agents that write on GitHub: Issues, PRs, reviews, docs, releases, and
 
 ## ✨ Features
 
-- **Scenario routing** — 18 GitHub writing scenarios, each with a dedicated rule file
+- **Scenario routing** — 18 GitHub artifact standards and 7 workflow packs
 - **Evidence boundaries** — no invented versions, CI status, screenshots, or unverified facts
 - **Progressive disclosure** — loads only what's needed for the current task
 - **Output validation** — built-in checklist catches format pollution, routing errors, and fact gaps
@@ -43,7 +44,7 @@ oh-my-gh-writing is designed for projects and teams that want AI agents to write
 |-------|------------|-------|
 | Native skill hosts | Codex, Claude Code, Gemini CLI, and other agents that can load a `SKILL.md` folder with local references | Best fit: keep the full repository so the agent can read `reference/*.md` progressively |
 | Rule-based agents | Cursor, GitHub Copilot custom instructions, Continue rules, Windsurf / Devin-style rules, or similar project instruction systems | Adapt `SKILL.md` plus the needed scenario files instead of copying every reference into one prompt |
-| GitHub writing workflows | Issues, pull requests, reviews, commits, docs, releases, migration guides, RFCs, issue forms, and PR templates | These 18 scenarios are built-in capabilities, not the project compatibility scope |
+| GitHub writing workflows | Issues, pull requests, reviews, commits, docs, releases, migration guides, RFCs, issue forms, PR templates, and composite workflow packs | These artifact standards and workflow packs are built-in capabilities, not the project compatibility scope |
 | Knowledge bases | Teams that want a reusable Markdown rulebase for GitHub writing standards | Search/retrieval quality depends on the host tool |
 
 It is not a GitHub API client, CI bot, repository analyzer, or standalone README generator. It works best when the agent can inspect user input, repository files, diffs, or official sources before drafting.
@@ -82,7 +83,7 @@ Then ask your agent for a GitHub writing artifact:
 
 If your tool does not support skill directories, adapt `SKILL.md` into project rules and add only the scenario files needed for the task.
 
-## 🎯 Scenarios
+## 🎯 Artifact Standards
 
 ### Issues
 
@@ -131,6 +132,10 @@ If your tool does not support skill directories, adapt `SKILL.md` into project r
 |----------|----------|-----------|
 | Issue Form YAML | GitHub issue forms | [`reference/issue-form-yaml.md`](./reference/issue-form-yaml.md) |
 | PR Template | Pull request templates | [`reference/pr-template.md`](./reference/pr-template.md) |
+
+## 🧩 Workflow Packs
+
+The skill also includes 7 composite workflow packs for release, launch, contribution setup, bug-fix workflow, proposal-to-implementation, breaking change, and docs overhaul materials. They orchestrate existing artifact standards and default to local `.github-writing/...` drafts.
 
 ## ⚙️ How It Works
 

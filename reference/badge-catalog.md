@@ -1,38 +1,38 @@
 # Badge Catalog
 
-按需读取：只有当用户要求精细 badge 设计、具体 shields.io URL 模式，或目标 README 需要多生态 badge 时，才加载本文件。基础 badge 规则仍在 [`weapons.md`](./weapons.md)。
+Load this file only when the user asks for detailed badge design, exact shields.io URL patterns, or multi-ecosystem README badges. Basic badge rules live in `weapons.md`.
 
-Shields.io 基础路径：`https://img.shields.io/`
+Shields.io base URL: `https://img.shields.io/`
 
-## GitHub 系列
+## GitHub
 
-前缀：`/github/`
+Prefix: `/github/`
 
-| Badge | URL 模式 |
+| Badge | URL pattern |
 |-------|----------|
 | License | `/github/license/user/repo` |
 | Stars | `/github/stars/user/repo` |
 | Forks | `/github/forks/user/repo` |
 | Watchers | `/github/watchers/user/repo` |
-| Issues（总数） | `/github/issues/user/repo` |
-| Open Issues（数字） | `/github/issues-raw/user/repo` |
+| Issues total | `/github/issues/user/repo` |
+| Open Issues raw | `/github/issues-raw/user/repo` |
 | Closed Issues | `/github/closed-issues/user/repo` |
-| PRs（总数） | `/github/issues-pr/user/repo` |
-| Open PRs（数字） | `/github/issues-pr-raw/user/repo` |
+| PRs total | `/github/issues-pr/user/repo` |
+| Open PRs raw | `/github/issues-pr-raw/user/repo` |
 | Merged PRs | `/github/merged-prs/user/repo` |
 | Closed PRs | `/github/closed-prs/user/repo` |
 | Discussions | `/github/discussions/user/repo` |
 | Last Commit | `/github/last-commit/user/repo` |
-| Commit Activity（月） | `/github/commit-activity/m/user/repo` |
-| Commit Activity（年） | `/github/commit-activity/y/user/repo` |
+| Commit Activity monthly | `/github/commit-activity/m/user/repo` |
+| Commit Activity yearly | `/github/commit-activity/y/user/repo` |
 | Latest Release | `/github/release/user/repo` |
 | Release Version | `/github/v/release/user/repo` |
 | Release Date | `/github/release-date/user/repo` |
 | Latest Tag | `/github/v/tag/user/repo` |
 | Tag | `/github/tag/user/repo` |
 | Contributors | `/github/contributors/user/repo` |
-| Downloads（总） | `/github/downloads/user/repo/total` |
-| Downloads（Release） | `/github/downloads/user/repo/tag` |
+| Downloads total | `/github/downloads/user/repo/total` |
+| Downloads release | `/github/downloads/user/repo/tag` |
 | Workflow Status | `/github/actions/workflow/status/user/repo/workflow.yml` |
 | Checks Status | `/github/checks-status/user/repo/commit-sha` |
 | Repo Size | `/github/repo-size/user/repo` |
@@ -44,11 +44,11 @@ Shields.io 基础路径：`https://img.shields.io/`
 | Milestones | `/github/milestones/user/repo` |
 | Hacktoberfest | `/github/hacktoberfest/year/user/repo` |
 | GitHub Sponsors | `/github/sponsors/user` |
-| Followers（用户） | `/github/followers/user` |
+| Followers user | `/github/followers/user` |
 
-## Package Registry 系列
+## Package Registry
 
-| Ecosystem | Badge | URL 模式 |
+| Ecosystem | Badge | URL pattern |
 |-----------|-------|----------|
 | npm | Version | `/npm/v/package` |
 | npm | License | `/npm/l/package` |
@@ -77,7 +77,7 @@ Shields.io 基础路径：`https://img.shields.io/`
 | Crates.io | Version | `/crates/v/crate` |
 | Crates.io | License | `/crates/l/crate` |
 | Crates.io | Downloads | `/crates/d/crate` |
-| Crates.io | Downloads（Version） | `/crates/dv/crate` |
+| Crates.io | Downloads version | `/crates/dv/crate` |
 | Crates.io | Crate Size | `/crates/size/crate` |
 | RubyGems | Version | `/gem/v/gem` |
 | RubyGems | Total Downloads | `/gem/dt/gem` |
@@ -95,11 +95,11 @@ Shields.io 基础路径：`https://img.shields.io/`
 | Hex.pm | License | `/hexpm/l/package` |
 | Hex.pm | Total Downloads | `/hexpm/dt/package` |
 | Maven Central | Version | `/maven-central/v/group/artifact` |
-| Maven Central | Version（with label） | `/maven-central/v/group/artifact?label=Maven` |
+| Maven Central | Version with label | `/maven-central/v/group/artifact?label=Maven` |
 
-## Distribution / Marketplace 系列
+## Distribution / Marketplace
 
-| Ecosystem | Badge | URL 模式 |
+| Ecosystem | Badge | URL pattern |
 |-----------|-------|----------|
 | Visual Studio Marketplace | Version | `/visual-studio-marketplace/v/extension` |
 | Visual Studio Marketplace | Installs | `/visual-studio-marketplace/i/extension` |
@@ -127,9 +127,9 @@ Shields.io 基础路径：`https://img.shields.io/`
 | winget | Version | `/winget/v/package` |
 | winget | Status | `/winget/s/package` |
 
-## CI / Coverage / Quality 系列
+## CI / Coverage / Quality
 
-| Badge | URL 模式 |
+| Badge | URL pattern |
 |-------|----------|
 | GitLab Pipeline Status | `/gitlab/pipeline/user/repo` |
 | GitLab Coverage | `/gitlab/coverage/user/repo` |
@@ -141,15 +141,15 @@ Shields.io 基础路径：`https://img.shields.io/`
 | GitLab Stars | `/gitlab/stars/user/repo` |
 | GitLab Forks | `/gitlab/forks/user/repo` |
 | CircleCI | `/circleci/build/user/repo/branch` |
-| Travis CI（.com） | `/travis/.com/user/repo` |
-| Travis CI（Branch） | `/travis/.com/user/repo/branch` |
+| Travis CI .com | `/travis/.com/user/repo` |
+| Travis CI branch | `/travis/.com/user/repo/branch` |
 | Jenkins Build | `/jenkins/s/https/jenkins.example.com/job/job` |
 | Jenkins Tests | `/jenkins/tests/https/jenkins.example.com/job/job` |
 | Jenkins Coverage | `/jenkins/coverage/https/jenkins.example.com/job/job` |
 | AppVeyor Build | `/appveyor/build/user/repo` |
 | AppVeyor Tests | `/appveyor/tests/user/repo` |
 | Codecov | `/codecov/c/user/repo` |
-| Codecov（Branch） | `/codecov/c/user/repo/branch` |
+| Codecov branch | `/codecov/c/user/repo/branch` |
 | Coveralls | `/coveralls/user/repo` |
 | Sonar Quality Gate | `/sonar/quality_gate/project` |
 | Sonar Coverage | `/sonar/coverage/project` |
@@ -166,9 +166,9 @@ Shields.io 基础路径：`https://img.shields.io/`
 | LGTM Alerts | `/lgtm/alerts/g/user/repo` |
 | LGTM Grade | `/lgtm/grade/python/g/user/repo` |
 
-## Community / Website / Other 系列
+## Community / Website / Other
 
-| Badge | URL 模式 |
+| Badge | URL pattern |
 |-------|----------|
 | Discord | `/discord/serverId` |
 | Matrix | `/matrix/room` |

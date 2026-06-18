@@ -1,61 +1,61 @@
-# Release Notes — 写作标准
+# Release Notes Standard
 
-## 适用场景
-发布公告，面向用户介绍本次发布。
+## Use When
 
-## 输出边界
+Use when writing a release announcement for users, developers, or maintainers.
 
-Release Notes 面向发布读者。版本号、日期、release URL、贡献者、截图、GIF、迁移命令和 Full Changelog 必须来自真实 release、tag、compare URL、仓库文件或用户输入。
+## Output Boundary
 
-## 标准结构
+Release Notes are reader-facing release communication. Version, date, release URL, contributors, screenshots, GIFs, migration commands, and Full Changelog links must come from a real release, tag, compare URL, repository files, tool output, or user input.
 
-短发布或 patch/minor 版本：
+## Standard Structure
 
-1. **Version**：版本号和日期；未知时写 `TBD`。
-2. **Highlights**：1-3 条用户最需要知道的变化。
-3. **Fixes / Changes**：只列有证据的修复或改动。
-4. **Upgrade notes**：如有必要，写升级注意事项。
-5. **Full changelog**：有真实 release、tag 或 compare URL 时才写。
+For patch or minor releases:
 
-大型版本或 major release：
+1. **Version:** version and date; use `TBD` when unknown.
+2. **Highlights:** 1-3 changes users most need to know.
+3. **Fixes / Changes:** only evidenced fixes or changes.
+4. **Upgrade notes:** only when needed.
+5. **Full changelog:** only when a real release, tag, or compare URL exists.
 
-1. **版本标签**（`v2.0.0` + 发布日期）
-2. **摘要**（1-2 句版本亮点）
-3. **新特性**（每个特性含名称、影响和用法；截图/GIF 只在已有素材时加入）
-4. **Breaking Changes**（影响 + 迁移步骤）
-5. **升级指南**（从上一版本升级所需操作）
-6. **Full Changelog 链接**：有真实 release、compare URL 或仓库范围时才写
+For major releases:
 
-## 信息不足时
+1. **Version heading:** version and date.
+2. **Summary:** 1-2 sentences describing release value.
+3. **New features:** each feature includes name, impact, and usage when known.
+4. **Breaking changes:** impact and migration path.
+5. **Upgrade guide:** steps required to move from the previous version.
+6. **Full Changelog:** only with a real release, compare URL, or known repository range.
 
-- 缺少版本号或日期时写 `TBD`，不要猜。
-- 没有真实 compare URL 时，删除 Full Changelog。
-- 没有素材时不写 screenshot/GIF 段落。
+## Missing Information
 
-## 自动化来源边界
+- If version or date is missing, write `TBD`; do not guess.
+- If no real compare URL exists, omit Full Changelog.
+- If no image assets exist, omit screenshots/GIFs.
 
-如果 release notes 来自 Conventional Changelog、semantic-release、commit-and-tag-version 或已有 GitHub Release draft，优先保留工具生成的版本、tag、compare URL、breaking-change 分组和 commit 范围。可以在顶部增加人工 highlights，但不得把没有证据的 commit 影响写成发布事实。
+## Automation Source Boundary
 
-## 禁止编造项
+If release notes come from Conventional Changelog, semantic-release, commit-and-tag-version, or an existing GitHub Release draft, preserve generated version, tag, compare URL, breaking-change groups, and commit range. You may add human highlights, but do not write unevidenced commit impact as release fact.
 
-- 不编造 release URL、贡献者名单、迁移命令、内置插件列表、截图/GIF、平台支持或 benchmark。
-- 不把 changelog 条目改写成未经证实的宣传语。
+## Do Not Invent
 
-## 高质量参考来源
+- Do not invent release URLs, contributors, migration commands, built-in plugin lists, screenshots/GIFs, platform support, or benchmarks.
+- Do not rewrite changelog entries into unsupported promotional claims.
 
-| 来源 | 可借鉴点 |
-|------|----------|
-| GitHub Releases docs | https://docs.github.com/en/repositories/releasing-projects-on-github/about-releases |
-| Astro 5.0 release | https://github.com/withastro/astro/releases/tag/astro%405.0.0 |
-| npm CLI v11 release | https://github.com/npm/cli/releases/tag/v11.0.0 |
-| Svelte 5 release | https://github.com/sveltejs/svelte/releases/tag/svelte%405.0.0 |
-| Buf v1.50 release | https://github.com/bufbuild/buf/releases/tag/v1.50.0 |
-| Deno 2.0 release | https://github.com/denoland/deno/releases/tag/v2.0.0 |
-| Conventional Changelog | https://github.com/conventional-changelog/conventional-changelog |
+## Strong Sources
 
-## 必含元素 Checklist
-- [ ] 版本号 + 日期
-- [ ] Highlights 或新特性列表
-- [ ] Breaking Changes / Upgrade notes（如有）
-- [ ] Full Changelog 链接（已知时）
-- [ ] 不虚构迁移命令、内置插件列表、release URL、截图/GIF 或贡献者名单
+| Source | Useful Pattern |
+|--------|----------------|
+| GitHub Releases docs | Release publishing model and release notes |
+| Conventional Changelog | Generated release boundaries |
+| Astro 5.0 release | Major-release framing |
+| npm CLI v11 release | CLI release communication |
+| Svelte 5 / Buf / Deno releases | Highlights, breaking changes, upgrade notes |
+
+## Checklist
+
+- [ ] Version and date are present or marked `TBD`.
+- [ ] Highlights or feature list is present.
+- [ ] Breaking changes or upgrade notes appear when relevant.
+- [ ] Full Changelog link appears only when known.
+- [ ] No migration command, release URL, screenshot, contributor, platform claim, or benchmark is invented.

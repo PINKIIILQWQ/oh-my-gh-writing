@@ -1,51 +1,53 @@
-# Migration Guide — 写作标准
+# Migration Guide Standard
 
-## 适用场景
-引导用户从旧 API、旧配置或旧发布迁移到目标发布。
+## Use When
 
-## 输出边界
+Use when guiding users from an old API, configuration, behavior, dependency, or release to a new one.
 
-Migration Guide 只写真实升级路径。环境变量、codemod、GA 日期、下线日期、兼容周期和回滚方案必须有来源。
+## Output Boundary
 
-## 标准结构
+Migration Guides only describe real upgrade paths. Environment variables, codemods, GA dates, shutdown dates, compatibility periods, rollback paths, and support matrices must come from user input, repository files, release notes, official docs, or tool output.
 
-必需：
+## Standard Structure
 
-1. **Who needs this**：谁需要迁移，哪些用户不受影响。
-2. **Before / After**：旧用法和新用法；可用代码、配置、命令或行为描述。
-3. **Step-by-step migration**：按可执行顺序写迁移步骤。
-4. **Known breaking changes**：只列已知不兼容点。
+Required sections:
 
-条件项：
+1. **Who needs this:** affected and unaffected users.
+2. **Before / After:** old usage and new usage using code, config, commands, or behavior descriptions.
+3. **Step-by-step migration:** ordered, executable steps.
+4. **Known breaking changes:** only confirmed incompatibilities.
 
-5. **Codemod / automation**：仅当已有工具或命令时写。
-6. **Rollback**：仅当仓库或用户提供回滚方式时写；否则 `Rollback: To confirm`。
-7. **Deprecation timeline**：仅当版本计划、日期或支持周期有证据时写。
-8. **Compatibility matrix**：仅当平台、版本或依赖范围有证据时写。
+Conditional sections:
 
-## 信息不足时
+5. **Codemod / automation:** only when a real tool or command exists.
+6. **Rollback:** only when a rollback path is provided; otherwise `Rollback: To confirm`.
+7. **Deprecation timeline:** only with evidence for versions, dates, or support windows.
+8. **Compatibility matrix:** only when platform, version, or dependency ranges are known.
 
-- 缺少旧/新 API 映射时，先列 `To confirm` 表格。
-- 没有自动迁移工具时，不写 codemod。
-- 没有回滚路径时，写 `Rollback: To confirm`。
+## Missing Information
 
-## 禁止编造项
+- If old/new API mapping is missing, add a `To confirm` mapping table.
+- If no automation exists, omit codemod sections.
+- If rollback is unknown, write `Rollback: To confirm`.
 
-- 不编造环境变量、命令、兼容周期、下线日期、迁移工具、数据迁移步骤或支持平台。
-- 不把 release notes 当成完整 migration guide，除非它确实包含迁移步骤。
+## Do Not Invent
 
-## 高质量参考来源
+- Do not invent environment variables, commands, compatibility periods, shutdown dates, migration tools, data migration steps, or supported platforms.
+- Do not treat release notes as a full migration guide unless they actually contain migration steps.
 
-| 来源 | 可借鉴点 |
-|------|----------|
-| GitLab update docs | https://docs.gitlab.com/update/ |
-| pandas whatsnew / migration notes | https://pandas.pydata.org/docs/whatsnew/index.html |
-| React 19 Upgrade Guide | https://react.dev/blog/2024/04/25/react-19-upgrade-guide |
-| Vue 3 Migration Guide | https://v3-migration.vuejs.org/ |
-| Django upgrade guide | https://docs.djangoproject.com/en/stable/howto/upgrade-version/ |
+## Strong Sources
 
-## 必含元素 Checklist
-- [ ] 迁移步骤（旧→新）
-- [ ] API/配置/行为变化说明
-- [ ] 回滚、codemod、废弃时间线和兼容矩阵只在有证据时出现
-- [ ] 不虚构环境变量、自动迁移命令、GA 日期、下线日期或兼容周期
+| Source | Useful Pattern |
+|--------|----------------|
+| GitLab update docs | Operational upgrade path |
+| pandas whatsnew | Versioned migration notes |
+| React 19 Upgrade Guide | API migration explanation |
+| Vue 3 Migration Guide | Before/after migration details |
+| Django upgrade docs | Stepwise upgrade process |
+
+## Checklist
+
+- [ ] Migration steps are ordered.
+- [ ] Old and new usage are clearly mapped.
+- [ ] Breaking changes are evidenced.
+- [ ] Rollback, codemod, timeline, and compatibility matrix appear only with evidence.

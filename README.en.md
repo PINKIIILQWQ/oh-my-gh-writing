@@ -7,7 +7,8 @@
 <p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-0f766e?style=flat" alt="MIT License"></a>
   <a href="SKILL.md"><img src="https://img.shields.io/badge/Status-Release%20Candidate-2563eb?style=flat" alt="Release Candidate"></a>
-  <a href="INDEX.md"><img src="https://img.shields.io/badge/Scenarios-18-6a0dad?style=flat" alt="18 Scenarios"></a>
+  <a href="INDEX.md"><img src="https://img.shields.io/badge/Artifacts-18-6a0dad?style=flat" alt="18 artifact standards"></a>
+  <a href="INDEX.md"><img src="https://img.shields.io/badge/Workflows-7-0f766e?style=flat" alt="7 workflow packs"></a>
   <a href="SKILL.md"><img src="https://img.shields.io/badge/Format-SKILL.md-22AA66?style=flat" alt="SKILL.md"></a>
 </p>
 
@@ -23,7 +24,7 @@ It is not a README generator or a GitHub integration service. It is a portable M
 
 Good GitHub writing is not just filling a Markdown file. The hard part is deciding which scenario you are in, what facts must be verified, what must not be invented, and whether the final artifact can be pasted into an Issue, PR, Review, or README without cleanup. oh-my-gh-writing turns those decisions into a rule system that agents can load on demand.
 
-- **18 GitHub writing scenarios**: Issues, PRs, Code Review, Commit, README, CHANGELOG, Release Notes, Migration Guide, RFC, Issue Form, PR Template, and more.
+- **18 GitHub artifact standards + 7 workflow packs**: Issues, PRs, Code Review, Commit, README, CHANGELOG, Release Notes, Migration Guide, RFC, Issue Form, PR Template, plus release, launch, contribution, bug-fix, proposal, breaking-change, and docs-overhaul packs.
 - **Route before writing**: separates Feature Request, Enhancement, Discussion, Feature PR, Bug Fix PR, and Refactor PR to reduce issue/PR mixups.
 - **Progressive reference loading**: `SKILL.md` stays lightweight while detailed standards are loaded only when needed.
 - **Evidence boundaries**: versions, commands, CI, compatibility, releases, and issue/PR numbers are not guessed; unknown facts become TODO, TBD, or To confirm.
@@ -81,7 +82,7 @@ Write a PR description from the current diff.
 Review this PR and classify findings as blocking / major / minor / nit.
 ```
 
-## Scenarios
+## Artifact Standards
 
 | # | Category | Scenario | Use when |
 |---|----------|----------|----------|
@@ -105,6 +106,10 @@ Review this PR and classify findings as blocking / major / minor / nit.
 | 18 | Templates | PR Template | Creating Pull Request templates |
 
 Each scenario has a standard file in `reference/`. Full navigation is available in [`INDEX.md`](INDEX.md).
+
+## Workflow Packs
+
+The skill also includes 7 composite workflow packs for version releases, project launches, contribution setup, bug-fix workflows, proposal-to-implementation, breaking changes, and docs overhauls. These packs only orchestrate selected artifact standards, ask for one package choice, and default to local `.github-writing/...` drafts.
 
 ## Repository Structure
 

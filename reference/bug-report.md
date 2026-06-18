@@ -1,49 +1,49 @@
-# Bug Report — 写作标准
+# Bug Report Standard
 
-## 适用场景
-提交 Bug 报告，要求可复现、环境完整的 Issue。
+## Use When
 
-## 输出边界
+Use for a reproducible defect where the user can describe expected behavior, actual behavior, environment, and reproduction steps.
 
-Bug Report 只描述已经观察到的缺陷。不要把未验证原因写成结论，不要发明环境采集脚本、复现仓库、日志、截图或版本号。
+## Output Boundary
 
-## 标准结构
+Bug reports describe symptoms and reproduction evidence. Do not turn a bug report into a fix proposal, PR description, or root-cause conclusion unless the user provides proof.
 
-1. **标题**：`[Component] 简短问题描述`，用前缀标记模块
-2. **描述**：一句话概述问题影响
-3. **重现步骤**（编号列表，每一步精确到输入→操作→结果）
-4. **预期行为**：应该发生什么
-5. **实际行为**：实际发生什么（附错误信息全文）
-6. **环境**：OS / 版本 / 浏览器 / Node 版本 / 包管理器
-7. **日志/截图**：控制台错误、截图、录屏
-8. **附加上下文**：频率、相关 Issue、已验证线索或待确认假设
+## Standard Structure
 
-## 信息不足时
+1. **Summary:** one concise sentence naming the broken behavior and user impact.
+2. **Environment:** product/package version, OS, browser/runtime, package manager, and relevant config when known.
+3. **Steps to reproduce:** numbered, minimal, executable steps.
+4. **Expected behavior:** what should happen.
+5. **Actual behavior:** what happens instead, including exact error text or logs when provided.
+6. **Impact:** severity, frequency, affected users, or workaround status.
+7. **Additional context:** screenshots, logs, suspected cause, links, or related issues only when provided.
 
-- 缺少复现步骤时，写 `Steps to reproduce: TODO`，不要补想象步骤。
-- 缺少环境时，列出需要用户补充的字段。
-- 只有症状、没有原因时，用 `Suspected cause` 或 `Needs confirmation`。
+## Missing Information
 
-## 禁止编造项
+- If a version, OS, browser, package manager, or reproduction step is missing, write `TBD` or ask only when it blocks reproducibility.
+- If the root cause is unknown, write `Suspected cause` or omit root-cause language.
+- If screenshots or logs are mentioned but not provided, write `Logs/screenshots: TBD`.
 
-- 不编造复现仓库、sandbox 链接、日志、截图、版本号、平台或 root cause。
-- 不声称“已确认 regression”或“已定位到某文件”，除非用户或代码证据已给出。
-- 不把参考仓库的字段和标签直接当成目标仓库事实。
+## Do Not Invent
 
-## 高质量参考来源
+- Do not invent versions, stack traces, repository paths, issue numbers, screenshots, logs, or root causes.
+- Do not mark the bug as confirmed unless the user, repository, logs, or tool output proves it.
+- Do not write fix implementation details unless the user asked for a PR or fix plan.
 
-| 来源 | 可借鉴点 |
-|------|----------|
-| GitHub Issue templates | https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository |
-| VS Code Bug Report | https://github.com/microsoft/vscode/blob/main/.github/ISSUE_TEMPLATE/bug_report.md |
-| Next.js Bug Report | https://github.com/vercel/next.js/blob/canary/.github/ISSUE_TEMPLATE/1.bug_report.yml |
-| Tailwind CSS Bug Report | https://github.com/tailwindlabs/tailwindcss/blob/main/.github/ISSUE_TEMPLATE/bug-report.md |
-| TypeScript Bug Report | https://github.com/microsoft/TypeScript/blob/main/.github/ISSUE_TEMPLATE/bug_report.yml |
-| Kubernetes Issue Templates | https://github.com/kubernetes/kubernetes/tree/master/.github/ISSUE_TEMPLATE |
+## Strong Sources
 
-## 必含元素 Checklist
-- [ ] 可复现的最小示例
-- [ ] 期望/实际对比
-- [ ] 环境信息
-- [ ] 错误信息全文
-- [ ] 未验证原因写成“可能原因”或“待确认”，不要写成确定 root cause
+| Source | Useful Pattern |
+|--------|----------------|
+| GitHub Issue Forms docs | Required fields, dropdowns, validation boundaries |
+| React issue templates | Environment and reproduction discipline |
+| Kubernetes bug reports | Version, component, and reproduction context |
+| TypeScript issue templates | Playground/reproduction links and expected/actual behavior |
+| Node.js issue templates | Platform/runtime details and minimal repros |
+
+## Checklist
+
+- [ ] Summary names the defect and impact.
+- [ ] Reproduction steps are numbered and concrete.
+- [ ] Expected and actual behavior are distinct.
+- [ ] Environment fields are present or marked `TBD`.
+- [ ] Unknown root cause is not written as fact.

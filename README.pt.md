@@ -7,7 +7,8 @@
 <p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-0f766e?style=flat" alt="Licença MIT"></a>
   <a href="SKILL.md"><img src="https://img.shields.io/badge/Status-Release%20Candidate-2563eb?style=flat" alt="Release Candidate"></a>
-  <a href="INDEX.md"><img src="https://img.shields.io/badge/Scenarios-18-6a0dad?style=flat" alt="18 cenários"></a>
+  <a href="INDEX.md"><img src="https://img.shields.io/badge/Artifacts-18-6a0dad?style=flat" alt="18 padrões de artefatos"></a>
+  <a href="INDEX.md"><img src="https://img.shields.io/badge/Workflows-7-0f766e?style=flat" alt="7 pacotes de workflow"></a>
   <a href="SKILL.md"><img src="https://img.shields.io/badge/Format-SKILL.md-22AA66?style=flat" alt="SKILL.md"></a>
 </p>
 
@@ -23,7 +24,7 @@ Ele não é um gerador de README nem um serviço de integração com GitHub. É 
 
 Escrever bem para GitHub não é apenas preencher Markdown. O difícil é reconhecer o cenário, saber quais fatos precisam ser verificados, o que não deve ser inventado e se o artifact final pode ser colado em uma Issue, PR, Review ou README sem limpeza adicional.
 
-- **18 cenários de escrita para GitHub**: Issues, PRs, Code Review, Commit, README, CHANGELOG, Release Notes, Migration Guide, RFC, Issue Form, PR Template e mais.
+- **18 padrões de artefatos GitHub + 7 pacotes de workflow**: Issues, PRs, Code Review, Commit, README, CHANGELOG, Release Notes, Migration Guide, RFC, Issue Form, PR Template e pacotes compostos.
 - **Roteie antes de escrever**: separa Feature Request, Enhancement, Discussion, Feature PR, Bug Fix PR e Refactor PR.
 - **Carregamento progressivo de referências**: `SKILL.md` permanece leve; regras detalhadas são carregadas apenas quando necessário.
 - **Limites de evidência**: versões, comandos, CI, compatibilidade, releases e números de issues/PRs não são inventados.

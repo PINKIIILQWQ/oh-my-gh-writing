@@ -1,46 +1,46 @@
-# Enhancement — 写作标准
+# Enhancement Standard
 
-## 适用场景
-对已有功能做增量改进，不是新增能力。
+## Use When
 
-> 与 Feature Request 区别：Enhancement 是改进已有功能的行为/性能/API，Feature Request 是增加尚未存在的能力。
+Use when the user wants to improve existing behavior rather than add a wholly new capability.
 
-## 输出边界
+## Output Boundary
 
-Enhancement 改进已有能力，不等同于全新功能。必须说明当前行为和改进后的行为；性能、内存、延迟等数字必须有证据。
+Enhancements refine an existing feature. If the request introduces a new API, major workflow, or product surface, route to Feature Request. If the change is already implemented in a diff, route to the appropriate PR scenario.
 
-## 标准结构
+## Standard Structure
 
-1. **当前限制**：现有功能的不足
-2. **改进效果**：改进后应该怎么样
-3. **兼容性**：对现有 API/行为的破坏程度
-4. **Before / After**：可使用代码、配置、命令输出、截图、行为描述或性能数据；没有证据时不要编造。
-5. **验证方式**：如何确认改进有效；没有真实数据时不要写 benchmark 数字。
+1. **Current behavior:** what exists now and why it falls short.
+2. **Desired improvement:** the specific refinement requested.
+3. **Affected users / workflows:** who benefits and when.
+4. **Examples:** before/after behavior, config, command, or UI copy when known.
+5. **Risks / compatibility:** possible regressions, migration concerns, or backwards compatibility notes.
+6. **Acceptance criteria:** observable outcomes or maintainers' decision points.
 
-## 信息不足时
+## Missing Information
 
-- 不清楚现有行为时，先要求或标记 `Current behavior: TODO`。
-- 不确定是否 breaking 时，写 `Compatibility impact: To confirm`。
-- 没有 benchmark 时，只写验证计划，不写数字。
+- Use `TBD` for unknown versions, commands, config keys, or affected platforms.
+- Ask a follow-up only if the current behavior cannot be distinguished from a new feature request.
 
-## 禁止编造项
+## Do Not Invent
 
-- 不编造性能提升、内存下降、兼容版本、迁移路径或用户规模。
-- 不把 feature request 写成 enhancement；现有能力不存在时改走 Feature Request。
+- Do not claim a fix or implementation exists.
+- Do not invent benchmarks, compatibility commitments, config keys, or labels.
+- Do not overstate impact when the user only described a local inconvenience.
 
-## 高质量参考来源
+## Strong Sources
 
-| 来源 | 可借鉴点 |
-|------|----------|
-| GitHub Issue templates | https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository |
-| Angular Feature Request | https://github.com/angular/angular/blob/main/.github/ISSUE_TEMPLATE/2-feature-request.yaml |
-| TypeScript Feature Request | https://github.com/microsoft/TypeScript/blob/main/.github/ISSUE_TEMPLATE/feature_request.yml |
-| Kubernetes Enhancement Proposals | https://github.com/kubernetes/enhancements/blob/master/keps/README.md |
-| React RFCs | https://github.com/reactjs/rfcs |
-| Rust RFCs | https://github.com/rust-lang/rfcs |
+| Source | Useful Pattern |
+|--------|----------------|
+| GitHub Issue Forms docs | Distinguishing request types |
+| React and TypeScript templates | Current/expected behavior framing |
+| Kubernetes issue templates | Scope and impact discipline |
+| GitHub Community discussions | Separating discussion from implementation |
 
-## 必含元素 Checklist
-- [ ] 当前行为说明
-- [ ] 改进后的行为
-- [ ] 兼容性分析或 `To confirm`
-- [ ] 性能、内存、延迟等数字只在有证据时出现
+## Checklist
+
+- [ ] Existing behavior is described.
+- [ ] Requested improvement is specific.
+- [ ] Affected workflow is named.
+- [ ] Compatibility or regression risk is addressed when relevant.
+- [ ] The request is not accidentally written as an implemented PR.

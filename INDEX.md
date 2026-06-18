@@ -1,70 +1,83 @@
-# oh-my-gh-writing 索引
+# oh-my-gh-writing Index
 
-这个文件是仓库的导航。README 只负责解释项目是什么和如何开始；这里负责把场景标准和维护入口串起来。
+This file is repository navigation. `README.md` explains what the project is and how to start; this index maps the runtime standards and maintenance entry points.
 
-Agent 执行写作任务时优先读取 [`SKILL.md`](./SKILL.md) 和对应 `reference/*.md`。最终输出前按 [`reference/output-validation.md`](./reference/output-validation.md) 做清洁和事实边界检查。
+Agents should start with `SKILL.md`, then load the matching `reference/*.md`. Before final output, apply `reference/output-validation.md` for cleanliness and evidence-boundary checks.
 
-## 阅读路径
+## Reading Path
 
-| 层级 | 入口 | 适合谁 | 内容粒度 |
-|------|------|--------|----------|
-| 0 | [`README.md`](./README.md) | 第一次打开仓库的人 | 项目定位、安装、最短路径 |
-| 1 | [`INDEX.md`](./INDEX.md) | 想找某个场景或文档的人 | 全量索引和目录 |
-| 2 | [`SKILL.md`](./SKILL.md) | Agent / skill 使用者 | 入口规则、场景识别、参考索引、摘要标准 |
-| 3 | [`reference/shared-principles.md`](./reference/shared-principles.md) | 所有场景 | 19 条输出质量通用规则 |
-| 4 | [`reference/`](./reference) | 要改写法标准的人 | 每场景标准/checklist/输出验收 |
-| 5 | [`reference/source-catalog.md`](./reference/source-catalog.md) / [`CONTRIBUTING.md`](./CONTRIBUTING.md) | 维护者和贡献者 | 公开参考来源、选源规则、贡献和案例反馈流程 |
+| Level | Entry | Audience | Detail |
+|-------|-------|----------|--------|
+| 0 | `README.md` | First-time repository visitors | Positioning, install path, shortest route |
+| 1 | `INDEX.md` | People looking for a scenario or document | Full navigation and directory map |
+| 2 | `SKILL.md` | Agents and skill users | Runtime routing, workflow, reference index |
+| 3 | `reference/shared-principles.md` | Cross-scenario quality work | Output quality and evidence boundaries |
+| 4 | `reference/` | Maintainers editing standards | Per-scenario rules, workflow packs, checklists |
+| 5 | `reference/source-catalog.md` / `CONTRIBUTING.md` | Maintainers and contributors | Source quality, contribution, and case feedback rules |
 
-## 18 场景索引
+## 18 Artifact Standards
 
-| # | 类别 | 场景 | 使用时机 | 标准文件 |
-|---|------|------|----------|----------|
-| 1 | Issue | Bug Report | 报告可复现缺陷 | [`reference/bug-report.md`](./reference/bug-report.md) |
-| 2 | Issue | Feature Request | 提议新功能或新 API | [`reference/feature-request.md`](./reference/feature-request.md) |
-| 3 | Issue | Enhancement | 改进现有能力 | [`reference/enhancement.md`](./reference/enhancement.md) |
-| 4 | Issue | Discussion | 开放式社区讨论 | [`reference/discussion.md`](./reference/discussion.md) |
-| 5 | PR | Feature PR | 新功能 Pull Request | [`reference/feature-pr.md`](./reference/feature-pr.md) |
-| 6 | PR | Bug Fix PR | 修复缺陷 Pull Request | [`reference/bug-fix-pr.md`](./reference/bug-fix-pr.md) |
-| 7 | PR | Refactor PR | 不改变行为的重构 | [`reference/refactor-pr.md`](./reference/refactor-pr.md) |
-| 8 | PR | Documentation PR | 文档改动 Pull Request | [`reference/documentation-pr.md`](./reference/documentation-pr.md) |
-| 9 | Review | Code Review | 审查代码变更 | [`reference/code-review.md`](./reference/code-review.md) |
-| 10 | Commit | Standard Commit | 写提交信息 | [`reference/standard-commit.md`](./reference/standard-commit.md) |
-| 11 | Docs | README | 项目首页文档 | [`reference/readme.md`](./reference/readme.md) |
-| 12 | Docs | CONTRIBUTING | 贡献指南 | [`reference/contributing.md`](./reference/contributing.md) |
-| 13 | Docs | CHANGELOG | 版本变更记录 | [`reference/changelog.md`](./reference/changelog.md) |
-| 14 | Release | Release Notes | 发布说明 | [`reference/release-notes.md`](./reference/release-notes.md) |
-| 15 | Release | Migration Guide | 迁移指南 | [`reference/migration-guide.md`](./reference/migration-guide.md) |
-| 16 | Design | RFC | 设计提案 | [`reference/rfc.md`](./reference/rfc.md) |
-| 17 | Templates | Issue Form YAML | GitHub Issue 表单 | [`reference/issue-form-yaml.md`](./reference/issue-form-yaml.md) |
-| 18 | Templates | PR Template | Pull Request 模板 | [`reference/pr-template.md`](./reference/pr-template.md) |
+| # | Category | Scenario | Use when | Standard |
+|---|----------|----------|----------|----------|
+| 1 | Issue | Bug Report | Reporting a reproducible defect | `reference/bug-report.md` |
+| 2 | Issue | Feature Request | Proposing a new capability or API | `reference/feature-request.md` |
+| 3 | Issue | Enhancement | Improving existing behavior | `reference/enhancement.md` |
+| 4 | Issue | Discussion | Opening community discussion | `reference/discussion.md` |
+| 5 | PR | Feature PR | Describing a new feature pull request | `reference/feature-pr.md` |
+| 6 | PR | Bug Fix PR | Describing a defect-fixing pull request | `reference/bug-fix-pr.md` |
+| 7 | PR | Refactor PR | Describing behavior-preserving cleanup | `reference/refactor-pr.md` |
+| 8 | PR | Documentation PR | Describing documentation-only changes | `reference/documentation-pr.md` |
+| 9 | Review | Code Review | Reviewing code changes | `reference/code-review.md` |
+| 10 | Commit | Standard Commit | Writing commit messages | `reference/standard-commit.md` |
+| 11 | Docs | README | Creating or revising a project homepage | `reference/readme.md` |
+| 12 | Docs | CONTRIBUTING | Creating contribution guidelines | `reference/contributing.md` |
+| 13 | Docs | CHANGELOG | Writing version history | `reference/changelog.md` |
+| 14 | Release | Release Notes | Writing release announcements | `reference/release-notes.md` |
+| 15 | Release | Migration Guide | Explaining upgrade steps | `reference/migration-guide.md` |
+| 16 | Design | RFC | Proposing a design | `reference/rfc.md` |
+| 17 | Templates | Issue Form YAML | Creating GitHub Issue Forms | `reference/issue-form-yaml.md` |
+| 18 | Templates | PR Template | Creating Pull Request templates | `reference/pr-template.md` |
 
-## 目录索引
+## 7 Workflow Packs
 
-| 目录 | 作用 | 入口 |
-|------|------|------|
-| [`reference/`](./reference) | 场景标准、输出验收、格式工具和来源目录 | [`reference/readme.md`](./reference/readme.md) |
-| [`CONTRIBUTING.md`](./CONTRIBUTING.md) | 贡献规则、参考来源要求和案例反馈流程 | [`CONTRIBUTING.md`](./CONTRIBUTING.md) |
-| [`assets/`](./assets) | README 和项目展示素材 | [`assets/oh-my-gh-writing-logo.png`](./assets/oh-my-gh-writing-logo.png) |
+| # | Category | Pack | Use when | Orchestrator |
+|---|----------|------|----------|--------------|
+| 19 | Composite | Version Release | Preparing release or version-update materials | `reference/version-release.md` |
+| 20 | Composite | Project Launch | Preparing a repository for first public launch | `reference/project-launch.md` |
+| 21 | Composite | Contribution Setup | Making a project ready for outside contributors | `reference/contribution-setup.md` |
+| 22 | Composite | Bug Fix Workflow | Handling a bug from report or triage through fix PR | `reference/bug-fix-workflow.md` |
+| 23 | Composite | Proposal to Implementation | Turning an idea into discussion, design, issue, and implementation materials | `reference/proposal-to-implementation.md` |
+| 24 | Composite | Breaking Change Package | Communicating and shipping a breaking change | `reference/breaking-change-package.md` |
+| 25 | Composite | Docs Overhaul | Planning or documenting a broad documentation refresh | `reference/docs-overhaul.md` |
 
-## Reference 文件索引
+## Directory Index
 
-| 类型 | 文件 |
-|------|------|
-| Issue | [`bug-report.md`](./reference/bug-report.md), [`feature-request.md`](./reference/feature-request.md), [`enhancement.md`](./reference/enhancement.md), [`discussion.md`](./reference/discussion.md) |
-| PR | [`feature-pr.md`](./reference/feature-pr.md), [`bug-fix-pr.md`](./reference/bug-fix-pr.md), [`refactor-pr.md`](./reference/refactor-pr.md), [`documentation-pr.md`](./reference/documentation-pr.md) |
-| Review / Commit | [`code-review.md`](./reference/code-review.md), [`standard-commit.md`](./reference/standard-commit.md) |
-| Docs | [`readme.md`](./reference/readme.md)（详细规则）, [`contributing.md`](./reference/contributing.md), [`changelog.md`](./reference/changelog.md) |
-| Release / Design | [`release-notes.md`](./reference/release-notes.md), [`migration-guide.md`](./reference/migration-guide.md), [`rfc.md`](./reference/rfc.md) |
-| Templates | [`issue-form-yaml.md`](./reference/issue-form-yaml.md), [`pr-template.md`](./reference/pr-template.md) |
-| Appendix | [`shared-principles.md`](./reference/shared-principles.md), [`weapons.md`](./reference/weapons.md), [`badge-catalog.md`](./reference/badge-catalog.md), [`emoji-guide.md`](./reference/emoji-guide.md), [`output-validation.md`](./reference/output-validation.md), [`source-catalog.md`](./reference/source-catalog.md) |
+| Directory | Purpose | Entry |
+|-----------|---------|-------|
+| `reference/` | Artifact standards, workflow packs, validation, Markdown tools, and source catalog | `reference/readme.md` |
+| `CONTRIBUTING.md` | Contribution rules, source requirements, and case feedback process | `CONTRIBUTING.md` |
+| `assets/` | README and project display assets | `assets/oh-my-gh-writing-logo.png` |
 
-## 维护规则
+## Reference File Index
 
-- 新增场景时，同步更新 `SKILL.md`、`INDEX.md`、`README.md` 和对应 `reference/*.md`
-- 新增公开文档时，按需要挂到这里
-- README 只放最短路径和核心入口，避免再次变成大而全的文档
-- 深层细节必须有上层入口可达，不能只散落在目录里
-- 本地研究、案例采集和验证输出默认不纳入公开索引
-- 输出验收规则放在 `reference/output-validation.md`；不要把测试标题、raw 来源和 verdict 元数据混进可提交 artifact
-- 参考来源集中记录在 `reference/source-catalog.md`；普通写作请求不需要读取完整来源目录
-- 案例贡献先走 `CONTRIBUTING.md` 的 issue/discussion 流程，不直接把大批案例文件纳入公开仓库
+| Type | Files |
+|------|-------|
+| Issue | `bug-report.md`, `feature-request.md`, `enhancement.md`, `discussion.md` |
+| PR | `feature-pr.md`, `bug-fix-pr.md`, `refactor-pr.md`, `documentation-pr.md` |
+| Review / Commit | `code-review.md`, `standard-commit.md` |
+| Docs | `readme.md`, `contributing.md`, `changelog.md` |
+| Release / Design | `release-notes.md`, `migration-guide.md`, `rfc.md` |
+| Templates | `issue-form-yaml.md`, `pr-template.md` |
+| Composite workflow packs | `version-release.md`, `project-launch.md`, `contribution-setup.md`, `bug-fix-workflow.md`, `proposal-to-implementation.md`, `breaking-change-package.md`, `docs-overhaul.md` |
+| Appendix | `shared-principles.md`, `weapons.md`, `badge-catalog.md`, `emoji-guide.md`, `output-validation.md`, `source-catalog.md` |
+
+## Maintenance Rules
+
+- When adding a scenario or workflow pack, update `SKILL.md`, `INDEX.md`, public README files, and the matching `reference/*.md`.
+- Keep `SKILL.md` thin; put details in references.
+- Keep runtime files in English by default.
+- Keep README focused on the shortest public path, not every internal detail.
+- Ensure deep details have an upper-level entry point.
+- Keep local research, collected cases, and validation outputs out of public runtime indexes.
+- Keep output validation rules in `reference/output-validation.md`; do not mix test titles, raw sources, or verdict metadata into submit-ready artifacts.
+- Keep source references in `reference/source-catalog.md`; ordinary writing requests do not need to read the full catalog.

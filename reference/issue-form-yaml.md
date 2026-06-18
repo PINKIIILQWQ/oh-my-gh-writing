@@ -1,66 +1,65 @@
-# Issue Form YAML — 写作标准
+# Issue Form YAML Standard
 
-## 适用场景
-用 YAML 定义 Issue 表单，引导贡献者规范填写。
+## Use When
 
-## 输出边界
+Use when creating or revising GitHub Issue Forms under `.github/ISSUE_TEMPLATE/*.yml`.
 
-输出必须覆盖用户请求的全部表单类型。用户要求 Bug Report 和 Feature Request 时，两种表单都要给出。不要添加带假 URL 的 `contact_links`；只有真实文档、讨论区或安全政策链接已知时才写。
+## Output Boundary
 
-在对话中展示多个 YAML 文件时，用 `## File: ...` 标题加 fenced `yaml` 代码块。真正写入 `.github/ISSUE_TEMPLATE/*.yml` 时，文件内只保留有效 YAML，不要包含 Markdown 标题或说明。
+Issue Form YAML must be valid GitHub issue-form YAML. Do not wrap a single target file in explanatory Markdown when the file is meant to be written to disk. Do not copy repository-specific labels, teams, SIGs, or version lists from unrelated projects.
 
-## 标准结构
+## Standard Structure
+
+Use GitHub-supported fields:
 
 ```yaml
-name: Bug Report
-description: 提交 Bug 报告
-# labels: [bug] # only if the repository already uses this label
+name: Bug report
+description: Report a reproducible problem
+title: "[Bug]: "
+labels: ["bug"]
 body:
   - type: markdown
     attributes:
-      value: "## Bug Report"
+      value: "Thanks for taking the time to report this."
   - type: textarea
-    id: description
+    id: current-behavior
     attributes:
-      label: 描述
-      placeholder: 清楚描述问题
-    validations:
-      required: true
-  - type: dropdown
-    id: version
-    attributes:
-      label: 版本
-      options:
-        - TODO: add supported versions
+      label: Current behavior
+      description: What happened?
     validations:
       required: true
 ```
 
-## 信息不足时
+Recommended inputs:
 
-- 不知道版本列表时，用文本输入或 `TODO`，不要写假版本。
-- 不知道文档/安全/讨论链接时，不写 `contact_links`。
-- 多个表单必须分别输出文件名和内容。
+- `textarea` for descriptions, reproduction, logs, and context.
+- `input` for versions, package names, links, or short values.
+- `dropdown` only when valid options are known.
+- `checkboxes` for confirmations and checklist items.
+- `markdown` for short instructions.
 
-## 禁止编造项
+## Missing Information
 
-- 不编造 label、project、assignee、外链、版本号或环境字段。
-- 不把 Markdown 展示标题写进实际 YAML 文件。
+- If labels, default title, or options are unknown, omit them instead of inventing.
+- If a required field cannot be answered safely, ask the user before setting `validations.required: true`.
 
-## 高质量参考来源
+## Do Not Invent
 
-| 来源 | 可借鉴点 |
-|------|----------|
-| GitHub Issue forms docs | https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository |
-| VS Code Issue Templates | https://github.com/microsoft/vscode/tree/main/.github/ISSUE_TEMPLATE |
-| Next.js Issue Templates | https://github.com/vercel/next.js/tree/canary/.github/ISSUE_TEMPLATE |
-| TypeScript Issue Templates | https://github.com/microsoft/TypeScript/tree/main/.github/ISSUE_TEMPLATE |
-| Kubernetes Issue Templates | https://github.com/kubernetes/kubernetes/tree/master/.github/ISSUE_TEMPLATE |
-| Home Assistant Issue Templates | https://github.com/home-assistant/core/tree/dev/.github/ISSUE_TEMPLATE |
+- Do not invent labels, projects, assignees, SIGs, versions, required checkboxes, or support policies.
+- Do not add YAML comments that GitHub will show awkwardly unless requested.
+- Do not include unsupported GitHub form fields.
 
-## 必含元素 Checklist
-- [ ] name + description
-- [ ] 必填字段验证
-- [ ] labels 仅在用户要求或仓库已有 label 约定时添加
-- [ ] 请求的每一种表单类型都有对应 YAML
-- [ ] 不包含未验证的外链或 Markdown 包装（当输出目标是实际 YAML 文件时）
+## Strong Sources
+
+| Source | Useful Pattern |
+|--------|----------------|
+| GitHub Issue Forms docs | Valid syntax and supported input types |
+| React / TypeScript templates | Reproduction and environment fields |
+| Kubernetes templates | Area/component boundaries |
+
+## Checklist
+
+- [ ] YAML parses.
+- [ ] Only supported GitHub issue-form fields are used.
+- [ ] Required fields are truly required.
+- [ ] Labels/options are repository-specific or omitted.

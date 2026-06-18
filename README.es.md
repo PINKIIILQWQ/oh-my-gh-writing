@@ -7,7 +7,8 @@
 <p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-0f766e?style=flat" alt="Licencia MIT"></a>
   <a href="SKILL.md"><img src="https://img.shields.io/badge/Status-Release%20Candidate-2563eb?style=flat" alt="Release Candidate"></a>
-  <a href="INDEX.md"><img src="https://img.shields.io/badge/Scenarios-18-6a0dad?style=flat" alt="18 escenarios"></a>
+  <a href="INDEX.md"><img src="https://img.shields.io/badge/Artifacts-18-6a0dad?style=flat" alt="18 estándares de artefactos"></a>
+  <a href="INDEX.md"><img src="https://img.shields.io/badge/Workflows-7-0f766e?style=flat" alt="7 paquetes de flujo"></a>
   <a href="SKILL.md"><img src="https://img.shields.io/badge/Format-SKILL.md-22AA66?style=flat" alt="SKILL.md"></a>
 </p>
 
@@ -23,7 +24,7 @@ No es un generador de README ni un servicio de integración con GitHub. Es una b
 
 Escribir bien para GitHub no consiste solo en llenar Markdown. Lo difícil es reconocer el escenario, saber qué hechos deben verificarse, qué no debe inventarse y si el resultado puede pegarse en un Issue, PR, Review o README sin limpieza adicional.
 
-- **18 escenarios de escritura GitHub**: Issues, PRs, Code Review, Commit, README, CHANGELOG, Release Notes, Migration Guide, RFC, Issue Form, PR Template y más.
+- **18 estándares de artefactos GitHub + 7 paquetes de workflow**: Issues, PRs, Code Review, Commit, README, CHANGELOG, Release Notes, Migration Guide, RFC, Issue Form, PR Template y paquetes compuestos.
 - **Primero enruta, luego escribe**: separa Feature Request, Enhancement, Discussion, Feature PR, Bug Fix PR y Refactor PR.
 - **Carga progresiva de referencias**: `SKILL.md` queda ligero y las reglas detalladas se cargan solo cuando hacen falta.
 - **Límites de evidencia**: versiones, comandos, CI, compatibilidad, releases e IDs de issues/PRs no se inventan.

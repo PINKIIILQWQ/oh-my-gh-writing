@@ -1,41 +1,45 @@
-# Discussion — 写作标准
+# Discussion Standard
 
-## 适用场景
-公开讨论功能方向、方案选择，需要社区输入。
+## Use When
 
-## 输出边界
+Use for open-ended community input, proposal exploration, tradeoff discussion, or decision gathering where the solution is not settled.
 
-Discussion 用来征求意见，不替社区做决定。它可以比较方案，但不能把未确认方案写成最终路线图、已批准 RFC 或维护者共识。
+## Output Boundary
 
-## 标准结构
+Discussions invite input. Do not make final decisions, assign owners, promise timelines, or write as a PR/issue unless the user requests that artifact.
 
-1. **背景**：讨论的来由
-2. **动机**：为什么需要讨论
-3. **方案对比**：各方案优缺点（表格形式）
-4. **征求意见**：明确需要社区回答的问题
+## Standard Structure
 
-## 信息不足时
+1. **Topic:** short statement of the question or decision area.
+2. **Context:** why this discussion is being opened now.
+3. **Options / tradeoffs:** known approaches and their pros/cons.
+4. **Questions for maintainers/community:** focused prompts for feedback.
+5. **Constraints:** compatibility, maintenance, security, UX, or ecosystem limits when known.
+6. **Next step:** what decision or follow-up artifact may happen after discussion.
 
-- 方案不成熟时，保留 `Open questions`，不要强行给推荐方案。
-- 缺少影响面时，列出需要确认的用户群、API、兼容性或维护成本。
-- 如果用户要的是未来能力请求而非征求意见，路由到 Feature Request。
+## Missing Information
 
-## 禁止编造项
+- If options are unknown, ask for user intent only when it changes the discussion shape.
+- If constraints are uncertain, mark them as `To confirm`.
 
-- 不编造投票结果、维护者态度、路线图状态、RFC 编号或时间表。
-- 不把讨论写成 PR 描述或 release announcement。
+## Do Not Invent
 
-## 高质量参考来源
+- Do not write the final solution as decided.
+- Do not claim consensus, votes, maintainer approval, roadmap status, or implementation dates.
+- Do not turn a discussion into a release announcement or PR description.
 
-| 来源 | 可借鉴点 |
-|------|----------|
-| GitHub Discussions docs | https://docs.github.com/en/discussions |
-| React RFCs | https://github.com/reactjs/rfcs |
-| Rust RFCs | https://github.com/rust-lang/rfcs |
-| Python PEP 1 | https://peps.python.org/pep-0001/ |
-| Kubernetes Enhancement Proposals | https://github.com/kubernetes/enhancements/blob/master/keps/README.md |
+## Strong Sources
 
-## 必含元素 Checklist
-- [ ] 讨论背景
-- [ ] 方案选项
-- [ ] 征求意见点
+| Source | Useful Pattern |
+|--------|----------------|
+| GitHub Discussions docs | Open-ended community flow |
+| Kubernetes enhancement process | Problem framing and tradeoffs |
+| Rust RFC discussions | Decision records and alternatives |
+| TypeScript design discussions | Questions and compatibility constraints |
+
+## Checklist
+
+- [ ] The topic is a question or decision area.
+- [ ] Options and tradeoffs are separated from conclusions.
+- [ ] Feedback questions are explicit.
+- [ ] No undecided point is written as final.
