@@ -28,6 +28,32 @@
       ]
     },
     {
+      "id": "project-launch-audit-only",
+      "prompt": "Please check what files this repository still needs before I publish the project to GitHub.",
+      "expected_route": "references/project-launch.md",
+      "output_type": "markdown-artifact",
+      "risk_category": ["workflow", "format"],
+      "expected_output": "Routes to Project Launch as an audit-only readiness review. Output lists existing files, missing recommended files, optional files, and next steps. It does not create target files, does not create .github-writing drafts, and does not imply files were written.",
+      "expected_file": "expected/project-launch-audit.clean.md",
+      "assertions": [
+        "Output is a readiness audit, not a generated file package.",
+        "Output recommends files without claiming they were created.",
+        "Output distinguishes required or high-priority collaboration files from optional community files.",
+        "Output does not create .github-writing drafts or .github target files by default."
+      ],
+      "must_contain": [
+        "Existing",
+        "Recommended",
+        "Optional"
+      ],
+      "must_not_contain": [
+        ".github-writing/",
+        "Created",
+        "Wrote",
+        "I added"
+      ]
+    },
+    {
       "id": "version-release-pack-routing",
       "prompt": "Prepare the full v1.2.0 release materials for this repository using these merged PR summaries as the changelog source and release scope: fix login redirect, add CSV export, update docs.",
       "expected_route": "references/version-release.md",

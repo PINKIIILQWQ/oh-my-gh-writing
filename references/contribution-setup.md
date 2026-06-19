@@ -6,15 +6,20 @@ Use when the user wants a project ready for outside contributors, issue intake, 
 
 If the user asks only for `CONTRIBUTING.md`, route to `contributing.md`.
 
+If the user asks only to check what contributor files are missing or whether the repository is ready for outside contributions, produce an audit report only. Do not create `.github/`, root repository files, or `.github-writing/` drafts unless the user explicitly asks to draft, create, write, apply, or update the files.
+
 ## Default Output Location
 
 Write local drafts under `.github-writing/contribution-setup/<version-or-date>/`. If no version/date is known, use `.github-writing/contribution-setup/TBD/`.
 
 Do not create GitHub labels, settings, PRs, or repository files unless explicitly requested.
+Do not write target files during audit-only requests.
 
 ## Decision Rule
 
 If the user asks to accept outside contributors and no existing process is known, default to Community intake pack. If setup/test commands or governance are unknown, mark them `TBD` instead of inventing.
+
+For audit-only requests, do not select a package or ask the package-selection question. Report existing files, missing recommended files, optional files, and why each recommendation matters.
 
 ## Required Package Question
 
@@ -68,3 +73,4 @@ Every workflow package should include `package-manifest.md` with:
 - [ ] Commands and governance are evidenced or marked `TBD`.
 - [ ] Templates do not contain fake labels or required fields.
 - [ ] Default output remains local draft files.
+- [ ] Audit-only requests do not create files or package drafts.

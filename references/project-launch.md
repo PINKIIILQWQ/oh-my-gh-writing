@@ -6,15 +6,20 @@ Use when the user wants to make a repository ready for first public release, ope
 
 If the user asks only for a README, route to `readme.md`.
 
+If the user asks "what is missing", "what files are needed", "check whether this is ready to publish", or similar readiness-review wording, produce an audit report only. Do not create `README.md`, `CONTRIBUTING.md`, `.github/` files, or `.github-writing/` drafts unless the user explicitly asks to draft, create, write, apply, or update the files.
+
 ## Default Output Location
 
 Write local drafts under `.github-writing/project-launch/<version-or-date>/`. If no version/date is known, use `.github-writing/project-launch/TBD/`.
 
 Do not publish the repository, push files, create releases, or open PRs unless explicitly requested.
+Do not write root files or `.github/` files during audit-only requests.
 
 ## Decision Rule
 
 If the repository has no public contribution policy, default to Public launch pack. If license status is unknown, mark it `TBD` and do not add public-readiness claims.
+
+For audit-only requests, do not select a package or ask the package-selection question. Report existing files, missing recommended files, optional files, and why each recommendation matters.
 
 ## Required Package Question
 
@@ -71,3 +76,4 @@ Every workflow package should include `package-manifest.md` with:
 - [ ] README includes project applicability scope.
 - [ ] Credits or acknowledgements are relationship-specific.
 - [ ] No public launch action is performed by default.
+- [ ] Audit-only requests do not create files or package drafts.

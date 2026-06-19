@@ -16,15 +16,16 @@ Use this skill for GitHub-facing writing artifacts and local GitHub writing draf
 1. Identify whether the user wants a single artifact or a multi-artifact workflow pack.
 2. If the user explicitly names a single artifact, route to that artifact even if the topic is broad.
 3. If the user asks for a broad workflow, launch, setup, release package, or end-to-end material set, route to the matching composite workflow pack.
-4. For README requests, use the three-question prompt in `references/readme.md`.
-5. For composite workflow packs, follow the pack's Decision Rule. Ask the package-selection question only when the package shape cannot be inferred safely; otherwise use the recommended default and record it in `package-manifest.md`.
-6. Explicitly open and read the matching `references/*.md` before writing user-facing output. Do not infer or guess reference contents from memory.
-7. Read only the single-artifact references selected by a composite pack. Do not preload every reference.
-8. Read `references/weapons.md` when badges, alerts, Mermaid, collapsible blocks, emoji, or complex tables are needed.
-9. Read `references/badge-catalog.md` only when the user asks for detailed badge design or exact shields.io URL patterns.
-10. Read `references/emoji-guide.md` when emoji is requested or the target repository already uses emoji.
-11. Read `references/shared-principles.md` when the request is fact-heavy, high-risk, cross-scenario, or when output quality rules need clarification.
-12. Before finalizing, use `references/output-validation.md` as a silent revision checklist. If the draft fails a check, revise it before delivering. Keep validation silent for small clean artifacts; add brief post-output submission notes only when the artifact is complex, high-risk, or has obvious blockers.
+4. If the user asks to inspect, check, review readiness, or recommend what files are needed, treat it as audit-only: output a gap analysis and next-file recommendations only. Do not create target files, do not create `.github-writing/`, and do not write `.github/` or root repository files unless the user explicitly asks to draft, create, write, apply, or update files.
+5. For README requests, use the three-question prompt in `references/readme.md`.
+6. For composite workflow packs, follow the pack's Decision Rule. Ask the package-selection question only when the package shape cannot be inferred safely; otherwise use the recommended default and record it in `package-manifest.md`.
+7. Explicitly open and read the matching `references/*.md` before writing user-facing output. Do not infer or guess reference contents from memory.
+8. Read only the single-artifact references selected by a composite pack. Do not preload every reference.
+9. Read `references/weapons.md` when badges, alerts, Mermaid, collapsible blocks, emoji, or complex tables are needed.
+10. Read `references/badge-catalog.md` only when the user asks for detailed badge design or exact shields.io URL patterns.
+11. Read `references/emoji-guide.md` when emoji is requested or the target repository already uses emoji.
+12. Read `references/shared-principles.md` when the request is fact-heavy, high-risk, cross-scenario, or when output quality rules need clarification.
+13. Before finalizing, use `references/output-validation.md` as a silent revision checklist. If the draft fails a check, revise it before delivering. Keep validation silent for small clean artifacts; add brief post-output submission notes only when the artifact is complex, high-risk, or has obvious blockers.
 
 If local file reading is unavailable, ask the user to provide the relevant `references/*.md` content or state that references are unavailable and produce only a conservative draft from the visible routing rules and shared principles. Do not pretend to have read files you cannot access.
 
@@ -68,6 +69,7 @@ If the user asks to turn a PR, postmortem, or discussion into a different artifa
 
 Composite workflow packs are orchestrators, not templates. They select which existing single-artifact standards to load.
 
+- Audit-only prompts produce recommendations, not package files.
 - Ask one package-selection question only when the pack's Decision Rule cannot safely choose a default.
 - When a default is chosen without asking, record the selected option and assumptions in `package-manifest.md`.
 - Include optional supplements in the same message.

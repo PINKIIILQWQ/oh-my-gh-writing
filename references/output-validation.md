@@ -54,6 +54,7 @@ When evidence is missing:
 | README lacks project applicability scope, or uses features/scenarios as applicability scope | FACT_CHECK_REQUIRED |
 | YAML file includes explanatory headings when meant for direct file write | FORMAT_FAIL |
 | Composite workflow publishes, tags, opens PRs, or modifies remote state by default | FORMAT_FAIL |
+| Audit-only readiness review creates files or package drafts | FORMAT_FAIL |
 
 ## Validation Labels
 
@@ -102,6 +103,7 @@ For small artifacts with no obvious issue, omit the notes. When notes are needed
 - [ ] PR/Review does not claim unrun tests.
 - [ ] Scenario route matches the user request.
 - [ ] Composite workflows default to local `.github-writing/...` drafts unless publishing is explicitly requested.
+- [ ] Audit-only prompts produce recommendations only and do not create files or package drafts.
 - [ ] High-risk facts have sources or are marked for confirmation.
 
 ## Maintainer Local Validation
