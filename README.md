@@ -117,19 +117,19 @@ Workflow packs are thin orchestrators. They infer the safest package shape when 
 
 | Agent / Tool | Support type | Recommended setup | Maintainer verified | Last checked | Notes |
 | --- | --- | --- | --- | --- | --- |
-| [Codex](https://developers.openai.com/codex/skills) | Native skill directory | `$HOME/.agents/skills/oh-my-gh-writing` or project `.agents/skills/oh-my-gh-writing` | Yes | 2026-06-18 | Runtime folder recommended |
-| [Claude Code](https://code.claude.com/docs/en/skills) | Native skill directory | `~/.claude/skills/oh-my-gh-writing` | Not yet | 2026-06-18 | Based on current docs; keep the runtime folder |
-| [Hermes](https://hermes-agent.nousresearch.com/docs/guides/work-with-skills) | Folder-compatible / single-file limited | Hermes skills directory | Not yet | 2026-06-18 | HTTP single-file install only covers `SKILL.md`, not `references/` |
+| [Codex](https://developers.openai.com/codex/skills) | Native skill directory | `$HOME/.agents/skills/oh-my-gh-writing` or project `.agents/skills/oh-my-gh-writing` | Yes | 2026-06-19 | Runtime folder recommended |
+| [Claude Code](https://code.claude.com/docs/en/skills) | Native skill directory | `~/.claude/skills/oh-my-gh-writing` | Not yet | 2026-06-19 | Based on current docs; keep the runtime folder |
+| [Hermes](https://hermes-agent.nousresearch.com/docs/guides/work-with-skills) | Folder-compatible / single-file limited | Hermes skills directory | Not yet | 2026-06-19 | HTTP single-file install only covers `SKILL.md`, not `references/` |
 
 ### Adaptation Targets
 
 | Tool | Support type | Recommended adaptation | Maintainer verified | Last checked | Notes |
 | --- | --- | --- | --- | --- | --- |
-| [Gemini CLI / Antigravity](https://geminicli.com/docs/cli/skills/) | Check current docs | Use a skill directory or rules only if current docs confirm support | Not yet | 2026-06-18 | Availability is changing |
-| [Cursor](https://cursor.com/docs) | Project rules / knowledge base | Adapt the router and selected references | Not yet | 2026-06-18 | Keep only relevant scenario rules |
-| [GitHub Copilot](https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-repository-instructions) | Repository instructions / agent skill files | Adapt to `.github/copilot-instructions.md` or `.github/instructions/*.instructions.md` | Not yet | 2026-06-18 | Does not directly consume the full folder by default |
-| [Continue](https://docs.continue.dev/customize/rules) | Rules | Adapt to `.continue/rules/*.md` | Not yet | 2026-06-18 | Split by scenario |
-| [Windsurf / Devin Desktop](https://docs.windsurf.com) | Check current docs | Adapt to memories/rules if supported | Not yet | 2026-06-18 | Confirm the path before use |
+| [Gemini CLI / Antigravity](https://geminicli.com/docs/cli/skills/) | Check current docs | Use a skill directory or rules only if current docs confirm support | Not yet | 2026-06-19 | Availability is changing |
+| [Cursor](https://cursor.com/docs) | Project rules / knowledge base | Adapt the router and selected references | Not yet | 2026-06-19 | Keep only relevant scenario rules |
+| [GitHub Copilot](https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-repository-instructions) | Repository instructions / agent skill files | Adapt to `.github/copilot-instructions.md` or `.github/instructions/*.instructions.md` | Not yet | 2026-06-19 | Does not directly consume the full folder by default |
+| [Continue](https://docs.continue.dev/customize/rules) | Rules | Adapt to `.continue/rules/*.md` | Not yet | 2026-06-19 | Split by scenario |
+| [Windsurf / Devin Desktop](https://docs.windsurf.com) | Check current docs | Adapt to memories/rules if supported | Not yet | 2026-06-19 | Confirm the path before use |
 
 ## 📂 Files
 
@@ -143,6 +143,7 @@ Workflow packs are thin orchestrators. They infer the safest package shape when 
 | [`evals/`](evals) | Trigger and output-quality eval fixtures for future skill iteration |
 | [`scripts/`](scripts) | Maintainer validation utilities |
 | [`cases/`](cases) | Public evidence drafts, not runtime references |
+| [`README_Example.md`](README_Example.md) | Skill-generated README example, not the canonical homepage |
 | [`CONTRIBUTING.md`](CONTRIBUTING.md) | Contribution guidance |
 | [`assets/`](assets) | Logo and local README assets |
 

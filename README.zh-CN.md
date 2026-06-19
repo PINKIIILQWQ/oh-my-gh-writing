@@ -119,19 +119,19 @@ Workflow pack 只做编排：能安全判断时会推断最合适的材料包，
 
 | Agent / Tool | 支持类型 | 推荐接入方式 | 维护者已验证 | 最后检查 | 说明 |
 | --- | --- | --- | --- | --- | --- |
-| [Codex](https://developers.openai.com/codex/skills) | 原生 skill 目录 | `$HOME/.agents/skills/oh-my-gh-writing` 或项目 `.agents/skills/oh-my-gh-writing` | 是 | 2026-06-18 | 推荐保留 runtime 目录 |
-| [Claude Code](https://code.claude.com/docs/en/skills) | 原生 skill 目录 | `~/.claude/skills/oh-my-gh-writing` | 暂未 | 2026-06-18 | 基于当前文档；保留 runtime 目录 |
-| [Hermes](https://hermes-agent.nousresearch.com/docs/guides/work-with-skills) | 目录兼容 / 单文件受限 | Hermes skills 目录 | 暂未 | 2026-06-18 | HTTP 单文件安装只覆盖 `SKILL.md`，不包含 `references/` |
+| [Codex](https://developers.openai.com/codex/skills) | 原生 skill 目录 | `$HOME/.agents/skills/oh-my-gh-writing` 或项目 `.agents/skills/oh-my-gh-writing` | 是 | 2026-06-19 | 推荐保留 runtime 目录 |
+| [Claude Code](https://code.claude.com/docs/en/skills) | 原生 skill 目录 | `~/.claude/skills/oh-my-gh-writing` | 暂未 | 2026-06-19 | 基于当前文档；保留 runtime 目录 |
+| [Hermes](https://hermes-agent.nousresearch.com/docs/guides/work-with-skills) | 目录兼容 / 单文件受限 | Hermes skills 目录 | 暂未 | 2026-06-19 | HTTP 单文件安装只覆盖 `SKILL.md`，不包含 `references/` |
 
 ### 适配目标
 
 | 工具 | 支持类型 | 推荐适配方式 | 维护者已验证 | 最后检查 | 说明 |
 | --- | --- | --- | --- | --- | --- |
-| [Gemini CLI / Antigravity](https://geminicli.com/docs/cli/skills/) | 按当前文档确认 | 仅在当前文档确认支持时使用 skill 目录或 rules | 暂未 | 2026-06-18 | 可用范围正在变化 |
-| [Cursor](https://cursor.com/docs) | 项目规则 / 知识库 | 改写路由和选定 references | 暂未 | 2026-06-18 | 只保留相关场景规则 |
-| [GitHub Copilot](https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-repository-instructions) | 仓库指令 / agent skill 文件 | 改写为 `.github/copilot-instructions.md` 或 `.github/instructions/*.instructions.md` | 暂未 | 2026-06-18 | 默认不能直接加载完整目录 |
-| [Continue](https://docs.continue.dev/customize/rules) | Rules | 改写为 `.continue/rules/*.md` | 暂未 | 2026-06-18 | 按场景拆分 |
-| [Windsurf / Devin Desktop](https://docs.windsurf.com) | 按当前文档确认 | 如当前支持，可适配为 memories/rules | 暂未 | 2026-06-18 | 使用前确认路径 |
+| [Gemini CLI / Antigravity](https://geminicli.com/docs/cli/skills/) | 按当前文档确认 | 仅在当前文档确认支持时使用 skill 目录或 rules | 暂未 | 2026-06-19 | 可用范围正在变化 |
+| [Cursor](https://cursor.com/docs) | 项目规则 / 知识库 | 改写路由和选定 references | 暂未 | 2026-06-19 | 只保留相关场景规则 |
+| [GitHub Copilot](https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-repository-instructions) | 仓库指令 / agent skill 文件 | 改写为 `.github/copilot-instructions.md` 或 `.github/instructions/*.instructions.md` | 暂未 | 2026-06-19 | 默认不能直接加载完整目录 |
+| [Continue](https://docs.continue.dev/customize/rules) | Rules | 改写为 `.continue/rules/*.md` | 暂未 | 2026-06-19 | 按场景拆分 |
+| [Windsurf / Devin Desktop](https://docs.windsurf.com) | 按当前文档确认 | 如当前支持，可适配为 memories/rules | 暂未 | 2026-06-19 | 使用前确认路径 |
 
 ## 📂 文件
 
@@ -145,6 +145,7 @@ Workflow pack 只做编排：能安全判断时会推断最合适的材料包，
 | [`evals/`](evals) | 用于后续 skill 迭代的触发和输出质量 eval fixtures |
 | [`scripts/`](scripts) | 维护者验证工具 |
 | [`cases/`](cases) | 公开 evidence drafts，不是 runtime references |
+| [`README_Example.md`](README_Example.md) | 由 skill 生成的 README 示例，不是 canonical 首页 |
 | [`CONTRIBUTING.md`](CONTRIBUTING.md) | 贡献说明 |
 | [`assets/`](assets) | Logo 和 README 本地资产 |
 

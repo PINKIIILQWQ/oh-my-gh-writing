@@ -30,7 +30,7 @@ cases/
 
 These cases were generated from a clean desktop copy of the skill package and are intended as public evidence drafts. They are not runtime references and should not be used as source material for user artifacts.
 
-Target: 5 carefully reviewed cases before public launch.
+Target: 5 carefully reviewed cases over time.
 Current: 4 review-draft cases.
 
 | Case | Focus | Status | Baseline |

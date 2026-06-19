@@ -60,6 +60,7 @@ Agents should start with `SKILL.md`, then load the matching `references/*.md`. B
 | `evals/` | Trigger and output-quality eval fixtures for skill iteration | `evals/evals.json` |
 | `scripts/` | Maintainer validation utilities | `scripts/validate-evals.py` |
 | `cases/` | Sanitized public evidence cases, not runtime references | `cases/README.md` |
+| `README_Example.md` | Skill-generated README example, not the canonical homepage | `README_Example.md` |
 
 ## Reference File Index
 
