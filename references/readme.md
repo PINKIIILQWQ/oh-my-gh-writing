@@ -95,6 +95,13 @@ When a project supports both a universal installer and manual clone/symlink path
 3. Optional target-host command variants.
 4. One or more example prompts or usage commands.
 
+Quick Start command blocks must be easy to copy line-by-line:
+
+- Put each standalone command or variable assignment on its own line.
+- Avoid `&&`, `;`, and backslash continuations for independent commands.
+- If several hosts differ only by target path, show each host's `target=...` line as its own copyable block, then show the shared install commands separately.
+- Keep comments outside command blocks unless a shell comment is essential.
+
 ## Project Applicability Scope
 
 Every README must state project applicability scope. It answers which users, environments, frameworks, platforms, products, runtimes, integrations, or artifact types the project applies to. It is not a feature list, marketing pitch, usage scenario list, or example gallery.

@@ -95,6 +95,7 @@ For small artifacts with no obvious issue, omit the notes. When notes are needed
 - [ ] No whole-document outer `markdown` fence.
 - [ ] No conversational preface or ending.
 - [ ] No unrelated code snippet, terminal residue, or copy pollution.
+- [ ] Standalone terminal commands are each on their own line and can be copied independently.
 - [ ] No unexplained, unactionable, or submission-inappropriate `#XXXXX`, `Fixes #`, `TODO`, or `TBD`.
 - [ ] No checklist item is checked without proof from user input, repository files, diff, or tool output.
 - [ ] YAML parses; multi-file display and single-file write boundaries are clear.

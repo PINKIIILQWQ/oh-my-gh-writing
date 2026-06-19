@@ -24,26 +24,52 @@
 
 ## 🚀 快速开始
 
-只安装 runtime skill 文件。下面的 Codex 路径已经由维护者验证：
+只安装 runtime skill 文件。先选择一个目标路径。
+
+Codex：
 
 ```bash
 target="$HOME/.agents/skills/oh-my-gh-writing"
+```
+
+Gemini CLI：
+
+```bash
+target="$HOME/.agents/skills/oh-my-gh-writing"
+```
+
+Devin CLI / Devin Desktop / Windsurf Cascade：
+
+```bash
+target="$HOME/.agents/skills/oh-my-gh-writing"
+```
+
+Claude Code：
+
+```bash
+target="$HOME/.claude/skills/oh-my-gh-writing"
+```
+
+Hermes：
+
+```bash
+target="$HOME/.hermes/skills/github/oh-my-gh-writing"
+```
+
+然后运行 runtime-only 安装命令：
+
+```bash
 tmp="$(mktemp -d)"
 repo="$tmp/oh-my-gh-writing"
-git clone --depth 1 https://github.com/PINKIIILQWQ/oh-my-gh-writing.git "$repo"
+git clone --depth 1 --filter=blob:none --sparse https://github.com/PINKIIILQWQ/oh-my-gh-writing.git "$repo"
+git -C "$repo" sparse-checkout set --no-cone /SKILL.md /INDEX.md /references/
 rm -rf "$target"
 mkdir -p "$target"
 cp -R "$repo/SKILL.md" "$repo/INDEX.md" "$repo/references" "$target/"
 rm -rf "$tmp"
 ```
 
-其他有文档依据但维护者暂未实测的 host，可以使用同一段命令，只替换 `target`：
-
-| Host | Target path | 状态 |
-| --- | --- | --- |
-| Claude Code | `$HOME/.claude/skills/oh-my-gh-writing` | 有官方文档依据，维护者暂未实测 |
-| Gemini CLI | `$HOME/.agents/skills/oh-my-gh-writing` | 有官方文档依据，维护者暂未实测 |
-| Hermes | `$HOME/.hermes/skills/github/oh-my-gh-writing` | 有官方文档依据，维护者暂未实测 |
+Codex 路径已由维护者验证。Claude Code、Gemini CLI、Devin CLI、Devin Desktop / Windsurf Cascade、Hermes 路径有文档依据，但本仓库维护者暂未逐一实测。
 
 如果要参与仓库开发或运行维护验证，单独 clone 完整仓库：
 
@@ -62,7 +88,9 @@ python3 scripts/validate-cases.py
 /oh-my-gh-writing 根据这些已合并 PR 摘要准备 v1.2.0 的完整发布材料：修复登录重定向、增加 CSV 导出、更新文档。不要发布任何东西。
 ```
 
-如果你使用兼容 Agent Skills 的包管理工具，请确认安装后的 skill 目录里同时包含 `SKILL.md` 和 `references/`。本仓库有意不把 `evals/`、`cases/`、`scripts/` 放进 runtime 安装。
+上面的 runtime 安装使用 sparse checkout，只复制 `SKILL.md`、`INDEX.md` 和 `references/`。用户使用 skill 不需要 `evals/`、`cases/`、`scripts/`；这些文件只用于仓库开发和验证。
+
+如果你使用兼容 Agent Skills 的包管理工具，请确认安装后的 skill 目录里包含 `SKILL.md`、`INDEX.md` 和 `references/`。如果包管理工具内部 checkout 了完整仓库，那只是下载或缓存细节；skill runtime 仍然只依赖上面三个入口。
 
 ## 🧪 调用示例
 
@@ -123,6 +151,8 @@ Workflow pack 只做编排：能安全判断时会推断最合适的材料包，
 | [Codex](https://developers.openai.com/codex/skills) | 原生 skill 目录 | `$HOME/.agents/skills/oh-my-gh-writing` 或项目 `.agents/skills/oh-my-gh-writing` | 是 | 2026-06-20 | 官方文档列出 `.agents/skills` 用户和仓库位置 |
 | [Claude Code](https://code.claude.com/docs/en/skills) | 原生 skill 目录 | `~/.claude/skills/oh-my-gh-writing` 或项目 `.claude/skills/oh-my-gh-writing` | 暂未 | 2026-06-20 | 官方文档使用包含 `SKILL.md` 的目录作为 skill 入口 |
 | [Gemini CLI](https://geminicli.com/docs/cli/skills/) | 原生 skill 目录 | 手动 runtime-only 复制到 `$HOME/.agents/skills/oh-my-gh-writing` 或 `.agents/skills/oh-my-gh-writing` | 暂未 | 2026-06-20 | 官方文档列出 `.agents/skills` alias，并支持 `gemini skills install`，但本仓库不应安装非 runtime 文件，需验证安装结果 |
+| [Devin CLI](https://docs.devin.ai/cli/extensibility/skills/overview) | 原生 skill 目录 | `$HOME/.agents/skills/oh-my-gh-writing`、`$HOME/.config/devin/skills/oh-my-gh-writing` 或项目 `.agents/skills/oh-my-gh-writing` | 暂未 | 2026-06-20 | 官方文档说明 Devin CLI 支持 `.agents` skills standard 和 `SKILL.md` skill 目录 |
+| [Devin Desktop / Windsurf Cascade](https://docs.devin.ai/desktop/cascade/skills) | 原生 skill 目录 | `$HOME/.agents/skills/oh-my-gh-writing`、`$HOME/.codeium/windsurf/skills/oh-my-gh-writing` 或项目 `.windsurf/skills/oh-my-gh-writing` | 暂未 | 2026-06-20 | 官方文档说明 Cascade skills 使用 `SKILL.md` 文件夹，并会发现 `.agents/skills` 路径 |
 | [Hermes](https://hermes-agent.nousresearch.com/docs/guides/work-with-skills) | 原生 skill 目录 | 把 runtime 目录复制到 `~/.hermes/skills/github/oh-my-gh-writing` | 暂未 | 2026-06-20 | 本仓库依赖 `references/`，不要使用 HTTP 单文件安装 |
 
 ### 宿主工具规则 / 指令设置
@@ -139,8 +169,7 @@ Workflow pack 只做编排：能安全判断时会推断最合适的材料包，
 
 | 工具 | 状态 | 最后检查 | 说明 |
 | --- | --- | --- | --- |
-| Antigravity CLI | 未确认 | 2026-06-20 | 等官方文档确认稳定 skill 或 rules 路径后再写安装方式 |
-| Windsurf / Devin Desktop | 未确认 | 2026-06-20 | 当前文档跳转到 Devin Desktop，未看到适合本包的稳定 skill/rules 路径 |
+| Antigravity CLI | 未确认 | 2026-06-20 | Gemini CLI 文档提到 Antigravity 迁移，但这里应等 Antigravity 自己的官方 skill 安装文档明确后再列为支持 |
 
 ## 📂 文件
 
@@ -182,9 +211,9 @@ python3 scripts/validate-cases.py
 输入：
 
 ```text
-Please check what files this sample repository still needs before I publish the project to GitHub.
+Please check what files this sample repository still needs before I publish it to GitHub.
 
-Current repository files: README.md, LICENSE, SKILL.md, references/, evals/, scripts/.
+Current sample repository files: README.md, LICENSE, src/, package.json, scripts/test.sh.
 ```
 
 输出片段：
@@ -198,8 +227,9 @@ Current repository files: README.md, LICENSE, SKILL.md, references/, evals/, scr
 ## Recommended
 
 - CONTRIBUTING.md — explains setup, test, branch, and PR expectations before outside contributors arrive.
-- Bug report Issue Form — standardizes defect reports with reproduction, expected behavior, actual behavior, and environment fields.
-- Pull request template — gives contributors a consistent place for summary, testing, risk, and related issues.
+- .github/ISSUE_TEMPLATE/bug_report.yml — standardizes defect reports with reproduction, expected behavior, actual behavior, and environment fields.
+- .github/ISSUE_TEMPLATE/feature_request.yml — separates future capability requests from bug reports and keeps motivation, use cases, and alternatives visible.
+- .github/pull_request_template.md — gives contributors a consistent place for summary, testing, risk, and related issues.
 
 ## Next steps
 
@@ -207,7 +237,7 @@ Current repository files: README.md, LICENSE, SKILL.md, references/, evals/, scr
 - Draft target files only after maintainer confirmation.
 ```
 
-首页片段是缩短版；完整 case 还包含 Feature request Issue Form、Validation workflow 和 Changelog 建议。
+首页片段是缩短版；完整 case 还包含 Validation workflow、Changelog 和 optional community-file 建议。
 
 完整 synthetic review-draft case 见 [`cases/005-project-launch-audit/`](cases/005-project-launch-audit/)。Baseline behavior 还没有收集。
 

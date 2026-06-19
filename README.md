@@ -22,33 +22,52 @@ The core idea is simple: route the request first, load only the matching writing
 
 ## 🚀 Quick Start
 
-### Maintainer-verified install: Codex
+Install the runtime skill files only. Pick one target path first.
 
-Install the runtime skill files only:
+Codex:
 
 ```bash
 target="$HOME/.agents/skills/oh-my-gh-writing"
-tmp="$(mktemp -d)"
-repo="$tmp/oh-my-gh-writing"
-git clone --depth 1 https://github.com/PINKIIILQWQ/oh-my-gh-writing.git "$repo"
-mkdir -p "$target"
-cp -R "$repo/SKILL.md" "$repo/INDEX.md" "$repo/references" "$target/"
-# Optional display assets for local README rendering:
-cp -R "$repo/assets" "$target/" 2>/dev/null || true
-echo "Temporary checkout: $tmp"
 ```
 
-If an earlier full-repository install left `evals/`, `cases/`, or `scripts/` inside the skill folder, remove those non-runtime directories manually before using the skill.
+Gemini CLI:
 
-### Unverified documented host paths
+```bash
+target="$HOME/.agents/skills/oh-my-gh-writing"
+```
 
-The paths below are based on host documentation but have not been maintainer-verified yet. After installing, confirm the target folder contains `SKILL.md`, `INDEX.md`, and `references/`.
+Devin CLI / Devin Desktop / Windsurf Cascade:
 
-| Host | Target path | Status |
-| --- | --- | --- |
-| Claude Code | `$HOME/.claude/skills/oh-my-gh-writing` | Documented, not maintainer-verified |
-| Gemini CLI | `$HOME/.agents/skills/oh-my-gh-writing` | Documented, not maintainer-verified |
-| Hermes | `$HOME/.hermes/skills/github/oh-my-gh-writing` | Documented, not maintainer-verified |
+```bash
+target="$HOME/.agents/skills/oh-my-gh-writing"
+```
+
+Claude Code:
+
+```bash
+target="$HOME/.claude/skills/oh-my-gh-writing"
+```
+
+Hermes:
+
+```bash
+target="$HOME/.hermes/skills/github/oh-my-gh-writing"
+```
+
+Then run the runtime-only install:
+
+```bash
+tmp="$(mktemp -d)"
+repo="$tmp/oh-my-gh-writing"
+git clone --depth 1 --filter=blob:none --sparse https://github.com/PINKIIILQWQ/oh-my-gh-writing.git "$repo"
+git -C "$repo" sparse-checkout set --no-cone /SKILL.md /INDEX.md /references/
+rm -rf "$target"
+mkdir -p "$target"
+cp -R "$repo/SKILL.md" "$repo/INDEX.md" "$repo/references" "$target/"
+rm -rf "$tmp"
+```
+
+Codex is maintainer-verified. Claude Code, Gemini CLI, Devin CLI, Devin Desktop / Windsurf Cascade, and Hermes paths are documented but not maintainer-verified for this repository yet.
 
 For repository development, clone the full repository separately:
 
@@ -67,7 +86,9 @@ Start with one of these prompts:
 /oh-my-gh-writing Prepare the full v1.2.0 release materials from these merged PR summaries: fix login redirect, add CSV export, update docs. Do not publish anything.
 ```
 
-If you use an Agent Skills-compatible package manager, verify that the installed skill folder contains both `SKILL.md` and `references/`. This repository intentionally keeps `evals/`, `cases/`, and `scripts/` out of runtime installs.
+The runtime install above uses sparse checkout and copies only `SKILL.md`, `INDEX.md`, and `references/`. Users do not need `evals/`, `cases/`, or `scripts/` to use the skill; those files are for repository development and validation.
+
+If you use an Agent Skills-compatible package manager, verify that the installed skill folder contains `SKILL.md`, `INDEX.md`, and `references/`. If the package manager checks out the full repository internally, that is only a download/cache detail; the skill runtime still depends on the three runtime entries above.
 
 ## 🧪 Example Prompts
 
@@ -128,6 +149,8 @@ Last checked: 2026-06-20.
 | [Codex](https://developers.openai.com/codex/skills) | Native skill directory | `$HOME/.agents/skills/oh-my-gh-writing` or project `.agents/skills/oh-my-gh-writing` | Yes | 2026-06-20 | Official docs list `.agents/skills` user and repository locations |
 | [Claude Code](https://code.claude.com/docs/en/skills) | Native skill directory | `~/.claude/skills/oh-my-gh-writing` or project `.claude/skills/oh-my-gh-writing` | Not yet | 2026-06-20 | Official docs use a `SKILL.md` directory as the skill entrypoint |
 | [Gemini CLI](https://geminicli.com/docs/cli/skills/) | Native skill directory | Manual runtime-only copy to `$HOME/.agents/skills/oh-my-gh-writing` or `.agents/skills/oh-my-gh-writing` | Not yet | 2026-06-20 | Official docs list `.agents/skills` as an alias and support `gemini skills install`, but verify install output because this repo should not install non-runtime files |
+| [Devin CLI](https://docs.devin.ai/cli/extensibility/skills/overview) | Native skill directory | `$HOME/.agents/skills/oh-my-gh-writing`, `$HOME/.config/devin/skills/oh-my-gh-writing`, or project `.agents/skills/oh-my-gh-writing` | Not yet | 2026-06-20 | Official docs state Devin CLI supports the `.agents` skills standard and `SKILL.md` skill directories |
+| [Devin Desktop / Windsurf Cascade](https://docs.devin.ai/desktop/cascade/skills) | Native skill directory | `$HOME/.agents/skills/oh-my-gh-writing`, `$HOME/.codeium/windsurf/skills/oh-my-gh-writing`, or project `.windsurf/skills/oh-my-gh-writing` | Not yet | 2026-06-20 | Official docs state Cascade skills use `SKILL.md` folders and also discover `.agents/skills` paths |
 | [Hermes](https://hermes-agent.nousresearch.com/docs/guides/work-with-skills) | Native skill directory | Copy the runtime folder to `~/.hermes/skills/github/oh-my-gh-writing` | Not yet | 2026-06-20 | Do not use HTTP single-file install for this repo because `references/` are required |
 
 ### Adaptation Targets
@@ -144,8 +167,7 @@ These tools do not consume this full Agent Skill folder as-is. Use this reposito
 
 | Tool | Status | Last checked | Notes |
 | --- | --- | --- | --- |
-| Antigravity CLI | Not confirmed | 2026-06-20 | Keep out of setup instructions until official docs confirm a stable skill or rules path |
-| Windsurf / Devin Desktop | Not confirmed | 2026-06-20 | Current docs redirect to Devin Desktop and do not expose a stable skill/rules path for this package |
+| Antigravity CLI | Not confirmed | 2026-06-20 | Gemini CLI docs mention Antigravity migration, but this README should wait for Antigravity-specific official skill installation docs before listing it as supported |
 
 ## 📂 Files
 

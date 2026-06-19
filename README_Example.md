@@ -37,20 +37,52 @@ Use it when you need GitHub issues, pull request descriptions, code reviews, com
 
 ## 🚀 Quick Start
 
-Install only the runtime skill files into your local skill directory:
+Install only the runtime skill files into your local skill directory. Pick one target path first.
+
+Codex:
 
 ```bash
 target="$HOME/.agents/skills/oh-my-gh-writing"
+```
+
+Gemini CLI:
+
+```bash
+target="$HOME/.agents/skills/oh-my-gh-writing"
+```
+
+Devin CLI / Devin Desktop / Windsurf Cascade:
+
+```bash
+target="$HOME/.agents/skills/oh-my-gh-writing"
+```
+
+Claude Code:
+
+```bash
+target="$HOME/.claude/skills/oh-my-gh-writing"
+```
+
+Hermes:
+
+```bash
+target="$HOME/.hermes/skills/github/oh-my-gh-writing"
+```
+
+Then run the runtime-only install:
+
+```bash
 tmp="$(mktemp -d)"
 repo="$tmp/oh-my-gh-writing"
-git clone --depth 1 https://github.com/PINKIIILQWQ/oh-my-gh-writing.git "$repo"
-
+git clone --depth 1 --filter=blob:none --sparse https://github.com/PINKIIILQWQ/oh-my-gh-writing.git "$repo"
+git -C "$repo" sparse-checkout set --no-cone /SKILL.md /INDEX.md /references/
 rm -rf "$target"
 mkdir -p "$target"
 cp -R "$repo/SKILL.md" "$repo/INDEX.md" "$repo/references" "$target/"
-
 rm -rf "$tmp"
 ```
+
+This install copies only `SKILL.md`, `INDEX.md`, and `references/`. Users do not need `evals/`, `cases/`, or `scripts/` to use the skill.
 
 Then ask your agent to use the skill for a GitHub writing task:
 

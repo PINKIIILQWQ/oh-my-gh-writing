@@ -8,11 +8,11 @@
 ## Recommended
 
 - CONTRIBUTING.md — explains setup, test, branch, and PR expectations before outside contributors arrive.
-- Bug report Issue Form — standardizes defect reports with reproduction, expected behavior, actual behavior, and environment fields.
-- Feature request Issue Form — separates future capability requests from bug reports and keeps motivation, use cases, and alternatives visible.
-- Pull request template — gives contributors a consistent place for summary, testing, risk, and related issues.
-- Validation workflow, if validation scripts should run on GitHub — lets contributors and maintainers run the same checks before review.
-- Changelog, if releases are versioned — gives users a stable place to understand changes across versions.
+- .github/ISSUE_TEMPLATE/bug_report.yml — standardizes defect reports with reproduction, expected behavior, actual behavior, and environment fields.
+- .github/ISSUE_TEMPLATE/feature_request.yml — separates future capability requests from bug reports and keeps motivation, use cases, and alternatives visible.
+- .github/pull_request_template.md — gives contributors a consistent place for summary, testing, risk, and related issues.
+- .github/workflows/validate.yml, if `scripts/test.sh` should run on GitHub — lets contributors and maintainers run the same check before review.
+- CHANGELOG.md, if releases are versioned — gives users a stable place to understand changes across versions.
 
 ## Optional
 
