@@ -71,7 +71,7 @@ For a broader package, ask for a workflow pack:
 /oh-my-gh-writing Prepare full v1.2.0 release materials from these merged PR summaries: fix login redirect, add CSV export, update docs. Do not publish anything.
 ```
 
-For repository development, clone the full repository separately and validate eval fixtures:
+For repository development, clone the full repository separately and validate eval fixtures and public case evidence:
 
 ```bash
 git clone https://github.com/PINKIIILQWQ/oh-my-gh-writing.git

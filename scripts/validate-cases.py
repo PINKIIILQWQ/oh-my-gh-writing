@@ -37,6 +37,7 @@ LABELS = {
 }
 
 ALLOWED_WITH_SKILL_SUFFIXES = {".md", ".yml", ".yaml"}
+EXCERPT_TYPES = {"exact", "shortened", "paraphrased"}
 
 
 def fail(message: str) -> None:
@@ -107,6 +108,15 @@ def main() -> None:
             attribution = (CASES / case_name / "attribution.md").read_text(encoding="utf-8")
             if "README citation status: allowed" not in attribution:
                 fail(f"{case_name}: README citation is not explicitly allowed")
+            grading = (CASES / case_name / "grading.md").read_text(encoding="utf-8")
+            excerpt_match = re.search(
+                r"^- README excerpt type:\s*(exact|shortened|paraphrased)\.\s*$",
+                grading,
+                re.MULTILINE,
+            )
+            if not excerpt_match:
+                allowed = ", ".join(sorted(EXCERPT_TYPES))
+                fail(f"{case_name}: grading.md must declare README excerpt type ({allowed})")
 
     print("case evidence fixtures are valid")
 

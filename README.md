@@ -24,6 +24,8 @@ The core idea is simple: route the request first, load only the matching writing
 
 Install only the runtime skill files into your local skill directory. Pick the block for your agent and copy it as-is.
 
+**Verified by maintainer**
+
 **Codex**
 
 ```bash
@@ -35,6 +37,8 @@ mkdir -p "$target"
 cp -R "$tmp/oh-my-gh-writing/SKILL.md" "$tmp/oh-my-gh-writing/INDEX.md" "$tmp/oh-my-gh-writing/references" "$target/"
 rm -rf "$tmp"
 ```
+
+**Documented but not maintainer-verified**
 
 **Claude Code**
 
@@ -149,7 +153,7 @@ Last checked: 2026-06-20.
 | --- | --- | --- | --- | --- | --- |
 | [Codex](https://developers.openai.com/codex/skills) | Native skill directory | `$HOME/.agents/skills/oh-my-gh-writing` or project `.agents/skills/oh-my-gh-writing` | Yes | 2026-06-20 | Official docs list `.agents/skills` user and repository locations |
 | [Claude Code](https://code.claude.com/docs/en/skills) | Native skill directory | `~/.claude/skills/oh-my-gh-writing` or project `.claude/skills/oh-my-gh-writing` | Not yet | 2026-06-20 | Official docs use a `SKILL.md` directory as the skill entrypoint |
-| [Gemini CLI](https://geminicli.com/docs/cli/skills/) | Native skill directory | `$HOME/.agents/skills/oh-my-gh-writing`, `.agents/skills/oh-my-gh-writing`, or `gemini skills install https://github.com/PINKIIILQWQ/oh-my-gh-writing.git` | Not yet | 2026-06-20 | Official docs list `.agents/skills` as an alias and support `gemini skills install` |
+| [Gemini CLI](https://geminicli.com/docs/cli/skills/) | Native skill directory | Manual runtime-only copy to `$HOME/.agents/skills/oh-my-gh-writing` or `.agents/skills/oh-my-gh-writing` | Not yet | 2026-06-20 | Official docs list `.agents/skills` as an alias and support `gemini skills install`, but verify install output because this repo should not install non-runtime files |
 | [Hermes](https://hermes-agent.nousresearch.com/docs/guides/work-with-skills) | Native skill directory | Copy the runtime folder to `~/.hermes/skills/github/oh-my-gh-writing` | Not yet | 2026-06-20 | Do not use HTTP single-file install for this repo because `references/` are required |
 
 ### Host-Specific Rule Setup
@@ -209,7 +213,7 @@ This is a synthetic review-draft excerpt, not a real repository outcome or valid
 Input:
 
 ```text
-Please check what files this repository still needs before I publish the project to GitHub.
+Please check what files this sample repository still needs before I publish the project to GitHub.
 
 Current repository files: README.md, LICENSE, SKILL.md, references/, evals/, scripts/.
 ```
@@ -233,6 +237,8 @@ Output excerpt:
 - Confirm which recommended files to prepare.
 - Draft target files only after maintainer confirmation.
 ```
+
+Excerpt shortened; the full case also includes Feature request Issue Form, Validation workflow, and Changelog recommendations.
 
 See [`cases/005-project-launch-audit/`](cases/005-project-launch-audit/) for the synthetic review-draft case. Baseline behavior has not been collected yet.
 

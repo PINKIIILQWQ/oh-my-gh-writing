@@ -29,7 +29,7 @@
     },
     {
       "id": "project-launch-audit-only",
-      "prompt": "Please check what files this repository still needs before I publish the project to GitHub. Current repository files: README.md, LICENSE, SKILL.md, references/, evals/, scripts/.",
+      "prompt": "Please check what files this sample repository still needs before I publish the project to GitHub. Current repository files: README.md, LICENSE, SKILL.md, references/, evals/, scripts/.",
       "expected_route": "references/project-launch.md",
       "output_type": "markdown-artifact",
       "risk_category": ["workflow", "format"],

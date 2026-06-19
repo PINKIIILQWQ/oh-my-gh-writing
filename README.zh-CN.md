@@ -26,6 +26,8 @@
 
 只把 runtime skill 文件安装到本地 skill 目录。选择你的 agent 对应代码块，整段复制即可。
 
+**维护者已验证**
+
 **Codex**
 
 ```bash
@@ -37,6 +39,8 @@ mkdir -p "$target"
 cp -R "$tmp/oh-my-gh-writing/SKILL.md" "$tmp/oh-my-gh-writing/INDEX.md" "$tmp/oh-my-gh-writing/references" "$target/"
 rm -rf "$tmp"
 ```
+
+**有官方文档依据，但维护者暂未实测**
 
 **Claude Code**
 
@@ -151,7 +155,7 @@ Workflow pack 只做编排：能安全判断时会推断最合适的材料包，
 | --- | --- | --- | --- | --- | --- |
 | [Codex](https://developers.openai.com/codex/skills) | 原生 skill 目录 | `$HOME/.agents/skills/oh-my-gh-writing` 或项目 `.agents/skills/oh-my-gh-writing` | 是 | 2026-06-20 | 官方文档列出 `.agents/skills` 用户和仓库位置 |
 | [Claude Code](https://code.claude.com/docs/en/skills) | 原生 skill 目录 | `~/.claude/skills/oh-my-gh-writing` 或项目 `.claude/skills/oh-my-gh-writing` | 暂未 | 2026-06-20 | 官方文档使用包含 `SKILL.md` 的目录作为 skill 入口 |
-| [Gemini CLI](https://geminicli.com/docs/cli/skills/) | 原生 skill 目录 | `$HOME/.agents/skills/oh-my-gh-writing`、`.agents/skills/oh-my-gh-writing` 或 `gemini skills install https://github.com/PINKIIILQWQ/oh-my-gh-writing.git` | 暂未 | 2026-06-20 | 官方文档列出 `.agents/skills` alias，并支持 `gemini skills install` |
+| [Gemini CLI](https://geminicli.com/docs/cli/skills/) | 原生 skill 目录 | 手动 runtime-only 复制到 `$HOME/.agents/skills/oh-my-gh-writing` 或 `.agents/skills/oh-my-gh-writing` | 暂未 | 2026-06-20 | 官方文档列出 `.agents/skills` alias，并支持 `gemini skills install`，但本仓库不应安装非 runtime 文件，需验证安装结果 |
 | [Hermes](https://hermes-agent.nousresearch.com/docs/guides/work-with-skills) | 原生 skill 目录 | 把 runtime 目录复制到 `~/.hermes/skills/github/oh-my-gh-writing` | 暂未 | 2026-06-20 | 本仓库依赖 `references/`，不要使用 HTTP 单文件安装 |
 
 ### 宿主工具规则 / 指令设置
@@ -211,7 +215,7 @@ python3 scripts/validate-cases.py
 输入：
 
 ```text
-Please check what files this repository still needs before I publish the project to GitHub.
+Please check what files this sample repository still needs before I publish the project to GitHub.
 
 Current repository files: README.md, LICENSE, SKILL.md, references/, evals/, scripts/.
 ```
@@ -235,6 +239,8 @@ Current repository files: README.md, LICENSE, SKILL.md, references/, evals/, scr
 - Confirm which recommended files to prepare.
 - Draft target files only after maintainer confirmation.
 ```
+
+首页片段是缩短版；完整 case 还包含 Feature request Issue Form、Validation workflow 和 Changelog 建议。
 
 完整 synthetic review-draft case 见 [`cases/005-project-launch-audit/`](cases/005-project-launch-audit/)。Baseline behavior 还没有收集。
 

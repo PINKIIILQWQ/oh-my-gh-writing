@@ -1,0 +1,56 @@
+name: Validate
+
+on:
+  pull_request:
+    paths:
+      - "SKILL.md"
+      - "INDEX.md"
+      - "README.md"
+      - "README.zh-CN.md"
+      - "README_Example.md"
+      - "references/**"
+      - "evals/**"
+      - "cases/**"
+      - "scripts/**"
+      - ".github/**"
+  push:
+    branches:
+      - main
+    paths:
+      - "SKILL.md"
+      - "INDEX.md"
+      - "README.md"
+      - "README.zh-CN.md"
+      - "README_Example.md"
+      - "references/**"
+      - "evals/**"
+      - "cases/**"
+      - "scripts/**"
+      - ".github/**"
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Validate eval fixtures
+        run: python3 scripts/validate-evals.py
+
+      - name: Validate public case evidence
+        run: python3 scripts/validate-cases.py
+
+      - name: Validate GitHub issue template formats
+        run: |
+          invalid="$(find .github/ISSUE_TEMPLATE -type f ! -name '*.yml' ! -name '*.yaml' -print)"
+          if [ -n "$invalid" ]; then
+            echo "Issue templates must be YAML Issue Forms:"
+            echo "$invalid"
+            exit 1
+          fi
