@@ -22,20 +22,27 @@ The core idea is simple: route the request first, load only the matching writing
 
 ## 🚀 Quick Start
 
-Install the runtime skill files only. The Codex path below is maintainer-verified:
+### Maintainer-verified install: Codex
+
+Install the runtime skill files only:
 
 ```bash
 target="$HOME/.agents/skills/oh-my-gh-writing"
 tmp="$(mktemp -d)"
 repo="$tmp/oh-my-gh-writing"
 git clone --depth 1 https://github.com/PINKIIILQWQ/oh-my-gh-writing.git "$repo"
-rm -rf "$target"
 mkdir -p "$target"
 cp -R "$repo/SKILL.md" "$repo/INDEX.md" "$repo/references" "$target/"
-rm -rf "$tmp"
+# Optional display assets for local README rendering:
+cp -R "$repo/assets" "$target/" 2>/dev/null || true
+echo "Temporary checkout: $tmp"
 ```
 
-For other documented hosts, use the same command with a different `target`:
+If an earlier full-repository install left `evals/`, `cases/`, or `scripts/` inside the skill folder, remove those non-runtime directories manually before using the skill.
+
+### Unverified documented host paths
+
+The paths below are based on host documentation but have not been maintainer-verified yet. After installing, confirm the target folder contains `SKILL.md`, `INDEX.md`, and `references/`.
 
 | Host | Target path | Status |
 | --- | --- | --- |
@@ -123,11 +130,11 @@ Last checked: 2026-06-20.
 | [Gemini CLI](https://geminicli.com/docs/cli/skills/) | Native skill directory | Manual runtime-only copy to `$HOME/.agents/skills/oh-my-gh-writing` or `.agents/skills/oh-my-gh-writing` | Not yet | 2026-06-20 | Official docs list `.agents/skills` as an alias and support `gemini skills install`, but verify install output because this repo should not install non-runtime files |
 | [Hermes](https://hermes-agent.nousresearch.com/docs/guides/work-with-skills) | Native skill directory | Copy the runtime folder to `~/.hermes/skills/github/oh-my-gh-writing` | Not yet | 2026-06-20 | Do not use HTTP single-file install for this repo because `references/` are required |
 
-### Host-Specific Rule Setup
+### Adaptation Targets
 
-These tools do not consume this full Agent Skill folder as-is. Use them by converting the router plus selected `references/*.md` files into the host's rule or instruction format.
+These tools do not consume this full Agent Skill folder as-is. Use this repository as source material for host-specific rules.
 
-| Tool | Supported setup | Recommended file/path | Maintainer verified | Last checked | Notes |
+| Tool | Adaptation path | Recommended file/path | Maintainer verified | Last checked | Notes |
 | --- | --- | --- | --- | --- | --- |
 | [GitHub Copilot](https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-repository-instructions) | Repository custom instructions | `.github/copilot-instructions.md`, `.github/instructions/gh-writing.instructions.md`, or `AGENTS.md` | Not yet | 2026-06-20 | Use a compact summary; Copilot will not automatically load this skill directory |
 | [Continue](https://docs.continue.dev/customize/rules) | Project rules | `.continue/rules/oh-my-gh-writing.md` | Not yet | 2026-06-20 | Split large guidance by scenario when needed |
@@ -159,7 +166,7 @@ These tools do not consume this full Agent Skill folder as-is. Use them by conve
 
 ## 🧪 Evaluation
 
-This repository includes lightweight eval fixtures for skill maintenance:
+This repository includes lightweight eval fixtures for skill maintenance. These fixtures validate routing metadata, expected-output containment, and public case structure. They are not automated LLM benchmarks.
 
 - [`evals/trigger-queries.json`](evals/trigger-queries.json) checks whether the skill description should activate for realistic GitHub-writing prompts and avoid near-miss prompts.
 - [`evals/evals.json`](evals/evals.json) records output-quality tasks for routing, cleanliness, evidence boundaries, and workflow-pack behavior.
@@ -180,9 +187,9 @@ This is a synthetic review-draft excerpt, not a real repository outcome or valid
 Input:
 
 ```text
-Please check what files this sample repository still needs before I publish the project to GitHub.
+Please check what files this sample repository still needs before I publish it to GitHub.
 
-Current repository files: README.md, LICENSE, SKILL.md, references/, evals/, scripts/.
+Current sample repository files: README.md, LICENSE, src/, package.json, scripts/test.sh.
 ```
 
 Output excerpt:
@@ -196,8 +203,9 @@ Output excerpt:
 ## Recommended
 
 - CONTRIBUTING.md — explains setup, test, branch, and PR expectations before outside contributors arrive.
-- Bug report Issue Form — standardizes defect reports with reproduction, expected behavior, actual behavior, and environment fields.
-- Pull request template — gives contributors a consistent place for summary, testing, risk, and related issues.
+- .github/ISSUE_TEMPLATE/bug_report.yml — standardizes defect reports with reproduction, expected behavior, actual behavior, and environment fields.
+- .github/ISSUE_TEMPLATE/feature_request.yml — separates future capability requests from bug reports and keeps motivation, use cases, and alternatives visible.
+- .github/pull_request_template.md — gives contributors a consistent place for summary, testing, risk, and related issues.
 
 ## Next steps
 
@@ -205,7 +213,7 @@ Output excerpt:
 - Draft target files only after maintainer confirmation.
 ```
 
-Excerpt shortened; the full case also includes Feature request Issue Form, Validation workflow, and Changelog recommendations.
+Excerpt shortened; the full case also includes Validation workflow, Changelog, and optional community-file recommendations.
 
 See [`cases/005-project-launch-audit/`](cases/005-project-launch-audit/) for the synthetic review-draft case. Baseline behavior has not been collected yet.
 
