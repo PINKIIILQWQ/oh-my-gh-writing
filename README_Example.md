@@ -1,3 +1,7 @@
+> This is a skill-generated README example used for public review. It is not the canonical project homepage. See [`README.md`](README.md) for maintained documentation.
+>
+> 这是由 skill 生成的 README 示例，不是本项目 canonical 首页；正式文档请看 [`README.md`](README.md)。
+
 <p align="center">
   <img src="assets/oh-my-gh-writing-logo.png" alt="oh-my-gh-writing logo" width="128">
 </p>
@@ -29,7 +33,7 @@ Use it when you need GitHub issues, pull request descriptions, code reviews, com
 - **Output cleanliness:** guards against chat prefaces, outer Markdown fences, test metadata, and half-open code blocks.
 - **Progressive loading:** keeps `SKILL.md` small and loads only the relevant `references/*.md` standard for the task.
 - **Composite workflow support:** creates coordinated local draft packages with manifests, assumptions, TODOs, and maintainer-confirmation notes.
-- **Maintainer-friendly evals:** includes lightweight routing and output-quality fixtures plus a no-dependency validation script.
+- **Reviewable evidence:** includes lightweight routing fixtures and public case drafts for maintainers to inspect.
 
 ## 🚀 Quick Start
 
@@ -45,12 +49,11 @@ target="$HOME/.agents/skills/oh-my-gh-writing"
 tmp="$(mktemp -d)"
 git clone --depth 1 https://github.com/PINKIIILQWQ/oh-my-gh-writing.git "$tmp/oh-my-gh-writing"
 
+rm -rf "$target"
 mkdir -p "$target"
-rm -rf "$target/SKILL.md" "$target/INDEX.md" "$target/references" "$target/assets"
 cp -R "$tmp/oh-my-gh-writing/SKILL.md" \
   "$tmp/oh-my-gh-writing/INDEX.md" \
   "$tmp/oh-my-gh-writing/references" \
-  "$tmp/oh-my-gh-writing/assets" \
   "$target/"
 
 rm -rf "$tmp"
@@ -65,7 +68,7 @@ Then ask your agent to use the skill for a GitHub writing task:
 For a broader package, ask for a workflow pack:
 
 ```text
-/oh-my-gh-writing Prepare full v1.2.0 release materials, but do not publish anything.
+/oh-my-gh-writing Prepare full v1.2.0 release materials from these merged PR summaries: fix login redirect, add CSV export, update docs. Do not publish anything.
 ```
 
 For repository development, clone the full repository separately and validate eval fixtures:
@@ -101,8 +104,10 @@ This project does **not** apply to:
 | `references/` | Scenario standards, composite workflow packs, shared principles, output validation, Markdown tools, emoji guidance, badges, and source catalog. |
 | `evals/` | Trigger queries, structured eval fixtures, schema, and expected clean outputs. |
 | `scripts/validate-evals.py` | Local no-dependency validation for eval fixture structure and containment checks. |
+| `scripts/validate-cases.py` | Local no-dependency validation for public case evidence structure. |
 | `CONTRIBUTING.md` | Contribution principles, source requirements, case feedback rules, and validation expectations. |
 | `cases/` | Sanitized public evidence cases, not runtime references. |
+| `.github/` | Public issue forms and pull request template for repository collaboration. |
 | `assets/` | Project-owned visual assets. |
 | `LICENSE` | MIT license. |
 
@@ -139,6 +144,7 @@ Run:
 
 ```bash
 python3 scripts/validate-evals.py
+python3 scripts/validate-cases.py
 ```
 
 ## 🤝 Contributing

@@ -1,0 +1,65 @@
+name: Feature request
+description: Propose a new capability, scenario, workflow pack, or documentation improvement
+title: "[Feature]: "
+body:
+  - type: markdown
+    attributes:
+      value: "Thanks for proposing an improvement. Please separate the user need from any preferred implementation."
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem or opportunity
+      description: What GitHub-writing task, routing gap, or repository maintenance need should this address?
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposed-behavior
+    attributes:
+      label: Proposed behavior
+      description: What should the skill or repository do differently?
+    validations:
+      required: true
+
+  - type: textarea
+    id: affected-area
+    attributes:
+      label: Affected area
+      description: Name the artifact standard, workflow pack, README section, eval, case, or script this would affect.
+      placeholder: "For example: Release Notes, Issue Form YAML, Project Launch workflow, README support table"
+    validations:
+      required: false
+
+  - type: textarea
+    id: examples
+    attributes:
+      label: Example prompts or artifacts
+      description: Share sample prompts, expected output shape, source links, or before/after examples if available.
+      render: markdown
+    validations:
+      required: false
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: What simpler approach, existing reference, or workaround have you considered?
+    validations:
+      required: false
+
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence or sources
+      description: Link official docs, existing GitHub artifacts, or project files that support this request.
+    validations:
+      required: false
+
+  - type: textarea
+    id: contribution
+    attributes:
+      label: Contribution intent
+      description: Say whether you plan to open a PR, contribute an eval/case, or only want to discuss the idea.
+    validations:
+      required: false

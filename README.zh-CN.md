@@ -36,12 +36,11 @@ target="$HOME/.agents/skills/oh-my-gh-writing"
 tmp="$(mktemp -d)"
 git clone --depth 1 https://github.com/PINKIIILQWQ/oh-my-gh-writing.git "$tmp/oh-my-gh-writing"
 
+rm -rf "$target"
 mkdir -p "$target"
-rm -rf "$target/SKILL.md" "$target/INDEX.md" "$target/references" "$target/assets"
 cp -R "$tmp/oh-my-gh-writing/SKILL.md" \
   "$tmp/oh-my-gh-writing/INDEX.md" \
   "$tmp/oh-my-gh-writing/references" \
-  "$tmp/oh-my-gh-writing/assets" \
   "$target/"
 
 rm -rf "$tmp"
@@ -61,7 +60,7 @@ python3 scripts/validate-cases.py
 ```text
 /oh-my-gh-writing 帮我根据这个仓库写一个 README。
 /oh-my-gh-writing 根据当前 diff 写一个 PR description。
-/oh-my-gh-writing 准备 v1.2.0 的完整发布材料，但不要发布任何东西。
+/oh-my-gh-writing 根据这些已合并 PR 摘要准备 v1.2.0 的完整发布材料：修复登录重定向、增加 CSV 导出、更新文档。不要发布任何东西。
 ```
 
 如果你使用兼容 Agent Skills 的包管理工具，可以按该工具的命令适配本仓库；安装后请确认 skill 目录里包含 `SKILL.md` 和 `references/`。
@@ -70,8 +69,9 @@ python3 scripts/validate-cases.py
 
 | Prompt | 路由到 | 预期产物形态 |
 | --- | --- | --- |
-| `/oh-my-gh-writing 我要发布一个新的开源项目，需要准备哪些 GitHub 材料？` | Project Launch workflow pack | 本地 `.github-writing/project-launch/TBD/` 草稿，包含 README、CONTRIBUTING、Issue Form、PR Template 和 `package-manifest.md` |
-| `/oh-my-gh-writing 根据这些已合并 PR 摘要准备 v1.2.0 发布材料，但不要发布。` | Version Release workflow pack | 本地 `.github-writing/version-release/v1.2.0/` 发布草稿、manifest 和确认项 |
+| `/oh-my-gh-writing 我要发布一个新的开源项目，需要准备哪些 GitHub 材料？` | Project Launch audit | 发布准备度审查：已有文件、建议补充文件、可选文件和下一步。不创建文件，也不生成 `.github-writing/` 草稿。 |
+| `/oh-my-gh-writing 请为这个新开源项目起草 public launch package，但不要发布任何东西。` | Project Launch workflow pack | 本地 `.github-writing/project-launch/TBD/` 草稿，包含 README、CONTRIBUTING、Issue Form、PR Template 和 `package-manifest.md` |
+| `/oh-my-gh-writing 根据这些已合并 PR 摘要准备 v1.2.0 发布材料：修复登录重定向、增加 CSV 导出、更新文档。不要发布。` | Version Release workflow pack | 本地 `.github-writing/version-release/v1.2.0/` 发布草稿、manifest 和确认项 |
 | `/oh-my-gh-writing 帮这个仓库建立接收外部贡献的流程。` | Contribution Setup workflow pack | CONTRIBUTING、Issue Form、PR Template、README 贡献入口和本地 manifest |
 | `/oh-my-gh-writing 根据这个 diff 写一个 bug-fix PR。测试还没跑。` | Bug Fix PR | PR 正文，包含摘要、已有 root-cause 证据、未运行测试说明和风险提示 |
 | `/oh-my-gh-writing 创建一个 bug report Issue Form YAML。labels 和 assignees 都未确认。` | Issue Form YAML | YAML 文件内容，不编造 labels、assignees、projects 或 contact links |
@@ -145,6 +145,7 @@ Workflow pack 只做编排：能安全判断时会推断最合适的材料包，
 | [`evals/`](evals) | 用于后续 skill 迭代的触发和输出质量 eval fixtures |
 | [`scripts/`](scripts) | 维护者验证工具 |
 | [`cases/`](cases) | 公开 evidence drafts，不是 runtime references |
+| [`.github/`](.github) | 公开 Issue Forms 和 Pull Request Template |
 | [`README_Example.md`](README_Example.md) | 由 skill 生成的 README 示例，不是 canonical 首页 |
 | [`CONTRIBUTING.md`](CONTRIBUTING.md) | 贡献说明 |
 | [`assets/`](assets) | Logo 和 README 本地资产 |
@@ -165,21 +166,35 @@ python3 scripts/validate-evals.py
 python3 scripts/validate-cases.py
 ```
 
-## 🧪 示例：有证据边界的 PR 测试说明
+## 🧪 示例：项目公开发布前的文件审查
 
 输入：
 
 ```text
-Write a feature PR for CSV export. I have not run tests.
+Please check what files this repository still needs before I publish the project to GitHub.
 ```
 
 输出片段：
 
 ```markdown
-## Testing
+## Existing
 
-Not run (not provided).
+- README: present.
+- License: present.
+
+## Recommended
+
+- CONTRIBUTING.md — explains setup, test, branch, and PR expectations before outside contributors arrive.
+- Bug report Issue Form — standardizes defect reports with reproduction, expected behavior, actual behavior, and environment fields.
+- Pull request template — gives contributors a consistent place for summary, testing, risk, and related issues.
+
+## Next steps
+
+- Confirm which recommended files to prepare.
+- Draft target files only after maintainer confirmation.
 ```
+
+完整 review-draft case 见 [`cases/005-project-launch-audit/`](cases/005-project-launch-audit/)。
 
 ## 📚 参考来源
 

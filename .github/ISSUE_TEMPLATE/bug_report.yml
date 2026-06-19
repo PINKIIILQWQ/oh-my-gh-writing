@@ -1,0 +1,70 @@
+name: Bug report
+description: Report a reproducible problem with the skill, references, examples, or validation scripts
+title: "[Bug]: "
+body:
+  - type: markdown
+    attributes:
+      value: "Thanks for taking the time to report a problem. Clear evidence helps keep this skill precise and useful."
+
+  - type: textarea
+    id: current-behavior
+    attributes:
+      label: Current behavior
+      description: What happened? Include the exact output, file, route, or validation result that seems wrong.
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected-behavior
+    attributes:
+      label: Expected behavior
+      description: What should have happened instead?
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to reproduce
+      description: Provide the smallest prompt, file change, command, or fixture that reproduces the issue.
+      placeholder: |
+        1. ...
+        2. ...
+        3. ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: affected-area
+    attributes:
+      label: Affected area
+      description: Name the affected reference file, workflow pack, eval, case, script, README section, or GitHub artifact type.
+      placeholder: "For example: references/bug-report.md, Project Launch workflow, scripts/validate-evals.py"
+    validations:
+      required: false
+
+  - type: textarea
+    id: input
+    attributes:
+      label: Input or source material
+      description: Include the prompt, fixture, diff, or source excerpt needed to understand the issue.
+      render: markdown
+    validations:
+      required: false
+
+  - type: textarea
+    id: output
+    attributes:
+      label: Actual output or logs
+      description: Paste relevant output, validation errors, or terminal logs.
+      render: shell
+    validations:
+      required: false
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional context
+      description: Add any context about host tool, skill install path, repository state, or related files.
+    validations:
+      required: false

@@ -34,12 +34,11 @@ target="$HOME/.agents/skills/oh-my-gh-writing"
 tmp="$(mktemp -d)"
 git clone --depth 1 https://github.com/PINKIIILQWQ/oh-my-gh-writing.git "$tmp/oh-my-gh-writing"
 
+rm -rf "$target"
 mkdir -p "$target"
-rm -rf "$target/SKILL.md" "$target/INDEX.md" "$target/references" "$target/assets"
 cp -R "$tmp/oh-my-gh-writing/SKILL.md" \
   "$tmp/oh-my-gh-writing/INDEX.md" \
   "$tmp/oh-my-gh-writing/references" \
-  "$tmp/oh-my-gh-writing/assets" \
   "$target/"
 
 rm -rf "$tmp"
@@ -59,7 +58,7 @@ Start with one of these prompts:
 ```text
 /oh-my-gh-writing Write a README for this repository.
 /oh-my-gh-writing Write a PR description from the current diff.
-/oh-my-gh-writing Prepare the full v1.2.0 release materials, but do not publish anything.
+/oh-my-gh-writing Prepare the full v1.2.0 release materials from these merged PR summaries: fix login redirect, add CSV export, update docs. Do not publish anything.
 ```
 
 If you use an Agent Skills-compatible package manager, adapt its install command to this repository and verify that the installed skill folder contains `SKILL.md` and `references/`.
@@ -68,8 +67,9 @@ If you use an Agent Skills-compatible package manager, adapt its install command
 
 | Prompt | Routes to | Expected output shape |
 | --- | --- | --- |
-| `/oh-my-gh-writing I am launching a new open-source project. What GitHub materials should I prepare?` | Project Launch workflow pack | Local `.github-writing/project-launch/TBD/` drafts for README, CONTRIBUTING, issue forms, PR template, and `package-manifest.md` |
-| `/oh-my-gh-writing Prepare the v1.2.0 release materials from these merged PR summaries, but do not publish anything.` | Version Release workflow pack | Local `.github-writing/version-release/v1.2.0/` release drafts plus manifest and confirmation notes |
+| `/oh-my-gh-writing I am launching a new open-source project. What GitHub materials should I prepare?` | Project Launch audit | Readiness gap analysis: existing files, recommended files, optional files, and next steps. No files or `.github-writing/` drafts created. |
+| `/oh-my-gh-writing Draft the public launch package for this new open-source project, but do not publish anything.` | Project Launch workflow pack | Local `.github-writing/project-launch/TBD/` drafts for README, CONTRIBUTING, issue forms, PR template, and `package-manifest.md` |
+| `/oh-my-gh-writing Prepare the v1.2.0 release materials from these merged PR summaries: fix login redirect, add CSV export, update docs. Do not publish anything.` | Version Release workflow pack | Local `.github-writing/version-release/v1.2.0/` release drafts plus manifest and confirmation notes |
 | `/oh-my-gh-writing Set up this repository for outside contributors.` | Contribution Setup workflow pack | CONTRIBUTING, issue form, PR template, README contribution entry, and local manifest |
 | `/oh-my-gh-writing Write a bug-fix PR from this diff. Tests were not run.` | Bug Fix PR | PR body with summary, root-cause evidence if provided, testing marked as not run, and risk notes |
 | `/oh-my-gh-writing Create a bug report Issue Form YAML. Labels and assignees are not confirmed.` | Issue Form YAML | YAML file content without invented labels, assignees, projects, or contact links |
@@ -143,6 +143,7 @@ Workflow packs are thin orchestrators. They infer the safest package shape when 
 | [`evals/`](evals) | Trigger and output-quality eval fixtures for future skill iteration |
 | [`scripts/`](scripts) | Maintainer validation utilities |
 | [`cases/`](cases) | Public evidence drafts, not runtime references |
+| [`.github/`](.github) | Public issue forms and pull request template for repository collaboration |
 | [`README_Example.md`](README_Example.md) | Skill-generated README example, not the canonical homepage |
 | [`CONTRIBUTING.md`](CONTRIBUTING.md) | Contribution guidance |
 | [`assets/`](assets) | Logo and local README assets |
@@ -163,21 +164,35 @@ python3 scripts/validate-evals.py
 python3 scripts/validate-cases.py
 ```
 
-## 🧪 Example: Evidence-Bounded PR Testing
+## 🧪 Example: Public Launch Readiness Audit
 
 Input:
 
 ```text
-Write a feature PR for CSV export. I have not run tests.
+Please check what files this repository still needs before I publish the project to GitHub.
 ```
 
 Output excerpt:
 
 ```markdown
-## Testing
+## Existing
 
-Not run (not provided).
+- README: present.
+- License: present.
+
+## Recommended
+
+- CONTRIBUTING.md — explains setup, test, branch, and PR expectations before outside contributors arrive.
+- Bug report Issue Form — standardizes defect reports with reproduction, expected behavior, actual behavior, and environment fields.
+- Pull request template — gives contributors a consistent place for summary, testing, risk, and related issues.
+
+## Next steps
+
+- Confirm which recommended files to prepare.
+- Draft target files only after maintainer confirmation.
 ```
+
+See [`cases/005-project-launch-audit/`](cases/005-project-launch-audit/) for the review-draft case.
 
 ## 📚 Sources
 

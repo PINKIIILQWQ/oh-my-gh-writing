@@ -31,7 +31,7 @@ cases/
 These cases were generated from a clean desktop copy of the skill package and are intended as public evidence drafts. They are not runtime references and should not be used as source material for user artifacts.
 
 Target: 5 carefully reviewed cases over time.
-Current: 4 review-draft cases.
+Current: 5 review-draft cases.
 
 | Case | Focus | Status | Baseline |
 |------|-------|--------|----------|
@@ -39,6 +39,7 @@ Current: 4 review-draft cases.
 | `002-feature-request-routing/` | Feature Request vs Feature PR routing | Review draft | TODO |
 | `003-version-release-workflow/` | Version Release workflow pack and draft-only behavior | Review draft; do not cite publicly yet | TODO |
 | `004-issue-form-yaml/` | Issue Form YAML without invented repository metadata | Review draft | TODO |
+| `005-project-launch-audit/` | Project Launch audit-only readiness review | Review draft; homepage candidate after cleanup | TODO |
 
 ## Required Files
 
