@@ -24,6 +24,17 @@ cases/
     attribution.md
 ```
 
+## Current Cases
+
+These cases were generated from a clean desktop copy of the skill package and are intended as public evidence drafts. They are not runtime references and should not be used as source material for user artifacts.
+
+| Case | Focus | Status |
+|------|-------|--------|
+| `001-bug-report/` | Bug Report routing and missing-evidence handling | Review draft |
+| `002-feature-request-routing/` | Feature Request vs Feature PR routing | Review draft |
+| `003-version-release-workflow/` | Version Release workflow pack and draft-only behavior | Review draft |
+| `004-issue-form-yaml/` | Issue Form YAML without invented repository metadata | Review draft |
+
 ## Required Files
 
 | File | Purpose |
