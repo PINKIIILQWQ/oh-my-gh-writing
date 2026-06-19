@@ -166,10 +166,14 @@ python3 scripts/validate-cases.py
 
 ## 🧪 Example: Public Launch Readiness Audit
 
+This is a synthetic review-draft excerpt, not a real repository outcome or validated comparison case.
+
 Input:
 
 ```text
 Please check what files this repository still needs before I publish the project to GitHub.
+
+Current repository files: README.md, LICENSE, SKILL.md, references/, evals/, scripts/.
 ```
 
 Output excerpt:
@@ -192,7 +196,7 @@ Output excerpt:
 - Draft target files only after maintainer confirmation.
 ```
 
-See [`cases/005-project-launch-audit/`](cases/005-project-launch-audit/) for the review-draft case.
+See [`cases/005-project-launch-audit/`](cases/005-project-launch-audit/) for the synthetic review-draft case. Baseline behavior has not been collected yet.
 
 ## 📚 Sources
 

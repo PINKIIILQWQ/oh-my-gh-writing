@@ -13,6 +13,11 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 CASES = ROOT / "cases"
+CASE_INDEX = CASES / "README.md"
+README_FILES = [
+    ROOT / "README.md",
+    ROOT / "README.zh-CN.md",
+]
 
 REQUIRED = {
     "input.md",
@@ -31,6 +36,8 @@ LABELS = {
     "DRAFT_ONLY",
 }
 
+ALLOWED_WITH_SKILL_SUFFIXES = {".md", ".yml", ".yaml"}
+
 
 def fail(message: str) -> None:
     raise SystemExit(f"case validation failed: {message}")
@@ -46,6 +53,21 @@ def main() -> None:
     if not case_dirs:
         fail("no numbered case directories found")
 
+    if not CASE_INDEX.is_file():
+        fail("cases/README.md is missing")
+
+    case_index_text = CASE_INDEX.read_text(encoding="utf-8")
+    for case_dir in case_dirs:
+        if f"`{case_dir.name}/`" not in case_index_text:
+            fail(f"{case_dir.name}: missing from cases/README.md Current Cases table")
+
+    current_match = re.search(r"^Current:\s*(\d+)\s+review-draft cases\.\s*$", case_index_text, re.MULTILINE)
+    if not current_match:
+        fail("cases/README.md missing Current case count")
+    current_count = int(current_match.group(1))
+    if current_count != len(case_dirs):
+        fail(f"cases/README.md Current count is {current_count}, expected {len(case_dirs)}")
+
     for case_dir in case_dirs:
         names = {path.name for path in case_dir.iterdir() if path.is_file()}
         missing = sorted(REQUIRED - names)
@@ -55,6 +77,11 @@ def main() -> None:
         with_skill = sorted(name for name in names if name.startswith("with-skill."))
         if not with_skill:
             fail(f"{case_dir.name}: missing with-skill.md or with-skill.<target-extension>")
+        unsupported = sorted(
+            name for name in with_skill if Path(name).suffix not in ALLOWED_WITH_SKILL_SUFFIXES
+        )
+        if unsupported:
+            fail(f"{case_dir.name}: unsupported with-skill suffix: {', '.join(unsupported)}")
 
         grading = (case_dir / "grading.md").read_text(encoding="utf-8")
         match = re.search(r"^Label:\s*([A-Z_]+)\s*$", grading, re.MULTILINE)
@@ -67,6 +94,19 @@ def main() -> None:
         baseline = (case_dir / "baseline-summary.md").read_text(encoding="utf-8")
         if "Status: TODO" in baseline and label == "PASS":
             fail(f"{case_dir.name}: baseline is TODO, so label must not be PASS")
+
+    known_cases = {case_dir.name for case_dir in case_dirs}
+    for readme in README_FILES:
+        if not readme.is_file():
+            continue
+        text = readme.read_text(encoding="utf-8")
+        referenced_cases = sorted(set(re.findall(r"cases/(\d{3}-[A-Za-z0-9_-]+)/?", text)))
+        for case_name in referenced_cases:
+            if case_name not in known_cases:
+                fail(f"{readme.name}: references missing case {case_name}")
+            attribution = (CASES / case_name / "attribution.md").read_text(encoding="utf-8")
+            if "README citation status: allowed" not in attribution:
+                fail(f"{case_name}: README citation is not explicitly allowed")
 
     print("case evidence fixtures are valid")
 

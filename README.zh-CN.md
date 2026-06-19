@@ -168,10 +168,14 @@ python3 scripts/validate-cases.py
 
 ## 🧪 示例：项目公开发布前的文件审查
 
+这是一个 synthetic review-draft excerpt，不是真实仓库结果，也不是 validated comparison case。
+
 输入：
 
 ```text
 Please check what files this repository still needs before I publish the project to GitHub.
+
+Current repository files: README.md, LICENSE, SKILL.md, references/, evals/, scripts/.
 ```
 
 输出片段：
@@ -194,7 +198,7 @@ Please check what files this repository still needs before I publish the project
 - Draft target files only after maintainer confirmation.
 ```
 
-完整 review-draft case 见 [`cases/005-project-launch-audit/`](cases/005-project-launch-audit/)。
+完整 synthetic review-draft case 见 [`cases/005-project-launch-audit/`](cases/005-project-launch-audit/)。Baseline behavior 还没有收集。
 
 ## 📚 参考来源
 

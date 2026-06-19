@@ -16,4 +16,5 @@ Remaining risk:
 
 Decision:
 
-- Keep as a homepage candidate after maintainer review.
+- README excerpt approved for synthetic review-draft use.
+- Do not present this case as a validated comparison benchmark until baseline behavior is collected.

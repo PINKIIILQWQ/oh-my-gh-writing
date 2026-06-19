@@ -39,7 +39,7 @@ Current: 5 review-draft cases.
 | `002-feature-request-routing/` | Feature Request vs Feature PR routing | Review draft | TODO |
 | `003-version-release-workflow/` | Version Release workflow pack and draft-only behavior | Review draft; do not cite publicly yet | TODO |
 | `004-issue-form-yaml/` | Issue Form YAML without invented repository metadata | Review draft | TODO |
-| `005-project-launch-audit/` | Project Launch audit-only readiness review | Review draft; homepage candidate after cleanup | TODO |
+| `005-project-launch-audit/` | Project Launch audit-only readiness review | Review draft; README excerpt approved | TODO |
 
 ## Required Files
 
@@ -82,4 +82,4 @@ Run from the repository root:
 python3 scripts/validate-cases.py
 ```
 
-The validator checks required files, accepted `with-skill.*` output files, grading labels, and obvious baseline/status conflicts.
+The validator checks required files, accepted `with-skill.*` output suffixes, grading labels, case index registration, README citation permission, and obvious baseline/status conflicts.

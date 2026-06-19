@@ -33,7 +33,7 @@ Use it when you need GitHub issues, pull request descriptions, code reviews, com
 - **Output cleanliness:** guards against chat prefaces, outer Markdown fences, test metadata, and half-open code blocks.
 - **Progressive loading:** keeps `SKILL.md` small and loads only the relevant `references/*.md` standard for the task.
 - **Composite workflow support:** creates coordinated local draft packages with manifests, assumptions, TODOs, and maintainer-confirmation notes.
-- **Reviewable evidence:** includes lightweight routing fixtures and public case drafts for maintainers to inspect.
+- **Reviewable draft evidence:** includes lightweight routing fixtures and synthetic public case drafts for maintainer inspection; these are not validated comparison benchmarks.
 
 ## 🚀 Quick Start
 
@@ -134,7 +134,7 @@ This project does **not** apply to:
 | Breaking Change Package | Communicating and shipping a breaking change. |
 | Docs Overhaul | Planning or documenting a broad documentation refresh. |
 
-Composite packs default to local draft output under `.github-writing/<pack-name>/<version-or-date>/` and include a `package-manifest.md`.
+Composite packs default to local draft output under `.github-writing/<pack-name>/<version-or-date>/` and include a `package-manifest.md`. Audit-only readiness prompts are the exception: they return recommendations only and do not create package drafts.
 
 ## 🧪 Validation And Evals
 
