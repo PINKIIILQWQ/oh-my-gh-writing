@@ -60,10 +60,10 @@ Then run the runtime-only install:
 tmp="$(mktemp -d)"
 repo="$tmp/oh-my-gh-writing"
 git clone --depth 1 --filter=blob:none --sparse https://github.com/PINKIIILQWQ/oh-my-gh-writing.git "$repo"
-git -C "$repo" sparse-checkout set --no-cone /SKILL.md /INDEX.md /references/
+git -C "$repo" sparse-checkout set --no-cone /SKILL.md /INDEX.md /references/ /agents/ /assets/
 rm -rf "$target"
 mkdir -p "$target"
-cp -R "$repo/SKILL.md" "$repo/INDEX.md" "$repo/references" "$target/"
+cp -R "$repo/SKILL.md" "$repo/INDEX.md" "$repo/references" "$repo/agents" "$repo/assets" "$target/"
 rm -rf "$tmp"
 ```
 
@@ -86,9 +86,9 @@ Start with one of these prompts:
 /oh-my-gh-writing Prepare the full v1.2.0 release materials from these merged PR summaries: fix login redirect, add CSV export, update docs. Do not publish anything.
 ```
 
-The runtime install above uses sparse checkout and copies only `SKILL.md`, `INDEX.md`, and `references/`. Users do not need `evals/`, `cases/`, or `scripts/` to use the skill; those files are for repository development and validation.
+The runtime install above uses sparse checkout and copies only `SKILL.md`, `INDEX.md`, `references/`, `agents/`, and `assets/`. Users do not need `evals/`, `cases/`, or `scripts/` to use the skill; those files are for repository development and validation.
 
-If you use an Agent Skills-compatible package manager, verify that the installed skill folder contains `SKILL.md`, `INDEX.md`, and `references/`. If the package manager checks out the full repository internally, that is only a download/cache detail; the skill runtime still depends on the three runtime entries above.
+If you use an Agent Skills-compatible package manager, verify that the installed skill folder contains `SKILL.md`, `INDEX.md`, and `references/`. If the package manager checks out the full repository internally, that is only a download/cache detail; the skill runtime still depends on the runtime entries above.
 
 ## 🧪 Example Prompts
 
@@ -176,6 +176,7 @@ These tools do not consume this full Agent Skill folder as-is. Use this reposito
 | [`SKILL.md`](SKILL.md) | Thin runtime router and workflow rules |
 | [`INDEX.md`](INDEX.md) | Navigation for 18 artifact standards and 7 workflow packs |
 | [`references/`](references) | Scenario standards, workflow packs, and quality appendices |
+| [`agents/`](agents) | Optional Codex UI metadata for skill lists and chips |
 | [`references/readme.md`](references/readme.md) | README writing standard used by this skill |
 | [`references/source-catalog.md`](references/source-catalog.md) | Public source catalog and maintenance notes |
 | [`evals/`](evals) | Trigger and output-quality eval fixtures for future skill iteration |

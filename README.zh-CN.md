@@ -62,10 +62,10 @@ target="$HOME/.hermes/skills/github/oh-my-gh-writing"
 tmp="$(mktemp -d)"
 repo="$tmp/oh-my-gh-writing"
 git clone --depth 1 --filter=blob:none --sparse https://github.com/PINKIIILQWQ/oh-my-gh-writing.git "$repo"
-git -C "$repo" sparse-checkout set --no-cone /SKILL.md /INDEX.md /references/
+git -C "$repo" sparse-checkout set --no-cone /SKILL.md /INDEX.md /references/ /agents/ /assets/
 rm -rf "$target"
 mkdir -p "$target"
-cp -R "$repo/SKILL.md" "$repo/INDEX.md" "$repo/references" "$target/"
+cp -R "$repo/SKILL.md" "$repo/INDEX.md" "$repo/references" "$repo/agents" "$repo/assets" "$target/"
 rm -rf "$tmp"
 ```
 
@@ -88,9 +88,9 @@ python3 scripts/validate-cases.py
 /oh-my-gh-writing 根据这些已合并 PR 摘要准备 v1.2.0 的完整发布材料：修复登录重定向、增加 CSV 导出、更新文档。不要发布任何东西。
 ```
 
-上面的 runtime 安装使用 sparse checkout，只复制 `SKILL.md`、`INDEX.md` 和 `references/`。用户使用 skill 不需要 `evals/`、`cases/`、`scripts/`；这些文件只用于仓库开发和验证。
+上面的 runtime 安装使用 sparse checkout，只复制 `SKILL.md`、`INDEX.md`、`references/`、`agents/` 和 `assets/`。用户使用 skill 不需要 `evals/`、`cases/`、`scripts/`；这些文件只用于仓库开发和验证。
 
-如果你使用兼容 Agent Skills 的包管理工具，请确认安装后的 skill 目录里包含 `SKILL.md`、`INDEX.md` 和 `references/`。如果包管理工具内部 checkout 了完整仓库，那只是下载或缓存细节；skill runtime 仍然只依赖上面三个入口。
+如果你使用兼容 Agent Skills 的包管理工具，请确认安装后的 skill 目录里包含 `SKILL.md`、`INDEX.md` 和 `references/`。如果包管理工具内部 checkout 了完整仓库，那只是下载或缓存细节；skill runtime 仍然只依赖上面的 runtime 入口。
 
 ## 🧪 调用示例
 
@@ -178,6 +178,7 @@ Workflow pack 只做编排：能安全判断时会推断最合适的材料包，
 | [`SKILL.md`](SKILL.md) | 轻量运行时路由和工作流规则 |
 | [`INDEX.md`](INDEX.md) | 18 个 artifact 标准和 7 个 workflow pack 的导航 |
 | [`references/`](references) | 场景标准、workflow pack 和质量附录 |
+| [`agents/`](agents) | Codex skill 列表和 chips 可用的可选 UI 元数据 |
 | [`references/readme.md`](references/readme.md) | README 写作标准 |
 | [`references/source-catalog.md`](references/source-catalog.md) | 公开参考来源和维护说明 |
 | [`evals/`](evals) | 用于后续 skill 迭代的触发和输出质量 eval fixtures |
