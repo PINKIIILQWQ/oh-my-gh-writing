@@ -22,35 +22,57 @@ The core idea is simple: route the request first, load only the matching writing
 
 ## 🚀 Quick Start
 
-Recommended manual install:
+Install only the runtime skill files into your local skill directory:
 
 ```bash
-# Codex-style / hosts that support .agents/skills
-git clone https://github.com/PINKIIILQWQ/oh-my-gh-writing.git "$HOME/.agents/skills/oh-my-gh-writing"
+# Codex-style hosts:
+target="$HOME/.agents/skills/oh-my-gh-writing"
 
-# Claude Code
-git clone https://github.com/PINKIIILQWQ/oh-my-gh-writing.git "$HOME/.claude/skills/oh-my-gh-writing"
+# Claude Code:
+# target="$HOME/.claude/skills/oh-my-gh-writing"
+
+tmp="$(mktemp -d)"
+git clone --depth 1 https://github.com/PINKIIILQWQ/oh-my-gh-writing.git "$tmp/oh-my-gh-writing"
+
+mkdir -p "$target"
+rm -rf "$target/SKILL.md" "$target/INDEX.md" "$target/references" "$target/assets"
+cp -R "$tmp/oh-my-gh-writing/SKILL.md" \
+  "$tmp/oh-my-gh-writing/INDEX.md" \
+  "$tmp/oh-my-gh-writing/references" \
+  "$tmp/oh-my-gh-writing/assets" \
+  "$target/"
+
+rm -rf "$tmp"
 ```
 
-If your host supports the open [Agent Skills](https://agentskills.io) `skills` CLI:
+For repository development, clone the full repository separately:
 
 ```bash
-npx skills add PINKIIILQWQ/oh-my-gh-writing -g
-npx skills add PINKIIILQWQ/oh-my-gh-writing -g -a codex
-npx skills add PINKIIILQWQ/oh-my-gh-writing -g -a claude-code
+git clone https://github.com/PINKIIILQWQ/oh-my-gh-writing.git
+cd oh-my-gh-writing
+python3 scripts/validate-evals.py
+python3 scripts/validate-cases.py
 ```
 
-`-g` installs globally for your user. Omit it for a project-local install when your host supports local skills.
-
-Example prompts:
+Start with one of these prompts:
 
 ```text
-Write a README for this repository.
-Turn this bug report into a GitHub Issue.
-Write a PR description from the current diff.
-Prepare the full v1.2.0 release materials.
-Make this repository ready for outside contributors.
+/oh-my-gh-writing Write a README for this repository.
+/oh-my-gh-writing Write a PR description from the current diff.
+/oh-my-gh-writing Prepare the full v1.2.0 release materials, but do not publish anything.
 ```
+
+If you use an Agent Skills-compatible package manager, adapt its install command to this repository and verify that the installed skill folder contains `SKILL.md` and `references/`.
+
+## 🧪 Example Prompts
+
+| Prompt | Routes to | Expected output shape |
+| --- | --- | --- |
+| `/oh-my-gh-writing I am launching a new open-source project. What GitHub materials should I prepare?` | Project Launch workflow pack | Local `.github-writing/project-launch/TBD/` drafts for README, CONTRIBUTING, issue forms, PR template, and `package-manifest.md` |
+| `/oh-my-gh-writing Prepare the v1.2.0 release materials from these merged PR summaries, but do not publish anything.` | Version Release workflow pack | Local `.github-writing/version-release/v1.2.0/` release drafts plus manifest and confirmation notes |
+| `/oh-my-gh-writing Set up this repository for outside contributors.` | Contribution Setup workflow pack | CONTRIBUTING, issue form, PR template, README contribution entry, and local manifest |
+| `/oh-my-gh-writing Write a bug-fix PR from this diff. Tests were not run.` | Bug Fix PR | PR body with summary, root-cause evidence if provided, testing marked as not run, and risk notes |
+| `/oh-my-gh-writing Create a bug report Issue Form YAML. Labels and assignees are not confirmed.` | Issue Form YAML | YAML file content without invented labels, assignees, projects, or contact links |
 
 ## ✨ Why oh-my-gh-writing?
 
@@ -95,8 +117,8 @@ Workflow packs are thin orchestrators. They infer the safest package shape when 
 
 | Agent / Tool | Support type | Recommended setup | Maintainer verified | Last checked | Notes |
 | --- | --- | --- | --- | --- | --- |
-| [Codex](https://developers.openai.com/codex/skills) | Native skill directory | `$HOME/.agents/skills/oh-my-gh-writing` or project `.agents/skills/oh-my-gh-writing` | Yes | 2026-06-18 | Full folder recommended |
-| [Claude Code](https://code.claude.com/docs/en/skills) | Native skill directory | `~/.claude/skills/oh-my-gh-writing` | Not yet | 2026-06-18 | Based on current docs; keep the full folder |
+| [Codex](https://developers.openai.com/codex/skills) | Native skill directory | `$HOME/.agents/skills/oh-my-gh-writing` or project `.agents/skills/oh-my-gh-writing` | Yes | 2026-06-18 | Runtime folder recommended |
+| [Claude Code](https://code.claude.com/docs/en/skills) | Native skill directory | `~/.claude/skills/oh-my-gh-writing` | Not yet | 2026-06-18 | Based on current docs; keep the runtime folder |
 | [Hermes](https://hermes-agent.nousresearch.com/docs/guides/work-with-skills) | Folder-compatible / single-file limited | Hermes skills directory | Not yet | 2026-06-18 | HTTP single-file install only covers `SKILL.md`, not `references/` |
 
 ### Adaptation Targets
@@ -120,6 +142,7 @@ Workflow packs are thin orchestrators. They infer the safest package shape when 
 | [`references/source-catalog.md`](references/source-catalog.md) | Public source catalog and maintenance notes |
 | [`evals/`](evals) | Trigger and output-quality eval fixtures for future skill iteration |
 | [`scripts/`](scripts) | Maintainer validation utilities |
+| [`cases/`](cases) | Public evidence drafts, not runtime references |
 | [`CONTRIBUTING.md`](CONTRIBUTING.md) | Contribution guidance |
 | [`assets/`](assets) | Logo and local README assets |
 
@@ -130,6 +153,14 @@ This repository includes lightweight eval fixtures for skill maintenance:
 - [`evals/trigger-queries.json`](evals/trigger-queries.json) checks whether the skill description should activate for realistic GitHub-writing prompts and avoid near-miss prompts.
 - [`evals/evals.json`](evals/evals.json) records output-quality tasks for routing, cleanliness, evidence boundaries, and workflow-pack behavior.
 - [`evals/expected/`](evals/expected) stores short clean outputs that illustrate passable artifact shape.
+- [`cases/`](cases) stores synthetic public evidence drafts for routing and evidence-boundary behavior; they are not runtime references.
+
+Run:
+
+```bash
+python3 scripts/validate-evals.py
+python3 scripts/validate-cases.py
+```
 
 ## 🧪 Example: Evidence-Bounded PR Testing
 

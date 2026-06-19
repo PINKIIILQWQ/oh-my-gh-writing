@@ -24,35 +24,57 @@
 
 ## 🚀 快速开始
 
-推荐手动安装：
+只把 runtime skill 文件安装到本地 skill 目录：
 
 ```bash
-# Codex 类 / 支持 .agents/skills 的 host
-git clone https://github.com/PINKIIILQWQ/oh-my-gh-writing.git "$HOME/.agents/skills/oh-my-gh-writing"
+# Codex 类 host：
+target="$HOME/.agents/skills/oh-my-gh-writing"
 
-# Claude Code
-git clone https://github.com/PINKIIILQWQ/oh-my-gh-writing.git "$HOME/.claude/skills/oh-my-gh-writing"
+# Claude Code：
+# target="$HOME/.claude/skills/oh-my-gh-writing"
+
+tmp="$(mktemp -d)"
+git clone --depth 1 https://github.com/PINKIIILQWQ/oh-my-gh-writing.git "$tmp/oh-my-gh-writing"
+
+mkdir -p "$target"
+rm -rf "$target/SKILL.md" "$target/INDEX.md" "$target/references" "$target/assets"
+cp -R "$tmp/oh-my-gh-writing/SKILL.md" \
+  "$tmp/oh-my-gh-writing/INDEX.md" \
+  "$tmp/oh-my-gh-writing/references" \
+  "$tmp/oh-my-gh-writing/assets" \
+  "$target/"
+
+rm -rf "$tmp"
 ```
 
-如果目标 host 支持开放 [Agent Skills](https://agentskills.io) `skills` CLI：
+如果要参与仓库开发或运行维护验证，单独 clone 完整仓库：
 
 ```bash
-npx skills add PINKIIILQWQ/oh-my-gh-writing -g
-npx skills add PINKIIILQWQ/oh-my-gh-writing -g -a codex
-npx skills add PINKIIILQWQ/oh-my-gh-writing -g -a claude-code
+git clone https://github.com/PINKIIILQWQ/oh-my-gh-writing.git
+cd oh-my-gh-writing
+python3 scripts/validate-evals.py
+python3 scripts/validate-cases.py
 ```
 
-`-g` 表示安装到当前用户全局目录；如果目标工具支持项目级 skill，可以去掉 `-g` 做项目内安装。
-
-示例提示词：
+从这些提示词开始：
 
 ```text
-帮我根据这个仓库写一个 README。
-把这个 bug 描述整理成 GitHub Issue。
-根据当前 diff 写一个 PR description。
-准备 v1.2.0 的完整发布材料。
-让这个仓库具备接收外部贡献的流程。
+/oh-my-gh-writing 帮我根据这个仓库写一个 README。
+/oh-my-gh-writing 根据当前 diff 写一个 PR description。
+/oh-my-gh-writing 准备 v1.2.0 的完整发布材料，但不要发布任何东西。
 ```
+
+如果你使用兼容 Agent Skills 的包管理工具，可以按该工具的命令适配本仓库；安装后请确认 skill 目录里包含 `SKILL.md` 和 `references/`。
+
+## 🧪 调用示例
+
+| Prompt | 路由到 | 预期产物形态 |
+| --- | --- | --- |
+| `/oh-my-gh-writing 我要发布一个新的开源项目，需要准备哪些 GitHub 材料？` | Project Launch workflow pack | 本地 `.github-writing/project-launch/TBD/` 草稿，包含 README、CONTRIBUTING、Issue Form、PR Template 和 `package-manifest.md` |
+| `/oh-my-gh-writing 根据这些已合并 PR 摘要准备 v1.2.0 发布材料，但不要发布。` | Version Release workflow pack | 本地 `.github-writing/version-release/v1.2.0/` 发布草稿、manifest 和确认项 |
+| `/oh-my-gh-writing 帮这个仓库建立接收外部贡献的流程。` | Contribution Setup workflow pack | CONTRIBUTING、Issue Form、PR Template、README 贡献入口和本地 manifest |
+| `/oh-my-gh-writing 根据这个 diff 写一个 bug-fix PR。测试还没跑。` | Bug Fix PR | PR 正文，包含摘要、已有 root-cause 证据、未运行测试说明和风险提示 |
+| `/oh-my-gh-writing 创建一个 bug report Issue Form YAML。labels 和 assignees 都未确认。` | Issue Form YAML | YAML 文件内容，不编造 labels、assignees、projects 或 contact links |
 
 ## ✨ 为什么用 oh-my-gh-writing？
 
@@ -97,8 +119,8 @@ Workflow pack 只做编排：能安全判断时会推断最合适的材料包，
 
 | Agent / Tool | 支持类型 | 推荐接入方式 | 维护者已验证 | 最后检查 | 说明 |
 | --- | --- | --- | --- | --- | --- |
-| [Codex](https://developers.openai.com/codex/skills) | 原生 skill 目录 | `$HOME/.agents/skills/oh-my-gh-writing` 或项目 `.agents/skills/oh-my-gh-writing` | 是 | 2026-06-18 | 推荐保留完整目录 |
-| [Claude Code](https://code.claude.com/docs/en/skills) | 原生 skill 目录 | `~/.claude/skills/oh-my-gh-writing` | 暂未 | 2026-06-18 | 基于当前文档；保留完整目录 |
+| [Codex](https://developers.openai.com/codex/skills) | 原生 skill 目录 | `$HOME/.agents/skills/oh-my-gh-writing` 或项目 `.agents/skills/oh-my-gh-writing` | 是 | 2026-06-18 | 推荐保留 runtime 目录 |
+| [Claude Code](https://code.claude.com/docs/en/skills) | 原生 skill 目录 | `~/.claude/skills/oh-my-gh-writing` | 暂未 | 2026-06-18 | 基于当前文档；保留 runtime 目录 |
 | [Hermes](https://hermes-agent.nousresearch.com/docs/guides/work-with-skills) | 目录兼容 / 单文件受限 | Hermes skills 目录 | 暂未 | 2026-06-18 | HTTP 单文件安装只覆盖 `SKILL.md`，不包含 `references/` |
 
 ### 适配目标
@@ -122,6 +144,7 @@ Workflow pack 只做编排：能安全判断时会推断最合适的材料包，
 | [`references/source-catalog.md`](references/source-catalog.md) | 公开参考来源和维护说明 |
 | [`evals/`](evals) | 用于后续 skill 迭代的触发和输出质量 eval fixtures |
 | [`scripts/`](scripts) | 维护者验证工具 |
+| [`cases/`](cases) | 公开 evidence drafts，不是 runtime references |
 | [`CONTRIBUTING.md`](CONTRIBUTING.md) | 贡献说明 |
 | [`assets/`](assets) | Logo 和 README 本地资产 |
 
@@ -132,6 +155,14 @@ Workflow pack 只做编排：能安全判断时会推断最合适的材料包，
 - [`evals/trigger-queries.json`](evals/trigger-queries.json) 用来检查 skill description 是否会在真实 GitHub 写作请求中触发，并避开相近但不该触发的请求。
 - [`evals/evals.json`](evals/evals.json) 记录输出质量任务，覆盖路由、输出清洁、事实边界和 workflow pack 行为。
 - [`evals/expected/`](evals/expected) 保存短小 clean outputs，用来展示合格 artifact 的形态。
+- [`cases/`](cases) 保存 synthetic public evidence drafts，用来观察路由和事实边界表现；它们不是 runtime references。
+
+运行：
+
+```bash
+python3 scripts/validate-evals.py
+python3 scripts/validate-cases.py
+```
 
 ## 🧪 示例：有证据边界的 PR 测试说明
 

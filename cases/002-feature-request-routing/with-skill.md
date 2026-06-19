@@ -10,18 +10,22 @@ Add scheduled CSV exports for reports, with clear delivery settings.
 
 ## Use Cases
 
-1. A user schedules a daily CSV export for a saved report and receives it automatically.
-2. A team configures weekly delivery to selected recipients.
-3. An admin reviews or updates export cadence, destination, and delivery status without relying on manual export steps.
+TBD: confirm target users and delivery workflow.
+
+Potential areas to clarify:
+
+- Export cadence
+- Delivery destination
+- Recipient model
+- Failure notification behavior
 
 ## Proposed Settings
 
-- Report to export
-- Schedule frequency
-- Time zone
-- Recipients or delivery destination
 - File format: CSV
-- Delivery status and last-run result
+- Schedule frequency: TBD
+- Delivery destination: TBD
+- Recipient model: TBD
+- Delivery status or failure handling: TBD
 
 ## Alternatives
 

@@ -1,26 +1,45 @@
+## File: .github-writing/version-release/v1.2.0/package-manifest.md
+
 # v1.2.0 Release Package Manifest
+
+Selected package option: Standard release pack.
 
 Status: Draft only; nothing published.
 
-Release date: TBD
+## Evidence Sources
 
-Source: merged PR summaries provided in prompt.
+- Version: `v1.2.0` from the prompt.
+- Changelog source: merged PR summaries provided in the prompt.
+- Release scope: fix login redirect, add CSV export, update docs.
 
-## Release Scope
+## Generated Files
 
-- Fix login redirect
-- Add CSV export
-- Update docs
+| File | Purpose | Status |
+| --- | --- | --- |
+| `.github-writing/version-release/v1.2.0/CHANGELOG.patch.md` | Changelog draft for maintainer review | Safe local draft |
+| `.github-writing/version-release/v1.2.0/RELEASE_NOTES.md` | GitHub release notes draft | Safe local draft |
 
-## CHANGELOG.md Entry
+## TODO / TBD
+
+- Release date: TBD
+- Compare URL: TBD
+- Tag URL: TBD
+
+## Requires Maintainer Confirmation
+
+- Whether to apply the changelog draft to root `CHANGELOG.md`.
+- Whether `v1.2.0` is the final tag name.
+- Whether a migration guide is unnecessary.
+
+## File: .github-writing/version-release/v1.2.0/CHANGELOG.patch.md
 
 ## [v1.2.0] - TBD
 
-### Features
+### Added
 
 - Added CSV export.
 
-### Bug Fixes
+### Fixed
 
 - Fixed login redirect behavior.
 
@@ -28,37 +47,23 @@ Source: merged PR summaries provided in prompt.
 
 - Updated documentation.
 
-### Breaking Changes
-
-- None identified from the provided release scope.
-
-## GitHub Release Draft
+## File: .github-writing/version-release/v1.2.0/RELEASE_NOTES.md
 
 # v1.2.0
 
-This release adds CSV export support, fixes login redirect behavior, and updates documentation.
+Release date: TBD
 
 ## Highlights
 
-### CSV export
+- Added CSV export.
+- Fixed login redirect behavior.
+- Updated documentation.
 
-Users can now export data as CSV.
+## Changes
 
-### Login redirect fix
-
-Login redirect behavior has been corrected.
-
-### Documentation updates
-
-Documentation has been refreshed for this release scope.
-
-## Breaking Changes
-
-None identified from the provided release scope.
-
-## Upgrade Notes
-
-No migration steps are required based on the provided release scope.
+- Added CSV export.
+- Fixed login redirect behavior.
+- Updated documentation.
 
 ## Full Changelog
 

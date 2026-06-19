@@ -6,13 +6,14 @@ What improved:
 
 - The output stays draft-only and does not publish, push tags, or open PRs.
 - It records version, missing release date, prompt-provided source, and release scope.
-- It separates changelog material from release-draft material.
+- It uses `## File: ...` headings to represent the local `.github-writing/version-release/v1.2.0/` package.
+- It separates the manifest, changelog draft, and release notes draft.
 
 Remaining risk:
 
-- The generated output includes `Upgrade Notes` even though no migration or breaking-change evidence was provided.
-- The file naming is not yet expressed as `.github-writing/version-release/v1.2.0/...`.
+- Release date, compare URL, and tag URL remain `TBD`.
+- Baseline behavior has not been collected yet.
 
 Decision:
 
-- Keep as public evidence of both workflow-pack value and remaining release-pack cleanup needs.
+- Keep as public evidence after maintainer review; do not describe it as a validated comparison case until baseline behavior is collected.

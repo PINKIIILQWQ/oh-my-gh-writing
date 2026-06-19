@@ -2,7 +2,15 @@
   <img src="assets/oh-my-gh-writing-logo.png" alt="oh-my-gh-writing logo" width="128">
 </p>
 
-<h1 align="center">oh-my-gh-writing</h1>
+<h1 align="center">✨ oh-my-gh-writing</h1>
+
+<p align="center">
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-0f766e?style=flat" alt="MIT License"></a>
+  <a href="SKILL.md"><img src="https://img.shields.io/badge/Skill-v0.1.0-2563eb?style=flat" alt="Skill v0.1.0"></a>
+  <a href="INDEX.md"><img src="https://img.shields.io/badge/Artifacts-18-6a0dad?style=flat" alt="18 artifact standards"></a>
+  <a href="INDEX.md"><img src="https://img.shields.io/badge/Workflows-7-0f766e?style=flat" alt="7 workflow packs"></a>
+  <a href="SKILL.md"><img src="https://img.shields.io/badge/Format-SKILL.md-22AA66?style=flat" alt="SKILL.md"></a>
+</p>
 
 <p align="center">
   A portable GitHub writing skill for AI agents.
@@ -25,34 +33,48 @@ Use it when you need GitHub issues, pull request descriptions, code reviews, com
 
 ## 🚀 Quick Start
 
-Use the package from a local skill directory or repository checkout.
-
-1. Keep the package structure intact:
-
-```text
-SKILL.md
-INDEX.md
-references/
-evals/
-scripts/
-```
-
-2. Ask your agent to use the skill for a GitHub writing task:
-
-```text
-Use oh-my-gh-writing to draft a feature PR description from this diff.
-```
-
-3. For a broader package, ask for a workflow pack:
-
-```text
-Use oh-my-gh-writing to prepare full v1.2.0 release materials.
-```
-
-4. Validate eval fixtures after changing routing, standards, or expected outputs:
+Install only the runtime skill files into your local skill directory:
 
 ```bash
+# Codex-style hosts:
+target="$HOME/.agents/skills/oh-my-gh-writing"
+
+# Claude Code:
+# target="$HOME/.claude/skills/oh-my-gh-writing"
+
+tmp="$(mktemp -d)"
+git clone --depth 1 https://github.com/PINKIIILQWQ/oh-my-gh-writing.git "$tmp/oh-my-gh-writing"
+
+mkdir -p "$target"
+rm -rf "$target/SKILL.md" "$target/INDEX.md" "$target/references" "$target/assets"
+cp -R "$tmp/oh-my-gh-writing/SKILL.md" \
+  "$tmp/oh-my-gh-writing/INDEX.md" \
+  "$tmp/oh-my-gh-writing/references" \
+  "$tmp/oh-my-gh-writing/assets" \
+  "$target/"
+
+rm -rf "$tmp"
+```
+
+Then ask your agent to use the skill for a GitHub writing task:
+
+```text
+/oh-my-gh-writing Write a feature PR description from this diff.
+```
+
+For a broader package, ask for a workflow pack:
+
+```text
+/oh-my-gh-writing Prepare full v1.2.0 release materials, but do not publish anything.
+```
+
+For repository development, clone the full repository separately and validate eval fixtures:
+
+```bash
+git clone https://github.com/PINKIIILQWQ/oh-my-gh-writing.git
+cd oh-my-gh-writing
 python3 scripts/validate-evals.py
+python3 scripts/validate-cases.py
 ```
 
 ## 🧭 Applicability

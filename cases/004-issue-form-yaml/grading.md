@@ -1,6 +1,6 @@
 # Grading
 
-Label: PASS
+Label: PASS_AFTER_CLEANUP
 
 What improved:
 
@@ -10,7 +10,7 @@ What improved:
 
 Remaining risk:
 
-- YAML parseability should be manually reviewed or checked with a YAML parser before copying into `.github/ISSUE_TEMPLATE/`.
+- Validation not run: YAML parseability still needs a parser check before copying into `.github/ISSUE_TEMPLATE/`.
 
 Decision:
 

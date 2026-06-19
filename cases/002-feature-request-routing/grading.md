@@ -1,6 +1,6 @@
 # Grading
 
-Label: PASS
+Label: PASS_AFTER_CLEANUP
 
 What improved:
 
@@ -10,7 +10,7 @@ What improved:
 
 Remaining risk:
 
-- Delivery settings are reasonable but still product assumptions; maintainers should confirm exact delivery channels.
+- Product-specific delivery settings remain TODO and need maintainer confirmation.
 
 Decision:
 

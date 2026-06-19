@@ -10,7 +10,7 @@ What improved:
 
 Remaining risk:
 
-- The expected behavior chooses "headers and no data rows" as one possible product decision; a maintainer may prefer an empty-state message.
+- Product behavior for empty exports still needs maintainer confirmation.
 
 Decision:
 
