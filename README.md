@@ -182,7 +182,6 @@ These tools do not consume this full Agent Skill folder as-is. Use this reposito
 | [`scripts/`](scripts) | Maintainer validation utilities |
 | [`cases/`](cases) | Public evidence drafts, not runtime references |
 | [`.github/`](.github) | Public issue forms and pull request template for repository collaboration |
-| [`README_Example.md`](README_Example.md) | Skill-generated README example, not the canonical homepage |
 | [`CONTRIBUTING.md`](CONTRIBUTING.md) | Contribution guidance |
 | [`assets/`](assets) | Logo and local README assets |
 

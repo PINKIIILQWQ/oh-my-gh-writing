@@ -70,9 +70,6 @@ venv/
 /test/
 
 # Legacy local scratch directory from earlier iterations; do not publish.
-/reference/
 /evals/runs/
 /.local-validation/
 /.github-writing/
-/案例/
-/效果测试/
