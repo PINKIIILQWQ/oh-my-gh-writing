@@ -183,6 +183,7 @@ These tools do not consume this full Agent Skill folder as-is. Use this reposito
 | [`scripts/`](scripts) | Maintainer validation utilities |
 | [`cases/`](cases) | Public evidence drafts, not runtime references |
 | [`.github/`](.github) | Public issue forms and pull request template for repository collaboration |
+| [`CHANGELOG.md`](CHANGELOG.md) | Release history |
 | [`CONTRIBUTING.md`](CONTRIBUTING.md) | Contribution guidance |
 | [`assets/`](assets) | Logo and local README assets |
 

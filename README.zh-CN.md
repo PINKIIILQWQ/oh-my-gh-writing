@@ -185,6 +185,7 @@ Workflow pack 只做编排：能安全判断时会推断最合适的材料包，
 | [`scripts/`](scripts) | 维护者验证工具 |
 | [`cases/`](cases) | 公开 evidence drafts，不是 runtime references |
 | [`.github/`](.github) | 公开 Issue Forms 和 Pull Request Template |
+| [`CHANGELOG.md`](CHANGELOG.md) | 发布历史 |
 | [`CONTRIBUTING.md`](CONTRIBUTING.md) | 贡献说明 |
 | [`assets/`](assets) | Logo 和 README 本地资产 |
 
