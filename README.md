@@ -98,7 +98,7 @@ This project is a portable Markdown rulebase for AI agents and rule-based coding
 | Use mode | Best for | What works well | Limit |
 | --- | --- | --- | --- |
 | Skill directory | Codex, Claude Code, folder-compatible skill hosts | Routing, progressive reference loading, validation rules | Requires local file access |
-| Project rules | Cursor, Continue, Copilot, Windsurf / Devin-style rules | Reusing selected standards inside a project | Needs manual adaptation to each host format |
+| Project rules | Cursor, Continue, GitHub Copilot | Reusing selected standards inside a project | Needs manual adaptation to each host format |
 | Knowledge base | Teams or agents that search Markdown docs | Standards, examples of structure, source catalog | Routing depends on the host tool |
 
 ## 🧭 What It Covers
@@ -113,23 +113,33 @@ Workflow packs are thin orchestrators. They infer the safest package shape when 
 
 ## 🤖 Agent Support
 
-### Direct / Folder-Compatible Install
+Last checked: 2026-06-20.
+
+### Native Or Folder-Compatible Install
 
 | Agent / Tool | Support type | Recommended setup | Maintainer verified | Last checked | Notes |
 | --- | --- | --- | --- | --- | --- |
-| [Codex](https://developers.openai.com/codex/skills) | Native skill directory | `$HOME/.agents/skills/oh-my-gh-writing` or project `.agents/skills/oh-my-gh-writing` | Yes | 2026-06-19 | Runtime folder recommended |
-| [Claude Code](https://code.claude.com/docs/en/skills) | Native skill directory | `~/.claude/skills/oh-my-gh-writing` | Not yet | 2026-06-19 | Based on current docs; keep the runtime folder |
-| [Hermes](https://hermes-agent.nousresearch.com/docs/guides/work-with-skills) | Folder-compatible / single-file limited | Hermes skills directory | Not yet | 2026-06-19 | HTTP single-file install only covers `SKILL.md`, not `references/` |
+| [Codex](https://developers.openai.com/codex/skills) | Native skill directory | `$HOME/.agents/skills/oh-my-gh-writing` or project `.agents/skills/oh-my-gh-writing` | Yes | 2026-06-20 | Official docs list `.agents/skills` user and repository locations |
+| [Claude Code](https://code.claude.com/docs/en/skills) | Native skill directory | `~/.claude/skills/oh-my-gh-writing` or project `.claude/skills/oh-my-gh-writing` | Not yet | 2026-06-20 | Official docs use a `SKILL.md` directory as the skill entrypoint |
+| [Gemini CLI](https://geminicli.com/docs/cli/skills/) | Native skill directory | `$HOME/.agents/skills/oh-my-gh-writing`, `.agents/skills/oh-my-gh-writing`, or `gemini skills install https://github.com/PINKIIILQWQ/oh-my-gh-writing.git` | Not yet | 2026-06-20 | Official docs list `.agents/skills` as an alias and support `gemini skills install` |
+| [Hermes](https://hermes-agent.nousresearch.com/docs/guides/work-with-skills) | Native skill directory | Copy the runtime folder to `~/.hermes/skills/github/oh-my-gh-writing` | Not yet | 2026-06-20 | Do not use HTTP single-file install for this repo because `references/` are required |
 
-### Adaptation Targets
+### Host-Specific Rule Setup
 
-| Tool | Support type | Recommended adaptation | Maintainer verified | Last checked | Notes |
+These tools do not consume this full Agent Skill folder as-is. Use them by converting the router plus selected `references/*.md` files into the host's rule or instruction format.
+
+| Tool | Supported setup | Recommended file/path | Maintainer verified | Last checked | Notes |
 | --- | --- | --- | --- | --- | --- |
-| [Gemini CLI / Antigravity](https://geminicli.com/docs/cli/skills/) | Check current docs | Use a skill directory or rules only if current docs confirm support | Not yet | 2026-06-19 | Availability is changing |
-| [Cursor](https://cursor.com/docs) | Project rules / knowledge base | Adapt the router and selected references | Not yet | 2026-06-19 | Keep only relevant scenario rules |
-| [GitHub Copilot](https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-repository-instructions) | Repository instructions / agent skill files | Adapt to `.github/copilot-instructions.md` or `.github/instructions/*.instructions.md` | Not yet | 2026-06-19 | Does not directly consume the full folder by default |
-| [Continue](https://docs.continue.dev/customize/rules) | Rules | Adapt to `.continue/rules/*.md` | Not yet | 2026-06-19 | Split by scenario |
-| [Windsurf / Devin Desktop](https://docs.windsurf.com) | Check current docs | Adapt to memories/rules if supported | Not yet | 2026-06-19 | Confirm the path before use |
+| [GitHub Copilot](https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-repository-instructions) | Repository custom instructions | `.github/copilot-instructions.md`, `.github/instructions/gh-writing.instructions.md`, or `AGENTS.md` | Not yet | 2026-06-20 | Use a compact summary; Copilot will not automatically load this skill directory |
+| [Continue](https://docs.continue.dev/customize/rules) | Project rules | `.continue/rules/oh-my-gh-writing.md` | Not yet | 2026-06-20 | Split large guidance by scenario when needed |
+| [Cursor](https://cursor.com/docs) | Project rules | `.cursor/rules/oh-my-gh-writing.mdc` | Not yet | 2026-06-20 | Treat as a rules adaptation, not native Agent Skill support |
+
+### Not Listed As Supported Yet
+
+| Tool | Status | Last checked | Notes |
+| --- | --- | --- | --- |
+| Antigravity CLI | Not confirmed | 2026-06-20 | Keep out of setup instructions until official docs confirm a stable skill or rules path |
+| Windsurf / Devin Desktop | Not confirmed | 2026-06-20 | Current docs redirect to Devin Desktop and do not expose a stable skill/rules path for this package |
 
 ## 📂 Files
 

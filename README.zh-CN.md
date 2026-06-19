@@ -100,7 +100,7 @@ python3 scripts/validate-cases.py
 | 使用方式 | 适用对象 | 保留能力 | 限制 |
 | --- | --- | --- | --- |
 | Skill 目录 | Codex、Claude Code、目录兼容的 skill host | 路由、按需读取、输出验收最完整 | 需要本地文件读取能力 |
-| 项目规则 | Cursor、Continue、Copilot、Windsurf / Devin 类规则系统 | 在项目内复用选定标准 | 需要按工具格式手动适配 |
+| 项目规则 | Cursor、Continue、GitHub Copilot | 在项目内复用选定标准 | 需要按工具格式手动适配 |
 | 知识库 | 可检索 Markdown 的 agent 或团队规范库 | 结构标准、来源说明、质量规则 | 路由依赖宿主工具能力 |
 
 ## 🧭 覆盖内容
@@ -115,23 +115,33 @@ Workflow pack 只做编排：能安全判断时会推断最合适的材料包，
 
 ## 🤖 Agent 支持
 
-### 直接安装 / 目录兼容
+最后检查：2026-06-20。
+
+### 原生或目录兼容安装
 
 | Agent / Tool | 支持类型 | 推荐接入方式 | 维护者已验证 | 最后检查 | 说明 |
 | --- | --- | --- | --- | --- | --- |
-| [Codex](https://developers.openai.com/codex/skills) | 原生 skill 目录 | `$HOME/.agents/skills/oh-my-gh-writing` 或项目 `.agents/skills/oh-my-gh-writing` | 是 | 2026-06-19 | 推荐保留 runtime 目录 |
-| [Claude Code](https://code.claude.com/docs/en/skills) | 原生 skill 目录 | `~/.claude/skills/oh-my-gh-writing` | 暂未 | 2026-06-19 | 基于当前文档；保留 runtime 目录 |
-| [Hermes](https://hermes-agent.nousresearch.com/docs/guides/work-with-skills) | 目录兼容 / 单文件受限 | Hermes skills 目录 | 暂未 | 2026-06-19 | HTTP 单文件安装只覆盖 `SKILL.md`，不包含 `references/` |
+| [Codex](https://developers.openai.com/codex/skills) | 原生 skill 目录 | `$HOME/.agents/skills/oh-my-gh-writing` 或项目 `.agents/skills/oh-my-gh-writing` | 是 | 2026-06-20 | 官方文档列出 `.agents/skills` 用户和仓库位置 |
+| [Claude Code](https://code.claude.com/docs/en/skills) | 原生 skill 目录 | `~/.claude/skills/oh-my-gh-writing` 或项目 `.claude/skills/oh-my-gh-writing` | 暂未 | 2026-06-20 | 官方文档使用包含 `SKILL.md` 的目录作为 skill 入口 |
+| [Gemini CLI](https://geminicli.com/docs/cli/skills/) | 原生 skill 目录 | `$HOME/.agents/skills/oh-my-gh-writing`、`.agents/skills/oh-my-gh-writing` 或 `gemini skills install https://github.com/PINKIIILQWQ/oh-my-gh-writing.git` | 暂未 | 2026-06-20 | 官方文档列出 `.agents/skills` alias，并支持 `gemini skills install` |
+| [Hermes](https://hermes-agent.nousresearch.com/docs/guides/work-with-skills) | 原生 skill 目录 | 把 runtime 目录复制到 `~/.hermes/skills/github/oh-my-gh-writing` | 暂未 | 2026-06-20 | 本仓库依赖 `references/`，不要使用 HTTP 单文件安装 |
 
-### 适配目标
+### 宿主工具规则 / 指令设置
 
-| 工具 | 支持类型 | 推荐适配方式 | 维护者已验证 | 最后检查 | 说明 |
+这些工具不能直接消费完整 Agent Skill 目录。使用时需要把 router 和选定的 `references/*.md` 改写为该工具的规则或指令格式。
+
+| 工具 | 支持方式 | 推荐文件 / 路径 | 维护者已验证 | 最后检查 | 说明 |
 | --- | --- | --- | --- | --- | --- |
-| [Gemini CLI / Antigravity](https://geminicli.com/docs/cli/skills/) | 按当前文档确认 | 仅在当前文档确认支持时使用 skill 目录或 rules | 暂未 | 2026-06-19 | 可用范围正在变化 |
-| [Cursor](https://cursor.com/docs) | 项目规则 / 知识库 | 改写路由和选定 references | 暂未 | 2026-06-19 | 只保留相关场景规则 |
-| [GitHub Copilot](https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-repository-instructions) | 仓库指令 / agent skill 文件 | 改写为 `.github/copilot-instructions.md` 或 `.github/instructions/*.instructions.md` | 暂未 | 2026-06-19 | 默认不能直接加载完整目录 |
-| [Continue](https://docs.continue.dev/customize/rules) | Rules | 改写为 `.continue/rules/*.md` | 暂未 | 2026-06-19 | 按场景拆分 |
-| [Windsurf / Devin Desktop](https://docs.windsurf.com) | 按当前文档确认 | 如当前支持，可适配为 memories/rules | 暂未 | 2026-06-19 | 使用前确认路径 |
+| [GitHub Copilot](https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-repository-instructions) | 仓库 custom instructions | `.github/copilot-instructions.md`、`.github/instructions/gh-writing.instructions.md` 或 `AGENTS.md` | 暂未 | 2026-06-20 | 用压缩版规则；Copilot 不会自动加载本 skill 目录 |
+| [Continue](https://docs.continue.dev/customize/rules) | 项目 rules | `.continue/rules/oh-my-gh-writing.md` | 暂未 | 2026-06-20 | 内容较长时按场景拆分 |
+| [Cursor](https://cursor.com/docs) | 项目 rules | `.cursor/rules/oh-my-gh-writing.mdc` | 暂未 | 2026-06-20 | 这是规则适配，不是原生 Agent Skill 支持 |
+
+### 暂不列为已支持
+
+| 工具 | 状态 | 最后检查 | 说明 |
+| --- | --- | --- | --- |
+| Antigravity CLI | 未确认 | 2026-06-20 | 等官方文档确认稳定 skill 或 rules 路径后再写安装方式 |
+| Windsurf / Devin Desktop | 未确认 | 2026-06-20 | 当前文档跳转到 Devin Desktop，未看到适合本包的稳定 skill/rules 路径 |
 
 ## 📂 文件
 
