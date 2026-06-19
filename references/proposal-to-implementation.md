@@ -24,8 +24,8 @@ Ask this when the Decision Rule cannot safely choose a package option:
 Which proposal package should I prepare?
 
 A. Proposal pack (Recommended): Discussion + RFC + Feature Request.
-B. Implementation pack: RFC + Feature PR.
-C. Full lifecycle pack: Discussion + RFC + Feature Request + Feature PR.
+B. Implementation pack: RFC + Feature PR only when branch, diff, PR, or explicit draft PR request exists.
+C. Full lifecycle pack: Discussion + RFC + Feature Request; add Feature PR only when implementation evidence or explicit draft PR request exists.
 
 Add any supplements in the same reply: target audience, current constraints, preferred solution, alternatives, implementation status, compatibility concerns, or decision deadline.
 ```
@@ -36,7 +36,7 @@ Add any supplements in the same reply: target audience, current constraints, pre
 |--------|------|
 | Proposal pack | `discussion.md`, `rfc.md`, `feature-request.md` |
 | Implementation pack | `rfc.md`; add `feature-pr.md` only when branch, diff, PR, or explicit draft PR request exists |
-| Full lifecycle pack | `discussion.md`, `rfc.md`, `feature-request.md`, `feature-pr.md` |
+| Full lifecycle pack | `discussion.md`, `rfc.md`, `feature-request.md`; add `feature-pr.md` only when implementation evidence or explicit draft PR request exists |
 
 ## Evidence Rules
 

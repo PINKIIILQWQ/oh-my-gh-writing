@@ -119,6 +119,7 @@ Workflow packs are thin orchestrators. They infer the safest package shape when 
 | [`references/readme.md`](references/readme.md) | README writing standard used by this skill |
 | [`references/source-catalog.md`](references/source-catalog.md) | Public source catalog and maintenance notes |
 | [`evals/`](evals) | Trigger and output-quality eval fixtures for future skill iteration |
+| [`scripts/`](scripts) | Maintainer validation utilities |
 | [`CONTRIBUTING.md`](CONTRIBUTING.md) | Contribution guidance |
 | [`assets/`](assets) | Logo and local README assets |
 

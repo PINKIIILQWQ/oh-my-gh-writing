@@ -121,6 +121,7 @@ Workflow pack 只做编排：能安全判断时会推断最合适的材料包，
 | [`references/readme.md`](references/readme.md) | README 写作标准 |
 | [`references/source-catalog.md`](references/source-catalog.md) | 公开参考来源和维护说明 |
 | [`evals/`](evals) | 用于后续 skill 迭代的触发和输出质量 eval fixtures |
+| [`scripts/`](scripts) | 维护者验证工具 |
 | [`CONTRIBUTING.md`](CONTRIBUTING.md) | 贡献说明 |
 | [`assets/`](assets) | Logo 和 README 本地资产 |
 

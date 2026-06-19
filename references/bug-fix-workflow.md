@@ -23,8 +23,8 @@ Ask this when the Decision Rule cannot safely choose a package option:
 ```text
 Which bug-fix workflow package should I prepare?
 
-A. Triage-to-PR pack (Recommended): triage summary + Bug Fix PR + verification notes.
-B. Issue-only triage: Bug Report + investigation checklist.
+A. Triage-to-PR pack: triage summary + Bug Fix PR + verification notes; use only when a fix diff, branch, PR, or explicit draft PR request exists.
+B. Issue-only triage (Recommended when no fix diff exists): Bug Report + investigation checklist.
 C. PR-ready fix: Bug Fix PR + tests/verification + reviewer notes.
 
 Add any supplements in the same reply: affected version, reproduction steps, logs, root-cause evidence, fix summary, test output, linked issue, or release impact.

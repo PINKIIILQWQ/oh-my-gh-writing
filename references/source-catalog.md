@@ -61,9 +61,9 @@ Workflow packs are thin orchestrators built from the single-artifact standards a
 | Version Release | CHANGELOG, Release Notes, Migration Guide, optional PR or tag notes |
 | Project Launch | README, CONTRIBUTING, Issue Form YAML, PR Template, source or credits notes |
 | Contribution Setup | CONTRIBUTING, Issue Form YAML, PR Template, README contribution entry |
-| Bug Fix Workflow | Bug Report or triage summary, Bug Fix PR, verification and review notes |
-| Proposal to Implementation | Discussion, RFC, Feature Request, Feature PR |
-| Breaking Change Package | RFC, Feature or Refactor PR, Migration Guide, CHANGELOG, Release Notes |
+| Bug Fix Workflow | Bug Report or triage summary, conditional Bug Fix PR when fix evidence or explicit draft PR request exists, verification and review notes |
+| Proposal to Implementation | Discussion, RFC, Feature Request, conditional Feature PR when implementation evidence or explicit draft PR request exists |
+| Breaking Change Package | RFC, conditional Feature or Refactor PR when branch, diff, or explicit draft PR request exists, Migration Guide, CHANGELOG, Release Notes |
 | Docs Overhaul | README, Documentation PR, CONTRIBUTING docs section, optional changelog docs entry |
 
 ## Maintenance Notes
