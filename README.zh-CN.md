@@ -24,25 +24,53 @@
 
 ## 🚀 快速开始
 
-只把 runtime skill 文件安装到本地 skill 目录：
+只把 runtime skill 文件安装到本地 skill 目录。选择你的 agent 对应代码块，整段复制即可。
+
+**Codex**
 
 ```bash
-# Codex 类 host：
 target="$HOME/.agents/skills/oh-my-gh-writing"
-
-# Claude Code：
-# target="$HOME/.claude/skills/oh-my-gh-writing"
-
 tmp="$(mktemp -d)"
 git clone --depth 1 https://github.com/PINKIIILQWQ/oh-my-gh-writing.git "$tmp/oh-my-gh-writing"
-
 rm -rf "$target"
 mkdir -p "$target"
-cp -R "$tmp/oh-my-gh-writing/SKILL.md" \
-  "$tmp/oh-my-gh-writing/INDEX.md" \
-  "$tmp/oh-my-gh-writing/references" \
-  "$target/"
+cp -R "$tmp/oh-my-gh-writing/SKILL.md" "$tmp/oh-my-gh-writing/INDEX.md" "$tmp/oh-my-gh-writing/references" "$target/"
+rm -rf "$tmp"
+```
 
+**Claude Code**
+
+```bash
+target="$HOME/.claude/skills/oh-my-gh-writing"
+tmp="$(mktemp -d)"
+git clone --depth 1 https://github.com/PINKIIILQWQ/oh-my-gh-writing.git "$tmp/oh-my-gh-writing"
+rm -rf "$target"
+mkdir -p "$target"
+cp -R "$tmp/oh-my-gh-writing/SKILL.md" "$tmp/oh-my-gh-writing/INDEX.md" "$tmp/oh-my-gh-writing/references" "$target/"
+rm -rf "$tmp"
+```
+
+**Gemini CLI**
+
+```bash
+target="$HOME/.agents/skills/oh-my-gh-writing"
+tmp="$(mktemp -d)"
+git clone --depth 1 https://github.com/PINKIIILQWQ/oh-my-gh-writing.git "$tmp/oh-my-gh-writing"
+rm -rf "$target"
+mkdir -p "$target"
+cp -R "$tmp/oh-my-gh-writing/SKILL.md" "$tmp/oh-my-gh-writing/INDEX.md" "$tmp/oh-my-gh-writing/references" "$target/"
+rm -rf "$tmp"
+```
+
+**Hermes**
+
+```bash
+target="$HOME/.hermes/skills/github/oh-my-gh-writing"
+tmp="$(mktemp -d)"
+git clone --depth 1 https://github.com/PINKIIILQWQ/oh-my-gh-writing.git "$tmp/oh-my-gh-writing"
+rm -rf "$target"
+mkdir -p "$target"
+cp -R "$tmp/oh-my-gh-writing/SKILL.md" "$tmp/oh-my-gh-writing/INDEX.md" "$tmp/oh-my-gh-writing/references" "$target/"
 rm -rf "$tmp"
 ```
 
@@ -63,7 +91,7 @@ python3 scripts/validate-cases.py
 /oh-my-gh-writing 根据这些已合并 PR 摘要准备 v1.2.0 的完整发布材料：修复登录重定向、增加 CSV 导出、更新文档。不要发布任何东西。
 ```
 
-如果你使用兼容 Agent Skills 的包管理工具，可以按该工具的命令适配本仓库；安装后请确认 skill 目录里包含 `SKILL.md` 和 `references/`。
+如果你使用兼容 Agent Skills 的包管理工具，请确认安装后的 skill 目录里同时包含 `SKILL.md` 和 `references/`。
 
 ## 🧪 调用示例
 
