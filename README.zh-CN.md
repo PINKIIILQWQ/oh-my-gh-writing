@@ -24,59 +24,26 @@
 
 ## 🚀 快速开始
 
-只把 runtime skill 文件安装到本地 skill 目录。选择你的 agent 对应代码块，整段复制即可。
-
-**维护者已验证**
-
-**Codex**
+只安装 runtime skill 文件。下面的 Codex 路径已经由维护者验证：
 
 ```bash
 target="$HOME/.agents/skills/oh-my-gh-writing"
 tmp="$(mktemp -d)"
-git clone --depth 1 https://github.com/PINKIIILQWQ/oh-my-gh-writing.git "$tmp/oh-my-gh-writing"
+repo="$tmp/oh-my-gh-writing"
+git clone --depth 1 https://github.com/PINKIIILQWQ/oh-my-gh-writing.git "$repo"
 rm -rf "$target"
 mkdir -p "$target"
-cp -R "$tmp/oh-my-gh-writing/SKILL.md" "$tmp/oh-my-gh-writing/INDEX.md" "$tmp/oh-my-gh-writing/references" "$target/"
+cp -R "$repo/SKILL.md" "$repo/INDEX.md" "$repo/references" "$target/"
 rm -rf "$tmp"
 ```
 
-**有官方文档依据，但维护者暂未实测**
+其他有文档依据但维护者暂未实测的 host，可以使用同一段命令，只替换 `target`：
 
-**Claude Code**
-
-```bash
-target="$HOME/.claude/skills/oh-my-gh-writing"
-tmp="$(mktemp -d)"
-git clone --depth 1 https://github.com/PINKIIILQWQ/oh-my-gh-writing.git "$tmp/oh-my-gh-writing"
-rm -rf "$target"
-mkdir -p "$target"
-cp -R "$tmp/oh-my-gh-writing/SKILL.md" "$tmp/oh-my-gh-writing/INDEX.md" "$tmp/oh-my-gh-writing/references" "$target/"
-rm -rf "$tmp"
-```
-
-**Gemini CLI**
-
-```bash
-target="$HOME/.agents/skills/oh-my-gh-writing"
-tmp="$(mktemp -d)"
-git clone --depth 1 https://github.com/PINKIIILQWQ/oh-my-gh-writing.git "$tmp/oh-my-gh-writing"
-rm -rf "$target"
-mkdir -p "$target"
-cp -R "$tmp/oh-my-gh-writing/SKILL.md" "$tmp/oh-my-gh-writing/INDEX.md" "$tmp/oh-my-gh-writing/references" "$target/"
-rm -rf "$tmp"
-```
-
-**Hermes**
-
-```bash
-target="$HOME/.hermes/skills/github/oh-my-gh-writing"
-tmp="$(mktemp -d)"
-git clone --depth 1 https://github.com/PINKIIILQWQ/oh-my-gh-writing.git "$tmp/oh-my-gh-writing"
-rm -rf "$target"
-mkdir -p "$target"
-cp -R "$tmp/oh-my-gh-writing/SKILL.md" "$tmp/oh-my-gh-writing/INDEX.md" "$tmp/oh-my-gh-writing/references" "$target/"
-rm -rf "$tmp"
-```
+| Host | Target path | 状态 |
+| --- | --- | --- |
+| Claude Code | `$HOME/.claude/skills/oh-my-gh-writing` | 有官方文档依据，维护者暂未实测 |
+| Gemini CLI | `$HOME/.agents/skills/oh-my-gh-writing` | 有官方文档依据，维护者暂未实测 |
+| Hermes | `$HOME/.hermes/skills/github/oh-my-gh-writing` | 有官方文档依据，维护者暂未实测 |
 
 如果要参与仓库开发或运行维护验证，单独 clone 完整仓库：
 
@@ -95,7 +62,7 @@ python3 scripts/validate-cases.py
 /oh-my-gh-writing 根据这些已合并 PR 摘要准备 v1.2.0 的完整发布材料：修复登录重定向、增加 CSV 导出、更新文档。不要发布任何东西。
 ```
 
-如果你使用兼容 Agent Skills 的包管理工具，请确认安装后的 skill 目录里同时包含 `SKILL.md` 和 `references/`。
+如果你使用兼容 Agent Skills 的包管理工具，请确认安装后的 skill 目录里同时包含 `SKILL.md` 和 `references/`。本仓库有意不把 `evals/`、`cases/`、`scripts/` 放进 runtime 安装。
 
 ## 🧪 调用示例
 

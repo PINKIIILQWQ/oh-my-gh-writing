@@ -22,59 +22,26 @@ The core idea is simple: route the request first, load only the matching writing
 
 ## 🚀 Quick Start
 
-Install only the runtime skill files into your local skill directory. Pick the block for your agent and copy it as-is.
-
-**Verified by maintainer**
-
-**Codex**
+Install the runtime skill files only. The Codex path below is maintainer-verified:
 
 ```bash
 target="$HOME/.agents/skills/oh-my-gh-writing"
 tmp="$(mktemp -d)"
-git clone --depth 1 https://github.com/PINKIIILQWQ/oh-my-gh-writing.git "$tmp/oh-my-gh-writing"
+repo="$tmp/oh-my-gh-writing"
+git clone --depth 1 https://github.com/PINKIIILQWQ/oh-my-gh-writing.git "$repo"
 rm -rf "$target"
 mkdir -p "$target"
-cp -R "$tmp/oh-my-gh-writing/SKILL.md" "$tmp/oh-my-gh-writing/INDEX.md" "$tmp/oh-my-gh-writing/references" "$target/"
+cp -R "$repo/SKILL.md" "$repo/INDEX.md" "$repo/references" "$target/"
 rm -rf "$tmp"
 ```
 
-**Documented but not maintainer-verified**
+For other documented hosts, use the same command with a different `target`:
 
-**Claude Code**
-
-```bash
-target="$HOME/.claude/skills/oh-my-gh-writing"
-tmp="$(mktemp -d)"
-git clone --depth 1 https://github.com/PINKIIILQWQ/oh-my-gh-writing.git "$tmp/oh-my-gh-writing"
-rm -rf "$target"
-mkdir -p "$target"
-cp -R "$tmp/oh-my-gh-writing/SKILL.md" "$tmp/oh-my-gh-writing/INDEX.md" "$tmp/oh-my-gh-writing/references" "$target/"
-rm -rf "$tmp"
-```
-
-**Gemini CLI**
-
-```bash
-target="$HOME/.agents/skills/oh-my-gh-writing"
-tmp="$(mktemp -d)"
-git clone --depth 1 https://github.com/PINKIIILQWQ/oh-my-gh-writing.git "$tmp/oh-my-gh-writing"
-rm -rf "$target"
-mkdir -p "$target"
-cp -R "$tmp/oh-my-gh-writing/SKILL.md" "$tmp/oh-my-gh-writing/INDEX.md" "$tmp/oh-my-gh-writing/references" "$target/"
-rm -rf "$tmp"
-```
-
-**Hermes**
-
-```bash
-target="$HOME/.hermes/skills/github/oh-my-gh-writing"
-tmp="$(mktemp -d)"
-git clone --depth 1 https://github.com/PINKIIILQWQ/oh-my-gh-writing.git "$tmp/oh-my-gh-writing"
-rm -rf "$target"
-mkdir -p "$target"
-cp -R "$tmp/oh-my-gh-writing/SKILL.md" "$tmp/oh-my-gh-writing/INDEX.md" "$tmp/oh-my-gh-writing/references" "$target/"
-rm -rf "$tmp"
-```
+| Host | Target path | Status |
+| --- | --- | --- |
+| Claude Code | `$HOME/.claude/skills/oh-my-gh-writing` | Documented, not maintainer-verified |
+| Gemini CLI | `$HOME/.agents/skills/oh-my-gh-writing` | Documented, not maintainer-verified |
+| Hermes | `$HOME/.hermes/skills/github/oh-my-gh-writing` | Documented, not maintainer-verified |
 
 For repository development, clone the full repository separately:
 
@@ -93,7 +60,7 @@ Start with one of these prompts:
 /oh-my-gh-writing Prepare the full v1.2.0 release materials from these merged PR summaries: fix login redirect, add CSV export, update docs. Do not publish anything.
 ```
 
-If you use an Agent Skills-compatible package manager, verify that the installed skill folder contains both `SKILL.md` and `references/`.
+If you use an Agent Skills-compatible package manager, verify that the installed skill folder contains both `SKILL.md` and `references/`. This repository intentionally keeps `evals/`, `cases/`, and `scripts/` out of runtime installs.
 
 ## 🧪 Example Prompts
 

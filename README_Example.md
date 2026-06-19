@@ -40,21 +40,14 @@ Use it when you need GitHub issues, pull request descriptions, code reviews, com
 Install only the runtime skill files into your local skill directory:
 
 ```bash
-# Codex-style hosts:
 target="$HOME/.agents/skills/oh-my-gh-writing"
-
-# Claude Code:
-# target="$HOME/.claude/skills/oh-my-gh-writing"
-
 tmp="$(mktemp -d)"
-git clone --depth 1 https://github.com/PINKIIILQWQ/oh-my-gh-writing.git "$tmp/oh-my-gh-writing"
+repo="$tmp/oh-my-gh-writing"
+git clone --depth 1 https://github.com/PINKIIILQWQ/oh-my-gh-writing.git "$repo"
 
 rm -rf "$target"
 mkdir -p "$target"
-cp -R "$tmp/oh-my-gh-writing/SKILL.md" \
-  "$tmp/oh-my-gh-writing/INDEX.md" \
-  "$tmp/oh-my-gh-writing/references" \
-  "$target/"
+cp -R "$repo/SKILL.md" "$repo/INDEX.md" "$repo/references" "$target/"
 
 rm -rf "$tmp"
 ```
