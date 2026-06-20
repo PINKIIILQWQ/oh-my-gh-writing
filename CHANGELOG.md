@@ -6,9 +6,13 @@ This project follows the spirit of [Keep a Changelog](https://keepachangelog.com
 
 ## [Unreleased]
 
+## [0.1.1] - 2026-06-20
+
 ### Changed
 
 - Made the documented runtime install minimal: `SKILL.md`, `INDEX.md`, and `references/` only; moved Agent Skills CLI install to an explicitly full-repository convenience option after testing it.
+- Replaced destructive runtime installation with staging, validation, and a timestamped backup of any existing skill directory.
+- Pinned CI actions to commit SHAs, limited workflow permissions to `contents: read`, and added YAML/frontmatter and runtime-install validation.
 - Added a concise static Shields.io badge formula and encoding guidance.
 
 ### Removed

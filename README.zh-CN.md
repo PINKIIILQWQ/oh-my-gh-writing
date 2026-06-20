@@ -6,7 +6,7 @@
 
 <p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-0f766e?style=flat" alt="MIT License"></a>
-  <a href="SKILL.md"><img src="https://img.shields.io/badge/Skill-v0.1.0-2563eb?style=flat" alt="Skill v0.1.0"></a>
+  <a href="https://github.com/PINKIIILQWQ/oh-my-gh-writing/releases/tag/v0.1.1"><img src="https://img.shields.io/badge/Skill-v0.1.1-2563eb?style=flat" alt="Skill v0.1.1"></a>
   <a href="INDEX.md"><img src="https://img.shields.io/badge/Artifacts-18-6a0dad?style=flat" alt="18 artifact standards"></a>
   <a href="INDEX.md"><img src="https://img.shields.io/badge/Workflows-7-0f766e?style=flat" alt="7 workflow packs"></a>
   <a href="SKILL.md"><img src="https://img.shields.io/badge/Format-SKILL.md-22AA66?style=flat" alt="SKILL.md"></a>
@@ -57,6 +57,18 @@ repo="$tmp/oh-my-gh-writing"
 ```
 
 ```bash
+parent="$(dirname "$target")"
+```
+
+```bash
+mkdir -p "$parent"
+```
+
+```bash
+staging="$(mktemp -d "$parent/.oh-my-gh-writing.new.XXXXXX")"
+```
+
+```bash
 git clone --depth 1 --filter=blob:none --sparse https://github.com/PINKIIILQWQ/oh-my-gh-writing.git "$repo"
 ```
 
@@ -65,15 +77,33 @@ git -C "$repo" sparse-checkout set --no-cone /SKILL.md /INDEX.md /references/
 ```
 
 ```bash
-rm -rf "$target"
+cp -R "$repo/SKILL.md" "$repo/INDEX.md" "$repo/references" "$staging/"
 ```
 
 ```bash
-mkdir -p "$target"
+test -f "$staging/SKILL.md"
 ```
 
 ```bash
-cp -R "$repo/SKILL.md" "$repo/INDEX.md" "$repo/references" "$target/"
+test -f "$staging/INDEX.md"
+```
+
+```bash
+test -d "$staging/references"
+```
+
+```bash
+backup="$parent/.oh-my-gh-writing.backup.$(date +%Y%m%d%H%M%S)"
+```
+
+```bash
+if [ -e "$target" ]; then
+  mv "$target" "$backup"
+fi
+```
+
+```bash
+mv "$staging" "$target"
 ```
 
 ```bash
@@ -82,7 +112,7 @@ rm -rf "$tmp"
 
 手动安装中的 Codex 路径已由维护者验证。Claude Code、Gemini CLI、Devin CLI、Devin Desktop / Windsurf Cascade、Hermes 路径有文档依据，但本仓库维护者暂未逐一实测。
 
-最终 skill 目录只包含 `SKILL.md`、`INDEX.md` 和 `references/`。运行 skill 不需要 `evals/`、`cases/`、`scripts/`、`.github/` 或 `assets/`。
+最终 skill 目录只包含 `SKILL.md`、`INDEX.md` 和 `references/`。运行 skill 不需要 `evals/`、`cases/`、`scripts/`、`.github/` 或 `assets/`。如果之前已有安装，它会保留在 `$backup`，请验证新安装后再自行删除。
 
 然后直接问 agent：
 
@@ -119,6 +149,14 @@ python3 scripts/validate-evals.py
 
 ```bash
 python3 scripts/validate-cases.py
+```
+
+```bash
+ruby scripts/validate-yaml.rb SKILL.md .github/ISSUE_TEMPLATE/*.yml
+```
+
+```bash
+python3 scripts/validate-runtime-layout.py
 ```
 
 从这些提示词开始：
@@ -285,6 +323,8 @@ Workflow pack 只做编排：能安全判断时会推断最合适的材料包，
 ```bash
 python3 scripts/validate-evals.py
 python3 scripts/validate-cases.py
+ruby scripts/validate-yaml.rb SKILL.md .github/ISSUE_TEMPLATE/*.yml
+python3 scripts/validate-runtime-layout.py
 ```
 
 ## 📚 参考来源

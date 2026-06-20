@@ -32,7 +32,7 @@ A. Public launch pack (Recommended): README + CONTRIBUTING + Issue Forms + PR Te
 B. Minimal launch: README + contribution entry + basic issue/PR templates.
 C. Maintainer-ready launch: public launch pack + stricter intake and review guidance.
 
-Add any supplements in the same reply: official website, docs/demo URL, supported platforms, license status, screenshots/logo, acknowledgement sources, target languages, or contribution policy.
+Add any supplements in the same reply: repository description, official website, docs/demo URL, relevant topics, supported platforms, license status, screenshots/logo, acknowledgement sources, target languages, or contribution policy.
 ```
 
 ## Artifact Selection
@@ -47,8 +47,18 @@ Read `weapons.md` or `emoji-guide.md` only when visuals, badges, icons, or emoji
 
 ## Evidence Rules
 
-- Applicability scope, install commands, package names, platform support, contribution process, and credits require evidence.
+- Applicability scope, install commands, package names, platform support, contribution process, credits, repository description, homepage URL, and topics require evidence.
 - Use `TBD` for missing launch facts. Do not invent public-readiness claims.
+
+## Repository About Metadata
+
+For a public launch, include a local `repository-about.md` draft or an audit recommendation covering:
+
+- A concise repository description.
+- An official homepage URL only when one exists.
+- Two to five relevant GitHub topics.
+
+About metadata is repository configuration, not a README substitute. Do not update remote metadata unless the user explicitly asks. Do not infer a website, package registry, topic, or support claim from the project name alone.
 
 ## Suggested File Names
 
@@ -57,6 +67,7 @@ Read `weapons.md` or `emoji-guide.md` only when visuals, badges, icons, or emoji
 - `.github/ISSUE_TEMPLATE/bug_report.yml`
 - `.github/ISSUE_TEMPLATE/feature_request.yml`
 - `.github/pull_request_template.md`
+- `repository-about.md`
 - `package-manifest.md`
 
 ## Package Manifest
@@ -74,6 +85,7 @@ Every workflow package should include `package-manifest.md` with:
 
 - [ ] Package option is selected.
 - [ ] README includes project applicability scope.
+- [ ] Repository About description, homepage, and topics are evidenced or marked `TBD`.
 - [ ] Credits or acknowledgements are relationship-specific.
 - [ ] No public launch action is performed by default.
 - [ ] Audit-only requests do not create files or package drafts.

@@ -55,9 +55,11 @@ Do not submit large batches of copied artifacts without prior discussion. If a c
 
 Before opening a PR:
 
-1. Run `python3 scripts/validate-evals.py` when eval fixtures change, and run basic Markdown/JSON checks for changed files.
-2. Run `python3 scripts/validate-cases.py` when public case evidence changes.
-3. Add or update at least one eval when changing `SKILL.md` routing, description triggers, workflow packs, or output hygiene rules.
-4. For scenario rule changes, include either a short `Good output shape` / `Common failure` note or an eval expected output when the change affects artifact shape.
-5. Confirm `SKILL.md`, `INDEX.md`, README files, and `references/` paths stay synchronized.
-6. Keep `README.md` canonical and update `README.zh-CN.md` when public-facing README content changes.
+1. Run `ruby scripts/validate-yaml.rb SKILL.md .github/ISSUE_TEMPLATE/*.yml` when changing skill frontmatter or Issue Forms.
+2. Run `python3 scripts/validate-runtime-layout.py` when changing runtime files or installation guidance.
+3. Run `python3 scripts/validate-evals.py` when eval fixtures change, and run basic Markdown/JSON checks for changed files.
+4. Run `python3 scripts/validate-cases.py` when public case evidence changes.
+5. Add or update at least one eval when changing `SKILL.md` routing, description triggers, workflow packs, or output hygiene rules.
+6. For scenario rule changes, include either a short `Good output shape` / `Common failure` note or an eval expected output when the change affects artifact shape.
+7. Confirm `SKILL.md`, `INDEX.md`, README files, and `references/` paths stay synchronized.
+8. Keep `README.md` canonical and update `README.zh-CN.md` when public-facing README content changes.
