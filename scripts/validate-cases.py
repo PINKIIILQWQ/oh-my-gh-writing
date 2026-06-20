@@ -35,6 +35,12 @@ LABELS = {
     "FACT_CHECK_REQUIRED",
     "DRAFT_ONLY",
 }
+README_FORBIDDEN_LABELS = {
+    "ROUTING_FAIL",
+    "FORMAT_FAIL",
+    "FACT_CHECK_REQUIRED",
+    "DRAFT_ONLY",
+}
 
 ALLOWED_WITH_SKILL_SUFFIXES = {".md", ".yml", ".yaml"}
 EXCERPT_TYPES = {"exact", "shortened", "paraphrased"}
@@ -109,6 +115,11 @@ def main() -> None:
             if "README citation status: allowed" not in attribution:
                 fail(f"{case_name}: README citation is not explicitly allowed")
             grading = (CASES / case_name / "grading.md").read_text(encoding="utf-8")
+            label_match = re.search(r"^Label:\s*([A-Z_]+)\s*$", grading, re.MULTILINE)
+            if not label_match:
+                fail(f"{case_name}: grading.md missing Label")
+            if label_match.group(1) in README_FORBIDDEN_LABELS:
+                fail(f"{case_name}: README must not cite label {label_match.group(1)}")
             excerpt_match = re.search(
                 r"^- README excerpt type:\s*(exact|shortened|paraphrased)\.\s*$",
                 grading,

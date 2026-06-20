@@ -6,6 +6,8 @@ This project follows the spirit of [Keep a Changelog](https://keepachangelog.com
 
 ## [Unreleased]
 
+## [0.1.2] - 2026-06-20
+
 ### Changed
 
 - Shortened Quick Start to a safe first-install path and moved backup-based replacement into a collapsed update section.

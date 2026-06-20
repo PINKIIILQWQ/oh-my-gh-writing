@@ -34,7 +34,7 @@
       "output_type": "markdown-artifact",
       "risk_category": ["workflow", "format"],
       "expected_output": "Routes to Project Launch as an audit-only readiness review for a skill repository. This fixture is intentionally separate from the public sample-repository case. Output lists existing files, missing recommended files, optional files, and next steps. It does not create target files, does not create .github-writing drafts, and does not imply files were written.",
-      "expected_file": "expected/project-launch-audit.clean.md",
+      "expected_file": "expected/project-launch-skill-repo-audit.clean.md",
       "assertions": [
         "Output is a readiness audit, not a generated file package.",
         "Output recommends files without claiming they were created.",
