@@ -51,6 +51,9 @@ jobs:
       - name: Validate runtime layout and install guide
         run: python3 scripts/validate-runtime-layout.py
 
+      - name: Validate release version consistency
+        run: python3 scripts/validate-release-version.py
+
       - name: Validate eval fixtures
         run: python3 scripts/validate-evals.py
 

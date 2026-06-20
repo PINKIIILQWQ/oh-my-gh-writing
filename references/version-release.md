@@ -59,6 +59,7 @@ Read `shared-principles.md` because release materials are fact-heavy.
 Every workflow package should include `package-manifest.md` with:
 
 - Selected package option.
+- Generator: `oh-my-gh-writing` version from `VERSION`.
 - Generated files and intended target paths.
 - Assumptions and evidence sources.
 - `TODO` / `TBD` fields.

@@ -53,11 +53,12 @@ mkdir -p "$parent"
 staging="$(mktemp -d "$parent/.oh-my-gh-writing.new.XXXXXX")"
 
 git clone --depth 1 --filter=blob:none --sparse https://github.com/PINKIIILQWQ/oh-my-gh-writing.git "$repo"
-git -C "$repo" sparse-checkout set --no-cone /SKILL.md /INDEX.md /references/
-cp -R "$repo/SKILL.md" "$repo/INDEX.md" "$repo/references" "$staging/"
+git -C "$repo" sparse-checkout set --no-cone /SKILL.md /INDEX.md /VERSION /references/
+cp -R "$repo/SKILL.md" "$repo/INDEX.md" "$repo/VERSION" "$repo/references" "$staging/"
 
 test -f "$staging/SKILL.md"
 test -f "$staging/INDEX.md"
+test -f "$staging/VERSION"
 test -d "$staging/references"
 
 backup="$parent/.oh-my-gh-writing.backup.$(date +%Y%m%d%H%M%S)"
@@ -68,7 +69,26 @@ mv "$staging" "$target"
 rm -rf "$tmp"
 ```
 
-最终 skill 目录只包含 `SKILL.md`、`INDEX.md` 和 `references/`。运行 skill 不需要 `evals/`、`cases/`、`scripts/`、`.github/` 或 `assets/`。确认安装或更新无误后，再删除 `$backup`。
+最终 skill 目录只包含 `SKILL.md`、`INDEX.md`、`VERSION` 和 `references/`。运行 skill 不需要 `evals/`、`cases/`、`scripts/`、`.github/` 或 `assets/`。确认安装或更新无误后，再删除 `$backup`。
+
+</details>
+
+<details>
+<summary>更新已安装的 skill</summary>
+
+通过 Agent Skills CLI 安装时：
+
+```bash
+npx skills update oh-my-gh-writing -g
+```
+
+更新全部全局安装的 skills：
+
+```bash
+npx skills update -g
+```
+
+如果是 runtime-only 安装，请重新运行上面的安全安装/更新流程。它会将原目录保留为带时间戳的备份。
 
 </details>
 
@@ -96,6 +116,10 @@ ruby scripts/validate-yaml.rb SKILL.md .github/ISSUE_TEMPLATE/*.yml
 
 ```bash
 python3 scripts/validate-runtime-layout.py
+```
+
+```bash
+python3 scripts/validate-release-version.py
 ```
 
 从这些提示词开始：
@@ -222,6 +246,7 @@ Workflow pack 只做编排：能安全判断时会推断最合适的材料包，
 | --- | --- |
 | [`SKILL.md`](SKILL.md) | 轻量运行时路由和工作流规则 |
 | [`INDEX.md`](INDEX.md) | 18 个 artifact 标准和 7 个 workflow pack 的导航 |
+| [`VERSION`](VERSION) | 用于更新状态和 workflow manifest 的 runtime 版本来源 |
 | [`references/`](references) | 场景标准、workflow pack 和质量附录 |
 | [`references/readme.md`](references/readme.md) | README 写作标准 |
 | [`references/source-catalog.md`](references/source-catalog.md) | 公开参考来源和维护说明 |
@@ -249,6 +274,7 @@ python3 scripts/validate-evals.py
 python3 scripts/validate-cases.py
 ruby scripts/validate-yaml.rb SKILL.md .github/ISSUE_TEMPLATE/*.yml
 python3 scripts/validate-runtime-layout.py
+python3 scripts/validate-release-version.py
 ```
 
 ## 📚 参考来源

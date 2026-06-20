@@ -10,6 +10,7 @@ This project follows the spirit of [Keep a Changelog](https://keepachangelog.com
 
 ### Changed
 
+- Added a runtime `VERSION` source, version-aware workflow manifests, explicit update guidance, and CI validation for release-version consistency.
 - Made the Agent Skills CLI the primary Quick Start path, with an explicit full-repository caveat and a collapsed minimal runtime-only install/update path.
 - Added Antigravity CLI installation using `npx skills add PINKIIILQWQ/oh-my-gh-writing -g`.
 - Simplified Agent Support into one practical setup table without per-host verification status.

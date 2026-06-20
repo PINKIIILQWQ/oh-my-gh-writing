@@ -51,11 +51,12 @@ mkdir -p "$parent"
 staging="$(mktemp -d "$parent/.oh-my-gh-writing.new.XXXXXX")"
 
 git clone --depth 1 --filter=blob:none --sparse https://github.com/PINKIIILQWQ/oh-my-gh-writing.git "$repo"
-git -C "$repo" sparse-checkout set --no-cone /SKILL.md /INDEX.md /references/
-cp -R "$repo/SKILL.md" "$repo/INDEX.md" "$repo/references" "$staging/"
+git -C "$repo" sparse-checkout set --no-cone /SKILL.md /INDEX.md /VERSION /references/
+cp -R "$repo/SKILL.md" "$repo/INDEX.md" "$repo/VERSION" "$repo/references" "$staging/"
 
 test -f "$staging/SKILL.md"
 test -f "$staging/INDEX.md"
+test -f "$staging/VERSION"
 test -d "$staging/references"
 
 backup="$parent/.oh-my-gh-writing.backup.$(date +%Y%m%d%H%M%S)"
@@ -66,7 +67,26 @@ mv "$staging" "$target"
 rm -rf "$tmp"
 ```
 
-The final skill directory contains only `SKILL.md`, `INDEX.md`, and `references/`. Users do not need `evals/`, `cases/`, `scripts/`, `.github/`, or `assets/` to run the skill. After verifying the installation or update, remove `$backup` when you no longer need it.
+The final skill directory contains only `SKILL.md`, `INDEX.md`, `VERSION`, and `references/`. Users do not need `evals/`, `cases/`, `scripts/`, `.github/`, or `assets/` to run the skill. After verifying the installation or update, remove `$backup` when you no longer need it.
+
+</details>
+
+<details>
+<summary>Update an installed skill</summary>
+
+For an Agent Skills CLI installation:
+
+```bash
+npx skills update oh-my-gh-writing -g
+```
+
+To update all globally installed skills:
+
+```bash
+npx skills update -g
+```
+
+For a runtime-only installation, rerun the safe install/update flow above. It preserves the previous directory as a timestamped backup.
 
 </details>
 
@@ -94,6 +114,10 @@ ruby scripts/validate-yaml.rb SKILL.md .github/ISSUE_TEMPLATE/*.yml
 
 ```bash
 python3 scripts/validate-runtime-layout.py
+```
+
+```bash
+python3 scripts/validate-release-version.py
 ```
 
 Start with one of these prompts:
@@ -220,6 +244,7 @@ Native rows load this folder directly. Adapted rows need a compact host-specific
 | --- | --- |
 | [`SKILL.md`](SKILL.md) | Thin runtime router and workflow rules |
 | [`INDEX.md`](INDEX.md) | Navigation for 18 artifact standards and 7 workflow packs |
+| [`VERSION`](VERSION) | Runtime version source for update status and workflow manifests |
 | [`references/`](references) | Scenario standards, workflow packs, and quality appendices |
 | [`references/readme.md`](references/readme.md) | README writing standard used by this skill |
 | [`references/source-catalog.md`](references/source-catalog.md) | Public source catalog and maintenance notes |
@@ -247,6 +272,7 @@ python3 scripts/validate-evals.py
 python3 scripts/validate-cases.py
 ruby scripts/validate-yaml.rb SKILL.md .github/ISSUE_TEMPLATE/*.yml
 python3 scripts/validate-runtime-layout.py
+python3 scripts/validate-release-version.py
 ```
 
 ## 📚 Sources

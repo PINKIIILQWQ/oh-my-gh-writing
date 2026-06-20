@@ -55,10 +55,11 @@ Agents should start with `SKILL.md`, then load the matching `references/*.md`. B
 | Directory | Purpose | Entry |
 |-----------|---------|-------|
 | `references/` | Artifact standards, workflow packs, validation, Markdown tools, and source catalog | `references/readme.md` |
+| `VERSION` | Runtime version source | `VERSION` |
 | `CONTRIBUTING.md` | Contribution rules, source requirements, and case feedback process | `CONTRIBUTING.md` |
 | `assets/` | README and project display assets | `assets/oh-my-gh-writing-logo.png` |
 | `evals/` | Trigger and output-quality eval fixtures for skill iteration | `evals/evals.json` |
-| `scripts/` | Maintainer validation utilities | `validate-evals.py`, `validate-cases.py`, `validate-yaml.rb`, `validate-runtime-layout.py` |
+| `scripts/` | Maintainer validation utilities | `validate-evals.py`, `validate-cases.py`, `validate-yaml.rb`, `validate-runtime-layout.py`, `validate-release-version.py` |
 | `cases/` | Sanitized public evidence cases, not runtime references | `cases/README.md` |
 | `.github/` | Repository collaboration templates | `.github/pull_request_template.md` |
 | `CHANGELOG.md` | Release history | `CHANGELOG.md` |

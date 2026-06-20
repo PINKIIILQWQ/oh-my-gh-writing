@@ -7,6 +7,8 @@ description: "Draft and revise GitHub-facing writing artifacts: issues, PR descr
 
 GitHub writing skill for AI agents. Route the request, load the matching standard, keep evidence boundaries explicit, and produce near-submission-ready GitHub drafts.
 
+`VERSION` is the local runtime version source. Read it only when the user asks about this skill's version or update path, or when creating a composite package manifest. Do not add the skill version to a single GitHub artifact.
+
 ## Trigger Boundary
 
 Use this skill for GitHub-facing writing artifacts and local GitHub writing draft packages. Do not use it for general copywriting, UI text, code implementation, product strategy, or broad documentation work unless the requested output is a GitHub artifact or GitHub repository file.
@@ -76,6 +78,7 @@ Composite workflow packs are orchestrators, not templates. They select which exi
 - Default output location is local draft files under `.github-writing/<pack-name>/<version-or-date>/`.
 - If no version or date is known, use `.github-writing/<pack-name>/TBD/`.
 - Include `package-manifest.md` in every composite package, listing generated files, assumptions, `TODO` / `TBD` fields, files safe to write, and files requiring maintainer confirmation.
+- Record the value from `VERSION` in every composite `package-manifest.md` as the generator version.
 - If file writing is unavailable, display the package as multi-file chat output using `## File: ...` headings and fenced blocks. Do not claim files were written.
 - Do not publish, create GitHub releases, push tags, open PRs, or modify remote state unless the user explicitly asks.
 

@@ -57,6 +57,7 @@ Add any supplements in the same reply: target audience, current constraints, pre
 Every workflow package should include `package-manifest.md` with:
 
 - Selected package option.
+- Generator: `oh-my-gh-writing` version from `VERSION`.
 - Generated files and intended target paths.
 - Assumptions and evidence sources.
 - `TODO` / `TBD` fields.

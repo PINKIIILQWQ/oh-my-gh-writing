@@ -7,13 +7,14 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-RUNTIME = ("SKILL.md", "INDEX.md", "references")
+RUNTIME = ("SKILL.md", "INDEX.md", "VERSION", "references")
 README_FILES = (ROOT / "README.md", ROOT / "README.zh-CN.md")
 REQUIRED_GUIDE_TEXT = (
     'npx skills add PINKIIILQWQ/oh-my-gh-writing -g',
     'staging="$(mktemp -d "$parent/.oh-my-gh-writing.new.XXXXXX")"',
-    'git -C "$repo" sparse-checkout set --no-cone /SKILL.md /INDEX.md /references/',
-    'cp -R "$repo/SKILL.md" "$repo/INDEX.md" "$repo/references" "$staging/"',
+    'git -C "$repo" sparse-checkout set --no-cone /SKILL.md /INDEX.md /VERSION /references/',
+    'cp -R "$repo/SKILL.md" "$repo/INDEX.md" "$repo/VERSION" "$repo/references" "$staging/"',
+    'test -f "$staging/VERSION"',
     'if [ -e "$target" ]; then',
     'mv "$target" "$backup"',
     'mv "$staging" "$target"',
