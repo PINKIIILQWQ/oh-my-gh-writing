@@ -213,6 +213,7 @@ Workflow pack 只做编排：能安全判断时会推断最合适的材料包，
 | [Devin CLI](https://docs.devin.ai/cli/extensibility/skills/overview) | 原生 skill 目录 | `$HOME/.agents/skills/oh-my-gh-writing`、`$HOME/.config/devin/skills/oh-my-gh-writing` 或项目 `.agents/skills/oh-my-gh-writing` | 暂未 | 2026-06-20 | 官方文档说明 Devin CLI 支持 `.agents` skills standard 和 `SKILL.md` skill 目录 |
 | [Devin Desktop / Windsurf Cascade](https://docs.devin.ai/desktop/cascade/skills) | 原生 skill 目录 | `$HOME/.agents/skills/oh-my-gh-writing`、`$HOME/.codeium/windsurf/skills/oh-my-gh-writing` 或项目 `.windsurf/skills/oh-my-gh-writing` | 暂未 | 2026-06-20 | 官方文档说明 Cascade skills 使用 `SKILL.md` 文件夹，并会发现 `.agents/skills` 路径 |
 | [Hermes](https://hermes-agent.nousresearch.com/docs/guides/work-with-skills) | 原生 skill 目录 | 把 runtime 目录复制到 `~/.hermes/skills/github/oh-my-gh-writing` | 暂未 | 2026-06-20 | 本仓库依赖 `references/`，不要使用 HTTP 单文件安装 |
+| Antigravity CLI | 原生 skill 安装 | `npx skills add PINKIIILQWQ/oh-my-gh-writing -g` | 是 | 2026-06-20 | 维护者已在 Antigravity CLI 验证此命令；它会安装完整仓库，而不是只安装最小 runtime |
 
 ### 适配目标
 
@@ -223,12 +224,6 @@ Workflow pack 只做编排：能安全判断时会推断最合适的材料包，
 | [GitHub Copilot](https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-repository-instructions) | 仓库 custom instructions | `.github/copilot-instructions.md`、`.github/instructions/gh-writing.instructions.md` 或 `AGENTS.md` | 暂未 | 2026-06-20 | 用压缩版规则；Copilot 不会自动加载本 skill 目录 |
 | [Continue](https://docs.continue.dev/customize/rules) | 项目 rules | `.continue/rules/oh-my-gh-writing.md` | 暂未 | 2026-06-20 | 内容较长时按场景拆分 |
 | [Cursor](https://cursor.com/docs) | 项目 rules | `.cursor/rules/oh-my-gh-writing.mdc` | 暂未 | 2026-06-20 | 这是规则适配，不是原生 Agent Skill 支持 |
-
-### 暂不列为已支持
-
-| 工具 | 状态 | 最后检查 | 说明 |
-| --- | --- | --- | --- |
-| Antigravity CLI | 未确认 | 2026-06-20 | Gemini CLI 文档提到 Antigravity 迁移，但这里应等 Antigravity 自己的官方 skill 安装文档明确后再列为支持 |
 
 ## 📂 文件
 

@@ -11,6 +11,7 @@ This project follows the spirit of [Keep a Changelog](https://keepachangelog.com
 ### Changed
 
 - Made the Agent Skills CLI the primary Quick Start path, with an explicit full-repository caveat and a collapsed minimal runtime-only install/update path.
+- Added maintainer-verified Antigravity CLI installation using `npx skills add PINKIIILQWQ/oh-my-gh-writing -g`.
 - Clarified that the Project Launch audit eval and the public launch-readiness case are separate fixtures with different repository contexts.
 - Added explicit README showcase approval metadata for publicly cited cases and removed the not-yet-citable version-release case from README.
 - Synchronized the Simplified Chinese README evaluation and adaptation-target wording with the English README.

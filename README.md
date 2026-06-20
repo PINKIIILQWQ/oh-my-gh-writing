@@ -211,6 +211,7 @@ Last checked: 2026-06-20.
 | [Devin CLI](https://docs.devin.ai/cli/extensibility/skills/overview) | Native skill directory | `$HOME/.agents/skills/oh-my-gh-writing`, `$HOME/.config/devin/skills/oh-my-gh-writing`, or project `.agents/skills/oh-my-gh-writing` | Not yet | 2026-06-20 | Official docs state Devin CLI supports the `.agents` skills standard and `SKILL.md` skill directories |
 | [Devin Desktop / Windsurf Cascade](https://docs.devin.ai/desktop/cascade/skills) | Native skill directory | `$HOME/.agents/skills/oh-my-gh-writing`, `$HOME/.codeium/windsurf/skills/oh-my-gh-writing`, or project `.windsurf/skills/oh-my-gh-writing` | Not yet | 2026-06-20 | Official docs state Cascade skills use `SKILL.md` folders and also discover `.agents/skills` paths |
 | [Hermes](https://hermes-agent.nousresearch.com/docs/guides/work-with-skills) | Native skill directory | Copy the runtime folder to `~/.hermes/skills/github/oh-my-gh-writing` | Not yet | 2026-06-20 | Do not use HTTP single-file install for this repo because `references/` are required |
+| Antigravity CLI | Native skill install | `npx skills add PINKIIILQWQ/oh-my-gh-writing -g` | Yes | 2026-06-20 | Maintainer verified this command in Antigravity CLI; it installs the full repository rather than the minimal runtime only |
 
 ### Adaptation Targets
 
@@ -221,12 +222,6 @@ These tools do not consume this full Agent Skill folder as-is. Use this reposito
 | [GitHub Copilot](https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-repository-instructions) | Repository custom instructions | `.github/copilot-instructions.md`, `.github/instructions/gh-writing.instructions.md`, or `AGENTS.md` | Not yet | 2026-06-20 | Use a compact summary; Copilot will not automatically load this skill directory |
 | [Continue](https://docs.continue.dev/customize/rules) | Project rules | `.continue/rules/oh-my-gh-writing.md` | Not yet | 2026-06-20 | Split large guidance by scenario when needed |
 | [Cursor](https://cursor.com/docs) | Project rules | `.cursor/rules/oh-my-gh-writing.mdc` | Not yet | 2026-06-20 | Treat as a rules adaptation, not native Agent Skill support |
-
-### Not Listed As Supported Yet
-
-| Tool | Status | Last checked | Notes |
-| --- | --- | --- | --- |
-| Antigravity CLI | Not confirmed | 2026-06-20 | Gemini CLI docs mention Antigravity migration, but this README should wait for Antigravity-specific official skill installation docs before listing it as supported |
 
 ## 📂 Files
 
