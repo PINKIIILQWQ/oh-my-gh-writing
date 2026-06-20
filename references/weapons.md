@@ -26,6 +26,7 @@ Rules:
 
 - Dynamic badges are only for real data sources such as packages, releases, workflows, coverage, downloads, or stars.
 - Static badges can express artifact format or scope, such as `format-SKILL.md` or `18 artifact standards + 7 workflow packs`, but must link to the relevant file or docs.
+- Special growth or trend badges, such as Trendshift or Star History, require a verified service URL or repository identifier. Do not invent GitHub Trending status or Trendshift ids.
 - Avoid duplicate intent. Do not show both package version and release version unless both matter.
 - If a badge URL produces `error`, `unknown`, or a broken image, remove it.
 - Link badges to useful destinations: license file, releases page, CI workflow, docs, package registry, or index.

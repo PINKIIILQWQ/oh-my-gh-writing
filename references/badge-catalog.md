@@ -209,6 +209,22 @@ Prefix: `/github/`
 | Libraries.io | `/librariesio/release/npm/package` |
 | Sourcegraph | `/sourcegraph/rr/user/repo` |
 
+## Special GitHub Trend / Growth Visuals
+
+These are not normal shields.io GitHub endpoints. Use them only when the source exists and the URL is verified.
+
+| Service | Use | Markdown pattern | Evidence required |
+|---------|-----|------------------|-------------------|
+| Trendshift | GitHub trending history / repo engagement badge | `[![Trendshift](https://trendshift.io/api/badge/repositories/<trendshift-repo-id>)](https://trendshift.io/repositories/<trendshift-repo-id>)` | A real Trendshift repository page or user-provided Trendshift repo id |
+| Star History | Star growth chart | `[![Star History Chart](https://api.star-history.com/svg?repos=user/repo&type=Date)](https://www.star-history.com/#user/repo&Date)` | Real public GitHub `user/repo` |
+
+Rules:
+
+- Do not invent a Trendshift repository id from `owner/repo`; open or search Trendshift first, or ask the user for the id.
+- Do not call a repository "Trending" unless a Trendshift page, GitHub Trending page, user input, or another verifiable source supports it.
+- Prefer standard GitHub stars/forks/release badges when no trend source is verified.
+- If the external image fails, returns HTML, or does not render on GitHub, omit the badge and link the source page instead.
+
 ## External Source
 
 [pudding0503/github-badge-collection](https://github.com/pudding0503/github-badge-collection) is a useful supporting catalog for GitHub visual assets and badge ideas. Treat it as inspiration and verify each concrete badge or asset before use.
