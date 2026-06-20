@@ -43,7 +43,7 @@ npx skills add PINKIIILQWQ/oh-my-gh-writing -g
 <details>
 <summary>最小 runtime-only 安装或安全更新</summary>
 
-维护者已验证路径：Codex。其他 host 请看 [Agent 支持](#-agent-支持)。把 `target` 设为目标 skill 目录。这个流程会先构建并验证新 runtime 目录，再把已有目录保留为带时间戳的备份。
+Codex 请把 `target` 设为目标 skill 目录。其他 host 请看 [Agent 支持](#-agent-支持)。这个流程会先构建并验证新 runtime 目录，再把已有目录保留为带时间戳的备份。
 
 ```bash
 tmp="$(mktemp -d)"
@@ -201,29 +201,20 @@ Workflow pack 只做编排：能安全判断时会推断最合适的材料包，
 
 ## 🤖 Agent 支持
 
-最后检查：2026-06-20。
+原生行可直接加载本目录；适配行需要改写为精简的 host-specific rules 文件。
 
-### 原生或目录兼容安装
-
-| Agent / Tool | 支持类型 | 推荐接入方式 | 维护者已验证 | 最后检查 | 说明 |
-| --- | --- | --- | --- | --- | --- |
-| [Codex](https://developers.openai.com/codex/skills) | 原生 skill 目录 | `$HOME/.agents/skills/oh-my-gh-writing` 或项目 `.agents/skills/oh-my-gh-writing` | 是 | 2026-06-20 | 官方文档列出 `.agents/skills` 用户和仓库位置 |
-| [Claude Code](https://code.claude.com/docs/en/skills) | 原生 skill 目录 | `~/.claude/skills/oh-my-gh-writing` 或项目 `.claude/skills/oh-my-gh-writing` | 暂未 | 2026-06-20 | 官方文档使用包含 `SKILL.md` 的目录作为 skill 入口 |
-| [Gemini CLI](https://geminicli.com/docs/cli/skills/) | 原生 skill 目录 | 手动 runtime-only 复制到 `$HOME/.agents/skills/oh-my-gh-writing` 或 `.agents/skills/oh-my-gh-writing` | 暂未 | 2026-06-20 | 官方文档列出 `.agents/skills` alias，并支持 `gemini skills install`，但本仓库不应安装非 runtime 文件，需验证安装结果 |
-| [Devin CLI](https://docs.devin.ai/cli/extensibility/skills/overview) | 原生 skill 目录 | `$HOME/.agents/skills/oh-my-gh-writing`、`$HOME/.config/devin/skills/oh-my-gh-writing` 或项目 `.agents/skills/oh-my-gh-writing` | 暂未 | 2026-06-20 | 官方文档说明 Devin CLI 支持 `.agents` skills standard 和 `SKILL.md` skill 目录 |
-| [Devin Desktop / Windsurf Cascade](https://docs.devin.ai/desktop/cascade/skills) | 原生 skill 目录 | `$HOME/.agents/skills/oh-my-gh-writing`、`$HOME/.codeium/windsurf/skills/oh-my-gh-writing` 或项目 `.windsurf/skills/oh-my-gh-writing` | 暂未 | 2026-06-20 | 官方文档说明 Cascade skills 使用 `SKILL.md` 文件夹，并会发现 `.agents/skills` 路径 |
-| [Hermes](https://hermes-agent.nousresearch.com/docs/guides/work-with-skills) | 原生 skill 目录 | 把 runtime 目录复制到 `~/.hermes/skills/github/oh-my-gh-writing` | 暂未 | 2026-06-20 | 本仓库依赖 `references/`，不要使用 HTTP 单文件安装 |
-| Antigravity CLI | 原生 skill 安装 | `npx skills add PINKIIILQWQ/oh-my-gh-writing -g` | 是 | 2026-06-20 | 维护者已在 Antigravity CLI 验证此命令；它会安装完整仓库，而不是只安装最小 runtime |
-
-### 适配目标
-
-这些工具不能直接消费完整 Agent Skill 目录。请把本仓库当作 host-specific rules 的源材料，而不是原生 skill 安装包；使用时需要把 router 和选定的 `references/*.md` 改写为对应格式。
-
-| 工具 | 适配方式 | 推荐文件 / 路径 | 维护者已验证 | 最后检查 | 说明 |
-| --- | --- | --- | --- | --- | --- |
-| [GitHub Copilot](https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-repository-instructions) | 仓库 custom instructions | `.github/copilot-instructions.md`、`.github/instructions/gh-writing.instructions.md` 或 `AGENTS.md` | 暂未 | 2026-06-20 | 用压缩版规则；Copilot 不会自动加载本 skill 目录 |
-| [Continue](https://docs.continue.dev/customize/rules) | 项目 rules | `.continue/rules/oh-my-gh-writing.md` | 暂未 | 2026-06-20 | 内容较长时按场景拆分 |
-| [Cursor](https://cursor.com/docs) | 项目 rules | `.cursor/rules/oh-my-gh-writing.mdc` | 暂未 | 2026-06-20 | 这是规则适配，不是原生 Agent Skill 支持 |
+| Agent / Tool | 支持类型 | 推荐接入方式 | 说明 |
+| --- | --- | --- | --- |
+| [Codex](https://developers.openai.com/codex/skills) | 原生 skill 目录 | `$HOME/.agents/skills/oh-my-gh-writing` 或项目 `.agents/skills/oh-my-gh-writing` | 官方文档列出 `.agents/skills` 用户和仓库位置 |
+| [Claude Code](https://code.claude.com/docs/en/skills) | 原生 skill 目录 | `~/.claude/skills/oh-my-gh-writing` 或项目 `.claude/skills/oh-my-gh-writing` | 使用包含 `SKILL.md` 的目录作为 skill 入口 |
+| [Gemini CLI](https://geminicli.com/docs/cli/skills/) | 原生 skill 目录 | 手动 runtime-only 复制到 `$HOME/.agents/skills/oh-my-gh-writing` 或 `.agents/skills/oh-my-gh-writing` | `gemini skills install` 可能安装非 runtime 文件；在意最小目录时使用 runtime-only 路径 |
+| [Devin CLI](https://docs.devin.ai/cli/extensibility/skills/overview) | 原生 skill 目录 | `$HOME/.agents/skills/oh-my-gh-writing`、`$HOME/.config/devin/skills/oh-my-gh-writing` 或项目 `.agents/skills/oh-my-gh-writing` | 支持 `.agents` skills standard 和 `SKILL.md` skill 目录 |
+| [Devin Desktop / Windsurf Cascade](https://docs.devin.ai/desktop/cascade/skills) | 原生 skill 目录 | `$HOME/.agents/skills/oh-my-gh-writing`、`$HOME/.codeium/windsurf/skills/oh-my-gh-writing` 或项目 `.windsurf/skills/oh-my-gh-writing` | Cascade skills 使用 `SKILL.md` 文件夹，并会发现 `.agents/skills` 路径 |
+| [Hermes](https://hermes-agent.nousresearch.com/docs/guides/work-with-skills) | 原生 skill 目录 | 把 runtime 目录复制到 `~/.hermes/skills/github/oh-my-gh-writing` | 本仓库依赖 `references/`，不要使用 HTTP 单文件安装 |
+| Antigravity CLI | 原生 skill 安装 | `npx skills add PINKIIILQWQ/oh-my-gh-writing -g` | 会安装完整仓库，而不是只安装最小 runtime |
+| [GitHub Copilot](https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-repository-instructions) | 适配后的仓库 instructions | `.github/copilot-instructions.md`、`.github/instructions/gh-writing.instructions.md` 或 `AGENTS.md` | 使用压缩版规则；Copilot 不会直接加载此 skill 目录 |
+| [Continue](https://docs.continue.dev/customize/rules) | 适配后的项目 rules | `.continue/rules/oh-my-gh-writing.md` | 内容较长时按场景拆分 |
+| [Cursor](https://cursor.com/docs) | 适配后的项目 rules | `.cursor/rules/oh-my-gh-writing.mdc` | 需要改写规则，不是原生 Agent Skill 支持 |
 
 ## 📂 文件
 

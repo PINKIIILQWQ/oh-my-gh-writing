@@ -41,7 +41,7 @@ Then ask your agent:
 <details>
 <summary>Minimal runtime-only install or safe update</summary>
 
-Maintainer-verified path: Codex. For other hosts, see [Agent Support](#-agent-support). Set `target` to the intended skill directory. This builds and validates a new runtime directory first, then preserves any existing directory as a timestamped backup.
+For Codex, set `target` to the intended skill directory. For other hosts, see [Agent Support](#-agent-support). This builds and validates a new runtime directory first, then preserves any existing directory as a timestamped backup.
 
 ```bash
 tmp="$(mktemp -d)"
@@ -199,29 +199,20 @@ Workflow packs are thin orchestrators. They infer the safest package shape when 
 
 ## 🤖 Agent Support
 
-Last checked: 2026-06-20.
+Native rows load this folder directly. Adapted rows need a compact host-specific rules file instead.
 
-### Native Or Folder-Compatible Install
-
-| Agent / Tool | Support type | Recommended setup | Maintainer verified | Last checked | Notes |
-| --- | --- | --- | --- | --- | --- |
-| [Codex](https://developers.openai.com/codex/skills) | Native skill directory | `$HOME/.agents/skills/oh-my-gh-writing` or project `.agents/skills/oh-my-gh-writing` | Yes | 2026-06-20 | Official docs list `.agents/skills` user and repository locations |
-| [Claude Code](https://code.claude.com/docs/en/skills) | Native skill directory | `~/.claude/skills/oh-my-gh-writing` or project `.claude/skills/oh-my-gh-writing` | Not yet | 2026-06-20 | Official docs use a `SKILL.md` directory as the skill entrypoint |
-| [Gemini CLI](https://geminicli.com/docs/cli/skills/) | Native skill directory | Manual runtime-only copy to `$HOME/.agents/skills/oh-my-gh-writing` or `.agents/skills/oh-my-gh-writing` | Not yet | 2026-06-20 | Official docs list `.agents/skills` as an alias and support `gemini skills install`, but verify install output because this repo should not install non-runtime files |
-| [Devin CLI](https://docs.devin.ai/cli/extensibility/skills/overview) | Native skill directory | `$HOME/.agents/skills/oh-my-gh-writing`, `$HOME/.config/devin/skills/oh-my-gh-writing`, or project `.agents/skills/oh-my-gh-writing` | Not yet | 2026-06-20 | Official docs state Devin CLI supports the `.agents` skills standard and `SKILL.md` skill directories |
-| [Devin Desktop / Windsurf Cascade](https://docs.devin.ai/desktop/cascade/skills) | Native skill directory | `$HOME/.agents/skills/oh-my-gh-writing`, `$HOME/.codeium/windsurf/skills/oh-my-gh-writing`, or project `.windsurf/skills/oh-my-gh-writing` | Not yet | 2026-06-20 | Official docs state Cascade skills use `SKILL.md` folders and also discover `.agents/skills` paths |
-| [Hermes](https://hermes-agent.nousresearch.com/docs/guides/work-with-skills) | Native skill directory | Copy the runtime folder to `~/.hermes/skills/github/oh-my-gh-writing` | Not yet | 2026-06-20 | Do not use HTTP single-file install for this repo because `references/` are required |
-| Antigravity CLI | Native skill install | `npx skills add PINKIIILQWQ/oh-my-gh-writing -g` | Yes | 2026-06-20 | Maintainer verified this command in Antigravity CLI; it installs the full repository rather than the minimal runtime only |
-
-### Adaptation Targets
-
-These tools do not consume this full Agent Skill folder as-is. Use this repository as source material for host-specific rules.
-
-| Tool | Adaptation path | Recommended file/path | Maintainer verified | Last checked | Notes |
-| --- | --- | --- | --- | --- | --- |
-| [GitHub Copilot](https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-repository-instructions) | Repository custom instructions | `.github/copilot-instructions.md`, `.github/instructions/gh-writing.instructions.md`, or `AGENTS.md` | Not yet | 2026-06-20 | Use a compact summary; Copilot will not automatically load this skill directory |
-| [Continue](https://docs.continue.dev/customize/rules) | Project rules | `.continue/rules/oh-my-gh-writing.md` | Not yet | 2026-06-20 | Split large guidance by scenario when needed |
-| [Cursor](https://cursor.com/docs) | Project rules | `.cursor/rules/oh-my-gh-writing.mdc` | Not yet | 2026-06-20 | Treat as a rules adaptation, not native Agent Skill support |
+| Agent / Tool | Support type | Recommended setup | Notes |
+| --- | --- | --- | --- |
+| [Codex](https://developers.openai.com/codex/skills) | Native skill directory | `$HOME/.agents/skills/oh-my-gh-writing` or project `.agents/skills/oh-my-gh-writing` | Official docs list `.agents/skills` user and repository locations |
+| [Claude Code](https://code.claude.com/docs/en/skills) | Native skill directory | `~/.claude/skills/oh-my-gh-writing` or project `.claude/skills/oh-my-gh-writing` | Use the `SKILL.md` directory as the skill entrypoint |
+| [Gemini CLI](https://geminicli.com/docs/cli/skills/) | Native skill directory | Manual runtime-only copy to `$HOME/.agents/skills/oh-my-gh-writing` or `.agents/skills/oh-my-gh-writing` | `gemini skills install` may install non-runtime files; use the minimal runtime path when that matters |
+| [Devin CLI](https://docs.devin.ai/cli/extensibility/skills/overview) | Native skill directory | `$HOME/.agents/skills/oh-my-gh-writing`, `$HOME/.config/devin/skills/oh-my-gh-writing`, or project `.agents/skills/oh-my-gh-writing` | Supports the `.agents` skills standard and `SKILL.md` directories |
+| [Devin Desktop / Windsurf Cascade](https://docs.devin.ai/desktop/cascade/skills) | Native skill directory | `$HOME/.agents/skills/oh-my-gh-writing`, `$HOME/.codeium/windsurf/skills/oh-my-gh-writing`, or project `.windsurf/skills/oh-my-gh-writing` | Cascade skills use `SKILL.md` folders and discover `.agents/skills` paths |
+| [Hermes](https://hermes-agent.nousresearch.com/docs/guides/work-with-skills) | Native skill directory | Copy the runtime folder to `~/.hermes/skills/github/oh-my-gh-writing` | Do not use HTTP single-file install because `references/` are required |
+| Antigravity CLI | Native skill install | `npx skills add PINKIIILQWQ/oh-my-gh-writing -g` | Installs the full repository rather than the minimal runtime only |
+| [GitHub Copilot](https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-repository-instructions) | Adapted repository instructions | `.github/copilot-instructions.md`, `.github/instructions/gh-writing.instructions.md`, or `AGENTS.md` | Use a compact summary; Copilot does not load this skill folder directly |
+| [Continue](https://docs.continue.dev/customize/rules) | Adapted project rules | `.continue/rules/oh-my-gh-writing.md` | Split large guidance by scenario when needed |
+| [Cursor](https://cursor.com/docs) | Adapted project rules | `.cursor/rules/oh-my-gh-writing.mdc` | Adapt the rules; do not treat it as native Agent Skill support |
 
 ## 📂 Files
 
