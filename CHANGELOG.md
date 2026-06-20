@@ -22,6 +22,7 @@ This project follows the spirit of [Keep a Changelog](https://keepachangelog.com
 
 ### Changed
 
+- Simplified Quick Start so the first install path is a one-line Agent Skills CLI command, with exact runtime-only installation kept as a manual fallback.
 - Refined Quick Start to install only runtime and display files: `SKILL.md`, `INDEX.md`, `references/`, `agents/`, and `assets/`.
 - Clarified that `evals/`, `cases/`, and `scripts/` are repository maintenance files, not runtime skill dependencies.
 - Clarified audit-only behavior for readiness checks so the skill recommends files without creating drafts or modifying repository files by default.

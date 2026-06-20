@@ -90,9 +90,9 @@ For installable tools, agent skills, CLIs, plugins, templates, SDKs, or librarie
 
 When a project supports both a universal installer and manual clone/symlink paths, use this order:
 
-1. Recommended official or manual install path from the project's own docs.
-2. Optional universal installer only when the host/tool actually supports it.
-3. Optional target-host command variants.
+1. Shortest credible one-line installer, when the project or host ecosystem documents one.
+2. Manual or exact runtime-only install path for users who need file-level control.
+3. Optional target-host command variants inside a collapsible section when they would otherwise crowd the first screen.
 4. One or more example prompts or usage commands.
 
 Quick Start command blocks must be easy to copy line-by-line:

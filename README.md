@@ -22,21 +22,26 @@ The core idea is simple: route the request first, load only the matching writing
 
 ## 🚀 Quick Start
 
-Install the runtime skill files only. Pick one target path first.
-
-Codex:
+One-line install for Agent Skills CLI users:
 
 ```bash
-target="$HOME/.agents/skills/oh-my-gh-writing"
+npx skills add PINKIIILQWQ/oh-my-gh-writing -g
 ```
 
-Gemini CLI:
+Then ask your agent:
 
-```bash
-target="$HOME/.agents/skills/oh-my-gh-writing"
+```text
+/oh-my-gh-writing Write a PR description from the current diff.
 ```
 
-Devin CLI / Devin Desktop / Windsurf Cascade:
+`-g` installs globally for your user. Drop it if you want to scope the skill to the current project. If your host does not use the Agent Skills CLI, or if you want to install only the runtime files, use the manual install below.
+
+<details>
+<summary>Manual runtime-only install</summary>
+
+Pick one target path first.
+
+Codex / Gemini CLI / Devin CLI / Devin Desktop / Windsurf Cascade:
 
 ```bash
 target="$HOME/.agents/skills/oh-my-gh-writing"
@@ -54,20 +59,45 @@ Hermes:
 target="$HOME/.hermes/skills/github/oh-my-gh-writing"
 ```
 
-Then run the runtime-only install:
+Then run:
 
 ```bash
 tmp="$(mktemp -d)"
+```
+
+```bash
 repo="$tmp/oh-my-gh-writing"
+```
+
+```bash
 git clone --depth 1 --filter=blob:none --sparse https://github.com/PINKIIILQWQ/oh-my-gh-writing.git "$repo"
+```
+
+```bash
 git -C "$repo" sparse-checkout set --no-cone /SKILL.md /INDEX.md /references/ /agents/ /assets/
+```
+
+```bash
 rm -rf "$target"
+```
+
+```bash
 mkdir -p "$target"
+```
+
+```bash
 cp -R "$repo/SKILL.md" "$repo/INDEX.md" "$repo/references" "$repo/agents" "$repo/assets" "$target/"
+```
+
+```bash
 rm -rf "$tmp"
 ```
 
-Codex is maintainer-verified. Claude Code, Gemini CLI, Devin CLI, Devin Desktop / Windsurf Cascade, and Hermes paths are documented but not maintainer-verified for this repository yet.
+The manual Codex path is maintainer-verified. Claude Code, Gemini CLI, Devin CLI, Devin Desktop / Windsurf Cascade, and Hermes paths are documented but not maintainer-verified for this repository yet.
+
+The manual install uses sparse checkout and copies only `SKILL.md`, `INDEX.md`, `references/`, `agents/`, and `assets/`. Users do not need `evals/`, `cases/`, or `scripts/` to use the skill; those files are for repository development and validation.
+
+</details>
 
 For repository development, clone the full repository separately:
 
@@ -85,8 +115,6 @@ Start with one of these prompts:
 /oh-my-gh-writing Write a PR description from the current diff.
 /oh-my-gh-writing Prepare the full v1.2.0 release materials from these merged PR summaries: fix login redirect, add CSV export, update docs. Do not publish anything.
 ```
-
-The runtime install above uses sparse checkout and copies only `SKILL.md`, `INDEX.md`, `references/`, `agents/`, and `assets/`. Users do not need `evals/`, `cases/`, or `scripts/` to use the skill; those files are for repository development and validation.
 
 If you use an Agent Skills-compatible package manager, verify that the installed skill folder contains `SKILL.md`, `INDEX.md`, and `references/`. If the package manager checks out the full repository internally, that is only a download/cache detail; the skill runtime still depends on the runtime entries above.
 

@@ -24,21 +24,26 @@
 
 ## 🚀 快速开始
 
-只安装 runtime skill 文件。先选择一个目标路径。
-
-Codex：
+Agent Skills CLI 用户可以一行安装：
 
 ```bash
-target="$HOME/.agents/skills/oh-my-gh-writing"
+npx skills add PINKIIILQWQ/oh-my-gh-writing -g
 ```
 
-Gemini CLI：
+然后直接问 agent：
 
-```bash
-target="$HOME/.agents/skills/oh-my-gh-writing"
+```text
+/oh-my-gh-writing 根据当前 diff 写一个 PR description。
 ```
 
-Devin CLI / Devin Desktop / Windsurf Cascade：
+`-g` 表示安装到当前用户的全局 skill 目录；如果只想安装到当前项目，可以去掉它。如果你的 host 不使用 Agent Skills CLI，或者你想只安装 runtime 文件，可以使用下面的手动安装方式。
+
+<details>
+<summary>手动 runtime-only 安装</summary>
+
+先选择一个目标路径。
+
+Codex / Gemini CLI / Devin CLI / Devin Desktop / Windsurf Cascade：
 
 ```bash
 target="$HOME/.agents/skills/oh-my-gh-writing"
@@ -56,20 +61,45 @@ Hermes：
 target="$HOME/.hermes/skills/github/oh-my-gh-writing"
 ```
 
-然后运行 runtime-only 安装命令：
+然后运行：
 
 ```bash
 tmp="$(mktemp -d)"
+```
+
+```bash
 repo="$tmp/oh-my-gh-writing"
+```
+
+```bash
 git clone --depth 1 --filter=blob:none --sparse https://github.com/PINKIIILQWQ/oh-my-gh-writing.git "$repo"
+```
+
+```bash
 git -C "$repo" sparse-checkout set --no-cone /SKILL.md /INDEX.md /references/ /agents/ /assets/
+```
+
+```bash
 rm -rf "$target"
+```
+
+```bash
 mkdir -p "$target"
+```
+
+```bash
 cp -R "$repo/SKILL.md" "$repo/INDEX.md" "$repo/references" "$repo/agents" "$repo/assets" "$target/"
+```
+
+```bash
 rm -rf "$tmp"
 ```
 
-Codex 路径已由维护者验证。Claude Code、Gemini CLI、Devin CLI、Devin Desktop / Windsurf Cascade、Hermes 路径有文档依据，但本仓库维护者暂未逐一实测。
+手动安装中的 Codex 路径已由维护者验证。Claude Code、Gemini CLI、Devin CLI、Devin Desktop / Windsurf Cascade、Hermes 路径有文档依据，但本仓库维护者暂未逐一实测。
+
+手动安装使用 sparse checkout，只复制 `SKILL.md`、`INDEX.md`、`references/`、`agents/` 和 `assets/`。用户使用 skill 不需要 `evals/`、`cases/`、`scripts/`；这些文件只用于仓库开发和验证。
+
+</details>
 
 如果要参与仓库开发或运行维护验证，单独 clone 完整仓库：
 
@@ -87,8 +117,6 @@ python3 scripts/validate-cases.py
 /oh-my-gh-writing 根据当前 diff 写一个 PR description。
 /oh-my-gh-writing 根据这些已合并 PR 摘要准备 v1.2.0 的完整发布材料：修复登录重定向、增加 CSV 导出、更新文档。不要发布任何东西。
 ```
-
-上面的 runtime 安装使用 sparse checkout，只复制 `SKILL.md`、`INDEX.md`、`references/`、`agents/` 和 `assets/`。用户使用 skill 不需要 `evals/`、`cases/`、`scripts/`；这些文件只用于仓库开发和验证。
 
 如果你使用兼容 Agent Skills 的包管理工具，请确认安装后的 skill 目录里包含 `SKILL.md`、`INDEX.md` 和 `references/`。如果包管理工具内部 checkout 了完整仓库，那只是下载或缓存细节；skill runtime 仍然只依赖上面的 runtime 入口。
 
