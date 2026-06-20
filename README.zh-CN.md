@@ -24,26 +24,15 @@
 
 ## 🚀 快速开始
 
-### 只安装 Runtime
-
-维护者已验证路径：Codex。这是安全的首次安装：如果目标目录已存在，它会退出而不是覆盖本地修改。其他 host 请看 [Agent 支持](#-agent-支持)。
+### 最简单安装
 
 ```bash
-target="$HOME/.agents/skills/oh-my-gh-writing"
-parent="$(dirname "$target")"
-mkdir -p "$parent"
-
-if [ -e "$target" ]; then
-  printf 'Skill already exists at %s. Use the safe update instructions below.\n' "$target"
-  exit 1
-fi
-
-git clone --depth 1 --filter=blob:none --sparse https://github.com/PINKIIILQWQ/oh-my-gh-writing.git "$target"
-git -C "$target" sparse-checkout set --no-cone /SKILL.md /INDEX.md /references/
-rm -rf "$target/.git"
+npx skills add PINKIIILQWQ/oh-my-gh-writing -g
 ```
 
-最终 skill 目录只包含 `SKILL.md`、`INDEX.md` 和 `references/`。运行 skill 不需要 `evals/`、`cases/`、`scripts/`、`.github/` 或 `assets/`。
+`-g` 表示安装到当前用户的全局 skill 目录；如果只想安装到当前项目，可以去掉它。
+
+这是最简单的安装方式。已于 2026-06-20 测试：Agent Skills CLI 能正确识别本仓库，但会把包含非 runtime 维护文件在内的完整仓库复制到最终 skill 目录。需要最小 runtime-only 安装或安全更新时，请使用下面的高级方式。
 
 然后直接问 agent：
 
@@ -52,9 +41,9 @@ rm -rf "$target/.git"
 ```
 
 <details>
-<summary>安全更新已有的 runtime-only 安装</summary>
+<summary>最小 runtime-only 安装或安全更新</summary>
 
-把 `target` 设为现有 skill 的同一路径。这个流程会先构建并验证新 runtime 目录，再把旧目录保留为带时间戳的备份。
+维护者已验证路径：Codex。其他 host 请看 [Agent 支持](#-agent-支持)。把 `target` 设为目标 skill 目录。这个流程会先构建并验证新 runtime 目录，再把已有目录保留为带时间戳的备份。
 
 ```bash
 tmp="$(mktemp -d)"
@@ -79,20 +68,7 @@ mv "$staging" "$target"
 rm -rf "$tmp"
 ```
 
-确认更新无误后，再删除 `$backup`。
-
-</details>
-
-<details>
-<summary>可选：用 Agent Skills CLI 方便安装</summary>
-
-```bash
-npx skills add PINKIIILQWQ/oh-my-gh-writing -g
-```
-
-`-g` 表示安装到当前用户的全局 skill 目录；如果只想安装到当前项目，可以去掉它。
-
-已于 2026-06-20 测试：Agent Skills CLI 能正确识别本仓库，但会把完整仓库复制到最终 skill 目录。需要最小安装内容时，请使用上面的 runtime-only 方式。
+最终 skill 目录只包含 `SKILL.md`、`INDEX.md` 和 `references/`。运行 skill 不需要 `evals/`、`cases/`、`scripts/`、`.github/` 或 `assets/`。确认安装或更新无误后，再删除 `$backup`。
 
 </details>
 

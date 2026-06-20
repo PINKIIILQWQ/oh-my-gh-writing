@@ -90,14 +90,14 @@ For installable tools, agent skills, CLIs, plugins, templates, SDKs, or librarie
 
 When a project supports both a universal installer and manual clone/symlink paths, use this order:
 
-1. Exact runtime-only install path when the universal installer copies the whole repository, has unverified install behavior, or cannot select runtime files.
-2. Shortest credible one-line installer only when it installs the intended runtime content or the full-repository trade-off is clearly disclosed.
+1. Shortest credible one-line installer when it reduces onboarding friction; disclose immediately when it installs the full repository rather than the minimal runtime.
+2. A collapsible minimal runtime-only install or update path for users who need only the declared runtime files.
 3. Optional target-host command variants inside a collapsible section when they would otherwise crowd the first screen.
 4. One or more example prompts or usage commands.
 
-Do not describe a package-manager install as runtime-only unless it has been tested for that repository. If the installer fetches or copies the full repository, say so plainly and keep it optional. A manual runtime-only command should copy only the declared runtime files into a fresh target directory.
+Do not describe a package-manager install as runtime-only unless it has been tested for that repository. If the installer fetches or copies the full repository, say so plainly and provide a visible runtime-only alternative. A manual runtime-only command should copy only the declared runtime files into a fresh target directory.
 
-For a first install, prefer a short documented path that aborts when the target directory already exists. Put backup, staging, and replacement logic in a collapsed safe-update section. Do not merge files into an existing runtime directory and then describe the result as minimal.
+For a runtime-only install or update, build and validate a staging directory before replacing the target. Preserve an existing target as a backup; do not merge files into it and then describe the result as minimal. Keep this advanced flow collapsible when a simple installer is available.
 
 Quick Start command blocks must be easy to copy line-by-line:
 

@@ -22,26 +22,15 @@ The core idea is simple: route the request first, load only the matching writing
 
 ## 🚀 Quick Start
 
-### Runtime-Only Install
-
-Maintainer-verified path: Codex. This is a safe first install: it stops if the target already exists instead of overwriting local changes. For other hosts, see [Agent Support](#-agent-support).
+### Easiest Install
 
 ```bash
-target="$HOME/.agents/skills/oh-my-gh-writing"
-parent="$(dirname "$target")"
-mkdir -p "$parent"
-
-if [ -e "$target" ]; then
-  printf 'Skill already exists at %s. Use the safe update instructions below.\n' "$target"
-  exit 1
-fi
-
-git clone --depth 1 --filter=blob:none --sparse https://github.com/PINKIIILQWQ/oh-my-gh-writing.git "$target"
-git -C "$target" sparse-checkout set --no-cone /SKILL.md /INDEX.md /references/
-rm -rf "$target/.git"
+npx skills add PINKIIILQWQ/oh-my-gh-writing -g
 ```
 
-The final skill directory contains only `SKILL.md`, `INDEX.md`, and `references/`. Users do not need `evals/`, `cases/`, `scripts/`, `.github/`, or `assets/` to run the skill.
+`-g` installs globally for your user. Drop it to scope the skill to the current project.
+
+This is the easiest install path. Tested on 2026-06-20: Agent Skills CLI recognizes this repository correctly, but copies the full repository into the final skill directory, including non-runtime maintenance files. Use the advanced path below when you need a minimal runtime-only install or a safe update.
 
 Then ask your agent:
 
@@ -50,9 +39,9 @@ Then ask your agent:
 ```
 
 <details>
-<summary>Safely update an existing runtime-only installation</summary>
+<summary>Minimal runtime-only install or safe update</summary>
 
-Set `target` to the same path as your existing skill. This builds and validates a new runtime directory first, then preserves the old directory as a timestamped backup.
+Maintainer-verified path: Codex. For other hosts, see [Agent Support](#-agent-support). Set `target` to the intended skill directory. This builds and validates a new runtime directory first, then preserves any existing directory as a timestamped backup.
 
 ```bash
 tmp="$(mktemp -d)"
@@ -77,20 +66,7 @@ mv "$staging" "$target"
 rm -rf "$tmp"
 ```
 
-After verifying the update, remove `$backup` when you no longer need it.
-
-</details>
-
-<details>
-<summary>Optional: Agent Skills CLI convenience install</summary>
-
-```bash
-npx skills add PINKIIILQWQ/oh-my-gh-writing -g
-```
-
-`-g` installs globally for your user. Drop it to scope the skill to the current project.
-
-Tested on 2026-06-20: Agent Skills CLI recognizes this repository correctly, but it copies the full repository into the final skill directory. Use the recommended runtime-only install above when minimal installed files matter.
+The final skill directory contains only `SKILL.md`, `INDEX.md`, and `references/`. Users do not need `evals/`, `cases/`, `scripts/`, `.github/`, or `assets/` to run the skill. After verifying the installation or update, remove `$backup` when you no longer need it.
 
 </details>
 
