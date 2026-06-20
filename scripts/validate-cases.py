@@ -117,6 +117,13 @@ def main() -> None:
             if not excerpt_match:
                 allowed = ", ".join(sorted(EXCERPT_TYPES))
                 fail(f"{case_name}: grading.md must declare README excerpt type ({allowed})")
+            showcase_match = re.search(
+                r"^- README showcase status:\s*approved\.\s*$",
+                grading,
+                re.MULTILINE,
+            )
+            if not showcase_match:
+                fail(f"{case_name}: grading.md must declare approved README showcase status")
 
     print("case evidence fixtures are valid")
 

@@ -15,4 +15,5 @@ Remaining risk:
 Decision:
 
 - README excerpt type: shortened.
+- README showcase status: approved.
 - Keep as public evidence after maintainer review.

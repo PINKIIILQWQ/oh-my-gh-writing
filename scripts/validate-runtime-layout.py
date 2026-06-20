@@ -10,6 +10,10 @@ ROOT = Path(__file__).resolve().parents[1]
 RUNTIME = ("SKILL.md", "INDEX.md", "references")
 README_FILES = (ROOT / "README.md", ROOT / "README.zh-CN.md")
 REQUIRED_GUIDE_TEXT = (
+    'git clone --depth 1 --filter=blob:none --sparse https://github.com/PINKIIILQWQ/oh-my-gh-writing.git "$target"',
+    'git -C "$target" sparse-checkout set --no-cone /SKILL.md /INDEX.md /references/',
+    'rm -rf "$target/.git"',
+    'staging="$(mktemp -d "$parent/.oh-my-gh-writing.new.XXXXXX")"',
     'git -C "$repo" sparse-checkout set --no-cone /SKILL.md /INDEX.md /references/',
     'cp -R "$repo/SKILL.md" "$repo/INDEX.md" "$repo/references" "$staging/"',
     'if [ -e "$target" ]; then',
@@ -40,7 +44,7 @@ def main() -> None:
         text = readme.read_text(encoding="utf-8")
         for needle in REQUIRED_GUIDE_TEXT:
             if needle not in text:
-                fail(f"{readme.name} missing install safeguard: {needle}")
+                fail(f"{readme.name} missing runtime install rule: {needle}")
         for needle in FORBIDDEN_GUIDE_TEXT:
             if needle in text:
                 fail(f"{readme.name} contains non-runtime install content: {needle}")

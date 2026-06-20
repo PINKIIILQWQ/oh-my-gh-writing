@@ -97,6 +97,8 @@ When a project supports both a universal installer and manual clone/symlink path
 
 Do not describe a package-manager install as runtime-only unless it has been tested for that repository. If the installer fetches or copies the full repository, say so plainly and keep it optional. A manual runtime-only command should copy only the declared runtime files into a fresh target directory.
 
+For a first install, prefer a short documented path that aborts when the target directory already exists. Put backup, staging, and replacement logic in a collapsed safe-update section. Do not merge files into an existing runtime directory and then describe the result as minimal.
+
 Quick Start command blocks must be easy to copy line-by-line:
 
 - Put each standalone command or variable assignment on its own line.

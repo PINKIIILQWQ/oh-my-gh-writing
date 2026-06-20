@@ -29,6 +29,7 @@ Use these labels when reviewing eval results:
 
 ## Maintenance
 
+- `project-launch-skill-repo-audit` uses a skill-repository file tree and is intentionally separate from `cases/005-project-launch-audit/`, which is a public sample-repository showcase case.
 - Validate fixtures with `python3 scripts/validate-evals.py` from the repository root.
 - Keep expected outputs short and sanitized.
 - Any eval with `must_contain` or `must_not_contain` must include an `expected_file` fixture so containment checks are executable.

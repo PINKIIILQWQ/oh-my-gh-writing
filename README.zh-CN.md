@@ -24,101 +24,64 @@
 
 ## 🚀 快速开始
 
-### 推荐：只安装 Runtime
+### 只安装 Runtime
 
-先选择一个目标路径。
-
-Codex / Gemini CLI / Devin CLI / Devin Desktop / Windsurf Cascade：
+维护者已验证路径：Codex。这是安全的首次安装：如果目标目录已存在，它会退出而不是覆盖本地修改。其他 host 请看 [Agent 支持](#-agent-支持)。
 
 ```bash
 target="$HOME/.agents/skills/oh-my-gh-writing"
-```
-
-Claude Code：
-
-```bash
-target="$HOME/.claude/skills/oh-my-gh-writing"
-```
-
-Hermes：
-
-```bash
-target="$HOME/.hermes/skills/github/oh-my-gh-writing"
-```
-
-然后运行：
-
-```bash
-tmp="$(mktemp -d)"
-```
-
-```bash
-repo="$tmp/oh-my-gh-writing"
-```
-
-```bash
 parent="$(dirname "$target")"
-```
-
-```bash
 mkdir -p "$parent"
-```
 
-```bash
-staging="$(mktemp -d "$parent/.oh-my-gh-writing.new.XXXXXX")"
-```
-
-```bash
-git clone --depth 1 --filter=blob:none --sparse https://github.com/PINKIIILQWQ/oh-my-gh-writing.git "$repo"
-```
-
-```bash
-git -C "$repo" sparse-checkout set --no-cone /SKILL.md /INDEX.md /references/
-```
-
-```bash
-cp -R "$repo/SKILL.md" "$repo/INDEX.md" "$repo/references" "$staging/"
-```
-
-```bash
-test -f "$staging/SKILL.md"
-```
-
-```bash
-test -f "$staging/INDEX.md"
-```
-
-```bash
-test -d "$staging/references"
-```
-
-```bash
-backup="$parent/.oh-my-gh-writing.backup.$(date +%Y%m%d%H%M%S)"
-```
-
-```bash
 if [ -e "$target" ]; then
-  mv "$target" "$backup"
+  printf 'Skill already exists at %s. Use the safe update instructions below.\n' "$target"
+  exit 1
 fi
+
+git clone --depth 1 --filter=blob:none --sparse https://github.com/PINKIIILQWQ/oh-my-gh-writing.git "$target"
+git -C "$target" sparse-checkout set --no-cone /SKILL.md /INDEX.md /references/
+rm -rf "$target/.git"
 ```
 
-```bash
-mv "$staging" "$target"
-```
-
-```bash
-rm -rf "$tmp"
-```
-
-手动安装中的 Codex 路径已由维护者验证。Claude Code、Gemini CLI、Devin CLI、Devin Desktop / Windsurf Cascade、Hermes 路径有文档依据，但本仓库维护者暂未逐一实测。
-
-最终 skill 目录只包含 `SKILL.md`、`INDEX.md` 和 `references/`。运行 skill 不需要 `evals/`、`cases/`、`scripts/`、`.github/` 或 `assets/`。如果之前已有安装，它会保留在 `$backup`，请验证新安装后再自行删除。
+最终 skill 目录只包含 `SKILL.md`、`INDEX.md` 和 `references/`。运行 skill 不需要 `evals/`、`cases/`、`scripts/`、`.github/` 或 `assets/`。
 
 然后直接问 agent：
 
 ```text
 /oh-my-gh-writing 根据当前 diff 写一个 PR description。
 ```
+
+<details>
+<summary>安全更新已有的 runtime-only 安装</summary>
+
+把 `target` 设为现有 skill 的同一路径。这个流程会先构建并验证新 runtime 目录，再把旧目录保留为带时间戳的备份。
+
+```bash
+tmp="$(mktemp -d)"
+repo="$tmp/oh-my-gh-writing"
+parent="$(dirname "$target")"
+mkdir -p "$parent"
+staging="$(mktemp -d "$parent/.oh-my-gh-writing.new.XXXXXX")"
+
+git clone --depth 1 --filter=blob:none --sparse https://github.com/PINKIIILQWQ/oh-my-gh-writing.git "$repo"
+git -C "$repo" sparse-checkout set --no-cone /SKILL.md /INDEX.md /references/
+cp -R "$repo/SKILL.md" "$repo/INDEX.md" "$repo/references" "$staging/"
+
+test -f "$staging/SKILL.md"
+test -f "$staging/INDEX.md"
+test -d "$staging/references"
+
+backup="$parent/.oh-my-gh-writing.backup.$(date +%Y%m%d%H%M%S)"
+if [ -e "$target" ]; then
+  mv "$target" "$backup"
+fi
+mv "$staging" "$target"
+rm -rf "$tmp"
+```
+
+确认更新无误后，再删除 `$backup`。
+
+</details>
 
 <details>
 <summary>可选：用 Agent Skills CLI 方便安装</summary>
@@ -221,7 +184,6 @@ Current sample repository files: README.md, LICENSE, src/, package.json, scripts
 | --- | --- |
 | [`001-bug-report/`](cases/001-bug-report/) | Bug report 路由和缺失证据处理 |
 | [`002-feature-request-routing/`](cases/002-feature-request-routing/) | Feature Request 和 Feature PR 的路由边界 |
-| [`003-version-release-workflow/`](cases/003-version-release-workflow/) | Version Release workflow pack 和只写本地草稿的边界 |
 | [`004-issue-form-yaml/`](cases/004-issue-form-yaml/) | 不编造 labels 或 metadata 的 Issue Form YAML |
 
 ## ✨ 为什么用 oh-my-gh-writing？
@@ -276,11 +238,11 @@ Workflow pack 只做编排：能安全判断时会推断最合适的材料包，
 | [Devin Desktop / Windsurf Cascade](https://docs.devin.ai/desktop/cascade/skills) | 原生 skill 目录 | `$HOME/.agents/skills/oh-my-gh-writing`、`$HOME/.codeium/windsurf/skills/oh-my-gh-writing` 或项目 `.windsurf/skills/oh-my-gh-writing` | 暂未 | 2026-06-20 | 官方文档说明 Cascade skills 使用 `SKILL.md` 文件夹，并会发现 `.agents/skills` 路径 |
 | [Hermes](https://hermes-agent.nousresearch.com/docs/guides/work-with-skills) | 原生 skill 目录 | 把 runtime 目录复制到 `~/.hermes/skills/github/oh-my-gh-writing` | 暂未 | 2026-06-20 | 本仓库依赖 `references/`，不要使用 HTTP 单文件安装 |
 
-### 宿主工具规则 / 指令设置
+### 适配目标
 
-这些工具不能直接消费完整 Agent Skill 目录。使用时需要把 router 和选定的 `references/*.md` 改写为该工具的规则或指令格式。
+这些工具不能直接消费完整 Agent Skill 目录。请把本仓库当作 host-specific rules 的源材料，而不是原生 skill 安装包；使用时需要把 router 和选定的 `references/*.md` 改写为对应格式。
 
-| 工具 | 支持方式 | 推荐文件 / 路径 | 维护者已验证 | 最后检查 | 说明 |
+| 工具 | 适配方式 | 推荐文件 / 路径 | 维护者已验证 | 最后检查 | 说明 |
 | --- | --- | --- | --- | --- | --- |
 | [GitHub Copilot](https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-repository-instructions) | 仓库 custom instructions | `.github/copilot-instructions.md`、`.github/instructions/gh-writing.instructions.md` 或 `AGENTS.md` | 暂未 | 2026-06-20 | 用压缩版规则；Copilot 不会自动加载本 skill 目录 |
 | [Continue](https://docs.continue.dev/customize/rules) | 项目 rules | `.continue/rules/oh-my-gh-writing.md` | 暂未 | 2026-06-20 | 内容较长时按场景拆分 |
@@ -311,7 +273,7 @@ Workflow pack 只做编排：能安全判断时会推断最合适的材料包，
 
 ## 🧪 评估
 
-本仓库包含轻量 eval fixtures，便于后续维护：
+本仓库包含轻量 eval fixtures，便于后续维护。它们校验路由元数据、expected output 包含关系和公开案例结构；它们不是自动化 LLM benchmark。
 
 - [`evals/trigger-queries.json`](evals/trigger-queries.json) 用来检查 skill description 是否会在真实 GitHub 写作请求中触发，并避开相近但不该触发的请求。
 - [`evals/evals.json`](evals/evals.json) 记录输出质量任务，覆盖路由、输出清洁、事实边界和 workflow pack 行为。

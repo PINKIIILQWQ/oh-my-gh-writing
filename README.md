@@ -22,101 +22,64 @@ The core idea is simple: route the request first, load only the matching writing
 
 ## 🚀 Quick Start
 
-### Recommended: Runtime-Only Install
+### Runtime-Only Install
 
-Pick one target path first.
-
-Codex / Gemini CLI / Devin CLI / Devin Desktop / Windsurf Cascade:
+Maintainer-verified path: Codex. This is a safe first install: it stops if the target already exists instead of overwriting local changes. For other hosts, see [Agent Support](#-agent-support).
 
 ```bash
 target="$HOME/.agents/skills/oh-my-gh-writing"
-```
-
-Claude Code:
-
-```bash
-target="$HOME/.claude/skills/oh-my-gh-writing"
-```
-
-Hermes:
-
-```bash
-target="$HOME/.hermes/skills/github/oh-my-gh-writing"
-```
-
-Then run:
-
-```bash
-tmp="$(mktemp -d)"
-```
-
-```bash
-repo="$tmp/oh-my-gh-writing"
-```
-
-```bash
 parent="$(dirname "$target")"
-```
-
-```bash
 mkdir -p "$parent"
-```
 
-```bash
-staging="$(mktemp -d "$parent/.oh-my-gh-writing.new.XXXXXX")"
-```
-
-```bash
-git clone --depth 1 --filter=blob:none --sparse https://github.com/PINKIIILQWQ/oh-my-gh-writing.git "$repo"
-```
-
-```bash
-git -C "$repo" sparse-checkout set --no-cone /SKILL.md /INDEX.md /references/
-```
-
-```bash
-cp -R "$repo/SKILL.md" "$repo/INDEX.md" "$repo/references" "$staging/"
-```
-
-```bash
-test -f "$staging/SKILL.md"
-```
-
-```bash
-test -f "$staging/INDEX.md"
-```
-
-```bash
-test -d "$staging/references"
-```
-
-```bash
-backup="$parent/.oh-my-gh-writing.backup.$(date +%Y%m%d%H%M%S)"
-```
-
-```bash
 if [ -e "$target" ]; then
-  mv "$target" "$backup"
+  printf 'Skill already exists at %s. Use the safe update instructions below.\n' "$target"
+  exit 1
 fi
+
+git clone --depth 1 --filter=blob:none --sparse https://github.com/PINKIIILQWQ/oh-my-gh-writing.git "$target"
+git -C "$target" sparse-checkout set --no-cone /SKILL.md /INDEX.md /references/
+rm -rf "$target/.git"
 ```
 
-```bash
-mv "$staging" "$target"
-```
-
-```bash
-rm -rf "$tmp"
-```
-
-The manual Codex path is maintainer-verified. Claude Code, Gemini CLI, Devin CLI, Devin Desktop / Windsurf Cascade, and Hermes paths are documented but not maintainer-verified for this repository yet.
-
-The final skill directory contains only `SKILL.md`, `INDEX.md`, and `references/`. Users do not need `evals/`, `cases/`, `scripts/`, `.github/`, or `assets/` to run the skill. If an earlier install existed, it remains at `$backup` until you verify the new one.
+The final skill directory contains only `SKILL.md`, `INDEX.md`, and `references/`. Users do not need `evals/`, `cases/`, `scripts/`, `.github/`, or `assets/` to run the skill.
 
 Then ask your agent:
 
 ```text
 /oh-my-gh-writing Write a PR description from the current diff.
 ```
+
+<details>
+<summary>Safely update an existing runtime-only installation</summary>
+
+Set `target` to the same path as your existing skill. This builds and validates a new runtime directory first, then preserves the old directory as a timestamped backup.
+
+```bash
+tmp="$(mktemp -d)"
+repo="$tmp/oh-my-gh-writing"
+parent="$(dirname "$target")"
+mkdir -p "$parent"
+staging="$(mktemp -d "$parent/.oh-my-gh-writing.new.XXXXXX")"
+
+git clone --depth 1 --filter=blob:none --sparse https://github.com/PINKIIILQWQ/oh-my-gh-writing.git "$repo"
+git -C "$repo" sparse-checkout set --no-cone /SKILL.md /INDEX.md /references/
+cp -R "$repo/SKILL.md" "$repo/INDEX.md" "$repo/references" "$staging/"
+
+test -f "$staging/SKILL.md"
+test -f "$staging/INDEX.md"
+test -d "$staging/references"
+
+backup="$parent/.oh-my-gh-writing.backup.$(date +%Y%m%d%H%M%S)"
+if [ -e "$target" ]; then
+  mv "$target" "$backup"
+fi
+mv "$staging" "$target"
+rm -rf "$tmp"
+```
+
+After verifying the update, remove `$backup` when you no longer need it.
+
+</details>
 
 <details>
 <summary>Optional: Agent Skills CLI convenience install</summary>
@@ -219,7 +182,6 @@ Excerpt shortened; the full case also includes Validation workflow, Changelog, a
 | --- | --- |
 | [`001-bug-report/`](cases/001-bug-report/) | Bug report routing and missing-evidence handling |
 | [`002-feature-request-routing/`](cases/002-feature-request-routing/) | Feature Request versus Feature PR routing |
-| [`003-version-release-workflow/`](cases/003-version-release-workflow/) | Version Release workflow pack and draft-only behavior |
 | [`004-issue-form-yaml/`](cases/004-issue-form-yaml/) | Issue Form YAML without invented labels or metadata |
 
 ## ✨ Why oh-my-gh-writing?

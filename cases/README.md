@@ -49,7 +49,7 @@ Current: 5 review-draft cases.
 | `source.md` | Sanitized source artifact, link, excerpt, or repository context used for the task |
 | `with-skill.md` or `with-skill.<target-extension>` | Output produced with this skill enabled; use the target extension for file artifacts such as YAML |
 | `baseline-summary.md` | Short summary of baseline behavior without this skill; do not store large raw output by default |
-| `grading.md` | Human review notes, pass/fail labels, README excerpt type when cited, exposed issues, and follow-up decisions |
+| `grading.md` | Human review notes, pass/fail labels, README excerpt type and showcase approval when cited, exposed issues, and follow-up decisions |
 | `attribution.md` | Source URL, license/attribution notes, sanitization status, and permission notes |
 
 ## Grading Labels
@@ -82,4 +82,4 @@ Run from the repository root:
 python3 scripts/validate-cases.py
 ```
 
-The validator checks required files, accepted `with-skill.*` output suffixes, grading labels, case index registration, README citation permission, README excerpt type, and obvious baseline/status conflicts.
+The validator checks required files, accepted `with-skill.*` output suffixes, grading labels, case index registration, README citation permission, README excerpt type, README showcase approval, and obvious baseline/status conflicts.
