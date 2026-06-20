@@ -129,6 +129,52 @@ If you use an Agent Skills-compatible package manager, verify that the installed
 | `/oh-my-gh-writing Write a bug-fix PR from this diff. Tests were not run.` | Bug Fix PR | PR body with summary, root-cause evidence if provided, testing marked as not run, and risk notes |
 | `/oh-my-gh-writing Create a bug report Issue Form YAML. Labels and assignees are not confirmed.` | Issue Form YAML | YAML file content without invented labels, assignees, projects, or contact links |
 
+### Featured Review-Draft Case
+
+#### Public Launch Readiness Audit
+
+This is a synthetic review-draft excerpt, not a real repository outcome or validated comparison case.
+
+Input:
+
+```text
+Please check what files this sample repository still needs before I publish it to GitHub.
+
+Current sample repository files: README.md, LICENSE, src/, package.json, scripts/test.sh.
+```
+
+Output excerpt:
+
+```markdown
+## Existing
+
+- README: present.
+- License: present.
+
+## Recommended
+
+- CONTRIBUTING.md — explains setup, test, branch, and PR expectations before outside contributors arrive.
+- .github/ISSUE_TEMPLATE/bug_report.yml — standardizes defect reports with reproduction, expected behavior, actual behavior, and environment fields.
+- .github/ISSUE_TEMPLATE/feature_request.yml — separates future capability requests from bug reports and keeps motivation, use cases, and alternatives visible.
+- .github/pull_request_template.md — gives contributors a consistent place for summary, testing, risk, and related issues.
+
+## Next steps
+
+- Confirm which recommended files to prepare.
+- Draft target files only after maintainer confirmation.
+```
+
+Excerpt shortened; the full case also includes Validation workflow, Changelog, and optional community-file recommendations. See [`cases/005-project-launch-audit/`](cases/005-project-launch-audit/) for the synthetic review-draft case. Baseline behavior has not been collected yet.
+
+### Other Review-Draft Cases
+
+| Case | Focus |
+| --- | --- |
+| [`001-bug-report/`](cases/001-bug-report/) | Bug report routing and missing-evidence handling |
+| [`002-feature-request-routing/`](cases/002-feature-request-routing/) | Feature Request versus Feature PR routing |
+| [`003-version-release-workflow/`](cases/003-version-release-workflow/) | Version Release workflow pack and draft-only behavior |
+| [`004-issue-form-yaml/`](cases/004-issue-form-yaml/) | Issue Form YAML without invented labels or metadata |
+
 ## ✨ Why oh-my-gh-writing?
 
 - **Workflow packs, not just templates**: release prep, project launch, contribution setup, bug-fix workflow, proposal-to-implementation, breaking-change communication, and docs overhaul are treated as multi-file GitHub writing jobs.
@@ -230,43 +276,6 @@ Run:
 python3 scripts/validate-evals.py
 python3 scripts/validate-cases.py
 ```
-
-## 🧪 Example: Public Launch Readiness Audit
-
-This is a synthetic review-draft excerpt, not a real repository outcome or validated comparison case.
-
-Input:
-
-```text
-Please check what files this sample repository still needs before I publish it to GitHub.
-
-Current sample repository files: README.md, LICENSE, src/, package.json, scripts/test.sh.
-```
-
-Output excerpt:
-
-```markdown
-## Existing
-
-- README: present.
-- License: present.
-
-## Recommended
-
-- CONTRIBUTING.md — explains setup, test, branch, and PR expectations before outside contributors arrive.
-- .github/ISSUE_TEMPLATE/bug_report.yml — standardizes defect reports with reproduction, expected behavior, actual behavior, and environment fields.
-- .github/ISSUE_TEMPLATE/feature_request.yml — separates future capability requests from bug reports and keeps motivation, use cases, and alternatives visible.
-- .github/pull_request_template.md — gives contributors a consistent place for summary, testing, risk, and related issues.
-
-## Next steps
-
-- Confirm which recommended files to prepare.
-- Draft target files only after maintainer confirmation.
-```
-
-Excerpt shortened; the full case also includes Validation workflow, Changelog, and optional community-file recommendations.
-
-See [`cases/005-project-launch-audit/`](cases/005-project-launch-audit/) for the synthetic review-draft case. Baseline behavior has not been collected yet.
 
 ## 📚 Sources
 

@@ -102,6 +102,20 @@ Quick Start command blocks must be easy to copy line-by-line:
 - If several hosts differ only by target path, show each host's `target=...` line as its own copyable block, then show the shared install commands separately.
 - Keep comments outside command blocks unless a shell comment is essential.
 
+## Public Examples And Cases
+
+Keep public examples near the main example/prompt section, not as a detached duplicate gallery near the bottom of the README. A short featured case excerpt can follow the example prompt table, and other cases can be listed after it.
+
+When showing a public case excerpt:
+
+- Mark whether it is synthetic, review-draft, sanitized, or validated.
+- State whether baseline behavior has been collected.
+- Keep the excerpt short and link to the full `cases/<id>/` directory.
+- Say when the excerpt is shortened or paraphrased.
+- Do not imply a real repository outcome unless the source and attribution prove it.
+
+Do not treat `cases/` as runtime material. It is public evidence and maintenance material only; `SKILL.md` must not ask agents to load cases automatically while drafting user artifacts.
+
 ## Project Applicability Scope
 
 Every README must state project applicability scope. It answers which users, environments, frameworks, platforms, products, runtimes, integrations, or artifact types the project applies to. It is not a feature list, marketing pitch, usage scenario list, or example gallery.

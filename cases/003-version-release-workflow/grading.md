@@ -16,4 +16,5 @@ Remaining risk:
 
 Decision:
 
+- README excerpt type: shortened.
 - Keep as public evidence after maintainer review; do not describe it as a validated comparison case until baseline behavior is collected.

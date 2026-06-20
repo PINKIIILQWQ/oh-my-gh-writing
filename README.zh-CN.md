@@ -131,6 +131,52 @@ python3 scripts/validate-cases.py
 | `/oh-my-gh-writing 根据这个 diff 写一个 bug-fix PR。测试还没跑。` | Bug Fix PR | PR 正文，包含摘要、已有 root-cause 证据、未运行测试说明和风险提示 |
 | `/oh-my-gh-writing 创建一个 bug report Issue Form YAML。labels 和 assignees 都未确认。` | Issue Form YAML | YAML 文件内容，不编造 labels、assignees、projects 或 contact links |
 
+### Featured Review-Draft Case
+
+#### 项目公开发布前的文件审查
+
+这是一个 synthetic review-draft excerpt，不是真实仓库结果，也不是 validated comparison case。
+
+输入：
+
+```text
+Please check what files this sample repository still needs before I publish it to GitHub.
+
+Current sample repository files: README.md, LICENSE, src/, package.json, scripts/test.sh.
+```
+
+输出片段：
+
+```markdown
+## Existing
+
+- README: present.
+- License: present.
+
+## Recommended
+
+- CONTRIBUTING.md — explains setup, test, branch, and PR expectations before outside contributors arrive.
+- .github/ISSUE_TEMPLATE/bug_report.yml — standardizes defect reports with reproduction, expected behavior, actual behavior, and environment fields.
+- .github/ISSUE_TEMPLATE/feature_request.yml — separates future capability requests from bug reports and keeps motivation, use cases, and alternatives visible.
+- .github/pull_request_template.md — gives contributors a consistent place for summary, testing, risk, and related issues.
+
+## Next steps
+
+- Confirm which recommended files to prepare.
+- Draft target files only after maintainer confirmation.
+```
+
+首页片段是缩短版；完整 case 还包含 Validation workflow、Changelog 和 optional community-file 建议。完整 synthetic review-draft case 见 [`cases/005-project-launch-audit/`](cases/005-project-launch-audit/)。Baseline behavior 还没有收集。
+
+### 其他 Review-Draft Cases
+
+| Case | 关注点 |
+| --- | --- |
+| [`001-bug-report/`](cases/001-bug-report/) | Bug report 路由和缺失证据处理 |
+| [`002-feature-request-routing/`](cases/002-feature-request-routing/) | Feature Request 和 Feature PR 的路由边界 |
+| [`003-version-release-workflow/`](cases/003-version-release-workflow/) | Version Release workflow pack 和只写本地草稿的边界 |
+| [`004-issue-form-yaml/`](cases/004-issue-form-yaml/) | 不编造 labels 或 metadata 的 Issue Form YAML |
+
 ## ✨ 为什么用 oh-my-gh-writing？
 
 - **不只是模板，而是 workflow pack**：发版准备、项目首发、贡献流程、Bug 修复链路、从提案到实现、破坏性变更沟通、文档重写都被当作多文件 GitHub 写作任务处理。
@@ -232,43 +278,6 @@ Workflow pack 只做编排：能安全判断时会推断最合适的材料包，
 python3 scripts/validate-evals.py
 python3 scripts/validate-cases.py
 ```
-
-## 🧪 示例：项目公开发布前的文件审查
-
-这是一个 synthetic review-draft excerpt，不是真实仓库结果，也不是 validated comparison case。
-
-输入：
-
-```text
-Please check what files this sample repository still needs before I publish it to GitHub.
-
-Current sample repository files: README.md, LICENSE, src/, package.json, scripts/test.sh.
-```
-
-输出片段：
-
-```markdown
-## Existing
-
-- README: present.
-- License: present.
-
-## Recommended
-
-- CONTRIBUTING.md — explains setup, test, branch, and PR expectations before outside contributors arrive.
-- .github/ISSUE_TEMPLATE/bug_report.yml — standardizes defect reports with reproduction, expected behavior, actual behavior, and environment fields.
-- .github/ISSUE_TEMPLATE/feature_request.yml — separates future capability requests from bug reports and keeps motivation, use cases, and alternatives visible.
-- .github/pull_request_template.md — gives contributors a consistent place for summary, testing, risk, and related issues.
-
-## Next steps
-
-- Confirm which recommended files to prepare.
-- Draft target files only after maintainer confirmation.
-```
-
-首页片段是缩短版；完整 case 还包含 Validation workflow、Changelog 和 optional community-file 建议。
-
-完整 synthetic review-draft case 见 [`cases/005-project-launch-audit/`](cases/005-project-launch-audit/)。Baseline behavior 还没有收集。
 
 ## 📚 参考来源
 

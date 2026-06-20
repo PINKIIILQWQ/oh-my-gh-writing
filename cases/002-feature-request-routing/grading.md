@@ -14,4 +14,5 @@ Remaining risk:
 
 Decision:
 
+- README excerpt type: shortened.
 - Keep as public evidence after maintainer review.
