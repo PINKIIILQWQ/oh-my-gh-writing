@@ -22,22 +22,7 @@ The core idea is simple: route the request first, load only the matching writing
 
 ## 🚀 Quick Start
 
-One-line install for Agent Skills CLI users:
-
-```bash
-npx skills add PINKIIILQWQ/oh-my-gh-writing -g
-```
-
-Then ask your agent:
-
-```text
-/oh-my-gh-writing Write a PR description from the current diff.
-```
-
-`-g` installs globally for your user. Drop it if you want to scope the skill to the current project. If your host does not use the Agent Skills CLI, or if you want to install only the runtime files, use the manual install below.
-
-<details>
-<summary>Manual runtime-only install</summary>
+### Recommended: Runtime-Only Install
 
 Pick one target path first.
 
@@ -74,7 +59,7 @@ git clone --depth 1 --filter=blob:none --sparse https://github.com/PINKIIILQWQ/o
 ```
 
 ```bash
-git -C "$repo" sparse-checkout set --no-cone /SKILL.md /INDEX.md /references/ /agents/ /assets/
+git -C "$repo" sparse-checkout set --no-cone /SKILL.md /INDEX.md /references/
 ```
 
 ```bash
@@ -86,7 +71,7 @@ mkdir -p "$target"
 ```
 
 ```bash
-cp -R "$repo/SKILL.md" "$repo/INDEX.md" "$repo/references" "$repo/agents" "$repo/assets" "$target/"
+cp -R "$repo/SKILL.md" "$repo/INDEX.md" "$repo/references" "$target/"
 ```
 
 ```bash
@@ -95,7 +80,24 @@ rm -rf "$tmp"
 
 The manual Codex path is maintainer-verified. Claude Code, Gemini CLI, Devin CLI, Devin Desktop / Windsurf Cascade, and Hermes paths are documented but not maintainer-verified for this repository yet.
 
-The manual install uses sparse checkout and copies only `SKILL.md`, `INDEX.md`, `references/`, `agents/`, and `assets/`. Users do not need `evals/`, `cases/`, or `scripts/` to use the skill; those files are for repository development and validation.
+The final skill directory contains only `SKILL.md`, `INDEX.md`, and `references/`. Users do not need `evals/`, `cases/`, `scripts/`, `.github/`, or `assets/` to run the skill.
+
+Then ask your agent:
+
+```text
+/oh-my-gh-writing Write a PR description from the current diff.
+```
+
+<details>
+<summary>Optional: Agent Skills CLI convenience install</summary>
+
+```bash
+npx skills add PINKIIILQWQ/oh-my-gh-writing -g
+```
+
+`-g` installs globally for your user. Drop it to scope the skill to the current project.
+
+Tested on 2026-06-20: Agent Skills CLI recognizes this repository correctly, but it copies the full repository into the final skill directory. Use the recommended runtime-only install above when minimal installed files matter.
 
 </details>
 
@@ -103,8 +105,17 @@ For repository development, clone the full repository separately:
 
 ```bash
 git clone https://github.com/PINKIIILQWQ/oh-my-gh-writing.git
+```
+
+```bash
 cd oh-my-gh-writing
+```
+
+```bash
 python3 scripts/validate-evals.py
+```
+
+```bash
 python3 scripts/validate-cases.py
 ```
 
@@ -115,8 +126,6 @@ Start with one of these prompts:
 /oh-my-gh-writing Write a PR description from the current diff.
 /oh-my-gh-writing Prepare the full v1.2.0 release materials from these merged PR summaries: fix login redirect, add CSV export, update docs. Do not publish anything.
 ```
-
-If you use an Agent Skills-compatible package manager, verify that the installed skill folder contains `SKILL.md`, `INDEX.md`, and `references/`. If the package manager checks out the full repository internally, that is only a download/cache detail; the skill runtime still depends on the runtime entries above.
 
 ## 🧪 Example Prompts
 
@@ -250,7 +259,6 @@ These tools do not consume this full Agent Skill folder as-is. Use this reposito
 | [`SKILL.md`](SKILL.md) | Thin runtime router and workflow rules |
 | [`INDEX.md`](INDEX.md) | Navigation for 18 artifact standards and 7 workflow packs |
 | [`references/`](references) | Scenario standards, workflow packs, and quality appendices |
-| [`agents/`](agents) | Optional Codex UI metadata for skill lists and chips |
 | [`references/readme.md`](references/readme.md) | README writing standard used by this skill |
 | [`references/source-catalog.md`](references/source-catalog.md) | Public source catalog and maintenance notes |
 | [`evals/`](evals) | Trigger and output-quality eval fixtures for future skill iteration |
@@ -259,7 +267,7 @@ These tools do not consume this full Agent Skill folder as-is. Use this reposito
 | [`.github/`](.github) | Public issue forms and pull request template for repository collaboration |
 | [`CHANGELOG.md`](CHANGELOG.md) | Release history |
 | [`CONTRIBUTING.md`](CONTRIBUTING.md) | Contribution guidance |
-| [`assets/`](assets) | Logo and local README assets |
+| [`assets/`](assets) | Project-owned logo for public README display; not a runtime dependency |
 
 ## 🧪 Evaluation
 

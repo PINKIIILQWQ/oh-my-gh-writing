@@ -55,7 +55,6 @@ Agents should start with `SKILL.md`, then load the matching `references/*.md`. B
 | Directory | Purpose | Entry |
 |-----------|---------|-------|
 | `references/` | Artifact standards, workflow packs, validation, Markdown tools, and source catalog | `references/readme.md` |
-| `agents/` | Optional Codex UI metadata | `agents/openai.yaml` |
 | `CONTRIBUTING.md` | Contribution rules, source requirements, and case feedback process | `CONTRIBUTING.md` |
 | `assets/` | README and project display assets | `assets/oh-my-gh-writing-logo.png` |
 | `evals/` | Trigger and output-quality eval fixtures for skill iteration | `evals/evals.json` |

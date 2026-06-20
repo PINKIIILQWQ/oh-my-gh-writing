@@ -90,10 +90,12 @@ For installable tools, agent skills, CLIs, plugins, templates, SDKs, or librarie
 
 When a project supports both a universal installer and manual clone/symlink paths, use this order:
 
-1. Shortest credible one-line installer, when the project or host ecosystem documents one.
-2. Manual or exact runtime-only install path for users who need file-level control.
+1. Exact runtime-only install path when the universal installer copies the whole repository, has unverified install behavior, or cannot select runtime files.
+2. Shortest credible one-line installer only when it installs the intended runtime content or the full-repository trade-off is clearly disclosed.
 3. Optional target-host command variants inside a collapsible section when they would otherwise crowd the first screen.
 4. One or more example prompts or usage commands.
+
+Do not describe a package-manager install as runtime-only unless it has been tested for that repository. If the installer fetches or copies the full repository, say so plainly and keep it optional. A manual runtime-only command should copy only the declared runtime files into a fresh target directory.
 
 Quick Start command blocks must be easy to copy line-by-line:
 

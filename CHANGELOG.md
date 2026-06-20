@@ -6,6 +6,15 @@ This project follows the spirit of [Keep a Changelog](https://keepachangelog.com
 
 ## [Unreleased]
 
+### Changed
+
+- Made the documented runtime install minimal: `SKILL.md`, `INDEX.md`, and `references/` only; moved Agent Skills CLI install to an explicitly full-repository convenience option after testing it.
+- Added a concise static Shields.io badge formula and encoding guidance.
+
+### Removed
+
+- Removed optional Codex UI metadata from the repository and runtime installation path.
+
 ## [0.1.0] - 2026-06-20
 
 ### Added
@@ -24,6 +33,7 @@ This project follows the spirit of [Keep a Changelog](https://keepachangelog.com
 
 - Simplified Quick Start so the first install path is a one-line Agent Skills CLI command, with exact runtime-only installation kept as a manual fallback.
 - Added guidance for verified Trendshift and Star History badges without inventing GitHub Trending status.
+- Added common and special copy-paste badge recipes with evidence requirements for Shields.io, deployment, social, funding, and dynamic badges.
 - Moved the public launch readiness case into the main example section and clarified public case excerpt rules.
 - Refined Quick Start to install only runtime and display files: `SKILL.md`, `INDEX.md`, `references/`, `agents/`, and `assets/`.
 - Clarified that `evals/`, `cases/`, and `scripts/` are repository maintenance files, not runtime skill dependencies.

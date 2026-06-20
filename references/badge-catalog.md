@@ -4,6 +4,96 @@ Load this file only when the user asks for detailed badge design, exact shields.
 
 Shields.io base URL: `https://img.shields.io/`
 
+## Static Badge Formula
+
+```text
+https://img.shields.io/badge/<label>-<message>-<color>
+```
+
+Use it inside Markdown image syntax:
+
+```markdown
+![Status](https://img.shields.io/badge/Status-Active-green)
+```
+
+- `label` is the left-side text; `message` is the right-side text; `color` is a named color or hex value without `#`.
+- Encode spaces as `_` or `%20`; escape literal `-` as `--` and literal `_` as `__`.
+- Add `?style=flat-square&logo=python&logoColor=white` only when the style or logo helps readers identify a real technology or status.
+
+Use copy-paste examples as patterns only. Replace every placeholder with real repository, package, workflow, service, or account evidence. Do not keep example package names such as `react` or `django` unless the target project actually is that package.
+
+## Common Copy-Paste Badge Recipes
+
+Use these when the target project has the matching evidence.
+
+| Intent | Markdown pattern | Evidence required |
+|--------|------------------|-------------------|
+| License | `[![License](https://img.shields.io/github/license/<user>/<repo>)](LICENSE)` | Public license file or GitHub license detection |
+| Build status | `[![Build Status](https://img.shields.io/github/actions/workflow/status/<user>/<repo>/<workflow-name>.yml?branch=main)](https://github.com/<user>/<repo>/actions/workflows/<workflow-name>.yml)` | Existing GitHub Actions workflow file |
+| npm version | `[![npm](https://img.shields.io/npm/v/<package>)](https://www.npmjs.com/package/<package>)` | Published npm package |
+| npm monthly downloads | `[![npm downloads](https://img.shields.io/npm/dm/<package>)](https://www.npmjs.com/package/<package>)` | Published npm package |
+| PyPI version | `[![PyPI](https://img.shields.io/pypi/v/<package>)](https://pypi.org/project/<package>/)` | Published PyPI package |
+| Python versions | `[![Python versions](https://img.shields.io/pypi/pyversions/<package>)](https://pypi.org/project/<package>/)` | Published PyPI package metadata |
+| GitHub stars | `[![GitHub stars](https://img.shields.io/github/stars/<user>/<repo>?style=social)](https://github.com/<user>/<repo>/stargazers)` | Public GitHub repository |
+| GitHub forks | `[![GitHub forks](https://img.shields.io/github/forks/<user>/<repo>?style=social)](https://github.com/<user>/<repo>/forks)` | Public GitHub repository |
+| Last commit | `[![Last commit](https://img.shields.io/github/last-commit/<user>/<repo>)](https://github.com/<user>/<repo>/commits)` | Public GitHub repository |
+| Codecov | `[![Codecov](https://img.shields.io/codecov/c/github/<user>/<repo>)](https://codecov.io/gh/<user>/<repo>)` | Codecov project exists |
+| PRs welcome | `[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen?style=flat-square)](CONTRIBUTING.md)` | Project actually accepts outside PRs or has contribution guidance |
+
+Rules:
+
+- Prefer repository-aware endpoints such as `/github/license/user/repo` over hard-coded static values when possible.
+- Link each badge to a useful destination: workflow, registry package, license, stargazers, coverage report, or contributing guide.
+- Omit package/download/coverage badges when the package or service does not exist yet.
+- Do not show both a registry license badge and a GitHub license badge unless they communicate different useful facts.
+
+## Optional / Special Badge Recipes
+
+Use these sparingly. They are useful for community, style, funding, or dynamic data, but should not be default README clutter.
+
+| Intent | Markdown pattern | Evidence required |
+|--------|------------------|-------------------|
+| Visitor count | `[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2F<user>%2F<repo>&count_bg=%2379C83D&title_bg=%23555555&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)` | User explicitly wants third-party visitor tracking |
+| Discord | `[![Discord](https://img.shields.io/discord/<server-id>?color=7289da&label=Discord&logo=discord&logoColor=ffffff)](<discord-invite-or-community-url>)` | Real Discord server id and public invite/community link |
+| Code style: Black | `[![Code style: black](https://img.shields.io/badge/code%20style-black-000000)](https://github.com/psf/black)` | Project uses Black |
+| Code style: Prettier | `[![Code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4)](https://prettier.io/)` | Project uses Prettier |
+| WakaTime | `[![WakaTime](https://wakatime.com/badge/user/<user-uuid>/project/<project-id>.svg)](https://wakatime.com/badge/user/<user-uuid>/project/<project-id>)` | Public WakaTime badge ids provided |
+| GitHub Sponsors | `[![Sponsor](https://img.shields.io/badge/Sponsor-%E2%9D%A4-pink?style=for-the-badge&logo=githubsponsors)](https://github.com/sponsors/<user>)` | GitHub Sponsors profile exists |
+| Ko-fi | `[![Ko-fi](https://img.shields.io/badge/Buy%20me%20a%20coffee-FFDD00?style=for-the-badge&logo=ko-fi&logoColor=black)](https://ko-fi.com/<user>)` | Ko-fi profile exists |
+| Netlify deploy status | `[![Netlify Status](https://api.netlify.com/api/v1/badges/<site-id>/deploy-status)](https://app.netlify.com/sites/<site-name>/deploys)` | Netlify site id and deploy page |
+| Vercel deploy status | `[![Vercel](https://therealsujitk-vercel-badge.vercel.app/?app=<vercel-app-name>)](https://vercel.com/<team-or-user>/<vercel-app-name>)` | Vercel project exists; third-party badge renders |
+| Dynamic JSON | `[![Dynamic JSON](https://img.shields.io/badge/dynamic/json?url=<encoded-api-url>&query=%24.status&label=System%20Status&color=blue)](<status-page-or-api-doc>)` | Public JSON endpoint and verified JSONPath query |
+| Made with Python | `[![Made with Python](https://img.shields.io/badge/Made%20with-Python-1f425f?logo=python&logoColor=white)](https://www.python.org/)` | Python is a primary project language/runtime |
+| Made with love | `[![Made with love](https://img.shields.io/badge/Made%20with-%E2%9D%A4%EF%B8%8F-red)](#)` | User explicitly wants a decorative badge |
+| X/Twitter follow | `[![X Follow](https://img.shields.io/twitter/follow/<handle>?style=social)](https://x.com/<handle>)` | Real public account handle |
+| Custom static style | `[![Architecture](https://img.shields.io/badge/Architecture-<message>-000000?style=for-the-badge&logo=markdown)](<docs-or-architecture-link>)` | Real project concept and useful destination |
+
+Special badge rules:
+
+- Visitor counters and social/funding badges are opt-in because they add tracking, promotion, or personal-account assumptions.
+- Third-party deployment badges must render on GitHub. If a Vercel or visitor-count image fails, omit it or use a normal link.
+- `Dynamic JSON` badges require a stable public API, URL-encoded endpoint, and verified query. Do not expose private tokens or internal URLs.
+- Decorative badges such as `Made with love` should not displace status, version, license, install, or docs badges.
+
+## Shields.io Styling Notes
+
+Useful query parameters:
+
+| Option | Example |
+|--------|---------|
+| Style | `?style=flat`, `?style=flat-square`, `?style=for-the-badge`, `?style=social` |
+| Logo | `&logo=python&logoColor=white` |
+| Label override | `?label=CI` or `&label=System%20Status` |
+| Color | `?color=blue` or `&color=0f766e` |
+| Label color | `&labelColor=111827` |
+
+Encoding reminders:
+
+- Spaces become `%20` or `_` in the static badge path.
+- Literal underscores become `__` in the static badge path.
+- Literal dashes become `--` in the static badge path.
+- Use simple-icons slugs for `logo=` when available.
+
 ## GitHub
 
 Prefix: `/github/`
