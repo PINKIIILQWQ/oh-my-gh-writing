@@ -98,6 +98,8 @@ For small artifacts with no obvious issue, omit the notes. When notes are needed
 - [ ] Standalone terminal commands are each on their own line and can be copied independently.
 - [ ] No unexplained, unactionable, or submission-inappropriate `#XXXXX`, `Fixes #`, `TODO`, or `TBD`.
 - [ ] No checklist item is checked without proof from user input, repository files, diff, or tool output.
+- [ ] When a known target repository has an applicable local template or convention, it was inspected before drafting; required fields are satisfied or surfaced to the user.
+- [ ] Template source paths, cache timestamps, generator versions, and usage counts remain outside the target artifact unless the user explicitly requests a provenance report.
 - [ ] YAML parses; multi-file display and single-file write boundaries are clear.
 - [ ] Markdown tables, code blocks, details, and alerts render correctly.
 - [ ] README has clear project applicability scope and does not confuse features, built-in scenarios, or examples with applicability.

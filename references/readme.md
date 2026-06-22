@@ -173,15 +173,7 @@ If the repository has `CONTRIBUTING.md` or is intended for external contributors
 
 ## Target Repository Templates
 
-Use this skill's scenario standards by default. Do not proactively fetch every target repository `.github/` template unless:
-
-- The user says "use this repository template", "submit to this repo", or "fill this Issue/PR form".
-- The user provides a target repository URL and the artifact is clearly meant for that repository's new Issue or PR page.
-- The user asks to create or edit the target repository's own `.github/ISSUE_TEMPLATE/*` or `PULL_REQUEST_TEMPLATE.md`.
-
-When reading target templates, treat them as the submission shell: preserve this skill's content-quality standard while mapping into repository fields. If `validations.required: true` or obvious required fields lack information, ask the user. Do not ask for optional fields, do not fill them, and do not leave optional TODOs. Do not copy repository-specific labels, SIGs, areas, release-note markers, cherry-pick flows, version lists, or test commands into unrelated projects.
-
-If the user wants a general draft, the target repository is unknown, or there is no explicit submission intent, use this skill's standard structure.
+For a README tied to a known target repository, read `target-repository.md` before drafting. Inspect the current README, nearby documentation, and contribution or release docs only when they are relevant to the requested update. Preserve demonstrated project conventions without copying unsupported claims or unrelated policy.
 
 ## Agent / Platform Support Table
 

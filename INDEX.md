@@ -75,13 +75,15 @@ Agents should start with `SKILL.md`, then load the matching `references/*.md`. B
 | Release / Design | `release-notes.md`, `migration-guide.md`, `rfc.md` |
 | Templates | `issue-form-yaml.md`, `pr-template.md` |
 | Composite workflow packs | `version-release.md`, `project-launch.md`, `contribution-setup.md`, `bug-fix-workflow.md`, `proposal-to-implementation.md`, `breaking-change-package.md`, `docs-overhaul.md` |
-| Appendix | `shared-principles.md`, `weapons.md`, `badge-catalog.md`, `emoji-guide.md`, `output-validation.md`, `source-catalog.md` |
+| Appendix | `shared-principles.md`, `target-repository.md`, `weapons.md`, `mermaid.md`, `badge-catalog.md`, `emoji-guide.md`, `output-validation.md`, `source-catalog.md` |
 
 ## Maintenance Rules
 
 - When adding a scenario or workflow pack, update `SKILL.md`, `INDEX.md`, public README files, and the matching `references/*.md`.
 - Keep `SKILL.md` thin; put details in references.
 - Keep runtime files in English by default.
+- Keep target-repository template discovery in `references/target-repository.md`; do not duplicate path maps across scenario standards.
+- Keep Mermaid selection, evidence, and syntax rules in `references/mermaid.md`; `weapons.md` is the broader Markdown-tools index.
 - Keep README focused on the shortest public path, not every internal detail.
 - Ensure deep details have an upper-level entry point.
 - Keep local research, collected cases, and validation outputs out of public runtime indexes.

@@ -6,6 +6,16 @@ This project follows the spirit of [Keep a Changelog](https://keepachangelog.com
 
 ## [Unreleased]
 
+### Added
+
+- Added target-repository convention discovery for relevant GitHub artifacts, with local working-tree evidence taking precedence over remote templates and portable standards.
+- Added a dedicated Mermaid standard for diagram selection, evidence boundaries, GitHub-compatible syntax, and readability checks.
+
+### Changed
+
+- Moved README-specific template guidance into a reusable target-repository reference and added validation that both new runtime references remain wired into the skill.
+- Clarified that persistent template caching is reserved for a future opt-in implementation and is not created by the current runtime.
+
 ## [0.1.2] - 2026-06-20
 
 ### Changed

@@ -69,25 +69,7 @@ Rules:
 
 ## Mermaid
 
-Use Mermaid only when a relationship, flow, state machine, or sequence becomes clearer visually.
-
-Common patterns:
-
-````markdown
-```mermaid
-flowchart TD
-  Request --> Route
-  Route --> Reference
-  Reference --> Draft
-  Draft --> Validate
-```
-````
-
-Rules:
-
-- Keep diagrams small and readable.
-- Use Mermaid for workflows, architecture, dependencies, or release flow.
-- Do not use Mermaid as a decorative hero graphic.
+When a GitHub artifact needs a Mermaid diagram, read `mermaid.md` before drafting it. That reference defines diagram selection, evidence boundaries, GitHub-compatible syntax, and output checks.
 
 ## Tables
 

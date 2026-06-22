@@ -190,8 +190,10 @@ Current sample repository files: README.md, LICENSE, src/, package.json, scripts
 
 - **不只是模板，而是 workflow pack**：发版准备、项目首发、贡献流程、Bug 修复链路、从提案到实现、破坏性变更沟通、文档重写都被当作多文件 GitHub 写作任务处理。
 - **先路由，再写作**：区分 Feature Request、Enhancement、Discussion、Feature PR、Bug Fix PR、Refactor PR、Documentation PR，减少把 Issue 写成 PR、把讨论写成需求的情况。
+- **按目标仓库惯例起草**：目标仓库明确时，先检查最小必要的本地模板或规则，再回退到远端证据或可移植标准。
 - **默认保护事实边界**：版本号、命令、CI 名称、兼容性、issue/PR 编号、release 信息必须来自用户输入、仓库文件、diff 或官方来源。
 - **渐进读取 reference**：`SKILL.md` 保持轻量，具体规则放在 `references/*.md`，按场景读取，避免一次性塞满上下文。
+- **只在必要时绘图**：Mermaid 规则仅在流程、状态或依赖关系确实比文字更清晰时使用，并要求所有节点有证据。
 - **输出更干净**：明确避免对话前言、外层 Markdown 代码块、旧测试标题、复制残留、未实际完成却打勾的 checklist 和编造事实。
 - **参考真实 GitHub 实践**：规则参考 GitHub Docs、Conventional Commits、Keep a Changelog、Google Engineering Practices 和成熟开源项目的写作模式。
 
@@ -219,7 +221,7 @@ Current sample repository files: README.md, LICENSE, src/, package.json, scripts
 | --- | --- |
 | 18 个 artifact 标准 | Bug Report、Feature Request、Enhancement、Discussion、Feature PR、Bug Fix PR、Refactor PR、Documentation PR、Code Review、Standard Commit、README、CONTRIBUTING、CHANGELOG、Release Notes、Migration Guide、RFC、Issue Form YAML、PR Template |
 | 7 个 workflow pack | Version Release、Project Launch、Contribution Setup、Bug Fix Workflow、Proposal to Implementation、Breaking Change Package、Docs Overhaul |
-| 质量附录 | shared principles、output validation、badge patterns、emoji guide、GitHub Markdown tools、source catalog |
+| 质量附录 | shared principles、target-repository conventions、output validation、Mermaid、badge patterns、emoji guide、GitHub Markdown tools、source catalog |
 
 Workflow pack 只做编排：能安全判断时会推断最合适的材料包，无法安全判断时才询问，并把所选方案记录到 `package-manifest.md`。默认输出到本地 `.github-writing/...` 草稿目录，不默认发布 release、推 tag、开 PR 或修改远端状态。
 
@@ -249,6 +251,8 @@ Workflow pack 只做编排：能安全判断时会推断最合适的材料包，
 | [`VERSION`](VERSION) | 用于更新状态和 workflow manifest 的 runtime 版本来源 |
 | [`references/`](references) | 场景标准、workflow pack 和质量附录 |
 | [`references/readme.md`](references/readme.md) | README 写作标准 |
+| [`references/target-repository.md`](references/target-repository.md) | 目标仓库模板与惯例发现规则 |
+| [`references/mermaid.md`](references/mermaid.md) | GitHub artifact 的证据驱动 Mermaid 图表规则 |
 | [`references/source-catalog.md`](references/source-catalog.md) | 公开参考来源和维护说明 |
 | [`evals/`](evals) | 用于后续 skill 迭代的触发和输出质量 eval fixtures |
 | [`scripts/`](scripts) | 维护者验证工具 |

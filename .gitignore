@@ -61,7 +61,7 @@ venv/
 *.tar.gz
 *.tgz
 
-# GitHub template cache — we pull raw content, not clone repos
+# Reserved for an optional local template-cache implementation. Runtime rules do not create it yet.
 .github-template-cache/
 
 # Local research and validation material kept out of the public release.

@@ -8,6 +8,14 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 RUNTIME = ("SKILL.md", "INDEX.md", "VERSION", "references")
+REQUIRED_REFERENCE_FILES = (
+    "references/target-repository.md",
+    "references/mermaid.md",
+)
+REQUIRED_RUNTIME_GUIDANCE = (
+    "read `references/target-repository.md`",
+    "read `references/mermaid.md`",
+)
 README_FILES = (ROOT / "README.md", ROOT / "README.zh-CN.md")
 REQUIRED_GUIDE_TEXT = (
     'npx skills add PINKIIILQWQ/oh-my-gh-writing -g',
@@ -40,8 +48,17 @@ def main() -> None:
         if not (ROOT / name).exists():
             fail(f"missing runtime entry {name}")
 
+    for name in REQUIRED_REFERENCE_FILES:
+        if not (ROOT / name).is_file():
+            fail(f"missing runtime reference {name}")
+
     if (ROOT / "agents").exists():
         fail("agents/ must not be part of the minimal runtime distribution")
+
+    skill_text = (ROOT / "SKILL.md").read_text(encoding="utf-8").casefold()
+    for needle in REQUIRED_RUNTIME_GUIDANCE:
+        if needle.casefold() not in skill_text:
+            fail(f"SKILL.md missing runtime guidance: {needle}")
 
     for readme in README_FILES:
         text = readme.read_text(encoding="utf-8")

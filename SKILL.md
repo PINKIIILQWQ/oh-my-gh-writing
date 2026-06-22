@@ -22,12 +22,14 @@ Use this skill for GitHub-facing writing artifacts and local GitHub writing draf
 5. For README requests, use the three-question prompt in `references/readme.md`.
 6. For composite workflow packs, follow the pack's Decision Rule. Ask the package-selection question only when the package shape cannot be inferred safely; otherwise use the recommended default and record it in `package-manifest.md`.
 7. Explicitly open and read the matching `references/*.md` before writing user-facing output. Do not infer or guess reference contents from memory.
-8. Read only the single-artifact references selected by a composite pack. Do not preload every reference.
-9. Read `references/weapons.md` when badges, alerts, Mermaid, collapsible blocks, emoji, or complex tables are needed.
-10. Read `references/badge-catalog.md` only when the user asks for detailed badge design or exact shields.io URL patterns.
-11. Read `references/emoji-guide.md` when emoji is requested or the target repository already uses emoji.
-12. Read `references/shared-principles.md` when the request is fact-heavy, high-risk, cross-scenario, or when output quality rules need clarification.
-13. Before finalizing, use `references/output-validation.md` as a silent revision checklist. If the draft fails a check, revise it before delivering. Keep validation silent for small clean artifacts; add brief post-output submission notes only when the artifact is complex, high-risk, or has obvious blockers.
+8. When a known target repository may govern the requested artifact, read `references/target-repository.md` and perform its scenario-specific convention discovery before drafting. Inspect the local working tree first; inspect the remote repository only when the local evidence is missing or stale.
+9. Read only the single-artifact references selected by a composite pack. Do not preload every reference.
+10. Read `references/weapons.md` when badges, alerts, collapsible blocks, emoji, complex tables, images, or other Markdown presentation tools are needed.
+11. Read `references/mermaid.md` before creating a Mermaid flowchart, sequence diagram, state diagram, or architecture diagram.
+12. Read `references/badge-catalog.md` only when the user asks for detailed badge design or exact shields.io URL patterns.
+13. Read `references/emoji-guide.md` when emoji is requested or the target repository already uses emoji.
+14. Read `references/shared-principles.md` when the request is fact-heavy, high-risk, cross-scenario, or when output quality rules need clarification.
+15. Before finalizing, use `references/output-validation.md` as a silent revision checklist. If the draft fails a check, revise it before delivering. Keep validation silent for small clean artifacts; add brief post-output submission notes only when the artifact is complex, high-risk, or has obvious blockers.
 
 If local file reading is unavailable, ask the user to provide the relevant `references/*.md` content or state that references are unavailable and produce only a conservative draft from the visible routing rules and shared principles. Do not pretend to have read files you cannot access.
 
@@ -95,7 +97,7 @@ Load `INDEX.md` for full navigation. Common reference groups:
 | Release and design | `release-notes.md`, `migration-guide.md`, `rfc.md` |
 | Templates | `issue-form-yaml.md`, `pr-template.md` |
 | Composite packs | `version-release.md`, `project-launch.md`, `contribution-setup.md`, `bug-fix-workflow.md`, `proposal-to-implementation.md`, `breaking-change-package.md`, `docs-overhaul.md` |
-| Appendices | `shared-principles.md`, `weapons.md`, `badge-catalog.md`, `emoji-guide.md`, `output-validation.md`, `source-catalog.md` |
+| Appendices | `shared-principles.md`, `target-repository.md`, `weapons.md`, `mermaid.md`, `badge-catalog.md`, `emoji-guide.md`, `output-validation.md`, `source-catalog.md` |
 
 ## Missing Information
 

@@ -188,8 +188,10 @@ Excerpt shortened; the full case also includes Validation workflow, Changelog, a
 
 - **Workflow packs, not just templates**: release prep, project launch, contribution setup, bug-fix workflow, proposal-to-implementation, breaking-change communication, and docs overhaul are treated as multi-file GitHub writing jobs.
 - **Artifact routing before writing**: separates Feature Request, Enhancement, Discussion, Feature PR, Bug Fix PR, Refactor PR, and Documentation PR so agents do not turn one GitHub artifact into another.
+- **Repository-aware conventions**: for a known target repository, checks the smallest relevant local template or policy before drafting, then falls back to upstream evidence or the portable standard.
 - **Evidence boundaries by default**: versions, commands, CI names, compatibility claims, issue numbers, PR numbers, and release facts must come from user input, repository files, diffs, or official sources.
 - **Progressive reference loading**: `SKILL.md` stays lightweight; detailed rules live in `references/*.md` and are loaded only when needed.
+- **Purposeful diagrams**: Mermaid guidance selects an evidence-backed diagram only when a workflow, state, or dependency is clearer than prose.
 - **Cleaner output**: rules explicitly guard against chat prefaces, outer Markdown fences, stale test titles, copied residue, unchecked checklist items, and invented facts.
 - **Grounded in real GitHub practice**: the rulebase is shaped by GitHub Docs, Conventional Commits, Keep a Changelog, Google Engineering Practices, and mature open-source project patterns.
 
@@ -217,7 +219,7 @@ This project is a portable Markdown rulebase for AI agents and rule-based coding
 | --- | --- |
 | 18 artifact standards | Bug Report, Feature Request, Enhancement, Discussion, Feature PR, Bug Fix PR, Refactor PR, Documentation PR, Code Review, Standard Commit, README, CONTRIBUTING, CHANGELOG, Release Notes, Migration Guide, RFC, Issue Form YAML, PR Template |
 | 7 workflow packs | Version Release, Project Launch, Contribution Setup, Bug Fix Workflow, Proposal to Implementation, Breaking Change Package, Docs Overhaul |
-| Quality appendices | Shared principles, output validation, badge patterns, emoji guide, GitHub Markdown tools, source catalog |
+| Quality appendices | Shared principles, target-repository conventions, output validation, Mermaid, badge patterns, emoji guide, GitHub Markdown tools, source catalog |
 
 Workflow packs are thin orchestrators. They infer the safest package shape when possible, ask only when the package shape is ambiguous, and record the selected option in `package-manifest.md`. By default they write local drafts under `.github-writing/...`; they do not publish releases, push tags, open PRs, or modify remote state unless you explicitly ask.
 
@@ -247,6 +249,8 @@ Native rows load this folder directly. Adapted rows need a compact host-specific
 | [`VERSION`](VERSION) | Runtime version source for update status and workflow manifests |
 | [`references/`](references) | Scenario standards, workflow packs, and quality appendices |
 | [`references/readme.md`](references/readme.md) | README writing standard used by this skill |
+| [`references/target-repository.md`](references/target-repository.md) | Target-repository template and convention discovery rules |
+| [`references/mermaid.md`](references/mermaid.md) | Evidence-backed Mermaid diagram rules for GitHub artifacts |
 | [`references/source-catalog.md`](references/source-catalog.md) | Public source catalog and maintenance notes |
 | [`evals/`](evals) | Trigger and output-quality eval fixtures for future skill iteration |
 | [`scripts/`](scripts) | Maintainer validation utilities |
