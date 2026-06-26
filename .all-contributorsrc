@@ -1,0 +1,31 @@
+{
+  "projectName": "oh-my-gh-writing",
+  "projectOwner": "PINKIIILQWQ",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": [
+    "README.md",
+    "README.zh-CN.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributorsPerLine": 7,
+  "contributorsSortAlphabetically": false,
+  "badgeTemplate": "[![All Contributors](https://img.shields.io/github/all-contributors/<%= projectOwner %>/<%= projectName %>?color=ee8449&style=flat)](#contributors-)",
+  "contributors": [
+    {
+      "login": "PINKIIILQWQ",
+      "name": "PINKIIILQWQ",
+      "avatar_url": "https://github.com/PINKIIILQWQ.png?size=100",
+      "profile": "https://github.com/PINKIIILQWQ",
+      "contributions": [
+        "code",
+        "doc",
+        "ideas",
+        "design",
+        "maintenance",
+        "test"
+      ]
+    }
+  ]
+}

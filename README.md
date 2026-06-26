@@ -10,6 +10,9 @@
   <a href="INDEX.md"><img src="https://img.shields.io/badge/Artifacts-18-6a0dad?style=flat" alt="18 artifact standards"></a>
   <a href="INDEX.md"><img src="https://img.shields.io/badge/Workflows-7-0f766e?style=flat" alt="7 workflow packs"></a>
   <a href="SKILL.md"><img src="https://img.shields.io/badge/Format-SKILL.md-22AA66?style=flat" alt="SKILL.md"></a>
+  <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+  <a href="#contributors-"><img src="https://img.shields.io/github/all-contributors/PINKIIILQWQ/oh-my-gh-writing?color=ee8449&style=flat" alt="All Contributors"></a>
+  <!-- ALL-CONTRIBUTORS-BADGE:END -->
 </p>
 
 <p align="center">
@@ -258,6 +261,7 @@ Native rows load this folder directly. Adapted rows need a compact host-specific
 | [`.github/`](.github) | Public issue forms and pull request template for repository collaboration |
 | [`CHANGELOG.md`](CHANGELOG.md) | Release history |
 | [`CONTRIBUTING.md`](CONTRIBUTING.md) | Contribution guidance |
+| [`.all-contributorsrc`](.all-contributorsrc) | Contributors table configuration |
 | [`assets/`](assets) | Project-owned logo for public README display; not a runtime dependency |
 
 ## 🧪 Evaluation
@@ -284,6 +288,20 @@ python3 scripts/validate-release-version.py
 The standards reference the [Agent Skills specification](https://agentskills.io/specification), [GitHub Docs](https://docs.github.com/en), [Conventional Commits](https://www.conventionalcommits.org/), [Keep a Changelog](https://keepachangelog.com/), [Google Engineering Practices](https://google.github.io/eng-practices/review/), and selected patterns from mature open-source repositories such as React, Kubernetes, TypeScript, Node.js, Tailwind CSS, Angular, and VS Code. See [`references/source-catalog.md`](references/source-catalog.md).
 
 The source catalog is not copied into user artifacts; it records structural patterns and maintenance evidence only.
+
+## Contributors ✨
+
+This project follows the [All Contributors](https://allcontributors.org/) specification. Contributions of any kind are welcome.
+
+<!-- ALL-CONTRIBUTORS-LIST:START -->
+<table>
+  <tbody>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/PINKIIILQWQ"><img src="https://github.com/PINKIIILQWQ.png?size=100" width="100px;" alt="PINKIIILQWQ"/><br /><sub><b>PINKIIILQWQ</b></sub></a><br /><a href="https://github.com/PINKIIILQWQ/oh-my-gh-writing/commits?author=PINKIIILQWQ" title="Code">💻</a> <a href="https://github.com/PINKIIILQWQ/oh-my-gh-writing/commits?author=PINKIIILQWQ" title="Documentation">📖</a> <a href="#ideas-PINKIIILQWQ" title="Ideas, Planning, & Feedback">🤔</a> <a href="#design-PINKIIILQWQ" title="Design">🎨</a> <a href="#maintenance-PINKIIILQWQ" title="Maintenance">🚧</a> <a href="#test-PINKIIILQWQ" title="Tests">⚠️</a></td>
+    </tr>
+  </tbody>
+</table>
+<!-- ALL-CONTRIBUTORS-LIST:END -->
 
 ## 📄 License
 

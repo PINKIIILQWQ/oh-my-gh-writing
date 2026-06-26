@@ -10,6 +10,9 @@
   <a href="INDEX.md"><img src="https://img.shields.io/badge/Artifacts-18-6a0dad?style=flat" alt="18 artifact standards"></a>
   <a href="INDEX.md"><img src="https://img.shields.io/badge/Workflows-7-0f766e?style=flat" alt="7 workflow packs"></a>
   <a href="SKILL.md"><img src="https://img.shields.io/badge/Format-SKILL.md-22AA66?style=flat" alt="SKILL.md"></a>
+  <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+  <a href="#contributors-"><img src="https://img.shields.io/github/all-contributors/PINKIIILQWQ/oh-my-gh-writing?color=ee8449&style=flat" alt="All Contributors"></a>
+  <!-- ALL-CONTRIBUTORS-BADGE:END -->
 </p>
 
 <p align="center">
@@ -260,6 +263,7 @@ Workflow pack 只做编排：能安全判断时会推断最合适的材料包，
 | [`.github/`](.github) | 公开 Issue Forms 和 Pull Request Template |
 | [`CHANGELOG.md`](CHANGELOG.md) | 发布历史 |
 | [`CONTRIBUTING.md`](CONTRIBUTING.md) | 贡献说明 |
+| [`.all-contributorsrc`](.all-contributorsrc) | Contributors 表格配置 |
 | [`assets/`](assets) | 公开 README 使用的项目 logo，不是 runtime 依赖 |
 
 ## 🧪 评估
@@ -286,6 +290,20 @@ python3 scripts/validate-release-version.py
 本项目标准参考 [Agent Skills specification](https://agentskills.io/specification)、[GitHub Docs](https://docs.github.com/en)、[Conventional Commits](https://www.conventionalcommits.org/)、[Keep a Changelog](https://keepachangelog.com/)、[Google Engineering Practices](https://google.github.io/eng-practices/review/)，以及 React、Kubernetes、TypeScript、Node.js、Tailwind CSS、Angular、VS Code 等成熟开源项目的写作模式。完整来源见 [`references/source-catalog.md`](references/source-catalog.md)。
 
 source catalog 不会被复制到用户产物中；它只记录结构模式和维护依据。
+
+## Contributors ✨
+
+本项目遵循 [All Contributors](https://allcontributors.org/) 规范，欢迎任何形式的贡献。
+
+<!-- ALL-CONTRIBUTORS-LIST:START -->
+<table>
+  <tbody>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/PINKIIILQWQ"><img src="https://github.com/PINKIIILQWQ.png?size=100" width="100px;" alt="PINKIIILQWQ"/><br /><sub><b>PINKIIILQWQ</b></sub></a><br /><a href="https://github.com/PINKIIILQWQ/oh-my-gh-writing/commits?author=PINKIIILQWQ" title="Code">💻</a> <a href="https://github.com/PINKIIILQWQ/oh-my-gh-writing/commits?author=PINKIIILQWQ" title="Documentation">📖</a> <a href="#ideas-PINKIIILQWQ" title="Ideas, Planning, & Feedback">🤔</a> <a href="#design-PINKIIILQWQ" title="Design">🎨</a> <a href="#maintenance-PINKIIILQWQ" title="Maintenance">🚧</a> <a href="#test-PINKIIILQWQ" title="Tests">⚠️</a></td>
+    </tr>
+  </tbody>
+</table>
+<!-- ALL-CONTRIBUTORS-LIST:END -->
 
 ## 📄 许可证
 

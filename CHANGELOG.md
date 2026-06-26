@@ -8,6 +8,7 @@ This project follows the spirit of [Keep a Changelog](https://keepachangelog.com
 
 ### Added
 
+- Added All Contributors badge, configuration, README contributor tables, and contribution-recognition guidance.
 - Added target-repository convention discovery for relevant GitHub artifacts, with local working-tree evidence taking precedence over remote templates and portable standards.
 - Added a dedicated Mermaid standard for diagram selection, evidence boundaries, GitHub-compatible syntax, and readability checks.
 

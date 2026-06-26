@@ -43,6 +43,12 @@ Case reports should include:
 
 Do not submit large batches of copied artifacts without prior discussion. If a case later becomes a public example, it should be cleaned, attributed, and clearly marked as illustrative rather than a factual source for user projects.
 
+## Contributor Recognition
+
+This project uses the [All Contributors](https://allcontributors.org/) specification for README contributor recognition.
+
+If your contribution is merged and you want to be listed, mention the contribution type in your PR or follow-up issue, such as `code`, `doc`, `ideas`, `design`, `maintenance`, or `test`. Maintainers should update `.all-contributorsrc` and the README contributor tables in the same PR or follow-up maintenance commit.
+
 ## Pull Request Checklist
 
 - [ ] The change keeps normal runtime loading narrow.
