@@ -87,3 +87,7 @@ Workflow packs are thin orchestrators built from the single-artifact standards a
 | PR / issue / discussion search pages | Avoid | Dynamic result pages are unstable and do not provide durable artifact structure. |
 | Repository homepages | Avoid | Too generic for scenario-specific writing rules unless the homepage itself is the artifact under review. |
 | Release indexes | Avoid | Prefer one concrete release page when shaping Release Notes. |
+
+## Official Source Coverage
+
+The README profile system is grounded in the GitHub README guide, GitHub community profile checklist, GitHub Issue/PR template docs, GitHub Issue Form syntax, GitHub generated release notes, and Agent Skills best-practices guidance for progressive disclosure. Mature repositories remain supporting examples only; do not copy their project-specific claims into user artifacts.

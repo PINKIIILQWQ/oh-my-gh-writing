@@ -10,10 +10,13 @@ ROOT = Path(__file__).resolve().parents[1]
 RUNTIME = ("SKILL.md", "INDEX.md", "VERSION", "references")
 REQUIRED_REFERENCE_FILES = (
     "references/target-repository.md",
+    "references/template-cache.md",
+    "references/readme-profiles/INDEX.md",
     "references/mermaid.md",
 )
 REQUIRED_RUNTIME_GUIDANCE = (
     "read `references/target-repository.md`",
+    "references/readme-profiles/",
     "read `references/mermaid.md`",
 )
 README_FILES = (ROOT / "README.md", ROOT / "README.zh-CN.md")

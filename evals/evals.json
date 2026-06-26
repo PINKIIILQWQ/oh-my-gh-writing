@@ -91,11 +91,12 @@
       "expected_route": "references/readme.md",
       "output_type": "markdown-artifact",
       "risk_category": ["evidence", "format"],
-      "expected_output": "Uses the README three-choice prompt unless the user skips questions. README output includes applicability scope, install or usage, file index, evidence-bounded support claims, and no links to nonexistent README language files.",
+      "expected_output": "Uses the README three-choice prompt unless the user skips questions. README output includes applicability scope, install or usage, file index, evidence-bounded support claims, and no links to nonexistent README language files. For a known project type, it loads the matching README profile.",
       "expected_file": "expected/readme-scope-excerpt.clean.md",
       "assertions": [
         "README includes project applicability scope.",
         "README separates built-in features from applicability scope.",
+        "README uses the matching project-type profile when the repository type is known.",
         "README does not link nonexistent README language files.",
         "Support claims are evidenced or marked To confirm."
       ],

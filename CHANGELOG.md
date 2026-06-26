@@ -8,6 +8,8 @@ This project follows the spirit of [Keep a Changelog](https://keepachangelog.com
 
 ### Added
 
+- Added README project-type profiles for agent skills, CLIs, libraries, GitHub Actions, MCP/plugins, web apps, docs/templates, data/model projects, and design systems.
+- Added an explicit opt-in target-template cache protocol with cache location, manifest shape, freshness rules, and provenance boundaries.
 - Added GitHub form-schema coverage for Discussion Category Forms, Issue Form `type` / `projects` / `assignees` / `upload` fields, generated release-note configuration, community health file recommendations, and AI repository-instruction recommendations.
 - Added All Contributors badge, configuration, README contributor tables, and contribution-recognition guidance.
 - Added target-repository convention discovery for relevant GitHub artifacts, with local working-tree evidence taking precedence over remote templates and portable standards.
@@ -15,6 +17,8 @@ This project follows the spirit of [Keep a Changelog](https://keepachangelog.com
 
 ### Changed
 
+- Made README drafting profile-aware while keeping the base README standard as the common prompt and evidence-boundary layer.
+- Tightened target-repository discovery so remote template reads stay path-targeted and persistent caching remains explicit user consent only.
 - Moved README-specific template guidance into a reusable target-repository reference and added validation that both new runtime references remain wired into the skill.
 - Clarified that persistent template caching is reserved for a future opt-in implementation and is not created by the current runtime.
 

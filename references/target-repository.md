@@ -12,8 +12,9 @@ Before drafting a target-specific artifact:
 
 1. Identify the target repository and active working tree, URL, or both.
 2. Inspect only the scenario-relevant files in the local working tree first.
-3. If local evidence is absent and a remote repository is known, inspect only the matching remote paths. Do not clone or scan the whole repository merely to find a template.
-4. If no relevant convention exists, use the matching oh-my-gh-writing standard.
+3. If local evidence is absent or clearly stale and a remote repository is known, inspect only the matching remote paths. Do not clone or scan the whole repository merely to find a template.
+4. If a user explicitly provides or approves a template cache, apply `template-cache.md` before treating cached files as evidence.
+5. If no relevant convention exists, use the matching oh-my-gh-writing standard.
 
 Precedence is: current local working tree, fresh local cache when explicitly available, matching remote repository file, then this skill's scenario standard.
 
@@ -48,9 +49,12 @@ If local and remote templates conflict, use the local file for the current artif
 
 - Prefer direct repository evidence over model memory.
 - Do not make a network request when a matching local file already answers the question.
+- Remote inspection must be path-targeted: check only the paths listed in the scenario map or the smallest equivalent path set.
+- Do not clone full repositories, traverse broad directory trees, or collect unrelated files just to find a template.
 - Do not claim a remote template was read when remote access is unavailable.
-- Persistent template caching is not part of the current runtime. Do not create `.github-template-cache/` automatically.
-- If a user provides a local template cache, treat it as secondary evidence and state when it is stale or lacks a source revision.
+- Persistent template caching is opt-in only. Do not create `.github-template-cache/` or any persistent cache automatically.
+- When the user explicitly allows persistent template caching, follow `template-cache.md`.
+- If a user provides a local template cache, treat it as secondary evidence and state when it is stale, lacks a source revision, or conflicts with local/remote files.
 
 ## Submission Notes
 

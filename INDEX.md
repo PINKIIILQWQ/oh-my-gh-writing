@@ -55,6 +55,7 @@ Agents should start with `SKILL.md`, then load the matching `references/*.md`. B
 | Directory | Purpose | Entry |
 |-----------|---------|-------|
 | `references/` | Artifact standards, workflow packs, validation, Markdown tools, and source catalog | `references/readme.md` |
+| `references/readme-profiles/` | README project-type profiles loaded only for README drafting | `references/readme-profiles/INDEX.md` |
 | `VERSION` | Runtime version source | `VERSION` |
 | `CONTRIBUTING.md` | Contribution rules, source requirements, and case feedback process | `CONTRIBUTING.md` |
 | `assets/` | README and project display assets | `assets/oh-my-gh-writing-logo.png` |
@@ -71,11 +72,11 @@ Agents should start with `SKILL.md`, then load the matching `references/*.md`. B
 | Issue | `bug-report.md`, `feature-request.md`, `enhancement.md`, `discussion.md` |
 | PR | `feature-pr.md`, `bug-fix-pr.md`, `refactor-pr.md`, `documentation-pr.md` |
 | Review / Commit | `code-review.md`, `standard-commit.md` |
-| Docs | `readme.md`, `contributing.md`, `changelog.md` |
+| Docs | `readme.md`, `readme-profiles/INDEX.md`, `contributing.md`, `changelog.md` |
 | Release / Design | `release-notes.md`, `migration-guide.md`, `rfc.md` |
 | Templates | `issue-form-yaml.md`, `pr-template.md` |
 | Composite workflow packs | `version-release.md`, `project-launch.md`, `contribution-setup.md`, `bug-fix-workflow.md`, `proposal-to-implementation.md`, `breaking-change-package.md`, `docs-overhaul.md` |
-| Appendix | `shared-principles.md`, `target-repository.md`, `weapons.md`, `mermaid.md`, `badge-catalog.md`, `emoji-guide.md`, `output-validation.md`, `source-catalog.md` |
+| Appendix | `shared-principles.md`, `target-repository.md`, `template-cache.md`, `weapons.md`, `mermaid.md`, `badge-catalog.md`, `emoji-guide.md`, `output-validation.md`, `source-catalog.md` |
 
 ## Maintenance Rules
 
@@ -83,6 +84,8 @@ Agents should start with `SKILL.md`, then load the matching `references/*.md`. B
 - Keep `SKILL.md` thin; put details in references.
 - Keep runtime files in English by default.
 - Keep target-repository template discovery in `references/target-repository.md`; do not duplicate path maps across scenario standards.
+- Keep README project-type details in `references/readme-profiles/`; do not expand `references/readme.md` into a template catalog.
+- Keep persistent template-cache policy in `references/template-cache.md`; do not add automatic cache writes without an explicit implementation pass.
 - Keep Mermaid selection, evidence, and syntax rules in `references/mermaid.md`; `weapons.md` is the broader Markdown-tools index.
 - Keep README focused on the shortest public path, not every internal detail.
 - Ensure deep details have an upper-level entry point.

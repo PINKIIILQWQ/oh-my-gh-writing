@@ -193,6 +193,7 @@ Current sample repository files: README.md, LICENSE, src/, package.json, scripts
 
 - **不只是模板，而是 workflow pack**：发版准备、项目首发、贡献流程、Bug 修复链路、从提案到实现、破坏性变更沟通、文档重写都被当作多文件 GitHub 写作任务处理。
 - **先路由，再写作**：区分 Feature Request、Enhancement、Discussion、Feature PR、Bug Fix PR、Refactor PR、Documentation PR，减少把 Issue 写成 PR、把讨论写成需求的情况。
+- **按项目类型定制 README**：README 写作会读取轻量 profile，让 Agent Skill、CLI、SDK、GitHub Action、Web App、Design System 等项目不会套同一种泛化首页。
 - **按目标仓库惯例起草**：目标仓库明确时，先检查最小必要的本地模板或规则，再回退到远端证据或可移植标准。
 - **默认保护事实边界**：版本号、命令、CI 名称、兼容性、issue/PR 编号、release 信息必须来自用户输入、仓库文件、diff 或官方来源。
 - **渐进读取 reference**：`SKILL.md` 保持轻量，具体规则放在 `references/*.md`，按场景读取，避免一次性塞满上下文。
@@ -254,7 +255,9 @@ Workflow pack 只做编排：能安全判断时会推断最合适的材料包，
 | [`VERSION`](VERSION) | 用于更新状态和 workflow manifest 的 runtime 版本来源 |
 | [`references/`](references) | 场景标准、workflow pack 和质量附录 |
 | [`references/readme.md`](references/readme.md) | README 写作标准 |
+| [`references/readme-profiles/`](references/readme-profiles) | 只在 README 写作时读取的项目类型 profile |
 | [`references/target-repository.md`](references/target-repository.md) | 目标仓库模板与惯例发现规则 |
+| [`references/template-cache.md`](references/template-cache.md) | 目标仓库模板缓存的显式授权协议 |
 | [`references/mermaid.md`](references/mermaid.md) | GitHub artifact 的证据驱动 Mermaid 图表规则 |
 | [`references/source-catalog.md`](references/source-catalog.md) | 公开参考来源和维护说明 |
 | [`evals/`](evals) | 用于后续 skill 迭代的触发和输出质量 eval fixtures |

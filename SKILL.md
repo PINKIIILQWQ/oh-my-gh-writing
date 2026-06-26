@@ -19,7 +19,7 @@ Use this skill for GitHub-facing writing artifacts and local GitHub writing draf
 2. If the user explicitly names a single artifact, route to that artifact even if the topic is broad.
 3. If the user asks for a broad workflow, launch, setup, release package, or end-to-end material set, route to the matching composite workflow pack.
 4. If the user asks to inspect, check, review readiness, or recommend what files are needed, treat it as audit-only: output a gap analysis and next-file recommendations only. Do not create target files, do not create `.github-writing/`, and do not write `.github/` or root repository files unless the user explicitly asks to draft, create, write, apply, or update files.
-5. For README requests, use the three-question prompt in `references/readme.md`.
+5. For README requests, use the three-question prompt in `references/readme.md`; when the project type is known or inferable, load the matching README profile from `references/readme-profiles/`.
 6. For composite workflow packs, follow the pack's Decision Rule. Ask the package-selection question only when the package shape cannot be inferred safely; otherwise use the recommended default and record it in `package-manifest.md`.
 7. Explicitly open and read the matching `references/*.md` before writing user-facing output. Do not infer or guess reference contents from memory.
 8. When a known target repository may govern the requested artifact, read `references/target-repository.md` and perform its scenario-specific convention discovery before drafting. Inspect the local working tree first; inspect the remote repository only when the local evidence is missing or stale.
@@ -94,11 +94,11 @@ Load `INDEX.md` for full navigation. Common reference groups:
 | Issues | `bug-report.md`, `feature-request.md`, `enhancement.md`, `discussion.md` |
 | Pull requests | `feature-pr.md`, `bug-fix-pr.md`, `refactor-pr.md`, `documentation-pr.md` |
 | Review and commit | `code-review.md`, `standard-commit.md` |
-| Docs | `readme.md`, `contributing.md`, `changelog.md` |
+| Docs | `readme.md`, `readme-profiles/INDEX.md`, `contributing.md`, `changelog.md` |
 | Release and design | `release-notes.md`, `migration-guide.md`, `rfc.md` |
 | Templates | `issue-form-yaml.md`, `pr-template.md` |
 | Composite packs | `version-release.md`, `project-launch.md`, `contribution-setup.md`, `bug-fix-workflow.md`, `proposal-to-implementation.md`, `breaking-change-package.md`, `docs-overhaul.md` |
-| Appendices | `shared-principles.md`, `target-repository.md`, `weapons.md`, `mermaid.md`, `badge-catalog.md`, `emoji-guide.md`, `output-validation.md`, `source-catalog.md` |
+| Appendices | `shared-principles.md`, `target-repository.md`, `template-cache.md`, `weapons.md`, `mermaid.md`, `badge-catalog.md`, `emoji-guide.md`, `output-validation.md`, `source-catalog.md` |
 
 ## Missing Information
 

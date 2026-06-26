@@ -36,6 +36,7 @@ Allowed content:
 | Issue type, labels, projects, assignees, discussion category slug | Target repository settings, existing templates, user input |
 | Generated release-note categories or exclusions | `.github/release.yml`, existing generated release draft, user input |
 | Support, security, citation, funding, CODEOWNERS, AI-instruction claims | Target repository files, official docs, user input |
+| Template cache freshness or provenance | `template-cache.md` manifest with source URL, commit SHA, timestamps, paths, and user consent |
 
 When evidence is missing:
 
@@ -106,7 +107,9 @@ For small artifacts with no obvious issue, omit the notes. When notes are needed
 - [ ] Issue Forms and Discussion Category Forms use only supported GitHub form schema fields and do not invent labels, issue types, projects, assignees, or category slugs.
 - [ ] Generated release-note categories, contributors, compare links, and exclusions come from `.github/release.yml`, release drafts, repository data, or user input.
 - [ ] Community, support, security, citation, funding, CODEOWNERS, and AI-instruction files are not claimed to exist unless evidenced.
+- [ ] README project type follows `readme-profiles/INDEX.md` when a profile is loaded, and profile claims are evidenced.
 - [ ] Template source paths, cache timestamps, generator versions, and usage counts remain outside the target artifact unless the user explicitly requests a provenance report.
+- [ ] Persistent template cache is used only when the user explicitly provided or approved it; stale cache is not treated as fresh evidence.
 - [ ] YAML parses; multi-file display and single-file write boundaries are clear.
 - [ ] Markdown tables, code blocks, details, and alerts render correctly.
 - [ ] README has clear project applicability scope and does not confuse features, built-in scenarios, or examples with applicability.

@@ -6,6 +6,15 @@ When routing to README, apply these detailed rules in addition to the top-level 
 
 Treat the README as a public entry page, not a dump of every internal file. For skill repositories, explain that the project is a portable skill or rulebase, not a standalone app, README generator, or GitHub integration unless that is true.
 
+## Profile Selection
+
+After reading this standard, select one project-type profile from `readme-profiles/INDEX.md` when the repository type is known or inferable from files, package metadata, user input, or existing docs.
+
+- Read only the primary matching profile by default.
+- For hybrid repositories, read a second profile only when it changes Quick Start, applicability scope, or required evidence.
+- If no profile fits, use this README standard alone and mark uncertain scope as `TBD` or omit it.
+- Never force a profile because a project mentions a technology casually; the README profile must match the repository's main deliverable.
+
 ## Required README Prompt
 
 Before drafting a README, ask one compact message with three required choices. Each choice must provide three options, put the recommended option first, and allow the user to add supplements in the same reply.
@@ -80,6 +89,8 @@ GitHub recognizes README files in `.github/`, repository root, and `docs/`, in t
 <who and what environments this project actually supports>
 ```
 
+The exact shape is refined by the selected `readme-profiles/*.md` file.
+
 ## Common Failure
 
 - Putting the first runnable install command below long feature tables.
@@ -146,6 +157,8 @@ Useful scope terms:
 - **Infrastructure / DevOps:** cloud providers, Kubernetes/Terraform/Helm versions, regions/environments, required permissions.
 - **Design systems / UI kits:** UI frameworks, styling stack, component libraries, design tools, theming modes.
 - **Docs / templates / rulebases:** target artifact types, audience, required host format, conversion/adaptation paths.
+
+When a README profile is loaded, follow that profile's applicability guidance first. Use the list above only as a fallback vocabulary.
 
 ## Scenario Index
 

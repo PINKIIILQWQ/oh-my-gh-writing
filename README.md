@@ -191,6 +191,7 @@ Excerpt shortened; the full case also includes Validation workflow, Changelog, a
 
 - **Workflow packs, not just templates**: release prep, project launch, contribution setup, bug-fix workflow, proposal-to-implementation, breaking-change communication, and docs overhaul are treated as multi-file GitHub writing jobs.
 - **Artifact routing before writing**: separates Feature Request, Enhancement, Discussion, Feature PR, Bug Fix PR, Refactor PR, and Documentation PR so agents do not turn one GitHub artifact into another.
+- **Profile-aware README drafting**: README work uses a compact project-type profile so an agent skill, CLI, SDK, GitHub Action, web app, or design system does not get the same generic homepage.
 - **Repository-aware conventions**: for a known target repository, checks the smallest relevant local template or policy before drafting, then falls back to upstream evidence or the portable standard.
 - **Evidence boundaries by default**: versions, commands, CI names, compatibility claims, issue numbers, PR numbers, and release facts must come from user input, repository files, diffs, or official sources.
 - **Progressive reference loading**: `SKILL.md` stays lightweight; detailed rules live in `references/*.md` and are loaded only when needed.
@@ -252,7 +253,9 @@ Native rows load this folder directly. Adapted rows need a compact host-specific
 | [`VERSION`](VERSION) | Runtime version source for update status and workflow manifests |
 | [`references/`](references) | Scenario standards, workflow packs, and quality appendices |
 | [`references/readme.md`](references/readme.md) | README writing standard used by this skill |
+| [`references/readme-profiles/`](references/readme-profiles) | Project-type README profiles loaded only for README drafting |
 | [`references/target-repository.md`](references/target-repository.md) | Target-repository template and convention discovery rules |
+| [`references/template-cache.md`](references/template-cache.md) | Opt-in target-template cache protocol |
 | [`references/mermaid.md`](references/mermaid.md) | Evidence-backed Mermaid diagram rules for GitHub artifacts |
 | [`references/source-catalog.md`](references/source-catalog.md) | Public source catalog and maintenance notes |
 | [`evals/`](evals) | Trigger and output-quality eval fixtures for future skill iteration |
