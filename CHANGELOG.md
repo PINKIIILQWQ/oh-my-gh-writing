@@ -6,6 +6,8 @@ This project follows the spirit of [Keep a Changelog](https://keepachangelog.com
 
 ## [Unreleased]
 
+## [0.1.3] - 2026-06-27
+
 ### Added
 
 - Added README project-type profiles for agent skills, CLIs, libraries, GitHub Actions, MCP/plugins, web apps, docs/templates, data/model projects, and design systems.

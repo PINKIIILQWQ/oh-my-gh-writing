@@ -6,7 +6,7 @@
 
 <p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-0f766e?style=flat" alt="MIT License"></a>
-  <a href="https://github.com/PINKIIILQWQ/oh-my-gh-writing/releases/tag/v0.1.2"><img src="https://img.shields.io/badge/Skill-v0.1.2-2563eb?style=flat" alt="Skill v0.1.2"></a>
+  <a href="https://github.com/PINKIIILQWQ/oh-my-gh-writing/releases/tag/v0.1.3"><img src="https://img.shields.io/badge/Skill-v0.1.3-2563eb?style=flat" alt="Skill v0.1.3"></a>
   <a href="INDEX.md"><img src="https://img.shields.io/badge/Artifacts-18-6a0dad?style=flat" alt="18 artifact standards"></a>
   <a href="INDEX.md"><img src="https://img.shields.io/badge/Workflows-7-0f766e?style=flat" alt="7 workflow packs"></a>
   <a href="SKILL.md"><img src="https://img.shields.io/badge/Format-SKILL.md-22AA66?style=flat" alt="SKILL.md"></a>
