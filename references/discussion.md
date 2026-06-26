@@ -8,6 +8,8 @@ Use for open-ended community input, proposal exploration, tradeoff discussion, o
 
 Discussions invite input. Do not make final decisions, assign owners, promise timelines, or write as a PR/issue unless the user requests that artifact.
 
+If the user asks for a structured Discussion Category Form YAML file, route to `issue-form-yaml.md` and use `.github/DISCUSSION_TEMPLATE/<category-slug>.yml`.
+
 ## Standard Structure
 
 1. **Topic:** short statement of the question or decision area.

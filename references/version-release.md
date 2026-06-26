@@ -44,6 +44,7 @@ Read `shared-principles.md` because release materials are fact-heavy.
 
 - Version, date, tag, compare URL, release URL, contributors, breaking changes, migration commands, and compatibility ranges require evidence.
 - Generated changelog or release-drafter output is a source; preserve generated version/tag/compare semantics.
+- If `.github/release.yml` exists, preserve its generated release-note categories and exclusions. Do not add or remove generated categories without maintainer confirmation.
 - Unknown facts become `TBD` or `To confirm`.
 
 ## Suggested File Names
@@ -52,6 +53,7 @@ Read `shared-principles.md` because release materials are fact-heavy.
 - `RELEASE_NOTES.md`
 - `MIGRATION.md`
 - `release-draft.md`
+- `.github/release.yml` only when the user asks to create or revise GitHub generated release-note configuration
 - `package-manifest.md`
 
 ## Package Manifest

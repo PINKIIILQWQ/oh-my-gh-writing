@@ -6,6 +6,8 @@ Read this reference before adding a Mermaid flowchart, sequence diagram, state d
 
 Use a diagram only when it makes a process, dependency, lifecycle, decision, or interaction easier to understand than a short list. Do not use Mermaid as decoration or a README hero graphic.
 
+Do not use Mermaid for maps, geographic data, topology files, or 3D models. GitHub supports GeoJSON, TopoJSON, and ASCII STL code fences for those shapes; use them only with real source data.
+
 ## Choose the Smallest Useful Diagram
 
 | Need | Diagram |

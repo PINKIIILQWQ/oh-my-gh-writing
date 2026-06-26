@@ -23,12 +23,12 @@ The local working tree is authoritative for an in-progress branch. A remote file
 
 | Artifact group | Inspect when relevant |
 | --- | --- |
-| Issue, Bug Report, Feature Request, Enhancement, Discussion | `.github/ISSUE_TEMPLATE/`, issue config, issue-form YAML, `CONTRIBUTING.md` |
+| Issue, Bug Report, Feature Request, Enhancement, Discussion | `.github/ISSUE_TEMPLATE/`, issue config, issue-form YAML, `.github/DISCUSSION_TEMPLATE/`, `CONTRIBUTING.md` |
 | Feature PR, Bug Fix PR, Refactor PR, Documentation PR | `.github/pull_request_template.md`, `.github/PULL_REQUEST_TEMPLATE.md`, `PULL_REQUEST_TEMPLATE.md`, `CONTRIBUTING.md` |
 | README, CONTRIBUTING, Docs Overhaul | Existing `README.md`, `CONTRIBUTING.md`, adjacent docs, project-specific docs style rules |
-| CHANGELOG, Release Notes, Migration Guide, Version Release | `CHANGELOG.md`, release configuration, prior release notes, migration docs, generated changelog configuration |
+| CHANGELOG, Release Notes, Migration Guide, Version Release | `CHANGELOG.md`, `.github/release.yml`, release configuration, prior release notes, migration docs, generated changelog configuration |
 | RFC, Proposal to Implementation, Breaking Change Package | RFC or design directories, contribution rules, existing migration and changelog conventions |
-| Issue Form YAML, PR Template, Project Launch, Contribution Setup | Existing `.github/` forms and templates, `config.yml`, `CONTRIBUTING.md`, code ownership or review guidance when present |
+| Issue / Discussion Form YAML, PR Template, Project Launch, Contribution Setup | Existing `.github/` forms and templates, `config.yml`, `.github/DISCUSSION_TEMPLATE/`, `CONTRIBUTING.md`, `CODEOWNERS`, support or security guidance when present |
 
 Read the smallest useful set. A PR description does not need all issue forms; a README update does not need release templates.
 

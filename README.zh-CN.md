@@ -21,7 +21,7 @@
 
 > 英文 README 是 canonical 版本；本文档是同步维护的简体中文译本。
 
-**oh-my-gh-writing** 是一个面向 AI Agent 的 GitHub 写作 Skill。它帮助 agent 起草更干净的 GitHub Issue、PR 描述、Review、Commit、README、CHANGELOG、Release Notes、Migration Guide、RFC、Issue Form、PR Template，以及多文件 workflow pack。
+**oh-my-gh-writing** 是一个面向 AI Agent 的 GitHub 写作 Skill。它帮助 agent 起草更干净的 GitHub Issue、PR 描述、Review、Commit、README、CHANGELOG、Release Notes、Migration Guide、RFC、Issue / Discussion Form、PR Template，以及多文件 workflow pack。
 
 核心思路很简单：先判断请求属于哪类 GitHub 写作任务，再只加载对应标准，明确事实边界，最后输出更少需要清理的 GitHub artifact 或本地草稿包。
 
@@ -142,7 +142,7 @@ python3 scripts/validate-release-version.py
 | `/oh-my-gh-writing 根据这些已合并 PR 摘要准备 v1.2.0 发布材料：修复登录重定向、增加 CSV 导出、更新文档。不要发布。` | Version Release workflow pack | 本地 `.github-writing/version-release/v1.2.0/` 发布草稿、manifest 和确认项 |
 | `/oh-my-gh-writing 帮这个仓库建立接收外部贡献的流程。` | Contribution Setup workflow pack | CONTRIBUTING、Issue Form、PR Template、README 贡献入口和本地 manifest |
 | `/oh-my-gh-writing 根据这个 diff 写一个 bug-fix PR。测试还没跑。` | Bug Fix PR | PR 正文，包含摘要、已有 root-cause 证据、未运行测试说明和风险提示 |
-| `/oh-my-gh-writing 创建一个 bug report Issue Form YAML。labels 和 assignees 都未确认。` | Issue Form YAML | YAML 文件内容，不编造 labels、assignees、projects 或 contact links |
+| `/oh-my-gh-writing 创建一个 bug report Issue Form YAML。labels 和 assignees 都未确认。` | Issue / Discussion Form YAML | YAML 文件内容，不编造 labels、assignees、projects、category slugs 或 contact links |
 
 ### Featured Review-Draft Case
 
@@ -206,7 +206,7 @@ Current sample repository files: README.md, LICENSE, src/, package.json, scripts
 - Bug Report 编造 root cause 或受影响版本。
 - README 宣称不支持或未确认的平台、安装方式。
 - Release Notes 编造迁移命令、日期、贡献者或 compare link。
-- Issue Form 从无关项目复制 labels、SIG、版本列表或 required checkbox。
+- Issue / Discussion Form 从无关项目复制 labels、SIG、category slugs、版本列表或 required checkbox。
 
 ## 🎯 适用范围
 
@@ -222,7 +222,7 @@ Current sample repository files: README.md, LICENSE, src/, package.json, scripts
 
 | 类型 | 内容 |
 | --- | --- |
-| 18 个 artifact 标准 | Bug Report、Feature Request、Enhancement、Discussion、Feature PR、Bug Fix PR、Refactor PR、Documentation PR、Code Review、Standard Commit、README、CONTRIBUTING、CHANGELOG、Release Notes、Migration Guide、RFC、Issue Form YAML、PR Template |
+| 18 个 artifact 标准 | Bug Report、Feature Request、Enhancement、Discussion、Feature PR、Bug Fix PR、Refactor PR、Documentation PR、Code Review、Standard Commit、README、CONTRIBUTING、CHANGELOG、Release Notes、Migration Guide、RFC、Issue / Discussion Form YAML、PR Template |
 | 7 个 workflow pack | Version Release、Project Launch、Contribution Setup、Bug Fix Workflow、Proposal to Implementation、Breaking Change Package、Docs Overhaul |
 | 质量附录 | shared principles、target-repository conventions、output validation、Mermaid、badge patterns、emoji guide、GitHub Markdown tools、source catalog |
 

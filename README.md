@@ -19,7 +19,7 @@
   English · <a href="README.zh-CN.md">简体中文</a>
 </p>
 
-**oh-my-gh-writing** is an Agent Skill for GitHub writing. It helps AI agents draft cleaner GitHub issues, pull request descriptions, reviews, commits, README files, changelogs, release notes, migration guides, RFCs, issue forms, PR templates, and multi-artifact workflow packs.
+**oh-my-gh-writing** is an Agent Skill for GitHub writing. It helps AI agents draft cleaner GitHub issues, pull request descriptions, reviews, commits, README files, changelogs, release notes, migration guides, RFCs, issue/discussion forms, PR templates, and multi-artifact workflow packs.
 
 The core idea is simple: route the request first, load only the matching writing standard, keep uncertain facts explicit, and output a GitHub artifact or local draft package that needs less cleanup.
 
@@ -140,7 +140,7 @@ Start with one of these prompts:
 | `/oh-my-gh-writing Prepare the v1.2.0 release materials from these merged PR summaries: fix login redirect, add CSV export, update docs. Do not publish anything.` | Version Release workflow pack | Local `.github-writing/version-release/v1.2.0/` release drafts plus manifest and confirmation notes |
 | `/oh-my-gh-writing Set up this repository for outside contributors.` | Contribution Setup workflow pack | CONTRIBUTING, issue form, PR template, README contribution entry, and local manifest |
 | `/oh-my-gh-writing Write a bug-fix PR from this diff. Tests were not run.` | Bug Fix PR | PR body with summary, root-cause evidence if provided, testing marked as not run, and risk notes |
-| `/oh-my-gh-writing Create a bug report Issue Form YAML. Labels and assignees are not confirmed.` | Issue Form YAML | YAML file content without invented labels, assignees, projects, or contact links |
+| `/oh-my-gh-writing Create a bug report Issue Form YAML. Labels and assignees are not confirmed.` | Issue / Discussion Form YAML | YAML file content without invented labels, assignees, projects, category slugs, or contact links |
 
 ### Featured Review-Draft Case
 
@@ -204,7 +204,7 @@ Excerpt shortened; the full case also includes Validation workflow, Changelog, a
 - Bug reports that invent root causes or affected versions.
 - READMEs that advertise unsupported platforms or missing install paths.
 - Release notes that invent migration commands, dates, contributors, or compare links.
-- Issue forms that copy labels, SIGs, version lists, or required checkboxes from unrelated projects.
+- Issue / Discussion forms that copy labels, SIGs, category slugs, version lists, or required checkboxes from unrelated projects.
 
 ## 🎯 Applicability
 
@@ -220,7 +220,7 @@ This project is a portable Markdown rulebase for AI agents and rule-based coding
 
 | Type | Coverage |
 | --- | --- |
-| 18 artifact standards | Bug Report, Feature Request, Enhancement, Discussion, Feature PR, Bug Fix PR, Refactor PR, Documentation PR, Code Review, Standard Commit, README, CONTRIBUTING, CHANGELOG, Release Notes, Migration Guide, RFC, Issue Form YAML, PR Template |
+| 18 artifact standards | Bug Report, Feature Request, Enhancement, Discussion, Feature PR, Bug Fix PR, Refactor PR, Documentation PR, Code Review, Standard Commit, README, CONTRIBUTING, CHANGELOG, Release Notes, Migration Guide, RFC, Issue / Discussion Form YAML, PR Template |
 | 7 workflow packs | Version Release, Project Launch, Contribution Setup, Bug Fix Workflow, Proposal to Implementation, Breaking Change Package, Docs Overhaul |
 | Quality appendices | Shared principles, target-repository conventions, output validation, Mermaid, badge patterns, emoji guide, GitHub Markdown tools, source catalog |
 

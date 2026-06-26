@@ -33,6 +33,9 @@ Allowed content:
 | Install command, package name, Node/Rust/Python version | Package/config files, official docs, user input |
 | Platform support, compatibility range, migration timeline | Official docs, release notes, repository files, user input |
 | Screenshot, GIF, Star History, badge | Repository assets, user assets, official service, verifiable link |
+| Issue type, labels, projects, assignees, discussion category slug | Target repository settings, existing templates, user input |
+| Generated release-note categories or exclusions | `.github/release.yml`, existing generated release draft, user input |
+| Support, security, citation, funding, CODEOWNERS, AI-instruction claims | Target repository files, official docs, user input |
 
 When evidence is missing:
 
@@ -53,6 +56,7 @@ When evidence is missing:
 | README is wrapped in a whole-document code block | FORMAT_FAIL |
 | README lacks project applicability scope, or uses features/scenarios as applicability scope | FACT_CHECK_REQUIRED |
 | YAML file includes explanatory headings when meant for direct file write | FORMAT_FAIL |
+| Discussion Category Form uses an unknown category slug as fact | FACT_CHECK_REQUIRED |
 | Composite workflow publishes, tags, opens PRs, or modifies remote state by default | FORMAT_FAIL |
 | Audit-only readiness review creates files or package drafts | FORMAT_FAIL |
 
@@ -99,6 +103,9 @@ For small artifacts with no obvious issue, omit the notes. When notes are needed
 - [ ] No unexplained, unactionable, or submission-inappropriate `#XXXXX`, `Fixes #`, `TODO`, or `TBD`.
 - [ ] No checklist item is checked without proof from user input, repository files, diff, or tool output.
 - [ ] When a known target repository has an applicable local template or convention, it was inspected before drafting; required fields are satisfied or surfaced to the user.
+- [ ] Issue Forms and Discussion Category Forms use only supported GitHub form schema fields and do not invent labels, issue types, projects, assignees, or category slugs.
+- [ ] Generated release-note categories, contributors, compare links, and exclusions come from `.github/release.yml`, release drafts, repository data, or user input.
+- [ ] Community, support, security, citation, funding, CODEOWNERS, and AI-instruction files are not claimed to exist unless evidenced.
 - [ ] Template source paths, cache timestamps, generator versions, and usage counts remain outside the target artifact unless the user explicitly requests a provenance report.
 - [ ] YAML parses; multi-file display and single-file write boundaries are clear.
 - [ ] Markdown tables, code blocks, details, and alerts render correctly.

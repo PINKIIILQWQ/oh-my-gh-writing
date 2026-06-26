@@ -1,6 +1,6 @@
 ---
 name: oh-my-gh-writing
-description: "Draft and revise GitHub-facing writing artifacts: issues, PR descriptions, code reviews, commit messages, README/CONTRIBUTING/CHANGELOG docs, release notes, migration guides, RFCs, issue forms, PR templates, and local multi-file release/launch/contribution workflow packs. Use only for GitHub repository artifacts; do not use for generic prose, UI copy, marketing, or code implementation."
+description: "Draft and revise GitHub-facing writing artifacts: issues, PR descriptions, code reviews, commit messages, README/CONTRIBUTING/CHANGELOG docs, release notes, migration guides, RFCs, issue/discussion forms, PR templates, and local multi-file release/launch/contribution workflow packs. Use only for GitHub repository artifacts; do not use for generic prose, UI copy, marketing, or code implementation."
 ---
 
 # oh-my-gh-writing
@@ -66,6 +66,7 @@ When the prompt mixes issue, PR, and discussion language:
 | Change reorganizes code without behavior change | Refactor PR |
 | Only documentation changed | Documentation PR |
 | User asks to review code, a PR, or a diff | Code Review |
+| User asks for an Issue Form or Discussion Category Form YAML file | GitHub Form YAML |
 
 If the user asks to turn a PR, postmortem, or discussion into a different artifact, route by the requested artifact, not the source material.
 

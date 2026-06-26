@@ -45,9 +45,20 @@ Add any supplements in the same reply: repository description, official website,
 
 Read `weapons.md` or `emoji-guide.md` only when visuals, badges, icons, or emoji are needed.
 
+## Community Health And Optional Files
+
+For public launch audits, separate required launch blockers from conditional recommendations:
+
+- Core public-readiness files: `README.md`, `LICENSE`, `CONTRIBUTING.md`, `.github/ISSUE_TEMPLATE/*.yml`, `.github/pull_request_template.md`.
+- Conditional community files: `CODE_OF_CONDUCT.md` when broad community participation is intended, `SUPPORT.md` when support channels exist, `SECURITY.md` when private vulnerability reporting is supported, `CODEOWNERS` when review ownership is shared, `CITATION.cff` when academic citation matters, `.github/FUNDING.yml` when sponsorship links exist.
+- Optional AI-agent files: `.github/copilot-instructions.md`, `.github/instructions/*.instructions.md`, `AGENTS.md`, `CLAUDE.md`, or `GEMINI.md` only when the repository expects AI agent contributors or the user asks for agent instructions.
+- Optional discussion templates: `.github/DISCUSSION_TEMPLATE/*.yml` only when GitHub Discussions are enabled and category slugs are known.
+
+Do not create optional files by default. Recommend them with a short reason and the missing evidence needed.
+
 ## Evidence Rules
 
-- Applicability scope, install commands, package names, platform support, contribution process, credits, repository description, homepage URL, and topics require evidence.
+- Applicability scope, install commands, package names, platform support, contribution process, credits, repository description, homepage URL, topics, support channels, security contact, citation needs, sponsorship links, discussion category slugs, and AI-agent instruction targets require evidence.
 - Use `TBD` for missing launch facts. Do not invent public-readiness claims.
 
 ## Repository About Metadata
@@ -66,7 +77,10 @@ About metadata is repository configuration, not a README substitute. Do not upda
 - `CONTRIBUTING.md`
 - `.github/ISSUE_TEMPLATE/bug_report.yml`
 - `.github/ISSUE_TEMPLATE/feature_request.yml`
+- `.github/DISCUSSION_TEMPLATE/<category-slug>.yml` only when Discussions categories are known
 - `.github/pull_request_template.md`
+- `SUPPORT.md`, `SECURITY.md`, `CODE_OF_CONDUCT.md`, `CODEOWNERS`, `CITATION.cff`, or `.github/FUNDING.yml` only when supported by project evidence or user request
+- `.github/copilot-instructions.md`, `.github/instructions/*.instructions.md`, `AGENTS.md`, `CLAUDE.md`, or `GEMINI.md` only when requested or clearly relevant
 - `repository-about.md`
 - `package-manifest.md`
 
@@ -87,6 +101,7 @@ Every workflow package should include `package-manifest.md` with:
 - [ ] Package option is selected.
 - [ ] README includes project applicability scope.
 - [ ] Repository About description, homepage, and topics are evidenced or marked `TBD`.
+- [ ] Optional community, support, security, citation, funding, discussion, and AI-instruction files are recommended only with evidence or user intent.
 - [ ] Credits or acknowledgements are relationship-specific.
 - [ ] No public launch action is performed by default.
 - [ ] Audit-only requests do not create files or package drafts.

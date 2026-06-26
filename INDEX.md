@@ -35,7 +35,7 @@ Agents should start with `SKILL.md`, then load the matching `references/*.md`. B
 | 14 | Release | Release Notes | Writing release announcements | `references/release-notes.md` |
 | 15 | Release | Migration Guide | Explaining upgrade steps | `references/migration-guide.md` |
 | 16 | Design | RFC | Proposing a design | `references/rfc.md` |
-| 17 | Templates | Issue Form YAML | Creating GitHub Issue Forms | `references/issue-form-yaml.md` |
+| 17 | Templates | Issue / Discussion Form YAML | Creating GitHub Issue Forms or Discussion Category Forms | `references/issue-form-yaml.md` |
 | 18 | Templates | PR Template | Creating Pull Request templates | `references/pr-template.md` |
 
 ## 7 Workflow Packs

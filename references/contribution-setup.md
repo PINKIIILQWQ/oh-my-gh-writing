@@ -43,16 +43,28 @@ Add any supplements in the same reply: accepted contribution types, setup/test c
 | Internal workflow pack | `pr-template.md`, `code-review.md`, `contributing.md` |
 | First-time contributor pack | `contributing.md`, `issue-form-yaml.md`, `pr-template.md` |
 
+## Optional Contribution Infrastructure
+
+Recommend but do not generate these by default:
+
+- `SUPPORT.md` when the project has real support channels that should be shown before issue creation.
+- `SECURITY.md` when private vulnerability reporting is supported.
+- `CODEOWNERS` when review ownership is shared and owners have write access.
+- `.github/DISCUSSION_TEMPLATE/*.yml` when Discussions are enabled and the user wants structured idea, question, or announcement intake.
+- `.github/copilot-instructions.md`, `.github/instructions/*.instructions.md`, or `AGENTS.md` when AI agents are expected to contribute and repository-specific build/test guidance is known.
+
 ## Evidence Rules
 
-- Setup commands, test commands, code owner rules, release permissions, security reporting, and governance require repository evidence or user input.
+- Setup commands, test commands, code owner rules, release permissions, support channels, security reporting, AI-agent instructions, discussion category slugs, and governance require repository evidence or user input.
 - Unknown optional workflow details should be omitted rather than turned into requirements.
 
 ## Suggested File Names
 
 - `CONTRIBUTING.md`
 - `.github/ISSUE_TEMPLATE/*.yml`
+- `.github/DISCUSSION_TEMPLATE/*.yml` only when Discussions categories are known
 - `.github/pull_request_template.md`
+- `SUPPORT.md`, `SECURITY.md`, `CODEOWNERS`, or AI instruction files only when requested or evidenced
 - `README-contributing-entry.md`
 - `package-manifest.md`
 

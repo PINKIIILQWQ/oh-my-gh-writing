@@ -37,6 +37,8 @@ For major releases:
 
 If release notes come from Conventional Changelog, semantic-release, commit-and-tag-version, or an existing GitHub Release draft, preserve generated version, tag, compare URL, breaking-change groups, and commit range. You may add human highlights, but do not write unevidenced commit impact as release fact.
 
+If the target repository uses GitHub automatically generated release notes, inspect `.github/release.yml` when available. Preserve evidenced category rules, excluded labels, excluded authors, contributor lists, and Full Changelog links from the generated draft or configuration. Do not invent contributors, compare ranges, excluded labels, or generated categories.
+
 ## Do Not Invent
 
 - Do not invent release URLs, contributors, migration commands, built-in plugin lists, screenshots/GIFs, platform support, or benchmarks.
@@ -65,6 +67,7 @@ If release notes come from Conventional Changelog, semantic-release, commit-and-
 | Source | Useful Pattern |
 |--------|----------------|
 | GitHub Releases docs | Release publishing model and release notes |
+| GitHub generated release notes docs | `.github/release.yml` categories, exclusions, contributors, and Full Changelog boundaries |
 | Conventional Changelog | Generated release boundaries |
 | Astro 5.0 release | Major-release framing |
 | npm CLI v11 release | CLI release communication |

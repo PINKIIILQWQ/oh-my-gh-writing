@@ -68,6 +68,8 @@ Do not store third-party brand logos in this repository's `assets/`; keep `asset
 
 Core explanatory sections such as Overview, Quick Start, Usage, Configuration, and Architecture need real substance, not one-line slogans. Entry sections such as License, Contributing, Links, and Acknowledgements may be short. Merge or omit sections with no real information.
 
+GitHub recognizes README files in `.github/`, repository root, and `docs/`, in that display priority. For ordinary project homepages, prefer the repository root unless the target repository already uses another supported location. Keep README focused on getting started, usage, help, maintainers, and contribution entry points; do not turn it into a full docs site. GitHub truncates very large README files, so move long reference material into linked docs.
+
 ## Good Output Shape
 
 ```markdown
@@ -170,6 +172,8 @@ Add Acknowledgements or Thanks only when repository files, dependencies, user in
 ## Contributing in README
 
 If the repository has `CONTRIBUTING.md` or is intended for external contributors, include a short Contributing entry and link to the full rules. Do not force an external contribution process into private, one-off, internal, or no-contribution projects.
+
+When a public repository is being prepared for launch, mention only community files that exist or are being drafted: contribution guide, issue forms, PR template, code of conduct, support resources, security policy, citation file, funding links, or CODEOWNERS. Do not imply those files exist before they do.
 
 ## Target Repository Templates
 

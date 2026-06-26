@@ -71,6 +71,8 @@ Rules:
 
 When a GitHub artifact needs a Mermaid diagram, read `mermaid.md` before drafting it. That reference defines diagram selection, evidence boundaries, GitHub-compatible syntax, and output checks.
 
+GitHub also renders GeoJSON, TopoJSON, and ASCII STL code fences. Use those only when the artifact is actually about maps, geographic data, topology, or 3D models. Do not force those cases into Mermaid diagrams.
+
 ## Tables
 
 Use tables for comparable data with stable columns, such as support matrices, scenario lists, file indexes, package options, and compatibility matrices.
@@ -111,7 +113,7 @@ Rules:
 | Release Notes | Highlights, changelog links, warnings for breaking changes |
 | Migration Guide | Warning alerts, before/after tables, compatibility tables |
 | PR Description | Checklist, screenshots, local code blocks |
-| Issue Form YAML | Valid YAML only; avoid Markdown wrappers in file output |
+| Issue / Discussion Form YAML | Valid YAML only; avoid Markdown wrappers in file output |
 | RFC | Diagrams, tradeoff tables, details for alternatives |
 
 ## Checklist
