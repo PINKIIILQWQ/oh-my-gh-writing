@@ -6,6 +6,17 @@ This project follows the spirit of [Keep a Changelog](https://keepachangelog.com
 
 ## [Unreleased]
 
+## [0.1.4] - 2026-06-30
+
+### Added
+
+- Added the Maintainer Response artifact standard for GitHub issue comments, PR review replies, discussion replies, and saved reply drafts.
+- Added routing and eval coverage so reply/comment requests do not get rewritten as bug reports, code review findings, or full PR descriptions.
+
+### Changed
+
+- Updated public navigation, README coverage counts, and source catalog entries from 18 to 19 artifact standards.
+
 ## [0.1.3] - 2026-06-27
 
 ### Added

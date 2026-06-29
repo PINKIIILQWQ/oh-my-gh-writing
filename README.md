@@ -6,8 +6,8 @@
 
 <p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-0f766e?style=flat" alt="MIT License"></a>
-  <a href="https://github.com/PINKIIILQWQ/oh-my-gh-writing/releases/tag/v0.1.3"><img src="https://img.shields.io/badge/Skill-v0.1.3-2563eb?style=flat" alt="Skill v0.1.3"></a>
-  <a href="INDEX.md"><img src="https://img.shields.io/badge/Artifacts-18-6a0dad?style=flat" alt="18 artifact standards"></a>
+  <a href="https://github.com/PINKIIILQWQ/oh-my-gh-writing/releases/tag/v0.1.4"><img src="https://img.shields.io/badge/Skill-v0.1.4-2563eb?style=flat" alt="Skill v0.1.4"></a>
+  <a href="INDEX.md"><img src="https://img.shields.io/badge/Artifacts-19-6a0dad?style=flat" alt="19 artifact standards"></a>
   <a href="INDEX.md"><img src="https://img.shields.io/badge/Workflows-7-0f766e?style=flat" alt="7 workflow packs"></a>
   <a href="SKILL.md"><img src="https://img.shields.io/badge/Format-SKILL.md-22AA66?style=flat" alt="SKILL.md"></a>
   <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
@@ -19,7 +19,7 @@
   English · <a href="README.zh-CN.md">简体中文</a>
 </p>
 
-**oh-my-gh-writing** is an Agent Skill for GitHub writing. It helps AI agents draft cleaner GitHub issues, pull request descriptions, reviews, commits, README files, changelogs, release notes, migration guides, RFCs, issue/discussion forms, PR templates, and multi-artifact workflow packs.
+**oh-my-gh-writing** is an Agent Skill for GitHub writing. It helps AI agents draft cleaner GitHub issues, pull request descriptions, maintainer comments/replies, reviews, commits, README files, changelogs, release notes, migration guides, RFCs, issue/discussion forms, PR templates, and multi-artifact workflow packs.
 
 The core idea is simple: route the request first, load only the matching writing standard, keep uncertain facts explicit, and output a GitHub artifact or local draft package that needs less cleanup.
 
@@ -140,6 +140,7 @@ Start with one of these prompts:
 | `/oh-my-gh-writing Prepare the v1.2.0 release materials from these merged PR summaries: fix login redirect, add CSV export, update docs. Do not publish anything.` | Version Release workflow pack | Local `.github-writing/version-release/v1.2.0/` release drafts plus manifest and confirmation notes |
 | `/oh-my-gh-writing Set up this repository for outside contributors.` | Contribution Setup workflow pack | CONTRIBUTING, issue form, PR template, README contribution entry, and local manifest |
 | `/oh-my-gh-writing Write a bug-fix PR from this diff. Tests were not run.` | Bug Fix PR | PR body with summary, root-cause evidence if provided, testing marked as not run, and risk notes |
+| `/oh-my-gh-writing Reply to this PR review comment and say I pushed a fix, but tests were not run.` | Maintainer Response | Comment body that acknowledges the review, states what changed, keeps testing evidence explicit, and does not imply the reply was posted |
 | `/oh-my-gh-writing Create a bug report Issue Form YAML. Labels and assignees are not confirmed.` | Issue / Discussion Form YAML | YAML file content without invented labels, assignees, projects, category slugs, or contact links |
 
 ### Featured Review-Draft Case
@@ -221,7 +222,7 @@ This project is a portable Markdown rulebase for AI agents and rule-based coding
 
 | Type | Coverage |
 | --- | --- |
-| 18 artifact standards | Bug Report, Feature Request, Enhancement, Discussion, Feature PR, Bug Fix PR, Refactor PR, Documentation PR, Code Review, Standard Commit, README, CONTRIBUTING, CHANGELOG, Release Notes, Migration Guide, RFC, Issue / Discussion Form YAML, PR Template |
+| 19 artifact standards | Bug Report, Feature Request, Enhancement, Discussion, Feature PR, Bug Fix PR, Refactor PR, Documentation PR, Maintainer Response, Code Review, Standard Commit, README, CONTRIBUTING, CHANGELOG, Release Notes, Migration Guide, RFC, Issue / Discussion Form YAML, PR Template |
 | 7 workflow packs | Version Release, Project Launch, Contribution Setup, Bug Fix Workflow, Proposal to Implementation, Breaking Change Package, Docs Overhaul |
 | Quality appendices | Shared principles, target-repository conventions, output validation, Mermaid, badge patterns, emoji guide, GitHub Markdown tools, source catalog |
 
@@ -249,7 +250,7 @@ Native rows load this folder directly. Adapted rows need a compact host-specific
 | Path | Purpose |
 | --- | --- |
 | [`SKILL.md`](SKILL.md) | Thin runtime router and workflow rules |
-| [`INDEX.md`](INDEX.md) | Navigation for 18 artifact standards and 7 workflow packs |
+| [`INDEX.md`](INDEX.md) | Navigation for 19 artifact standards and 7 workflow packs |
 | [`VERSION`](VERSION) | Runtime version source for update status and workflow manifests |
 | [`references/`](references) | Scenario standards, workflow packs, and quality appendices |
 | [`references/readme.md`](references/readme.md) | README writing standard used by this skill |

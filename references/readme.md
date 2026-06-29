@@ -139,7 +139,7 @@ Every README must state project applicability scope. It answers which users, env
 
 Small projects can include one paragraph or 3-5 bullets in Overview or Usage. Tools, frameworks, AI products, plugins, templates, SDKs, and platforms should use a dedicated `Applicability`, `Supported Targets`, or `Compatibility` section or table.
 
-Do not confuse built-in features with applicability scope. For example, this project has 18 GitHub artifact standards and workflow packs as product capabilities; its applicability scope is the agent products, rule hosts, knowledge bases, and GitHub writing workflows that can use it.
+Do not confuse built-in features with applicability scope. For example, this project has 19 GitHub artifact standards and workflow packs as product capabilities; its applicability scope is the agent products, rule hosts, knowledge bases, and GitHub writing workflows that can use it.
 
 Scope claims must be evidence-based: repository files, user input, config, dependencies, existing docs, or official sources. Unknown scope becomes `TBD`, `To confirm`, or omitted. Do not write "theoretically usable" as "supported".
 

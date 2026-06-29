@@ -26,6 +26,7 @@ The local working tree is authoritative for an in-progress branch. A remote file
 | --- | --- |
 | Issue, Bug Report, Feature Request, Enhancement, Discussion | `.github/ISSUE_TEMPLATE/`, issue config, issue-form YAML, `.github/DISCUSSION_TEMPLATE/`, `CONTRIBUTING.md` |
 | Feature PR, Bug Fix PR, Refactor PR, Documentation PR | `.github/pull_request_template.md`, `.github/PULL_REQUEST_TEMPLATE.md`, `PULL_REQUEST_TEMPLATE.md`, `CONTRIBUTING.md` |
+| Maintainer Response | Relevant issue/PR/discussion context provided by the user, `.github/ISSUE_TEMPLATE/`, `.github/DISCUSSION_TEMPLATE/`, PR template, `CONTRIBUTING.md`, `SECURITY.md`, support policy, CODEOWNERS only when the reply cites policy or maintainer authority |
 | README, CONTRIBUTING, Docs Overhaul | Existing `README.md`, `CONTRIBUTING.md`, adjacent docs, project-specific docs style rules |
 | CHANGELOG, Release Notes, Migration Guide, Version Release | `CHANGELOG.md`, `.github/release.yml`, release configuration, prior release notes, migration docs, generated changelog configuration |
 | RFC, Proposal to Implementation, Breaking Change Package | RFC or design directories, contribution rules, existing migration and changelog conventions |

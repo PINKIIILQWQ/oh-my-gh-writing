@@ -6,8 +6,8 @@
 
 <p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-0f766e?style=flat" alt="MIT License"></a>
-  <a href="https://github.com/PINKIIILQWQ/oh-my-gh-writing/releases/tag/v0.1.3"><img src="https://img.shields.io/badge/Skill-v0.1.3-2563eb?style=flat" alt="Skill v0.1.3"></a>
-  <a href="INDEX.md"><img src="https://img.shields.io/badge/Artifacts-18-6a0dad?style=flat" alt="18 artifact standards"></a>
+  <a href="https://github.com/PINKIIILQWQ/oh-my-gh-writing/releases/tag/v0.1.4"><img src="https://img.shields.io/badge/Skill-v0.1.4-2563eb?style=flat" alt="Skill v0.1.4"></a>
+  <a href="INDEX.md"><img src="https://img.shields.io/badge/Artifacts-19-6a0dad?style=flat" alt="19 artifact standards"></a>
   <a href="INDEX.md"><img src="https://img.shields.io/badge/Workflows-7-0f766e?style=flat" alt="7 workflow packs"></a>
   <a href="SKILL.md"><img src="https://img.shields.io/badge/Format-SKILL.md-22AA66?style=flat" alt="SKILL.md"></a>
   <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
@@ -21,7 +21,7 @@
 
 > 英文 README 是 canonical 版本；本文档是同步维护的简体中文译本。
 
-**oh-my-gh-writing** 是一个面向 AI Agent 的 GitHub 写作 Skill。它帮助 agent 起草更干净的 GitHub Issue、PR 描述、Review、Commit、README、CHANGELOG、Release Notes、Migration Guide、RFC、Issue / Discussion Form、PR Template，以及多文件 workflow pack。
+**oh-my-gh-writing** 是一个面向 AI Agent 的 GitHub 写作 Skill。它帮助 agent 起草更干净的 GitHub Issue、PR 描述、维护者评论/回复、Review、Commit、README、CHANGELOG、Release Notes、Migration Guide、RFC、Issue / Discussion Form、PR Template，以及多文件 workflow pack。
 
 核心思路很简单：先判断请求属于哪类 GitHub 写作任务，再只加载对应标准，明确事实边界，最后输出更少需要清理的 GitHub artifact 或本地草稿包。
 
@@ -142,6 +142,7 @@ python3 scripts/validate-release-version.py
 | `/oh-my-gh-writing 根据这些已合并 PR 摘要准备 v1.2.0 发布材料：修复登录重定向、增加 CSV 导出、更新文档。不要发布。` | Version Release workflow pack | 本地 `.github-writing/version-release/v1.2.0/` 发布草稿、manifest 和确认项 |
 | `/oh-my-gh-writing 帮这个仓库建立接收外部贡献的流程。` | Contribution Setup workflow pack | CONTRIBUTING、Issue Form、PR Template、README 贡献入口和本地 manifest |
 | `/oh-my-gh-writing 根据这个 diff 写一个 bug-fix PR。测试还没跑。` | Bug Fix PR | PR 正文，包含摘要、已有 root-cause 证据、未运行测试说明和风险提示 |
+| `/oh-my-gh-writing 回复这个 PR review comment，说明我已经 push 了修复，但测试还没跑。` | Maintainer Response | 评论正文，回应 review、说明改动、明确测试边界，并且不暗示已经发出评论 |
 | `/oh-my-gh-writing 创建一个 bug report Issue Form YAML。labels 和 assignees 都未确认。` | Issue / Discussion Form YAML | YAML 文件内容，不编造 labels、assignees、projects、category slugs 或 contact links |
 
 ### Featured Review-Draft Case
@@ -223,7 +224,7 @@ Current sample repository files: README.md, LICENSE, src/, package.json, scripts
 
 | 类型 | 内容 |
 | --- | --- |
-| 18 个 artifact 标准 | Bug Report、Feature Request、Enhancement、Discussion、Feature PR、Bug Fix PR、Refactor PR、Documentation PR、Code Review、Standard Commit、README、CONTRIBUTING、CHANGELOG、Release Notes、Migration Guide、RFC、Issue / Discussion Form YAML、PR Template |
+| 19 个 artifact 标准 | Bug Report、Feature Request、Enhancement、Discussion、Feature PR、Bug Fix PR、Refactor PR、Documentation PR、Maintainer Response、Code Review、Standard Commit、README、CONTRIBUTING、CHANGELOG、Release Notes、Migration Guide、RFC、Issue / Discussion Form YAML、PR Template |
 | 7 个 workflow pack | Version Release、Project Launch、Contribution Setup、Bug Fix Workflow、Proposal to Implementation、Breaking Change Package、Docs Overhaul |
 | 质量附录 | shared principles、target-repository conventions、output validation、Mermaid、badge patterns、emoji guide、GitHub Markdown tools、source catalog |
 
@@ -251,7 +252,7 @@ Workflow pack 只做编排：能安全判断时会推断最合适的材料包，
 | 路径 | 作用 |
 | --- | --- |
 | [`SKILL.md`](SKILL.md) | 轻量运行时路由和工作流规则 |
-| [`INDEX.md`](INDEX.md) | 18 个 artifact 标准和 7 个 workflow pack 的导航 |
+| [`INDEX.md`](INDEX.md) | 19 个 artifact 标准和 7 个 workflow pack 的导航 |
 | [`VERSION`](VERSION) | 用于更新状态和 workflow manifest 的 runtime 版本来源 |
 | [`references/`](references) | 场景标准、workflow pack 和质量附录 |
 | [`references/readme.md`](references/readme.md) | README 写作标准 |

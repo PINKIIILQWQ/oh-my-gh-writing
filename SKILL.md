@@ -1,6 +1,6 @@
 ---
 name: oh-my-gh-writing
-description: "Draft and revise GitHub-facing writing artifacts: issues, PR descriptions, code reviews, commit messages, README/CONTRIBUTING/CHANGELOG docs, release notes, migration guides, RFCs, issue/discussion forms, PR templates, and local multi-file release/launch/contribution workflow packs. Use only for GitHub repository artifacts; do not use for generic prose, UI copy, marketing, or code implementation."
+description: "Draft and revise GitHub-facing writing artifacts: issues, PR descriptions, maintainer comments/replies, code reviews, commit messages, README/CONTRIBUTING/CHANGELOG docs, release notes, migration guides, RFCs, issue/discussion forms, PR templates, and local multi-file release/launch/contribution workflow packs. Use only for GitHub repository artifacts; do not use for generic prose, UI copy, marketing, or code implementation."
 ---
 
 # oh-my-gh-writing
@@ -39,7 +39,7 @@ Language fidelity: match the user's requested language or the target repository'
 
 ## Scenario Routing
 
-See `INDEX.md` for the complete list of 18 single-artifact standards and 7 composite workflow packs.
+See `INDEX.md` for the complete list of 19 single-artifact standards and 7 composite workflow packs.
 
 Use these top-level routing rules:
 
@@ -65,6 +65,7 @@ When the prompt mixes issue, PR, and discussion language:
 | Branch, diff, or PR fixes a bug or regression | Bug Fix PR |
 | Change reorganizes code without behavior change | Refactor PR |
 | Only documentation changed | Documentation PR |
+| User asks to reply to an issue, PR comment, review thread, discussion comment, or draft a saved reply | Maintainer Response |
 | User asks to review code, a PR, or a diff | Code Review |
 | User asks for an Issue Form or Discussion Category Form YAML file | GitHub Form YAML |
 
@@ -93,7 +94,7 @@ Load `INDEX.md` for full navigation. Common reference groups:
 |-------|------------|
 | Issues | `bug-report.md`, `feature-request.md`, `enhancement.md`, `discussion.md` |
 | Pull requests | `feature-pr.md`, `bug-fix-pr.md`, `refactor-pr.md`, `documentation-pr.md` |
-| Review and commit | `code-review.md`, `standard-commit.md` |
+| Review, response, and commit | `maintainer-response.md`, `code-review.md`, `standard-commit.md` |
 | Docs | `readme.md`, `readme-profiles/INDEX.md`, `contributing.md`, `changelog.md` |
 | Release and design | `release-notes.md`, `migration-guide.md`, `rfc.md` |
 | Templates | `issue-form-yaml.md`, `pr-template.md` |

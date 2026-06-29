@@ -31,6 +31,10 @@
       "should_trigger": true
     },
     {
+      "query": "Reply to this GitHub issue asking the reporter for a minimal reproduction.",
+      "should_trigger": true
+    },
+    {
       "query": "Write a conventional commit for these staged changes.",
       "should_trigger": true
     },

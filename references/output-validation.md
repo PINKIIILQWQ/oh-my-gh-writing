@@ -34,6 +34,7 @@ Allowed content:
 | Platform support, compatibility range, migration timeline | Official docs, release notes, repository files, user input |
 | Screenshot, GIF, Star History, badge | Repository assets, user assets, official service, verifiable link |
 | Issue type, labels, projects, assignees, discussion category slug | Target repository settings, existing templates, user input |
+| Comment actions such as posted, closed, resolved, approved, requested changes, marked answer, duplicate | User instruction, target GitHub state, repository policy, or explicit tool output |
 | Generated release-note categories or exclusions | `.github/release.yml`, existing generated release draft, user input |
 | Support, security, citation, funding, CODEOWNERS, AI-instruction claims | Target repository files, official docs, user input |
 | Template cache freshness or provenance | `template-cache.md` manifest with source URL, commit SHA, timestamps, paths, and user consent |
@@ -58,6 +59,7 @@ When evidence is missing:
 | README lacks project applicability scope, or uses features/scenarios as applicability scope | FACT_CHECK_REQUIRED |
 | YAML file includes explanatory headings when meant for direct file write | FORMAT_FAIL |
 | Discussion Category Form uses an unknown category slug as fact | FACT_CHECK_REQUIRED |
+| Maintainer response claims a comment was posted, an issue was closed, a PR was approved, or a discussion answer was marked without evidence | FACT_CHECK_REQUIRED |
 | Composite workflow publishes, tags, opens PRs, or modifies remote state by default | FORMAT_FAIL |
 | Audit-only readiness review creates files or package drafts | FORMAT_FAIL |
 
@@ -114,6 +116,7 @@ For small artifacts with no obvious issue, omit the notes. When notes are needed
 - [ ] Markdown tables, code blocks, details, and alerts render correctly.
 - [ ] README has clear project applicability scope and does not confuse features, built-in scenarios, or examples with applicability.
 - [ ] PR/Review does not claim unrun tests.
+- [ ] Maintainer responses do not claim comment posting, closure, approval, requested changes, resolved conversations, duplicate status, or marked answers without evidence.
 - [ ] Scenario route matches the user request.
 - [ ] Composite workflows default to local `.github-writing/...` drafts unless publishing is explicitly requested.
 - [ ] Audit-only prompts produce recommendations only and do not create files or package drafts.

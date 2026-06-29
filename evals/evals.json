@@ -226,6 +226,62 @@
         "Approved",
         "CI passed"
       ]
+    },
+    {
+      "id": "issue-more-info-maintainer-response",
+      "prompt": "Reply to this GitHub issue as a maintainer: the bug report says export fails, but there is no reproduction, version, or environment. Ask for the missing details without closing the issue.",
+      "expected_route": "references/maintainer-response.md",
+      "output_type": "markdown-artifact",
+      "risk_category": ["routing", "evidence", "cleanliness"],
+      "expected_output": "Routes to Maintainer Response. Output is a comment body asking for missing reproduction, version, and environment details. It does not create a new bug report, does not close the issue, and does not invent policy or labels.",
+      "expected_file": "expected/issue-more-info-maintainer-response.clean.md",
+      "assertions": [
+        "Output is a GitHub issue comment body, not a new bug report artifact.",
+        "Output asks for missing details needed to make the report actionable.",
+        "Output does not close the issue or imply maintainer action was performed.",
+        "Output does not invent labels, versions, or reproduction facts."
+      ],
+      "must_contain": [
+        "Thanks for the report",
+        "Minimal reproduction",
+        "version",
+        "Environment"
+      ],
+      "must_not_contain": [
+        "## Bug Report",
+        "Expected behavior",
+        "Actual behavior",
+        "Closing",
+        "labels:"
+      ]
+    },
+    {
+      "id": "pr-review-reply-maintainer-response",
+      "prompt": "Reply to this PR review comment: \"This leaks the file handle if exportCsv throws.\" I pushed a fix, but tests were not run.",
+      "expected_route": "references/maintainer-response.md",
+      "output_type": "markdown-artifact",
+      "risk_category": ["routing", "evidence"],
+      "expected_output": "Routes to Maintainer Response. Output replies to the existing PR review comment, states that a fix was pushed, marks tests as not run, and asks for re-review without producing a new code review finding.",
+      "expected_file": "expected/pr-review-reply-maintainer-response.clean.md",
+      "assertions": [
+        "Output is a reply to an existing review comment.",
+        "Output does not produce a new findings-first code review.",
+        "Output keeps testing evidence explicit.",
+        "Output does not imply the comment was posted or the PR was approved."
+      ],
+      "must_contain": [
+        "Thanks for catching this",
+        "pushed a fix",
+        "Tests were not run",
+        "another look"
+      ],
+      "must_not_contain": [
+        "## Findings",
+        "Major:",
+        "LGTM",
+        "Approved",
+        "CI passed"
+      ]
     }
   ]
 }
